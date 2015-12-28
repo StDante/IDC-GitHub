@@ -17,16 +17,16 @@ printf("This is " #specifier, value);
 //macros that creates function to print any value of any type
 #define IDCOutputFunction(type, specifier) \
 void IDCOutput_##type(type value) {\
-printf("Value of type " #type " is " specifier "\n", value);\
+printf("Value of type " #type " is " #specifier "\n", value);\
 }
 
 //macros that runs function from IDCOutputFunction macros with some value
 #define IDCOutputValueOfType(type, value) IDCOutput_##type(value)
 
 
-IDCOutputFunction(char, "%c")
-IDCOutputFunction(short, "%i")
-IDCOutputFunction(int, "%i")
-IDCOutputFunction(long, "%li")
-IDCOutputFunction(float, "%f")
-IDCOutputFunction(double, "%f")
+IDCOutputFunction(char, %c);
+IDCOutputFunction(short, %i);
+IDCOutputFunction(int, %i);
+IDCOutputFunction(long, %li);
+IDCOutputFunction(float, %f);
+IDCOutputFunction(double, %f);
