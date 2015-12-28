@@ -8,6 +8,12 @@
 
 #include "IDCLection2Macros.h"
 
+#define IDCPrintSizeType(type) \
+printf("Size type " #type "= %lu\n", sizeof(type));
+
+#define IDCPrintValue(specifier, value) \
+printf("This is " #specifier, value);
+
 //macros that creates function to print any value of any type
 #define IDCOutputFunction(type, specifier) \
 void IDCOutput_##type(type value) {\
