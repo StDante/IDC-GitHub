@@ -24,9 +24,9 @@ printf("Value of type " #type " is " #specifier "\n", value);\
 #define IDCOutputValueOfType(type, value) IDCOutput_##type(value)
 
 
-IDCOutputFunction(char, %c);
-IDCOutputFunction(short, %i);
-IDCOutputFunction(int, %i);
-IDCOutputFunction(long, %li);
-IDCOutputFunction(float, %f);
-IDCOutputFunction(double, %f);
+IDCOutputFunction(char, %c)
+IDCOutputFunction(short, %i)
+IDCOutputFunction(int, %i)
+IDCOutputFunction(long, %li)
+IDCOutputFunction(float, %f)
+IDCOutputFunction(double, %f)
