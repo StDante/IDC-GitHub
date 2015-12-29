@@ -9,6 +9,5 @@
 #ifndef IDCLection3StructureTest_h
 #define IDCLection3StructureTest_h
 
-#include <stdio.h>
 
 #endif /* IDCLection3StructureTest_h */

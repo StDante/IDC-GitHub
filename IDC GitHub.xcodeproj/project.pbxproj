@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A21ED85D1C30C98F00FC8564 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A21ED85C1C30C98F00FC8564 /* main.c */; };
 		A21ED8681C30CA6200FC8564 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A21ED8661C30CA6200FC8564 /* IDCLection2Macros.c */; };
+		A29357D41C32061A000B5C78 /* IDCLection2MacrosTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A29357D21C32061A000B5C78 /* IDCLection2MacrosTest.c */; };
+		A29357D81C32076F000B5C78 /* IDCLection3Structure.c in Sources */ = {isa = PBXBuildFile; fileRef = A29357D61C32076F000B5C78 /* IDCLection3Structure.c */; };
+		A29357E11C320DB7000B5C78 /* IDCLection3StructureTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A29357DF1C320DB7000B5C78 /* IDCLection3StructureTest.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,12 @@
 		A21ED85C1C30C98F00FC8564 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		A21ED8661C30CA6200FC8564 /* IDCLection2Macros.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection2Macros.c; path = SRC/IDCLection2Macros/IDCLection2Macros.c; sourceTree = "<group>"; };
 		A21ED8671C30CA6200FC8564 /* IDCLection2Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection2Macros.h; path = SRC/IDCLection2Macros/IDCLection2Macros.h; sourceTree = "<group>"; };
+		A29357D21C32061A000B5C78 /* IDCLection2MacrosTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection2MacrosTest.c; path = Test/IDCLection2MacrosTest/IDCLection2MacrosTest.c; sourceTree = "<group>"; };
+		A29357D31C32061A000B5C78 /* IDCLection2MacrosTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection2MacrosTest.h; path = Test/IDCLection2MacrosTest/IDCLection2MacrosTest.h; sourceTree = "<group>"; };
+		A29357D61C32076F000B5C78 /* IDCLection3Structure.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection3Structure.c; path = SRC/IDCLection3Structure/IDCLection3Structure.c; sourceTree = "<group>"; };
+		A29357D71C32076F000B5C78 /* IDCLection3Structure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection3Structure.h; path = SRC/IDCLection3Structure/IDCLection3Structure.h; sourceTree = "<group>"; };
+		A29357DF1C320DB7000B5C78 /* IDCLection3StructureTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection3StructureTest.c; path = Test/IDCLection3StructureTest/IDCLection3StructureTest.c; sourceTree = "<group>"; };
+		A29357E01C320DB7000B5C78 /* IDCLection3StructureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection3StructureTest.h; path = Test/IDCLection3StructureTest/IDCLection3StructureTest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +79,8 @@
 		A21ED8631C30CA1300FC8564 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				A29357DA1C320D62000B5C78 /* IDCLection3StructureTest */,
+				A29357D91C320D2E000B5C78 /* IDCLection2MacrosTest */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -77,6 +88,7 @@
 		A21ED8641C30CA1900FC8564 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A29357D51C32074D000B5C78 /* IDCLection3Structure */,
 				A21ED8651C30CA1E00FC8564 /* IDCLection2Macros */,
 			);
 			name = SRC;
@@ -89,6 +101,33 @@
 				A21ED8671C30CA6200FC8564 /* IDCLection2Macros.h */,
 			);
 			name = IDCLection2Macros;
+			sourceTree = "<group>";
+		};
+		A29357D51C32074D000B5C78 /* IDCLection3Structure */ = {
+			isa = PBXGroup;
+			children = (
+				A29357D61C32076F000B5C78 /* IDCLection3Structure.c */,
+				A29357D71C32076F000B5C78 /* IDCLection3Structure.h */,
+			);
+			name = IDCLection3Structure;
+			sourceTree = "<group>";
+		};
+		A29357D91C320D2E000B5C78 /* IDCLection2MacrosTest */ = {
+			isa = PBXGroup;
+			children = (
+				A29357D21C32061A000B5C78 /* IDCLection2MacrosTest.c */,
+				A29357D31C32061A000B5C78 /* IDCLection2MacrosTest.h */,
+			);
+			name = IDCLection2MacrosTest;
+			sourceTree = "<group>";
+		};
+		A29357DA1C320D62000B5C78 /* IDCLection3StructureTest */ = {
+			isa = PBXGroup;
+			children = (
+				A29357DF1C320DB7000B5C78 /* IDCLection3StructureTest.c */,
+				A29357E01C320DB7000B5C78 /* IDCLection3StructureTest.h */,
+			);
+			name = IDCLection3StructureTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A29357E11C320DB7000B5C78 /* IDCLection3StructureTest.c in Sources */,
 				A21ED85D1C30C98F00FC8564 /* main.c in Sources */,
+				A29357D81C32076F000B5C78 /* IDCLection3Structure.c in Sources */,
 				A21ED8681C30CA6200FC8564 /* IDCLection2Macros.c in Sources */,
+				A29357D41C32061A000B5C78 /* IDCLection2MacrosTest.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

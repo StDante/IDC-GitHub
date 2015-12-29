@@ -9,6 +9,7 @@
 #ifndef IDCLection3Structure_h
 #define IDCLection3Structure_h
 
-#include <stdio.h>
+extern
+void IDCPrintStructureIDCPatientSize();
 
 #endif /* IDCLection3Structure_h */

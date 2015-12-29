@@ -9,6 +9,9 @@
 #ifndef IDCLection2MacrosTest_h
 #define IDCLection2MacrosTest_h
 
-#include <stdio.h>
+#include "IDCLection2Macros.h"
+
+extern
+void IDCPrintMacrosWithAnyTypeAndValue();
 
 #endif /* IDCLection2MacrosTest_h */
