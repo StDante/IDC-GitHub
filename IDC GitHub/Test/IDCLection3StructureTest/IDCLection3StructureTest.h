@@ -7,7 +7,9 @@
 //
 
 #ifndef IDCLection3StructureTest_h
-#define IDCLection3StructureTest_h
+#define IDCLection3StructureTest_h\
+
+#include "IDCLection3Structure.h"
 
 
 #endif /* IDCLection3StructureTest_h */

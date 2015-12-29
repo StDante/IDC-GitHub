@@ -16,6 +16,7 @@ int main(int argc, const char * argv[]) {
     
     printf("\nLection 3 Stucture\n");
     IDCPrintStructureIDCPatientSize();
+    IDCPrintStructureIDCOptimisationPatientStructureSize();
     
     return 0;
 }

@@ -27,7 +27,32 @@ typedef struct {
     char *name;
 } IDCPatient;
 
+typedef struct {
+    char *name;
+    long long phoneNumber;
+    double weight;
+    float hight;
+    int wealth;
+    short age;
+    short numberOfChildren;
+    short iq;
+    struct {
+        bool sex : 1;
+        bool lifeStatus : 1;
+        bool familyStatus : 1;
+        bool workStatus : 1;
+        bool healthStatus : 1;
+        bool treatmentStatus : 1;
+    };
+} IDCOptimisationPatientStructure;
+
 void IDCPrintStructureIDCPatientSize() {
     printf("Size of structure 'IDCPatient' is %lu\n", sizeof(IDCPatient));
+    
+}
+
+void IDCPrintStructureIDCOptimisationPatientStructureSize() {
+    printf("Size of structure 'IDCOptimisationPatientStructure' is %lu\n",
+                                    sizeof(IDCOptimisationPatientStructure));
     
 }

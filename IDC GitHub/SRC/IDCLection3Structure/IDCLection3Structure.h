@@ -12,4 +12,6 @@
 extern
 void IDCPrintStructureIDCPatientSize();
 
+extern
+void IDCPrintStructureIDCOptimisationPatientStructureSize();
 #endif /* IDCLection3Structure_h */
