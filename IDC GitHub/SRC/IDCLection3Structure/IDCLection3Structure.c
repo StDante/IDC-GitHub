@@ -28,6 +28,6 @@ typedef struct {
 } IDCPatient;
 
 void IDCPrintStructureIDCPatientSize() {
-    printf("Size of structure is %lu\n", sizeof(IDCPatient));
+    printf("Size of structure 'IDCPatient' is %lu\n", sizeof(IDCPatient));
     
 }
