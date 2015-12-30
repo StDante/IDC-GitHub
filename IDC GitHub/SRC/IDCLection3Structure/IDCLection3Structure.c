@@ -7,27 +7,4 @@
 //
 
 #include <stdio.h>
-#include <stdbool.h>
 #include "IDCLection3Structure.h"
-
-typedef struct {
-    bool sex;
-    bool lifeStatus;
-    bool familyStatus;
-    bool workStatus;
-    bool healthStatus;
-    bool treatmentStatus;
-    float hight;
-    int wealth;
-    long long phoneNumber;
-    short age;
-    short numberOfChildren;
-    short iq;
-    double weight;
-    char *name;
-} IDCPatient;
-
-void IDCPrintStructureIDCPatientSize() {
-    printf("Size of structure is %lu\n", sizeof(IDCPatient));
-    
-}

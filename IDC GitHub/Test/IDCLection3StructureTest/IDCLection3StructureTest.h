@@ -7,7 +7,23 @@
 //
 
 #ifndef IDCLection3StructureTest_h
-#define IDCLection3StructureTest_h
+#define IDCLection3StructureTest_h\
 
+#include "IDCLection3Structure.h"
+
+extern
+void IDCPrintStructureIDCPatientSizeTest();
+
+extern
+void IDCPrintStructureIDCOptimisationPatientStructureSizeTest();
+
+extern
+void IDCPrintStructureIDCPatientWithUnionTest();
+
+extern
+void IDCPrintOffsetofStructureElementsTest();
+
+extern
+void IDCPrintStructureTest();
 
 #endif /* IDCLection3StructureTest_h */
