@@ -18,6 +18,12 @@ extern
 void IDCPrintStructureIDCOptimisationPatientStructureSizeTest();
 
 extern
+void IDCPrintStructureIDCPatientWithUnionTest();
+
+extern
 void IDCPrintOffsetofStructureElementsTest();
+
+extern
+void IDCPrintStructureTest();
 
 #endif /* IDCLection3StructureTest_h */

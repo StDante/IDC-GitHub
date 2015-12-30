@@ -16,7 +16,7 @@
 
 typedef struct {
     bool sex;
-    bool lifeStatus;
+    bool deadOrAlive;
     bool familyStatus;
     bool workStatus;
     bool healthStatus;
@@ -42,7 +42,7 @@ typedef struct {
     short iq;
     struct {
         bool sex : 1;
-        bool lifeStatus : 1;
+        bool deadOrAlive : 1;
         bool familyStatus : 1;
         bool workStatus : 1;
         bool healthStatus : 1;
@@ -62,7 +62,7 @@ typedef struct {
     union {
         struct {
         bool sex : 1;
-        bool lifeStatus : 1;
+        bool deadOrAlive : 1;
         bool familyStatus : 1;
         bool workStatus : 1;
         bool healthStatus : 1;

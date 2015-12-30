@@ -21,15 +21,30 @@ void IDCPrintStructureIDCOptimisationPatientStructureSizeTest() {
     
 }
 
+void IDCPrintStructureIDCPatientWithUnionTest() {
+    printf("Size of structure 'IDCOptimisationPatientStructure' is %lu\n",
+           sizeof(IDCPatientWithUnion));
+    
+}
+
 void IDCPrintOffsetofStructureElementsTest() {
-    char *elementOfStructure = "IDCPatient.lifeStatus";
+    char *elementOfStructure = "IDCPatient.deadOrAlive";
     printf("Size of 'IDCPatient' structure before element %s is %lu\n",
                                             elementOfStructure,
-                                            offsetof(IDCPatient, lifeStatus));
+                                            offsetof(IDCPatient, deadOrAlive));
     
     elementOfStructure = "IDCPatient.hight";
     printf("Size of 'IDCPatient' structure before element %s is %lu\n",
                                             elementOfStructure,
                                             offsetof(IDCPatient, hight));
+    
+}
+
+void IDCPrintStructureTest() {
+    IDCPrintStructureIDCPatientSizeTest();
+    IDCPrintStructureIDCOptimisationPatientStructureSizeTest();
+    IDCPrintStructureIDCPatientWithUnionTest();
+    puts("\n");
+    IDCPrintOffsetofStructureElementsTest();
     
 }

@@ -15,9 +15,7 @@ int main(int argc, const char * argv[]) {
     IDCPrintMacrosWithAnyTypeAndValue();
     
     printf("\nLection 3 Stucture\n");
-    IDCPrintStructureIDCPatientSizeTest();
-    IDCPrintStructureIDCOptimisationPatientStructureSizeTest();
-    IDCPrintOffsetofStructureElementsTest();
+    IDCPrintStructureTest();
     
     return 0;
 }
