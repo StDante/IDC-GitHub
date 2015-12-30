@@ -11,5 +11,13 @@
 
 #include "IDCLection3Structure.h"
 
+extern
+void IDCPrintStructureIDCPatientSizeTest();
+
+extern
+void IDCPrintStructureIDCOptimisationPatientStructureSizeTest();
+
+extern
+void IDCPrintOffsetofStructureElementsTest();
 
 #endif /* IDCLection3StructureTest_h */
