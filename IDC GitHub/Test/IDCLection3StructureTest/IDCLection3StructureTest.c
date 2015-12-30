@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stddef.h>
 #include "IDCLection3StructureTest.h"
 
 void IDCPrintStructureIDCPatientSizeTest() {
@@ -17,5 +18,18 @@ void IDCPrintStructureIDCPatientSizeTest() {
 void IDCPrintStructureIDCOptimisationPatientStructureSizeTest() {
     printf("Size of structure 'IDCOptimisationPatientStructure' is %lu\n",
            sizeof(IDCOptimisationPatientStructure));
+    
+}
+
+void IDCPrintOffsetofStructureElementsTest() {
+    char *elementOfStructure = "IDCPatient.lifeStatus";
+    printf("Size of 'IDCPatient' structure before element %s is %lu\n",
+                                            elementOfStructure,
+                                            offsetof(IDCPatient, lifeStatus));
+    
+    elementOfStructure = "IDCPatient.hight";
+    printf("Size of 'IDCPatient' structure before element %s is %lu\n",
+                                            elementOfStructure,
+                                            offsetof(IDCPatient, hight));
     
 }
