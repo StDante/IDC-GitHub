@@ -21,5 +21,7 @@ int main(int argc, const char * argv[]) {
     printf("\nLection 4 BiteField");    
     IDCPrintBitesValueTest();
     
+    printf("\n");
+    
     return 0;
 }

@@ -10,51 +10,48 @@
 #include <stdio.h>
 #include "IDCLection4BitField.h"
 
+typedef enum {
+    kIDCUnknowEndianType,
+    kIDCLittleEndian,
+    kIDCBigEndian
+} IDCEndianType;
+
 #pragma mark -
 #pragma mark Private Declaration
-
-union {
-    bool checkingBoolValue : 1;
-    int8_t checkingCharValue;
-} IDCCheckValue;
 
 static const char kIDCBiteSize = 8;
 
 static
-void IDCPrintBitValueBigEndian(int8_t *valueStartByte);
+void IDCPrintBitValue(int8_t *valueStartByte, IDCEndianType type);
 
 static
-void IDCPrintBitValueLittleEndian(int8_t *valueStartByte);
-
-static
-bool IDCCheckEndianness(void);
+IDCEndianType IDCCheckEndianness(void);
 
 #pragma mark -
 #pragma mark Private Implementation
 
-void IDCPrintBitValueBigEndian(int8_t *valueStartByte) {
-    int8_t value = *valueStartByte;
-    for (int index = 0; index < kIDCBiteSize; index++) {
-        printf((value >> index) & 1 ? "1" : "0");
-    }
+IDCEndianType IDCCheckEndianness(void) {
+    union {
+        bool checkingBoolValue : 1;
+        int8_t checkingCharValue;
+    } IDCCheckValue;
     
-    printf(" ");
-}
-
-void IDCPrintBitValueLittleEndian(int8_t *valueStartByte) {
-    int8_t value = *valueStartByte;
-    for (int index = kIDCBiteSize - 1; index >= 0; index--) {
-        printf((value >> index) & 1 ? "1" : "0");
-    }
-    
-    printf(" ");
-}
-
-bool IDCCheckEndianness() {
     int8_t firstBiteValue = 1;
     IDCCheckValue.checkingCharValue = firstBiteValue;
     
-    return IDCCheckValue.checkingBoolValue;
+    return IDCCheckValue.checkingBoolValue ? kIDCLittleEndian : kIDCBigEndian;
+}
+
+void IDCPrintBitValue(int8_t *valueStartByte, IDCEndianType type) {
+    int8_t value = *valueStartByte;
+    for (int increment = 0; increment < kIDCBiteSize; increment++) {
+        int index = (type == kIDCBigEndian) ? increment
+                                            : (kIDCBiteSize - increment - 1);
+        
+        printf((value >> index) & 1 ? "1" : "0");
+    }
+    
+    printf(" ");
 }
 
 #pragma mark -
@@ -62,22 +59,17 @@ bool IDCCheckEndianness() {
 
 void IDCPrintBitesValue(void *valueStartByte, size_t size) {
     void *value = valueStartByte;
+    IDCEndianType type = IDCCheckEndianness();
+    if (type == kIDCUnknowEndianType) {
+        
+        return;
+    }
     
-    size_t index = size;
-    
-    IDCCheckEndianness();
-    if (IDCCheckValue.checkingBoolValue == true) {
-        printf("Little-endian\n");
-        while (index > 0) {
-            index--;
-            IDCPrintBitValueLittleEndian(&value[index]);
-        }
-    } else {
-        printf("\nBig-endian\n");
-        index = 0;
-        while (index < size) {
-            IDCPrintBitValueBigEndian(&value[index]);
-            index++;
-        }
+    size_t increment = size;
+    while (increment > 0) {
+        size_t index = (type == kIDCBigEndian) ? (size - (--increment))
+                                               : (--increment);
+        IDCPrintBitValue(&value[index], type);
+                                                  
     }
 }
