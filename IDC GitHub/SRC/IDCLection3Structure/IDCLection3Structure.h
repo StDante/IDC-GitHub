@@ -71,7 +71,6 @@ typedef struct {
         
         char boolOrder;
     };
-    
 } IDCPatientWithUnion;
 
 #pragma mark -

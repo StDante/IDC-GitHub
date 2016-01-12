@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "IDCLection2MacrosTest.h"
 #include "IDCLection3StructureTest.h"
+#include "IDCLection4BitFieldTest.h"
 
 int main(int argc, const char * argv[]) {
     printf("Lection 2 Macros\n");
@@ -16,6 +17,11 @@ int main(int argc, const char * argv[]) {
     
     printf("\nLection 3 Stucture\n");
     IDCPrintStructureTest();
+    
+    printf("\nLection 4 BiteField");    
+    IDCPrintBitesValueTest();
+    
+    printf("\n");
     
     return 0;
 }
