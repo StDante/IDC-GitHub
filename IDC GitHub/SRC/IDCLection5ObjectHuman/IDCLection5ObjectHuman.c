@@ -231,6 +231,13 @@ void IDCHumanRemoveChild(IDCHuman *human, uint8_t index) {
     }
     
     human->_children[index] = NULL;
+    uint8_t indexReplace = index + 1;
+    while (indexReplace < human->_childrenCount) {
+        human->_children[indexReplace - 1] = human->_children[indexReplace];
+        indexReplace++;
+    }
+    
+    human->_childrenCount--;
     __IDCHumanRelease(human);
 }
 
