@@ -63,7 +63,7 @@ extern
 void IDCHumanAddChild(IDCHuman *human, IDCHuman *child);
 
 extern
-void IDCHumanRemoveChild(IDCHuman *human, uint8_t index;
+void IDCHumanRemoveChild(IDCHuman *human, uint8_t index);
 
 extern
 IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex);
