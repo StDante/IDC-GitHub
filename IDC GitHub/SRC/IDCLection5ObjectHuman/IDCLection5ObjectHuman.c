@@ -70,16 +70,15 @@ void __IDCHumanRelease(IDCHuman *human) {
 void __IDCHumanDeallocate(IDCHuman *human) {
     if (0 == human->_referenceCount) {
         IDCHumanSetPartner(human->_partner, NULL);
-//        while (0 != human->_childrenCount) {
-//            int index = human->_childrenCount;
-//            if (human->_gender == kIDCMale) {
-//                IDCHumanSetFather(human->_children[index - 1], NULL);
-//            } else {
-//                IDCHumanSetMother(human->_children[index - 1], NULL);
-//            }
-//            index--;
-//            human->_childrenCount--;
-//        }
+        while (0 != human->_childrenCount) {
+            int index = human->_childrenCount;
+            if (human->_gender == kIDCMale) {
+                IDCHumanSetFather(human->_children[index - 1], NULL);
+            } else {
+                IDCHumanSetMother(human->_children[index - 1], NULL);
+            }
+            human->_childrenCount--;
+        }
 //  How I can return index of element in array if I know value of element?
         IDCHumanRemoveChild(IDCHumanGetFather(human), (uint8_t)human);
         IDCHumanRemoveChild(IDCHumanGetMother(human), (uint8_t)human);
