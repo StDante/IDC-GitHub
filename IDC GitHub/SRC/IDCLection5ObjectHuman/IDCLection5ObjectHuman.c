@@ -56,6 +56,9 @@ int IDCReplaceOldestChild(IDCHuman *human);
 static
 uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child);
 
+static
+void IDCRemoveAllChildren(IDCHuman *human);
+
 #pragma mark -
 #pragma mark Private Implementation
 
@@ -71,6 +74,31 @@ void __IDCHumanRelease(IDCHuman *human) {
     human->_referenceCount--;
 }
 
+void IDCRemoveAllChildren(IDCHuman *human) {
+    while (0 != human->_childrenCount) {
+        int index = human->_childrenCount;
+        if (human->_gender == kIDCMale) {
+            IDCHumanSetFather(human->_children[index - 1], NULL);
+        } else {
+            IDCHumanSetMother(human->_children[index - 1], NULL);
+        }
+        human->_childrenCount--;
+    }
+    
+}
+
+uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child) {
+    assert(human);
+    assert(child);
+    
+    uint8_t index = 0;
+    for (human->_children[index] != child; index < human->_childrenCount; index++ ) {
+        return index;
+    }
+    
+    return index;
+}
+
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
@@ -78,15 +106,7 @@ void __IDCHumanDeallocate(IDCHuman *human) {
     if (0 == human->_referenceCount) {
         IDCHumanSetName(human, NULL);
         IDCHumanSetPartner(human->_partner, NULL);
-        while (0 != human->_childrenCount) {
-            int index = human->_childrenCount;
-            if (human->_gender == kIDCMale) {
-                IDCHumanSetFather(human->_children[index - 1], NULL);
-            } else {
-                IDCHumanSetMother(human->_children[index - 1], NULL);
-            }
-            human->_childrenCount--;
-        }
+        IDCRemoveAllChildren(human);
         IDCHumanRemoveChild(IDCHumanGetFather(human), IDCChildsIndex(human->_father, human));
         IDCHumanRemoveChild(IDCHumanGetMother(human), IDCChildsIndex(human->_mother, human));
     }
@@ -257,15 +277,6 @@ IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex) {
     } else {
         return NULL;
     }
-}
-
-uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child) {
-    uint8_t index = 0;
-    for (human->_children[index] != child; index < human->_childrenCount; index++ ) {
-        return index;
-    }
-    
-    return index;
 }
 
 void IDCHumanMarriage(IDCHuman *human, IDCHuman *partner) {
