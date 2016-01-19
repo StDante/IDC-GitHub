@@ -53,14 +53,21 @@ void IDCHumanSetMother(IDCHuman *human, IDCHuman *mother);
 static
 int IDCReplaceOldestChild(IDCHuman *human);
 
+static
+uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child);
+
 #pragma mark -
 #pragma mark Private Implementation
 
 void __IDCHumanRetain(IDCHuman *human) {
+    IDCCheckOnNull(human)
+    
     human->_referenceCount++;
 }
 
 void __IDCHumanRelease(IDCHuman *human) {
+    IDCCheckOnNull(human)
+    
     human->_referenceCount--;
 }
 
@@ -69,6 +76,7 @@ void __IDCHumanRelease(IDCHuman *human) {
 
 void __IDCHumanDeallocate(IDCHuman *human) {
     if (0 == human->_referenceCount) {
+        IDCHumanSetName(human, NULL);
         IDCHumanSetPartner(human->_partner, NULL);
         while (0 != human->_childrenCount) {
             int index = human->_childrenCount;
@@ -79,9 +87,8 @@ void __IDCHumanDeallocate(IDCHuman *human) {
             }
             human->_childrenCount--;
         }
-//  How I can return index of element in array if I know value of element?
-        IDCHumanRemoveChild(IDCHumanGetFather(human), (uint8_t)human);
-        IDCHumanRemoveChild(IDCHumanGetMother(human), (uint8_t)human);
+        IDCHumanRemoveChild(IDCHumanGetFather(human), IDCChildsIndex(human->_father, human));
+        IDCHumanRemoveChild(IDCHumanGetMother(human), IDCChildsIndex(human->_mother, human));
     }
         
         free(human);
@@ -250,6 +257,15 @@ IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex) {
     } else {
         return NULL;
     }
+}
+
+uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child) {
+    uint8_t index = 0;
+    for (human->_children[index] != child; index < human->_childrenCount; index++ ) {
+        return index;
+    }
+    
+    return index;
 }
 
 void IDCHumanMarriage(IDCHuman *human, IDCHuman *partner) {
