@@ -6,27 +6,31 @@
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#include <stdio.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
+#include "IDCLection5Macros.h"
+#include "IDCLection5Object.h"
 #include "IDCLection5ObjectHuman.h"
+
+static const uint8_t kIDCHumanReturnChildreIndexMax = UINT8_MAX;
+static const uint8_t kIDCHumanChildrenLimit = 20;
 
 #pragma mark -
 #pragma mark Private Declarations
 
-struct IDCHuman{
+struct IDCHuman {
+    IDCObject _super;
+    
     char *_name; //+
     IDCHuman *_father; //+
     IDCHuman *_mother; //+
     IDCHuman *_partner; //+
     IDCGender _gender; //+
     uint8_t _age; //+
-    uint8_t _childrenCount; //+
-    uint8_t _referenceCount; //+
-    IDCHuman *_children[20]; //+
+    IDCHuman *_children[kIDCHumanChildrenLimit]; //+
 };
 
 static
@@ -51,90 +55,105 @@ static
 void IDCHumanSetMother(IDCHuman *human, IDCHuman *mother);
 
 static
-int IDCReplaceOldestChild(IDCHuman *human);
+uint8_t IDCHumanReplaceOldestChild(IDCHuman *human);
 
 static
-uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child);
+uint8_t IDCHumanReturnIndexOfChild(IDCHuman *human, IDCHuman *child);
 
 static
-void IDCRemoveAllChildren(IDCHuman *human);
-
-#pragma mark -
-#pragma mark Private Implementation
-
-void __IDCHumanRetain(IDCHuman *human) {
-    IDCCheckOnNull(human)
-    
-    human->_referenceCount++;
-}
-
-void __IDCHumanRelease(IDCHuman *human) {
-    IDCCheckOnNull(human)
-    
-    human->_referenceCount--;
-}
-
-void IDCRemoveAllChildren(IDCHuman *human) {
-    while (0 != human->_childrenCount) {
-        int index = human->_childrenCount;
-        if (human->_gender == kIDCMale) {
-            IDCHumanSetFather(human->_children[index - 1], NULL);
-        } else {
-            IDCHumanSetMother(human->_children[index - 1], NULL);
-        }
-        human->_childrenCount--;
-    }
-    
-}
-
-uint8_t IDCChildsIndex(IDCHuman *human, IDCHuman *child) {
-    assert(human);
-    assert(child);
-    
-    uint8_t index = 0;
-    for (human->_children[index] != child; index < human->_childrenCount; index++ ) {
-        return index;
-    }
-    
-    return index;
-}
+void IDCHumanRemoveAllChildren(IDCHuman *human);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
 void __IDCHumanDeallocate(IDCHuman *human) {
-    if (0 == human->_referenceCount) {
         IDCHumanSetName(human, NULL);
         IDCHumanSetPartner(human->_partner, NULL);
-        IDCRemoveAllChildren(human);
-        IDCHumanRemoveChild(IDCHumanGetFather(human), IDCChildsIndex(human->_father, human));
-        IDCHumanRemoveChild(IDCHumanGetMother(human), IDCChildsIndex(human->_mother, human));
-    }
-        
+        IDCHumanRemoveAllChildren(human);
+        IDCHumanRemoveChild(IDCHumanGetFather(human), IDCHumanReturnIndexOfChild(human->_father, human));
+        IDCHumanRemoveChild(IDCHumanGetMother(human), IDCHumanReturnIndexOfChild(human->_mother, human));
+    
         free(human);
+    
 }
 
-IDCHuman *__IDCHumanCreate(void) {
-    IDCHuman *human = calloc(1, sizeof(IDCHuman));
-    assert(human);
-    human->_referenceCount = 1;
-
-    return human;
-}
 
 IDCHuman *IDCHumanCreateWithName(char *name) {
-    IDCHuman *human = __IDCHumanCreate();
+    IDCHuman *human = IDCObjectCreate(human);
     human->_name = name;
     
     return human;
 }
 
 #pragma mark -
+#pragma mark Private Implementation
+
+void IDCHumanRemoveAllChildren(IDCHuman *human) {
+    while (0 != IDCHumanGetChildrenCount(human)) {
+        int index = IDCHumanGetChildrenCount(human);
+        if (human->_gender == kIDCMale) {
+            IDCHumanSetFather(human->_children[index], NULL);
+        } else {
+            IDCHumanSetMother(human->_children[index], NULL);
+        }
+    }
+    
+}
+
+
+uint8_t IDCHumanReturnIndexOfChild(IDCHuman *human, IDCHuman *child) {
+    assert(human);
+    assert(child);
+    
+    uint8_t index = 0;
+    if (index < IDCHumanGetChildrenCount(human)) {
+        while (child != human->_children[index]) {
+            index++;
+        }
+        
+        return index;
+    }
+
+    return kIDCHumanReturnChildreIndexMax;
+}
+
+//void IDCHumanSetFather(IDCHuman *human, IDCHuman *father) {
+//    IDCReturnMacros(human);
+//
+//    human->_father = father;
+//    __IDCHumanRetain(human);
+//    
+//}
+//
+//void IDCHumanSetMother(IDCHuman *human, IDCHuman *mother) {
+//    IDCReturnMacros(human);
+//
+//    human->_mother = mother;
+//    __IDCHumanRetain(human);
+//    
+//}
+
+uint8_t IDCHumanReplaceOldestChild(IDCHuman *human) {
+    uint8_t childIndex = 0;
+    for (uint8_t index = 1; index < IDCHumanGetChildrenCount(human); index++) {
+        if (IDCHumanGetAge(IDCHumanGetChild(human, childIndex))
+            < IDCHumanGetAge(IDCHumanGetChild(human, index)))
+        {
+            childIndex = index;
+        }
+    }
+    
+    return childIndex;
+}
+
+
+#pragma mark -
 #pragma mark Accessors
 
 void IDCHumanSetName(IDCHuman *human, char *name) {
-    IDCCheckOnNull(human)
+    IDCReturnMacros(human)
     human->_name = name;
+    
 }
 
 char *IDCHumanGetName(IDCHuman *human) {
@@ -143,22 +162,10 @@ char *IDCHumanGetName(IDCHuman *human) {
     return human->_name;
 }
 
-void IDCHumanSetFather(IDCHuman *human, IDCHuman *father) {
-    IDCCheckOnNull(human);
-    IDCCheckOnNull(father);
-    human->_father = father;
-}
-
 IDCHuman *IDCHumanGetFather(IDCHuman *human) {
     assert(human);
     
     return human->_father;
-}
-
-void IDCHumanSetMother(IDCHuman *human, IDCHuman *mother) {
-    IDCCheckOnNull(human);
-    IDCCheckOnNull(mother);
-    human->_mother = mother;
 }
 
 IDCHuman *IDCHumanGetMother(IDCHuman *human) {
@@ -181,7 +188,7 @@ IDCHuman *IDCHumanGetPartner(IDCHuman *human) {
 }
 
 void IDCHumanSetGender(IDCHuman *human, IDCGender genderType) {
-    IDCCheckOnNull(human)
+    IDCReturnMacros(human)
     human->_gender = genderType;
     if ((genderType != kIDCMale) || (genderType != kIDCFemale)) {
         genderType = kIDCUnknownGender;
@@ -196,8 +203,9 @@ IDCGender IDCHumanGetGender(IDCHuman *human) {
 }
 
 void IDCHumanSetAge(IDCHuman *human, uint8_t age) {
-    IDCCheckOnNull(human)
+    IDCReturnMacros(human)
     human->_age = age;
+    
 }
 
 uint8_t IDCHumanGetAge(IDCHuman *human) {
@@ -212,31 +220,14 @@ bool IDCHumanGetMarried(IDCHuman *human) {
     return IDCHumanGetPartner(human) ? true : false;
 }
 
-int IDCReplaceOldestChild(IDCHuman *human) {
-    uint8_t index = 0;
-    uint8_t increment = 1;
-    uint8_t indexLast = index + increment;
-    while (19 >= indexLast) {
-        if (human->_children[index]->_age <= human->_children[index + increment]->_age) {
-            index = index + increment;
-            increment = 1;
-        } else {
-            increment++;
-        }
-    }
-    
-    return index;
-}
-
 void IDCHumanAddChild(IDCHuman *human, IDCHuman *child) {
-    IDCCheckOnNull(human);
-    IDCCheckOnNull(child);
+    IDCReturnMacros(human);
+    IDCReturnMacros(child);
     
-    if (20 > human->_childrenCount) {
-        human->_children[human->_childrenCount] = child;
-        human->_childrenCount++;
-    } else if (20 == human->_childrenCount) {
-        human->_children[IDCReplaceOldestChild(human)] = child;
+    if (20 > IDCHumanGetChildrenCount(human)) {
+        human->_children[IDCHumanGetChildrenCount(human)] = child;
+    } else if (20 == IDCHumanGetChildrenCount(human)) {
+        human->_children[IDCHumanReplaceOldestChild(human)] = child;
     }
     
     if (human->_gender == kIDCUnknownGender) {
@@ -250,8 +241,19 @@ void IDCHumanAddChild(IDCHuman *human, IDCHuman *child) {
     
 }
 
+uint8_t IDCHumanGetChildrenCount(IDCHuman *human) {
+    assert(human);
+    
+    uint8_t index = 0;
+    while (human->_children[index] != NULL) {
+        index++;
+    }
+
+    return index;
+}
+
 void IDCHumanRemoveChild(IDCHuman *human, uint8_t index) {
-    IDCCheckOnNull(human);
+    IDCReturnMacros(human);
     if (human->_gender == kIDCMale) {
         IDCHumanSetFather(human->_children[index], NULL);
     } else {
@@ -260,28 +262,29 @@ void IDCHumanRemoveChild(IDCHuman *human, uint8_t index) {
     
     human->_children[index] = NULL;
     uint8_t indexReplace = index + 1;
-    while (indexReplace < human->_childrenCount) {
+    while (indexReplace < IDCHumanGetChildrenCount(human)) {
         human->_children[indexReplace - 1] = human->_children[indexReplace];
         indexReplace++;
     }
     
-    human->_childrenCount--;
     __IDCHumanRelease(human);
+    
 }
 
 IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex) {
     assert(human);
     
-    if (childIndex < human->_childrenCount) {
+    if (childIndex < IDCHumanGetChildrenCount(human)) {
         return human->_children[childIndex];
     } else {
         return NULL;
     }
+    
 }
-
+//optimisation
 void IDCHumanMarriage(IDCHuman *human, IDCHuman *partner) {
-    IDCCheckOnNull(human)
-    IDCCheckOnNull(partner)
+    IDCReturnMacros(human)
+    IDCReturnMacros(partner)
     
     if (IDCHumanGetGender(human) == IDCHumanGetGender(partner)) {
         printf("Can't pair partners with same gender");
@@ -290,31 +293,34 @@ void IDCHumanMarriage(IDCHuman *human, IDCHuman *partner) {
         printf("Can't pair partner with unknown gender");
         return;
     } else {
+
+        IDCHumanDivorce(human);
+        IDCHumanDivorce(partner);
+        
         IDCHumanSetPartner(human, partner);
         IDCHumanSetPartner(partner, human);
         
         IDCGender genderType = IDCHumanGetGender(human);
         if (genderType == kIDCMale) {
             __IDCHumanRetain(human);
-        } else if (genderType == kIDCFemale) {
+        } else {
             __IDCHumanRetain(partner);
         }
     }
     
 }
 
-void IDCHumanDivorce(IDCHuman *human, IDCHuman *partner) {
-    IDCCheckOnNull(human)
-    IDCCheckOnNull(partner)
-    
-    IDCHumanSetPartner(partner, NULL);
-    IDCHumanSetPartner(human, NULL);
+void IDCHumanDivorce(IDCHuman *human) {
+    IDCReturnMacros(human)
     
     IDCGender genderType = IDCHumanGetGender(human);
     if (genderType == kIDCMale) {
         __IDCHumanRelease(human);
     } else if (genderType == kIDCFemale) {
-        __IDCHumanRelease(partner);
+        __IDCHumanRelease(IDCHumanGetPartner(human));
     }
+    
+    IDCHumanSetPartner(IDCHumanGetPartner(human), NULL);
+    IDCHumanSetPartner(human, NULL);
     
 }

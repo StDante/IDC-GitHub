@@ -9,12 +9,6 @@
 #ifndef IDCLection5ObjectHuman_h
 #define IDCLection5ObjectHuman_h
 
-#define IDCCheckOnNull(value) \
-            if (NULL == value) { \
-            printf("There is no such object"); \
-            return; \
-            }
-
 typedef struct IDCHuman IDCHuman;
 
 typedef enum {
@@ -25,9 +19,6 @@ typedef enum {
 
 extern
 IDCHuman *IDCHumanCreateWithName(char *name);
-
-#pragma mark -
-#pragma mark Accessors
 
 extern
 void IDCHumanSetName(IDCHuman *human, char *name);
@@ -69,9 +60,12 @@ extern
 IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex);
 
 extern
+uint8_t IDCHumanGetChildrenCount(IDCHuman *human);
+
+extern
 void IDCHumanMarriage(IDCHuman *human, IDCHuman *partner);
 
 extern
-void IDCHumanDivorce(IDCHuman *human, IDCHuman *partner);
+void IDCHumanDivorce(IDCHuman *human);
 
 #endif /* IDCLection5ObjectHuman_h */
