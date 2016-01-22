@@ -75,10 +75,9 @@ void __IDCHumanDeallocate(IDCHuman *human) {
     
 }
 
-
 IDCHuman *__IDCHumanCreateWithNameAndGender(char *name, IDCGender gender) {
     IDCHuman *human = IDCObjectCreate(IDCHuman);
-    human->_name = name;
+    IDCHumanSetName(human, name);
     
     return human;
 }
