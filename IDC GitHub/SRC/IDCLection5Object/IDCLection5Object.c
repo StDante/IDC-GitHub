@@ -37,7 +37,7 @@ void __IDCObjectRelease(void *object) {
     newObject->_referenceCount--;
     
     if (0 == newObject->_referenceCount) {
-        newObject->_deallocator(newObject);
+        newObject->_deallocator(object);
         __IDCObjectDeallocate(object);
     }
     

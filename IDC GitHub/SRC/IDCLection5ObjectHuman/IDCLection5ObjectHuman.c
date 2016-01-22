@@ -24,13 +24,13 @@ static const uint8_t kIDCHumanChildrenLimit = 20;
 struct IDCHuman {
     IDCObject _super;
     
-    char *_name; //+
-    IDCHuman *_father; //+
-    IDCHuman *_mother; //+
-    IDCHuman *_partner; //+
-    IDCGender _gender; //+
-    uint8_t _age; //+
-    IDCHuman *_children[kIDCHumanChildrenLimit]; //+
+    char *_name;
+    IDCHuman *_father;
+    IDCHuman *_mother;
+    IDCHuman *_partner;
+    IDCGender _gender;
+    uint8_t _age;
+    IDCHuman *_children[kIDCHumanChildrenLimit];
 };
 
 static
@@ -151,7 +151,12 @@ void IDCHumanRemoveAllChildren(IDCHuman *human) {
 
 void IDCHumanSetName(IDCHuman *human, char *name) {
     IDCReturnMacros(human)
-    human->_name = name;
+    
+    if (name) {
+        human->_name = strdup(name);
+    } else {
+        human->_name = NULL;
+    }
     
 }
 
