@@ -15,6 +15,8 @@
                 return; \
             }
 
+#define IDCObjectCreate(type) \
+            __IDCObjectCreate(sizeof(type), (IDCObjectDeallocator *)__##type##Deallocate);
 
 
 #endif /* IDCLection5Macro_h */

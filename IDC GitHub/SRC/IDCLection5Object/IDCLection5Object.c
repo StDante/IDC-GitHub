@@ -18,7 +18,7 @@ void __IDCObjectDeallocate(void *object) {
     free(object);
 }
 
-void *__IDCObjectCreate(size_t size) {
+void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator) {
     IDCObject *object = calloc(1, sizeof(size));
     assert(object);
     
@@ -37,6 +37,7 @@ void __IDCObjectRelease(void *object) {
     newObject->_referenceCount--;
     
     if (0 == newObject->_referenceCount) {
+        newObject->_deallocator(newObject);
         __IDCObjectDeallocate(object);
     }
     

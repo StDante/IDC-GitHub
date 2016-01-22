@@ -17,8 +17,9 @@ typedef enum {
     kIDCFemale
 } IDCGender;
 
+
 extern
-IDCHuman *IDCHumanCreateWithName(char *name);
+IDCHuman *IDCHumanCreateWithParentsAndName(char *name, IDCHuman *father, IDCHuman *mother);
 
 extern
 void IDCHumanSetName(IDCHuman *human, char *name);
@@ -31,6 +32,9 @@ IDCHuman *IDCHumanGetFather(IDCHuman *human);
 
 extern
 IDCHuman *IDCHumanGetMother(IDCHuman *human);
+
+extern
+IDCHuman *IDCHumanGetParents(IDCHuman *human);
 
 extern
 IDCHuman *IDCHumanGetPartner(IDCHuman *human);
@@ -48,7 +52,7 @@ extern
 uint8_t IDCHumanGetAge(IDCHuman *human);
 
 extern
-bool IDCHumanGetMarried(IDCHuman *human);
+bool IDCHumanGetterIsMarried(IDCHuman *human);
 
 extern
 void IDCHumanAddChild(IDCHuman *human, IDCHuman *child);

@@ -13,17 +13,18 @@
 
 typedef struct IDCObject IDCObject;
 
+typedef void (IDCObjectDeallocator) (void *object);
+
 struct IDCObject {
     uint8_t _referenceCount;
+    IDCObjectDeallocator *_deallocator;
 };
 
 extern
 void __IDCObjectDeallocate(void *object);
 
-#define IDCObjectCreate(type) __IDCObjectCreate(sizeof(type))
-
 extern
-void *__IDCObjectCreate(size_t size);
+void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator);
 
 extern
 void *__IDCObjectRetain(void *object);
