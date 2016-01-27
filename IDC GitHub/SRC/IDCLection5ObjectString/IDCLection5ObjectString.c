@@ -23,16 +23,22 @@ void IDCStringSetStringEmpty(IDCString *string);
 
 void __IDCStringDeallocate(IDCString *string) {
     IDCReturnMacros(string);
-    IDCStringSetString(string, NULL);
+    IDCStringSetStringEmpty(string);
     __IDCObjectDeallocate(string);
     
 }
 
-IDCString *IDCStringCreate(char *string) {
-    IDCString *newString = IDCObjectCreate(IDCString);
-    assert(newString);
+IDCString *IDCStringCreation(void) {
+    IDCString *string = IDCObjectCreate(IDCString);
     
-    return newString;
+    return string;
+}
+
+IDCString *IDCStringCreate(char *data) {
+    IDCString *string = IDCStringCreation();
+    IDCStringSetString(string, data);
+    
+    return string;
 }
 
 #pragma mark -
@@ -40,12 +46,14 @@ IDCString *IDCStringCreate(char *string) {
 
 void IDCStringSetString (IDCString *string, char *setString) {
     IDCReturnMacros(string)
-    free(string->_string);
+    
+    IDCString *newString = string;
+    free(newString->_string);
     
     if (setString) {
-        string->_string = strdup(setString);
+        newString->_string = strdup(setString);
     } else {
-        string->_string = NULL;
+        newString->_string = NULL;
     }
     
 }

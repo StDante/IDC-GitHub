@@ -26,7 +26,6 @@ void __IDCArrayDeallocate(IDCArray *array) {
 
 void *IDCArrayCreate(void) {
     IDCArray *array = IDCObjectCreate(IDCArray);
-    assert(array);
     
     return array;
 }
@@ -43,11 +42,7 @@ void IDCArrayAddElement(IDCArray *array, void *object) {
     IDCReturnMacros(array);
     IDCReturnMacros(object);
     
-    if (kIDCArrayLimit > IDCArrayGetCount(array)) {
-        array->_arrayData[IDCArrayGetCount(array)] = object;
-    } else if (kIDCArrayLimit == IDCArrayGetCount(array)) {
-        array->_arrayData[IDCArrayGetIndexOfOldestElement(array)] = object;
-    }
+    array->_arrayData[IDCArrayGetCount(array)] = object;
     
 }
 
@@ -97,7 +92,6 @@ void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
     IDCReturnMacros(array);
     
     IDCRetainSetter(array->_arrayData[index], NULL);
-    __IDCArrayResortElementsFromIndex(array, index);
     
 }
 

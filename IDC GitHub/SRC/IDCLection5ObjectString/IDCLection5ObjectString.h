@@ -23,7 +23,10 @@ extern
 void __IDCStringDeallocate(IDCString *string);
 
 extern
-IDCString *IDCStringCreate(char *string);
+IDCString *IDCStringCreation(void);
+
+extern
+IDCString *IDCStringCreate(char *data);
 
 extern
 void IDCStringSetString (IDCString *string, char *setString);

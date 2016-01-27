@@ -9,6 +9,15 @@
 #ifndef IDCLection5ObjectHumanTest_h
 #define IDCLection5ObjectHumanTest_h
 
-#include <stdio.h>
+#include "IDCLection5ObjectHuman.h"
+
+extern
+void IDCPrintObjectStringTest(void);
+
+extern
+void IDCPrintObjectArrayTest(void);
+
+extern
+void IDCPrintObjectHumanTest(void);
 
 #endif /* IDCLection5ObjectHumanTest_h */

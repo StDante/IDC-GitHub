@@ -10,7 +10,7 @@
 #include "IDCLection2MacrosTest.h"
 #include "IDCLection3StructureTest.h"
 #include "IDCLection4BitFieldTest.h"
-#include "IDCLection5ObjectHuman.h"
+#include "IDCLection5ObjectHumanTest.h"
 
 int main(int argc, const char * argv[]) {
 //    printf("Lection 2 Macros\n");
@@ -23,9 +23,10 @@ int main(int argc, const char * argv[]) {
 //    IDCPrintBitesValueTest();
 //    
 //    printf("\nLection 5 Object-Human\n");
-//
-//    printf("\n");
+
+    printf("\n");
     
+    IDCPrintObjectStringTest();
     
     return 0;
 }

@@ -117,7 +117,7 @@ uint8_t IDCHumanOldestChildIndex(IDCHuman *human) {
 void __IDCHumanResortChildrenArray(IDCHuman *human, uint8_t index) {
     __IDCArrayResortElementsFromIndex(human->_children, index);
 }
-//return to this
+
 void IDCHumanRemoveAllChildren(IDCHuman *human) {
     uint8_t index = IDCHumanGetChildrenCount(human);
     
@@ -137,7 +137,14 @@ void IDCHumanAddChild(IDCHuman *human, IDCHuman *child) {
         return;
     }
     
-    IDCArrayAddElement(human->_children, child);
+    uint8_t index = IDCHumanGetChildrenCount(human);
+    
+    if (kIDCHumanChildrenLimit > index) {
+        IDCArrayAddElement(human->_children, child);
+    } else if (kIDCHumanChildrenLimit == index) {
+        IDCHumanRemoveChild(human, IDCHumanOldestChildIndex(human));
+        IDCArrayAddElement(human->_children, child);
+    }
     
     if (IDCHumanGetGender(human) == kIDCMale) {
         IDCHuman *father = IDCHumanGetFather(child);
@@ -164,6 +171,7 @@ void IDCHumanRemoveChild(IDCHuman *human, uint8_t index) {
     : __IDCHumanSetMother(child, NULL);
     
     IDCArrayRemoveElementAtIndex(human->_children, index);
+    __IDCHumanResortChildrenArray(human, index);
     
 }
 
