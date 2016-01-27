@@ -10,12 +10,6 @@
 #include "IDCLection5ObjectArray.h"
 
 #pragma mark -
-#pragma mark - Privat Declarations
-
-static
-void __IDCArrayDeallocate(IDCArray *array);
-
-#pragma mark -
 #pragma mark Initialization and Deallocation
 
 void __IDCArrayDeallocate(IDCArray *array) {
@@ -29,11 +23,6 @@ void *IDCArrayCreate(void) {
     
     return array;
 }
-
-#pragma mark -
-#pragma mark Private Implementation
-
-uint8_t IDCArrayGetIndexOfOldestElement(IDCArray *array);
 
 #pragma mark - 
 #pragma mark Public Implementation
@@ -69,6 +58,25 @@ void __IDCArrayResortElementsFromIndex(IDCArray *array, uint8_t index) {
     
 }
 
+void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
+    IDCReturnMacros(array);
+    
+    IDCRetainSetter(array->_arrayData[index], NULL);
+    
+}
+
+void IDCArrayDeleteAllElements(IDCArray *array) {
+    uint8_t index = IDCArrayGetCount(array);
+    
+    while (0 != index) {
+        IDCArrayRemoveElementAtIndex(array, --index);
+    }
+    
+}
+
+#pragma mark -
+#pragma mark Accessors
+
 void IDCArraySetElementAtIndex(IDCArray *array, void *object, uint8_t index) {
     IDCReturnMacros(array);
     IDCReturnMacros(object);
@@ -77,7 +85,6 @@ void IDCArraySetElementAtIndex(IDCArray *array, void *object, uint8_t index) {
     
 }
 
-extern
 void *IDCArrayGetElementAtIndex(IDCArray *array, uint8_t index) {
     assert(array);
     
@@ -86,13 +93,6 @@ void *IDCArrayGetElementAtIndex(IDCArray *array, uint8_t index) {
     }
     
     return NULL;
-}
-
-void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
-    IDCReturnMacros(array);
-    
-    IDCRetainSetter(array->_arrayData[index], NULL);
-    
 }
 
 uint8_t IDCArrayGetCount(IDCArray *array) {
@@ -126,13 +126,4 @@ uint8_t IDCArrayGetIndexOfElement(IDCArray *array, void *object) {
     }
     
     return kIDCArrayReturnIndexMax;
-}
-
-void IDCArrayDeleteAllElements(IDCArray *array) {
-    uint8_t index = IDCArrayGetCount(array);
-    
-    while (0 != index) {
-        IDCArrayRemoveElementAtIndex(array, --index);
-    }
-    
 }

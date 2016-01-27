@@ -22,6 +22,9 @@ struct IDCArray {
 };
 
 extern
+void __IDCArrayDeallocate(IDCArray *array);
+
+extern
 void *IDCArrayCreate(void);
 
 extern

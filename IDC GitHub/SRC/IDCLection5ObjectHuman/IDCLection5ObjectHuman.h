@@ -8,7 +8,6 @@
 
 #ifndef IDCLection5ObjectHuman_h
 #define IDCLection5ObjectHuman_h
-#include "IDCLection5Object.h"
 #include "IDCLection5ObjectString.h"
 #include "IDCLection5ObjectArray.h"
 
@@ -20,7 +19,6 @@ typedef enum {
     kIDCFemale
 } IDCGender;
 
-//for creating first man and woman without parents
 extern
 IDCHuman *IDCHumanCreateWithNameAndGender(IDCString *name, IDCGender gender);
 

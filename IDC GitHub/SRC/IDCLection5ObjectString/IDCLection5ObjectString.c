@@ -16,72 +16,50 @@
 #pragma mark Private Declaration
 
 static
-void IDCStringSetStringEmpty(IDCString *string);
+void IDCStringSetEmpty(IDCString *string);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
 void __IDCStringDeallocate(IDCString *string) {
     IDCReturnMacros(string);
-    IDCStringSetStringEmpty(string);
+    IDCStringSetEmpty(string);
     __IDCObjectDeallocate(string);
     
 }
 
-IDCString *IDCStringCreation(void) {
+IDCString *__IDCStringCreation(void) {
     IDCString *string = IDCObjectCreate(IDCString);
     
     return string;
 }
 
-IDCString *IDCStringCreate(char *data) {
-    IDCString *string = IDCStringCreation();
-    IDCStringSetString(string, data);
+IDCString *IDCStringCreate(char *stringData) {
+    IDCString *string = __IDCStringCreation();
+    IDCStringSetStringData(string, stringData);
     
     return string;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-void IDCStringSetString (IDCString *string, char *setString) {
-    IDCReturnMacros(string)
-    
-    IDCString *newString = string;
-    free(newString->_string);
-    
-    if (setString) {
-        newString->_string = strdup(setString);
-    } else {
-        newString->_string = NULL;
-    }
-    
-}
-
-char *IDCStringGetString (IDCString *string) {
-    assert(string);
-    
-    return string->_string;
-}
-
-uint64_t IDCStringGetCount(IDCString *string) {
-    uint64_t count = strlen(IDCStringGetString(string));
-    
-    return count;
 }
 
 #pragma mark-
 #pragma marl Private Implementation
 
-void IDCStringSetStringEmpty(IDCString *string) {
+void IDCStringSetEmpty(IDCString *string) {
     IDCReturnMacros(string);
     
-    IDCStringSetString(string, NULL);
+    IDCStringSetStringData(string, NULL);
     
 }
 
 #pragma mark - 
 #pragma mark Public Implementation
+
+void IDCPrintStringCount(IDCString *string) {
+    IDCReturnMacros(string)
+    
+    printf("%llu \n", IDCStringGetCount(string));
+    
+}
 
 void IDCStringPrintString(IDCString *string) {
     IDCReturnMacros(string)
@@ -117,7 +95,7 @@ IDCString *IDCStringWithString(IDCString *string, IDCString *addString) {
     return newString;
 }
 
-bool IDCStringComarisonWithString(IDCString *firstString, IDCString *secondString) {
+bool IDCStringComparisonWithString(IDCString *firstString, IDCString *secondString) {
     assert(firstString);
     assert(secondString);
     
@@ -132,21 +110,67 @@ bool IDCStringComarisonWithString(IDCString *firstString, IDCString *secondStrin
     return stringsEqual;
 }
 
+void IDCStringPrintComparisonResult(IDCString *firstString, IDCString *secondString) {
+    bool comparisonResult = IDCStringComparisonWithString(firstString, secondString);
+    printf("%d\n", comparisonResult);
+}
+
 uint64_t IDCStringGetCharacterIndex(IDCString *string, char character) {
+    assert(string);
+    
     uint64_t count = IDCStringGetCount(string);
-    for (uint64_t index = 0; IDCStringGetString(string)[index] != character; index++) {
+    for (uint64_t index = 0; string->_stringData[index] != character; index++) {
         if (index > count) {
-            char *noChar = "There is no such character in string";
+            puts("There is no such character in string");
             
-            return (uint64_t)noChar;
+            return UINT64_MAX;
         }
     }
     
     return (uint64_t)index - 1;
 }
 
+void IDCStringPrintCharacterIndex(IDCString *string, char character) {
+    printf("%llu\n", IDCStringGetCharacterIndex(string, character));
+}
+
 IDCString *IDCStringChangeCharacter(IDCString *string, uint64_t index, char character) {
-    IDCStringGetString(string)[index] = character;
+    string->_stringData[index] = character;
     
     return string;
 }
+
+void IDCStringPrintCharacterAtIndex(IDCString *string, uint64_t index) {
+    IDCReturnMacros(string);
+    
+    char character = IDCStringGetString(string)[index];
+    printf("%c\n", character);
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+void IDCStringSetStringData (IDCString *string, char *stringData) {
+    IDCReturnMacros(string)
+    free(string->_stringData);
+    
+    if (stringData) {
+        string->_stringData = strdup(stringData);
+    } else {
+        string->_stringData = NULL;
+    }
+    
+}
+
+char *IDCStringGetString (IDCString *string) {
+    assert(string);
+    
+    return string->_stringData;
+}
+
+uint64_t IDCStringGetCount(IDCString *string) {
+    uint64_t count = strlen(IDCStringGetString(string));
+    
+    return count;
+}
+

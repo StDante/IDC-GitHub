@@ -12,7 +12,6 @@
 #include <string.h>
 #include "IDCLection5ObjectHuman.h"
 
-static const uint8_t kIDCHumanReturnChildrenIndexMax = UINT8_MAX;
 static const uint8_t kIDCHumanChildrenLimit = 20;
 
 #pragma mark -

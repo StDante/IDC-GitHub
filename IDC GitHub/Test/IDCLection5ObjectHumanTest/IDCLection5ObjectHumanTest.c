@@ -9,38 +9,30 @@
 #include "IDCLection5ObjectHumanTest.h"
 
 void IDCPrintObjectStringTest() {
-    IDCString *name = IDCStringCreate("Adam");
-    IDCStringPrintString(name);
-    __IDCObjectRelease(name);
-//    extern
-//    void IDCStringSetString (IDCString *string, char *setString);
-//    
-//    extern
-//    char *IDCStringGetString (IDCString *string);
-//    
+    IDCString *firstTestString = IDCStringCreate("Adam");
+    IDCPrintStringCount(firstTestString);
+    IDCStringIsEmpty(firstTestString);
+    IDCStringPrintString(firstTestString);
+    
+    IDCString *secondTestString = IDCStringCreate("Eva");
+    IDCPrintStringCount(secondTestString);
+    IDCStringIsEmpty(secondTestString);
+    IDCStringPrintString(secondTestString);
 
-//
-//    extern
-//    IDCString *IDCStringWithString(IDCString *string, IDCString *addString);
-//    
-//    extern
-//    uint64_t IDCStringGetCount(IDCString *string);
-//    
-//    extern
-//    bool IDCStringComarisonWithString(IDCString *firstString, IDCString *secondString);
-//    
-//    extern
-//    void IDCStringIsEmpty(IDCString *string);
-//    
-//    extern
-//    uint64_t IDCStringGetCharacterIndex(IDCString *string, char character);
-//    
-//    extern
-//    IDCString *IDCStringChangeCharacter(IDCString *string, uint64_t index, char character);
+    IDCString *stringWithString = IDCStringWithString(firstTestString, secondTestString);
+    IDCPrintStringCount(stringWithString);
+    IDCStringIsEmpty(stringWithString);
+    IDCStringPrintString(stringWithString);
+
+    IDCStringPrintComparisonResult(firstTestString, secondTestString);
+    IDCStringPrintComparisonResult(firstTestString, firstTestString);
+ 
+    IDCStringPrintCharacterIndex(firstTestString, (char)"m");
+
+    IDCStringChangeCharacter(firstTestString, 0, (char)"B");
+    IDCStringPrintCharacterAtIndex(firstTestString, 0);
+    
+    __IDCObjectRelease(firstTestString);
+    __IDCObjectRelease(secondTestString);
+    __IDCObjectRelease(stringWithString);
 }
-
-//void IDCPrintHumanTest() {
-//    IDCString *manName = IDCStringCreate("Adam");
-//    IDCHuman *man = IDCHumanCreateWithNameAndGender(manName, kIDCMale);
-//    
-//}
