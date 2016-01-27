@@ -13,18 +13,19 @@
 #include "IDCLection5ObjectHuman.h"
 
 int main(int argc, const char * argv[]) {
-    printf("Lection 2 Macros\n");
-    IDCPrintMacrosWithAnyTypeAndValue();
+//    printf("Lection 2 Macros\n");
+//    IDCPrintMacrosWithAnyTypeAndValue();
+//    
+//    printf("\nLection 3 Stucture\n");
+//    IDCPrintStructureTest();
+//    
+//    printf("\nLection 4 BiteField\n");
+//    IDCPrintBitesValueTest();
+//    
+//    printf("\nLection 5 Object-Human\n");
+//
+//    printf("\n");
     
-    printf("\nLection 3 Stucture\n");
-    IDCPrintStructureTest();
-    
-    printf("\nLection 4 BiteField\n");
-    IDCPrintBitesValueTest();
-    
-    printf("\nLection 5 Object-Human\n");
-
-    printf("\n");
     
     return 0;
 }

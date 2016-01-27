@@ -10,6 +10,7 @@
 #define IDCLection5Object_h
 
 #include <stdio.h>
+#include "IDCLection5Macros.h"
 
 typedef struct IDCObject IDCObject;
 

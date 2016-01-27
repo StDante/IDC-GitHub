@@ -8,7 +8,6 @@
 
 #include <stdlib.h>
 #include <assert.h>
-#include "IDCLection5Macros.h"
 #include "IDCLection5Object.h"
 
 #pragma mark -
@@ -23,6 +22,7 @@ void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator) {
     assert(object);
     
     object->_referenceCount = 1;
+    object->_deallocator = deallocator;
     
     return object;
 }
@@ -38,7 +38,6 @@ void __IDCObjectRelease(void *object) {
     
     if (0 == newObject->_referenceCount) {
         newObject->_deallocator(object);
-        __IDCObjectDeallocate(object);
     }
     
 }

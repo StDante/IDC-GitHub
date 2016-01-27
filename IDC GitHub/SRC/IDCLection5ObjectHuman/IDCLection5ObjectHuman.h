@@ -8,6 +8,9 @@
 
 #ifndef IDCLection5ObjectHuman_h
 #define IDCLection5ObjectHuman_h
+#include "IDCLection5Object.h"
+#include "IDCLection5ObjectString.h"
+#include "IDCLection5ObjectArray.h"
 
 typedef struct IDCHuman IDCHuman;
 
@@ -17,15 +20,18 @@ typedef enum {
     kIDCFemale
 } IDCGender;
 
+//for creating first man and woman without parents
+extern
+IDCHuman *IDCHumanCreateWithNameAndGender(IDCString *name, IDCGender gender);
 
 extern
-IDCHuman *IDCHumanCreateWithParentsAndName(char *name, IDCHuman *father, IDCHuman *mother);
+IDCHuman *IDCHumanCreateWithParentsAndName(IDCString *name, IDCHuman *father, IDCHuman *mother);
 
 extern
-void IDCHumanSetName(IDCHuman *human, char *name);
+void IDCHumanSetName(IDCHuman *human, IDCString *name);
 
 extern
-char *IDCHumanGetName(IDCHuman *human);
+IDCString *IDCHumanGetName(IDCHuman *human);
 
 extern
 IDCHuman *IDCHumanGetFather(IDCHuman *human);
@@ -71,5 +77,8 @@ void IDCHumanMarriage(IDCHuman *human, IDCHuman *partner);
 
 extern
 void IDCHumanDivorce(IDCHuman *human);
+
+extern
+IDCHuman IDCHumanReproduction(IDCString *name, IDCHuman *human);
 
 #endif /* IDCLection5ObjectHuman_h */

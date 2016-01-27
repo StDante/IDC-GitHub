@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A21ED85D1C30C98F00FC8564 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A21ED85C1C30C98F00FC8564 /* main.c */; };
 		A21ED8681C30CA6200FC8564 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A21ED8661C30CA6200FC8564 /* IDCLection2Macros.c */; };
+		A23F5E1E1C59095D004458FD /* IDCLection5ObjectArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A23F5E1C1C59095D004458FD /* IDCLection5ObjectArray.c */; };
 		A255F0461C45671F00078EEA /* IDCLection5ObjectHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = A255F0441C45671F00078EEA /* IDCLection5ObjectHuman.c */; };
 		A255F04A1C45676000078EEA /* IDCLection4BitField.c in Sources */ = {isa = PBXBuildFile; fileRef = A255F0481C45676000078EEA /* IDCLection4BitField.c */; };
 		A255F04D1C45676E00078EEA /* IDCLection4BitFieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A255F04B1C45676E00078EEA /* IDCLection4BitFieldTest.c */; };
@@ -18,6 +19,7 @@
 		A29357E11C320DB7000B5C78 /* IDCLection3StructureTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A29357DF1C320DB7000B5C78 /* IDCLection3StructureTest.c */; };
 		A2BAEA551C503FCD00994E5A /* IDCLection5Object.c in Sources */ = {isa = PBXBuildFile; fileRef = A2BAEA531C503FCD00994E5A /* IDCLection5Object.c */; };
 		A2BAEA591C5043BC00994E5A /* IDCLection5Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A2BAEA571C5043BC00994E5A /* IDCLection5Macros.c */; };
+		A2BAEA7E1C543F8C00994E5A /* IDCLection5ObjectString.c in Sources */ = {isa = PBXBuildFile; fileRef = A2BAEA7C1C543F8C00994E5A /* IDCLection5ObjectString.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,8 @@
 		A21ED85C1C30C98F00FC8564 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		A21ED8661C30CA6200FC8564 /* IDCLection2Macros.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection2Macros.c; path = SRC/IDCLection2Macros/IDCLection2Macros.c; sourceTree = "<group>"; };
 		A21ED8671C30CA6200FC8564 /* IDCLection2Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection2Macros.h; path = SRC/IDCLection2Macros/IDCLection2Macros.h; sourceTree = "<group>"; };
+		A23F5E1C1C59095D004458FD /* IDCLection5ObjectArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection5ObjectArray.c; path = SRC/IDCLection5ObjectArray/IDCLection5ObjectArray.c; sourceTree = "<group>"; };
+		A23F5E1D1C59095D004458FD /* IDCLection5ObjectArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5ObjectArray.h; path = SRC/IDCLection5ObjectArray/IDCLection5ObjectArray.h; sourceTree = "<group>"; };
 		A255F0441C45671F00078EEA /* IDCLection5ObjectHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection5ObjectHuman.c; path = SRC/IDCLection5ObjectHuman/IDCLection5ObjectHuman.c; sourceTree = "<group>"; };
 		A255F0451C45671F00078EEA /* IDCLection5ObjectHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5ObjectHuman.h; path = SRC/IDCLection5ObjectHuman/IDCLection5ObjectHuman.h; sourceTree = "<group>"; };
 		A255F0481C45676000078EEA /* IDCLection4BitField.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection4BitField.c; path = SRC/IDCLection4BitField/IDCLection4BitField.c; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 		A2BAEA541C503FCD00994E5A /* IDCLection5Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5Object.h; path = SRC/IDCLection5Object/IDCLection5Object.h; sourceTree = "<group>"; };
 		A2BAEA571C5043BC00994E5A /* IDCLection5Macros.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection5Macros.c; path = SRC/IDCLection5Macro/IDCLection5Macros.c; sourceTree = "<group>"; };
 		A2BAEA581C5043BC00994E5A /* IDCLection5Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5Macros.h; path = SRC/IDCLection5Macro/IDCLection5Macros.h; sourceTree = "<group>"; };
+		A2BAEA7C1C543F8C00994E5A /* IDCLection5ObjectString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection5ObjectString.c; path = SRC/IDCLection5ObjectString/IDCLection5ObjectString.c; sourceTree = "<group>"; };
+		A2BAEA7D1C543F8C00994E5A /* IDCLection5ObjectString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5ObjectString.h; path = SRC/IDCLection5ObjectString/IDCLection5ObjectString.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,8 @@
 		A21ED8641C30CA1900FC8564 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A23F5E1B1C59091F004458FD /* IDCLection5ObjectArray */,
+				A2BAEA5B1C543F2A00994E5A /* IDCLection5ObjectString */,
 				A2BAEA5A1C5043CF00994E5A /* IDCLection5Macros */,
 				A2BAEA561C503FD100994E5A /* IDCLection5Object */,
 				A255F0471C45672E00078EEA /* IDCLection5ObjectHuman */,
@@ -143,6 +151,15 @@
 				A21ED8671C30CA6200FC8564 /* IDCLection2Macros.h */,
 			);
 			name = IDCLection2Macros;
+			sourceTree = "<group>";
+		};
+		A23F5E1B1C59091F004458FD /* IDCLection5ObjectArray */ = {
+			isa = PBXGroup;
+			children = (
+				A23F5E1C1C59095D004458FD /* IDCLection5ObjectArray.c */,
+				A23F5E1D1C59095D004458FD /* IDCLection5ObjectArray.h */,
+			);
+			name = IDCLection5ObjectArray;
 			sourceTree = "<group>";
 		};
 		A255F0471C45672E00078EEA /* IDCLection5ObjectHuman */ = {
@@ -208,6 +225,15 @@
 			name = IDCLection5Macros;
 			sourceTree = "<group>";
 		};
+		A2BAEA5B1C543F2A00994E5A /* IDCLection5ObjectString */ = {
+			isa = PBXGroup;
+			children = (
+				A2BAEA7C1C543F8C00994E5A /* IDCLection5ObjectString.c */,
+				A2BAEA7D1C543F8C00994E5A /* IDCLection5ObjectString.h */,
+			);
+			name = IDCLection5ObjectString;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,6 +292,7 @@
 			files = (
 				A29357E11C320DB7000B5C78 /* IDCLection3StructureTest.c in Sources */,
 				A2BAEA591C5043BC00994E5A /* IDCLection5Macros.c in Sources */,
+				A23F5E1E1C59095D004458FD /* IDCLection5ObjectArray.c in Sources */,
 				A21ED85D1C30C98F00FC8564 /* main.c in Sources */,
 				A29357D81C32076F000B5C78 /* IDCLection3Structure.c in Sources */,
 				A255F0501C4567A400078EEA /* IDCLection5ObjectHumanTest.c in Sources */,
@@ -275,6 +302,7 @@
 				A21ED8681C30CA6200FC8564 /* IDCLection2Macros.c in Sources */,
 				A29357D41C32061A000B5C78 /* IDCLection2MacrosTest.c in Sources */,
 				A255F04D1C45676E00078EEA /* IDCLection4BitFieldTest.c in Sources */,
+				A2BAEA7E1C543F8C00994E5A /* IDCLection5ObjectString.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
