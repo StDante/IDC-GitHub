@@ -28,14 +28,14 @@ void __IDCStringDeallocate(IDCString *string) {
     
 }
 
-IDCString *__IDCStringCreation(void) {
+IDCString *__IDCStringCreate(void) {
     IDCString *string = IDCObjectCreate(IDCString);
     
     return string;
 }
 
-IDCString *IDCStringCreate(char *stringData) {
-    IDCString *string = __IDCStringCreation();
+IDCString *IDCStringCreateWithData(char *stringData) {
+    IDCString *string = __IDCStringCreate();
     IDCStringSetStringData(string, stringData);
     
     return string;
@@ -89,7 +89,7 @@ IDCString *IDCStringWithString(IDCString *string, IDCString *addString) {
     strcat(temporaryString, IDCStringGetString(string));
     strcat(temporaryString, IDCStringGetString(addString));
     
-    IDCString *newString = IDCStringCreate(temporaryString);
+    IDCString *newString = IDCStringCreateWithData(temporaryString);
     assert(newString);
     
     return newString;

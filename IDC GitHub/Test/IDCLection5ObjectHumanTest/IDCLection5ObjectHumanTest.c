@@ -7,14 +7,18 @@
 //
 
 #include "IDCLection5ObjectHumanTest.h"
+#include "IDCLection5ObjectString.h"
 
 void IDCPrintObjectStringTest() {
-    IDCString *firstTestString = IDCStringCreate("Adam");
+    IDCString *firstTestString = IDCStringCreateWithData("Adam");
     IDCPrintStringCount(firstTestString);
     IDCStringIsEmpty(firstTestString);
     IDCStringPrintString(firstTestString);
     
-    IDCString *secondTestString = IDCStringCreate("Eva");
+    IDCString *copyFirstTestString = IDCStringCreateWithData("Adam");
+    IDCStringPrintString(copyFirstTestString);
+    
+    IDCString *secondTestString = IDCStringCreateWithData("Eva");
     IDCPrintStringCount(secondTestString);
     IDCStringIsEmpty(secondTestString);
     IDCStringPrintString(secondTestString);
@@ -24,7 +28,7 @@ void IDCPrintObjectStringTest() {
     IDCStringIsEmpty(stringWithString);
     IDCStringPrintString(stringWithString);
 
-    IDCStringPrintComparisonResult(firstTestString, secondTestString);
+    IDCStringPrintComparisonResult(firstTestString, copyFirstTestString);
     IDCStringPrintComparisonResult(firstTestString, firstTestString);
  
     IDCStringPrintCharacterIndex(firstTestString, (char)"m");

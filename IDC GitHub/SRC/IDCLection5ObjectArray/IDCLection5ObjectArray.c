@@ -4,7 +4,7 @@
 //
 //  Created by Alexandr Altukhov on 27.01.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
-//
+// Array Copy Array.
 
 #include <assert.h>
 #include "IDCLection5ObjectArray.h"
@@ -88,7 +88,7 @@ void IDCArraySetElementAtIndex(IDCArray *array, void *object, uint8_t index) {
 void *IDCArrayGetElementAtIndex(IDCArray *array, uint8_t index) {
     assert(array);
     
-    if (index < kIDCArrayLimit) {
+    if (index < IDCArrayGetCount(array)) {
         return array->_arrayData[index];
     }
     

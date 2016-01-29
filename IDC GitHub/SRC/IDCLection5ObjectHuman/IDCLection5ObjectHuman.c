@@ -70,6 +70,7 @@ void __IDCHumanDeallocate(IDCHuman *human) {
 
 IDCHuman *IDCHumanCreateWithNameAndGender(IDCString *name, IDCGender gender) {
     IDCHuman *human = IDCObjectCreate(IDCHuman);
+    IDCHumanSetChildren(human, IDCArrayCreate());
     IDCHumanSetName(human, name);
     
     return human;
@@ -104,7 +105,7 @@ uint8_t IDCHumanOldestChildIndex(IDCHuman *human) {
     uint8_t index = 1;
     uint8_t oldestChildAge = IDCHumanGetAge(IDCHumanGetChild(human, childIndex));
     uint8_t childAge = IDCHumanGetAge(IDCHumanGetChild(human, index));
-    for (uint8_t index; index < IDCHumanGetChildrenCount(human); index++) {
+    for (; index < IDCHumanGetChildrenCount(human); index++) {
         if (oldestChildAge < childAge) {
             childIndex = index;
         }
@@ -315,6 +316,18 @@ bool IDCHumanGetterIsMarried(IDCHuman *human) {
     assert(human);
     
     return IDCHumanGetPartner(human) ? true : false;
+}
+
+void IDCHumanSetChildren(IDCHuman *human, IDCArray *array) {
+    IDCReturnMacros(human)
+    
+    IDCRetainSetter(human->_children, array)
+}
+
+IDCArray *IDCHumanGetArray(IDCHuman *human) {
+    IDCArrayGetAllElements(human->_children);
+    
+    return human->_children;
 }
 
 uint8_t IDCHumanGetChildrenCount(IDCHuman *human) {

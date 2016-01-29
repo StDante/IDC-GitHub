@@ -79,4 +79,7 @@ void IDCHumanDivorce(IDCHuman *human);
 extern
 IDCHuman IDCHumanReproduction(IDCString *name, IDCHuman *human);
 
+extern
+void IDCHumanSetChildren(IDCHuman *human, IDCArray *array);
+
 #endif /* IDCLection5ObjectHuman_h */
