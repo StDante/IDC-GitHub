@@ -41,6 +41,34 @@ IDCString *IDCStringCreateWithData(char *stringData) {
     return string;
 }
 
+
+#pragma mark -
+#pragma mark Accessors
+
+void IDCStringSetStringData (IDCString *string, char *stringData) {
+    IDCReturnMacros(string)
+    free(string->_stringData);
+    
+    if (stringData) {
+        string->_stringData = strdup(stringData);
+    } else {
+        string->_stringData = NULL;
+    }
+    
+}
+
+char *IDCStringGetString (IDCString *string) {
+    assert(string);
+    
+    return string->_stringData;
+}
+
+uint64_t IDCStringGetCount(IDCString *string) {
+    uint64_t count = strlen(IDCStringGetString(string));
+    
+    return count;
+}
+
 #pragma mark-
 #pragma marl Private Implementation
 
@@ -146,31 +174,3 @@ void IDCStringPrintCharacterAtIndex(IDCString *string, uint64_t index) {
     char character = IDCStringGetString(string)[index];
     printf("%c\n", character);
 }
-
-#pragma mark -
-#pragma mark Accessors
-
-void IDCStringSetStringData (IDCString *string, char *stringData) {
-    IDCReturnMacros(string)
-    free(string->_stringData);
-    
-    if (stringData) {
-        string->_stringData = strdup(stringData);
-    } else {
-        string->_stringData = NULL;
-    }
-    
-}
-
-char *IDCStringGetString (IDCString *string) {
-    assert(string);
-    
-    return string->_stringData;
-}
-
-uint64_t IDCStringGetCount(IDCString *string) {
-    uint64_t count = strlen(IDCStringGetString(string));
-    
-    return count;
-}
-

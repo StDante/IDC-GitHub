@@ -24,56 +24,6 @@ void *IDCArrayCreate(void) {
     return array;
 }
 
-#pragma mark - 
-#pragma mark Public Implementation
-
-void IDCArrayAddElement(IDCArray *array, void *object) {
-    IDCReturnMacros(array);
-    IDCReturnMacros(object);
-    
-    array->_arrayData[IDCArrayGetCount(array)] = object;
-    
-}
-
-void IDCArrayRemoveElement(IDCArray *array, void *object) {
-    IDCReturnMacros(array);
-    uint8_t index = IDCArrayGetIndexOfElement(array, object);
-    
-    if (index > kIDCArrayLimit) {
-        printf("There is no such object in array");
-        return;
-    }
-    
-    IDCArrayRemoveElementAtIndex(array, index);
-    
-}
-
-void __IDCArrayResortElementsFromIndex(IDCArray *array, uint8_t index) {
-    IDCReturnMacros(array);
-    uint8_t indexReplace = index + 1;
-    while (indexReplace < IDCArrayGetCount(array)) {
-        array->_arrayData[indexReplace - 1] = array->_arrayData[indexReplace];
-        indexReplace++;
-    }
-    
-}
-
-void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
-    IDCReturnMacros(array);
-    
-    IDCRetainSetter(array->_arrayData[index], NULL);
-    
-}
-
-void IDCArrayDeleteAllElements(IDCArray *array) {
-    uint8_t index = IDCArrayGetCount(array);
-    
-    while (0 != index) {
-        IDCArrayRemoveElementAtIndex(array, --index);
-    }
-    
-}
-
 #pragma mark -
 #pragma mark Accessors
 
@@ -127,3 +77,54 @@ uint8_t IDCArrayGetIndexOfElement(IDCArray *array, void *object) {
     
     return kIDCArrayReturnIndexMax;
 }
+
+#pragma mark - 
+#pragma mark Public Implementation
+
+void IDCArrayAddElement(IDCArray *array, void *object) {
+    IDCReturnMacros(array);
+    IDCReturnMacros(object);
+    
+    array->_arrayData[IDCArrayGetCount(array)] = object;
+    
+}
+
+void IDCArrayRemoveElement(IDCArray *array, void *object) {
+    IDCReturnMacros(array);
+    uint8_t index = IDCArrayGetIndexOfElement(array, object);
+    
+    if (index > kIDCArrayLimit) {
+        printf("There is no such object in array");
+        return;
+    }
+    
+    IDCArrayRemoveElementAtIndex(array, index);
+    
+}
+
+void __IDCArrayResortElementsFromIndex(IDCArray *array, uint8_t index) {
+    IDCReturnMacros(array);
+    uint8_t indexReplace = index + 1;
+    while (indexReplace < IDCArrayGetCount(array)) {
+        array->_arrayData[indexReplace - 1] = array->_arrayData[indexReplace];
+        indexReplace++;
+    }
+    
+}
+
+void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
+    IDCReturnMacros(array);
+    
+    IDCRetainSetter(array->_arrayData[index], NULL);
+    
+}
+
+void IDCArrayDeleteAllElements(IDCArray *array) {
+    uint8_t index = IDCArrayGetCount(array);
+    
+    while (0 != index) {
+        IDCArrayRemoveElementAtIndex(array, --index);
+    }
+    
+}
+

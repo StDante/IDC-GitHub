@@ -127,6 +127,128 @@ void IDCHumanRemoveAllChildren(IDCHuman *human) {
     
 }
 
+#pragma mark -
+#pragma mark Accessors
+
+void IDCHumanSetName(IDCHuman *human, IDCString *name) {
+    IDCReturnMacros(human)
+    
+    IDCRetainSetter(human->_name, name)
+    
+}
+
+IDCString *IDCHumanGetName(IDCHuman *human) {
+    assert(human);
+    
+    return human->_name;
+}
+
+void __IDCHumanSetFather(IDCHuman *human, IDCHuman *father) {
+    IDCReturnMacros(human);
+    
+    human->_father = father;
+    
+}
+
+IDCHuman *IDCHumanGetFather(IDCHuman *human) {
+    assert(human);
+    
+    return human->_father;
+}
+
+void __IDCHumanSetMother(IDCHuman *human, IDCHuman *mother) {
+    IDCReturnMacros(human);
+    
+    human->_mother = mother;
+    
+}
+
+IDCHuman *IDCHumanGetMother(IDCHuman *human) {
+    assert(human);
+    
+    return human->_mother;
+}
+
+void __IDCHumanSetParents(IDCHuman *human, IDCHuman *father, IDCHuman *mother) {
+    __IDCHumanSetFather(human, father);
+    __IDCHumanSetMother(human, mother);
+    
+}
+
+IDCHuman *IDCHumanGetParents(IDCHuman *human) {
+    assert(human);
+    
+    return IDCHumanGetFather(human), IDCHumanGetMother(human);
+}
+
+void IDCHumanSetPartner(IDCHuman *human, IDCHuman *partner) {
+    IDCAssignSetter(human->_partner, partner)
+}
+
+IDCHuman *IDCHumanGetPartner(IDCHuman *human) {
+    assert(human);
+    
+    return human->_partner;
+}
+
+void IDCHumanSetGender(IDCHuman *human, IDCGender genderType) {
+    IDCReturnMacros(human)
+    human->_gender = genderType;
+    if ((genderType != kIDCMale) || (genderType != kIDCFemale)) {
+        genderType = kIDCUnknownGender;
+    }
+    
+}
+
+IDCGender IDCHumanGetGender(IDCHuman *human) {
+    assert(human);
+    
+    return human->_gender;
+}
+
+void IDCHumanSetAge(IDCHuman *human, uint8_t age) {
+    IDCReturnMacros(human)
+    
+    human->_age = age;
+    
+}
+
+uint8_t IDCHumanGetAge(IDCHuman *human) {
+    assert(human);
+    
+    return human->_age;
+}
+
+bool IDCHumanGetterIsMarried(IDCHuman *human) {
+    assert(human);
+    
+    return IDCHumanGetPartner(human) ? true : false;
+}
+
+void IDCHumanSetChildren(IDCHuman *human, IDCArray *array) {
+    IDCReturnMacros(human)
+    
+    IDCRetainSetter(human->_children, array)
+}
+
+IDCArray *IDCHumanGetArray(IDCHuman *human) {
+    IDCArrayGetAllElements(human->_children);
+    
+    return human->_children;
+}
+
+uint8_t IDCHumanGetChildrenCount(IDCHuman *human) {
+    assert(human);
+    
+    return IDCArrayGetCount(human->_children);
+}
+
+IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex) {
+    assert(human);
+    
+    return IDCArrayGetElementAtIndex(human->_children, childIndex);
+}
+
 #pragma mark - 
 #pragma mark Public Implementation
 
@@ -218,126 +340,4 @@ IDCHuman IDCHumanReproduction(IDCString *name, IDCHuman *human) {
         IDCHumanReproductionIfHumanFemaleMacros(name, human)
     }
     
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-void IDCHumanSetName(IDCHuman *human, IDCString *name) {
-    IDCReturnMacros(human)
-    
-    IDCRetainSetter(human->_name, name)
-    
-}
-
-IDCString *IDCHumanGetName(IDCHuman *human) {
-    assert(human);
-    
-    return human->_name;
-}
-
-void __IDCHumanSetFather(IDCHuman *human, IDCHuman *father) {
-    IDCReturnMacros(human);
-    
-    human->_father = father;
-    
-}
-
-IDCHuman *IDCHumanGetFather(IDCHuman *human) {
-    assert(human);
-    
-    return human->_father;
-}
-
-void __IDCHumanSetMother(IDCHuman *human, IDCHuman *mother) {
-    IDCReturnMacros(human);
-    
-    human->_mother = mother;
-
-}
-
-IDCHuman *IDCHumanGetMother(IDCHuman *human) {
-    assert(human);
-    
-    return human->_mother;
-}
-
-void __IDCHumanSetParents(IDCHuman *human, IDCHuman *father, IDCHuman *mother) {
-    __IDCHumanSetFather(human, father);
-    __IDCHumanSetMother(human, mother);
-    
-}
-
-IDCHuman *IDCHumanGetParents(IDCHuman *human) {
-    assert(human);
-    
-    return IDCHumanGetFather(human), IDCHumanGetMother(human);
-}
-
-void IDCHumanSetPartner(IDCHuman *human, IDCHuman *partner) {
-    IDCAssignSetter(human->_partner, partner)
-}
-
-IDCHuman *IDCHumanGetPartner(IDCHuman *human) {
-    assert(human);
-    
-    return human->_partner;
-}
-
-void IDCHumanSetGender(IDCHuman *human, IDCGender genderType) {
-    IDCReturnMacros(human)
-    human->_gender = genderType;
-    if ((genderType != kIDCMale) || (genderType != kIDCFemale)) {
-        genderType = kIDCUnknownGender;
-    }
-    
-}
-
-IDCGender IDCHumanGetGender(IDCHuman *human) {
-    assert(human);
-    
-    return human->_gender;
-}
-
-void IDCHumanSetAge(IDCHuman *human, uint8_t age) {
-    IDCReturnMacros(human)
-    
-    human->_age = age;
-    
-}
-
-uint8_t IDCHumanGetAge(IDCHuman *human) {
-    assert(human);
-    
-    return human->_age;
-}
-
-bool IDCHumanGetterIsMarried(IDCHuman *human) {
-    assert(human);
-    
-    return IDCHumanGetPartner(human) ? true : false;
-}
-
-void IDCHumanSetChildren(IDCHuman *human, IDCArray *array) {
-    IDCReturnMacros(human)
-    
-    IDCRetainSetter(human->_children, array)
-}
-
-IDCArray *IDCHumanGetArray(IDCHuman *human) {
-    IDCArrayGetAllElements(human->_children);
-    
-    return human->_children;
-}
-
-uint8_t IDCHumanGetChildrenCount(IDCHuman *human) {
-    assert(human);
-    
-    return IDCArrayGetCount(human->_children);
-}
-
-IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex) {
-    assert(human);
-    
-    return IDCArrayGetElementAtIndex(human->_children, childIndex);
 }
