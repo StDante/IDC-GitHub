@@ -36,7 +36,7 @@ void IDCPrintObjectStringTest() {
     IDCStringChangeCharacter(firstTestString, 0, (char)"B");
     IDCStringPrintCharacterAtIndex(firstTestString, 0);
     
-    __IDCObjectRelease(firstTestString);
-    __IDCObjectRelease(secondTestString);
-    __IDCObjectRelease(stringWithString);
+    IDCObjectRelease(firstTestString);
+    IDCObjectRelease(secondTestString);
+    IDCObjectRelease(stringWithString);
 }

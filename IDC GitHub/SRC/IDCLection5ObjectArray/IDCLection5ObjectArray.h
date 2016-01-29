@@ -28,7 +28,7 @@ extern
 void *IDCArrayCreate(void);
 
 extern
-void IDCArrayAddElement(IDCArray *array, void *object);
+void IDCArraySetElement(IDCArray *array, void *object);
 
 extern
 void IDCArrayRemoveElement(IDCArray *array, void *object);

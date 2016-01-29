@@ -19,8 +19,8 @@
             __IDCObjectCreate(sizeof(type), (IDCObjectDeallocator *)__##type##Deallocate);
 
 #define IDCDoubleRetain(value) \
-            __IDCObjectRetain(human); \
-            __IDCObjectRetain(human);
+            IDCObjectRetain(human); \
+            IDCObjectRetain(human);
 
 #define IDCAssignSetter(oldValue, newValue) \
             if (oldValue != newValue) { \
@@ -29,24 +29,24 @@
 
 #define IDCRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\
-                __IDCObjectRelease(oldValue); \
-                oldValue = __IDCObjectRetain(newValue); \
+                IDCObjectRelease(oldValue); \
+                oldValue = IDCObjectRetain(newValue); \
             }
 
 #define IDCHumanRetainStrongConection(human, partner) \
             IDCGender genderType = IDCHumanGetGender(human); \
             if (genderType == kIDCMale) { \
-                __IDCObjectRetain(human); \
+                IDCObjectRetain(human); \
             } else { \
-                __IDCObjectRetain(partner); \
+                IDCObjectRetain(partner); \
             }
 
 #define IDCHumanReleaseStrongConection(human) \
             IDCGender genderType = IDCHumanGetGender(human); \
             if (genderType == kIDCMale) { \
-                __IDCObjectRelease(human); \
+                IDCObjectRelease(human); \
             } else if (genderType == kIDCFemale) { \
-                __IDCObjectRelease(IDCHumanGetPartner(human)); \
+                IDCObjectRelease(IDCHumanGetPartner(human)); \
             }
 
 #define IDCHumanReproductionIfHumanMaleMacros(name, human) \

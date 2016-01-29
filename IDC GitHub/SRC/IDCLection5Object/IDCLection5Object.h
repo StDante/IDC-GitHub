@@ -28,10 +28,10 @@ extern
 void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator);
 
 extern
-void *__IDCObjectRetain(void *object);
+void *IDCObjectRetain(void *object);
 
 extern
-void __IDCObjectRelease(void *object);
+void IDCObjectRelease(void *object);
 
 
 #endif /* IDCLection5Object_h */

@@ -30,7 +30,7 @@ void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator) {
 #pragma mark -
 #pragma mark Private Implementation
 
-void __IDCObjectRelease(void *object) {
+void IDCObjectRelease(void *object) {
     IDCReturnMacros(object);
     
     IDCObject *newObject = object;
@@ -39,10 +39,9 @@ void __IDCObjectRelease(void *object) {
     if (0 == newObject->_referenceCount) {
         newObject->_deallocator(object);
     }
-    
 }
 
-void *__IDCObjectRetain(void *object) {
+void *IDCObjectRetain(void *object) {
     assert(object);
     
     IDCObject *newObject = object;

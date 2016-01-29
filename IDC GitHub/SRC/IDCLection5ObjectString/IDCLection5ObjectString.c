@@ -54,7 +54,6 @@ void IDCStringSetStringData (IDCString *string, char *stringData) {
     } else {
         string->_stringData = NULL;
     }
-    
 }
 
 char *IDCStringGetString (IDCString *string) {
@@ -141,6 +140,7 @@ bool IDCStringComparisonWithString(IDCString *firstString, IDCString *secondStri
 void IDCStringPrintComparisonResult(IDCString *firstString, IDCString *secondString) {
     bool comparisonResult = IDCStringComparisonWithString(firstString, secondString);
     printf("%d\n", comparisonResult);
+    
 }
 
 uint64_t IDCStringGetCharacterIndex(IDCString *string, char character) {

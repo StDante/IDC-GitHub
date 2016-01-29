@@ -35,6 +35,14 @@ void IDCArraySetElementAtIndex(IDCArray *array, void *object, uint8_t index) {
     
 }
 
+void IDCArraySetElement(IDCArray *array, void *object) {
+    IDCReturnMacros(array);
+    IDCReturnMacros(object);
+    
+    IDCRetainSetter(array->_arrayData[IDCArrayGetCount(array)], object)
+    
+}
+
 void *IDCArrayGetElementAtIndex(IDCArray *array, uint8_t index) {
     assert(array);
     
@@ -74,6 +82,7 @@ uint8_t IDCArrayGetIndexOfElement(IDCArray *array, void *object) {
         
         return index;
     }
+    printf("There is no such object in array");
     
     return kIDCArrayReturnIndexMax;
 }
@@ -81,23 +90,16 @@ uint8_t IDCArrayGetIndexOfElement(IDCArray *array, void *object) {
 #pragma mark - 
 #pragma mark Public Implementation
 
-void IDCArrayAddElement(IDCArray *array, void *object) {
+void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
     IDCReturnMacros(array);
-    IDCReturnMacros(object);
     
-    array->_arrayData[IDCArrayGetCount(array)] = object;
+    IDCRetainSetter(array->_arrayData[index], NULL);
     
 }
 
 void IDCArrayRemoveElement(IDCArray *array, void *object) {
     IDCReturnMacros(array);
     uint8_t index = IDCArrayGetIndexOfElement(array, object);
-    
-    if (index > kIDCArrayLimit) {
-        printf("There is no such object in array");
-        return;
-    }
-    
     IDCArrayRemoveElementAtIndex(array, index);
     
 }
@@ -108,15 +110,8 @@ void __IDCArrayResortElementsFromIndex(IDCArray *array, uint8_t index) {
     while (indexReplace < IDCArrayGetCount(array)) {
         array->_arrayData[indexReplace - 1] = array->_arrayData[indexReplace];
         indexReplace++;
+        
     }
-    
-}
-
-void IDCArrayRemoveElementAtIndex(IDCArray *array, uint8_t index) {
-    IDCReturnMacros(array);
-    
-    IDCRetainSetter(array->_arrayData[index], NULL);
-    
 }
 
 void IDCArrayDeleteAllElements(IDCArray *array) {
@@ -124,7 +119,7 @@ void IDCArrayDeleteAllElements(IDCArray *array) {
     
     while (0 != index) {
         IDCArrayRemoveElementAtIndex(array, --index);
+        
     }
-    
 }
 

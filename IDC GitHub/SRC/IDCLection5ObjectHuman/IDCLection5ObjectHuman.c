@@ -42,9 +42,6 @@ static
 void __IDCHumanSetMother(IDCHuman *human, IDCHuman *mother);
 
 static
-void __IDCHumanSetParents(IDCHuman *human, IDCHuman *father, IDCHuman *mother);
-
-static
 uint8_t IDCHumanOldestChildIndex(IDCHuman *human);
 
 static
@@ -70,8 +67,10 @@ void __IDCHumanDeallocate(IDCHuman *human) {
 
 IDCHuman *IDCHumanCreateWithNameAndGender(IDCString *name, IDCGender gender) {
     IDCHuman *human = IDCObjectCreate(IDCHuman);
-    IDCHumanSetChildren(human, IDCArrayCreate());
+    IDCArray *array = IDCArrayCreate();
     IDCHumanSetName(human, name);
+    
+    IDCObjectRelease(array);
     
     return human;
 }
@@ -81,50 +80,11 @@ IDCHuman *IDCHumanCreateWithParentsAndNameAndGender(IDCString *name,
                                            IDCHuman *mother)
 {
     IDCHuman *human = IDCHumanCreateWithNameAndGender(name, arc4random_uniform(2) + 1);
-    __IDCHumanSetParents(human, father, mother);
     
     IDCHumanAddChild(father, human);
     IDCHumanAddChild(mother, human);
     
     return human;
-}
-
-#pragma mark -
-#pragma mark Private Implementation
-
-uint8_t IDCHumanIndexOfChild(IDCHuman *human, IDCHuman *child) {
-    assert(human);
-
-    return IDCArrayGetIndexOfElement(human->_children, child);
-}
-
-uint8_t IDCHumanOldestChildIndex(IDCHuman *human) {
-    assert(human);
-    
-    uint8_t childIndex = 0;
-    uint8_t index = 1;
-    uint8_t oldestChildAge = IDCHumanGetAge(IDCHumanGetChild(human, childIndex));
-    uint8_t childAge = IDCHumanGetAge(IDCHumanGetChild(human, index));
-    for (; index < IDCHumanGetChildrenCount(human); index++) {
-        if (oldestChildAge < childAge) {
-            childIndex = index;
-        }
-    }
-    
-    return childIndex;
-}
-
-void __IDCHumanResortChildrenArray(IDCHuman *human, uint8_t index) {
-    __IDCArrayResortElementsFromIndex(human->_children, index);
-}
-
-void IDCHumanRemoveAllChildren(IDCHuman *human) {
-    uint8_t index = IDCHumanGetChildrenCount(human);
-    
-    while (0 != index) {
-        IDCHumanRemoveChild(human, --index);
-    }
-    
 }
 
 #pragma mark -
@@ -169,12 +129,6 @@ IDCHuman *IDCHumanGetMother(IDCHuman *human) {
     return human->_mother;
 }
 
-void __IDCHumanSetParents(IDCHuman *human, IDCHuman *father, IDCHuman *mother) {
-    __IDCHumanSetFather(human, father);
-    __IDCHumanSetMother(human, mother);
-    
-}
-
 IDCHuman *IDCHumanGetParents(IDCHuman *human) {
     assert(human);
     
@@ -197,7 +151,6 @@ void IDCHumanSetGender(IDCHuman *human, IDCGender genderType) {
     if ((genderType != kIDCMale) || (genderType != kIDCFemale)) {
         genderType = kIDCUnknownGender;
     }
-    
 }
 
 IDCGender IDCHumanGetGender(IDCHuman *human) {
@@ -229,6 +182,7 @@ void IDCHumanSetChildren(IDCHuman *human, IDCArray *array) {
     IDCReturnMacros(human)
     
     IDCRetainSetter(human->_children, array)
+    
 }
 
 IDCArray *IDCHumanGetArray(IDCHuman *human) {
@@ -249,6 +203,44 @@ IDCHuman *IDCHumanGetChild(IDCHuman *human, uint8_t childIndex) {
     return IDCArrayGetElementAtIndex(human->_children, childIndex);
 }
 
+#pragma mark -
+#pragma mark Private Implementation
+
+uint8_t IDCHumanIndexOfChild(IDCHuman *human, IDCHuman *child) {
+    assert(human);
+    
+    return IDCArrayGetIndexOfElement(human->_children, child);
+}
+
+uint8_t IDCHumanOldestChildIndex(IDCHuman *human) {
+    assert(human);
+    
+    uint8_t childIndex = 0;
+    uint8_t index = 1;
+    uint8_t oldestChildAge = IDCHumanGetAge(IDCHumanGetChild(human, childIndex));
+    uint8_t childAge = IDCHumanGetAge(IDCHumanGetChild(human, index));
+    for (; index < IDCHumanGetChildrenCount(human); index++) {
+        if (oldestChildAge < childAge) {
+            childIndex = index;
+        }
+    }
+    
+    return childIndex;
+}
+
+void __IDCHumanResortChildrenArray(IDCHuman *human, uint8_t index) {
+    __IDCArrayResortElementsFromIndex(human->_children, index);
+}
+
+void IDCHumanRemoveAllChildren(IDCHuman *human) {
+    uint8_t index = IDCHumanGetChildrenCount(human);
+    
+    while (0 != index) {
+        IDCHumanRemoveChild(human, --index);
+        
+    }
+}
+
 #pragma mark - 
 #pragma mark Public Implementation
 
@@ -260,12 +252,18 @@ void IDCHumanAddChild(IDCHuman *human, IDCHuman *child) {
     }
     
     uint8_t index = IDCHumanGetChildrenCount(human);
+    uint8_t oldestChild = IDCHumanOldestChildIndex(human);
     
     if (kIDCHumanChildrenLimit > index) {
-        IDCArrayAddElement(human->_children, child);
+        IDCArraySetElement(human->_children, child);
     } else if (kIDCHumanChildrenLimit == index) {
-        IDCHumanRemoveChild(human, IDCHumanOldestChildIndex(human));
-        IDCArrayAddElement(human->_children, child);
+        if (IDCHumanGetGender(human) == kIDCMale) {
+            __IDCHumanSetFather(human->_children[oldestChild], NULL);
+        } else {
+            __IDCHumanSetMother(human->_children[oldestChild], NULL);
+        }
+        
+        IDCArraySetElementAtIndex(human->_children, child, oldestChild);
     }
     
     if (IDCHumanGetGender(human) == kIDCMale) {
@@ -276,17 +274,15 @@ void IDCHumanAddChild(IDCHuman *human, IDCHuman *child) {
         IDCHuman *mother = IDCHumanGetMother(child);
         IDCHumanRemoveChild(mother, IDCHumanIndexOfChild(mother, child));
         __IDCHumanSetMother(child, human);
+        
     }
-    
-    __IDCObjectRetain(child);
-    
 }
 
 void IDCHumanRemoveChild(IDCHuman *human, uint8_t index) {
     IDCReturnMacros(human);
     IDCHuman *child = IDCHumanGetChild(human, index);
     
-    __IDCObjectRelease(child);
+    IDCObjectRelease(child);
     
     (human->_gender == kIDCMale)
     ? __IDCHumanSetFather(child, NULL)
@@ -339,5 +335,4 @@ IDCHuman IDCHumanReproduction(IDCString *name, IDCHuman *human) {
     } else {
         IDCHumanReproductionIfHumanFemaleMacros(name, human)
     }
-    
 }
