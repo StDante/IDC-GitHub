@@ -15,6 +15,12 @@
                 return; \
             }
 
+#define IDCReturnNULLMacros(value) \
+            if (NULL == value) { \
+            printf("There is no such object"); \
+            return NULL; \
+            }
+
 #define IDCObjectCreate(type) \
             __IDCObjectCreate(sizeof(type), (IDCObjectDeallocator *)__##type##Deallocate);
 

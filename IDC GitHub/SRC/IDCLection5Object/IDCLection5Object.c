@@ -42,7 +42,7 @@ void IDCObjectRelease(void *object) {
 }
 
 void *IDCObjectRetain(void *object) {
-    assert(object);
+    IDCReturnNULLMacros(object);
     
     IDCObject *newObject = object;
     newObject->_referenceCount++;

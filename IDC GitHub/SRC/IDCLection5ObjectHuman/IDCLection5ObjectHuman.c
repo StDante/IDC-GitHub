@@ -5,7 +5,8 @@
 //  Created by Alexandr Altukhov on 12.01.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
-
+//refactoring
+//create dynamic array
 #include <stddef.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -80,6 +81,8 @@ IDCHuman *IDCHumanCreateWithParentsAndNameAndGender(IDCString *name,
                                            IDCHuman *mother)
 {
     IDCHuman *human = IDCHumanCreateWithNameAndGender(name, arc4random_uniform(2) + 1);
+    
+//add father and mother
     
     IDCHumanAddChild(father, human);
     IDCHumanAddChild(mother, human);
@@ -258,9 +261,9 @@ void IDCHumanAddChild(IDCHuman *human, IDCHuman *child) {
         IDCArraySetElement(human->_children, child);
     } else if (kIDCHumanChildrenLimit == index) {
         if (IDCHumanGetGender(human) == kIDCMale) {
-            __IDCHumanSetFather(human->_children[oldestChild], NULL);
+            __IDCHumanSetFather(IDCHumanGetChild(human, oldestChild), NULL);
         } else {
-            __IDCHumanSetMother(human->_children[oldestChild], NULL);
+            __IDCHumanSetMother(IDCHumanGetChild(human, oldestChild), NULL);
         }
         
         IDCArraySetElementAtIndex(human->_children, child, oldestChild);

@@ -82,6 +82,7 @@ uint8_t IDCArrayGetIndexOfElement(IDCArray *array, void *object) {
         
         return index;
     }
+    
     printf("There is no such object in array");
     
     return kIDCArrayReturnIndexMax;
@@ -110,7 +111,6 @@ void __IDCArrayResortElementsFromIndex(IDCArray *array, uint8_t index) {
     while (indexReplace < IDCArrayGetCount(array)) {
         array->_arrayData[indexReplace - 1] = array->_arrayData[indexReplace];
         indexReplace++;
-        
     }
 }
 
@@ -119,7 +119,6 @@ void IDCArrayDeleteAllElements(IDCArray *array) {
     
     while (0 != index) {
         IDCArrayRemoveElementAtIndex(array, --index);
-        
     }
 }
 
