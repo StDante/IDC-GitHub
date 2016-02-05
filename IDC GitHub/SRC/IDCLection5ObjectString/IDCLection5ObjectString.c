@@ -97,8 +97,8 @@ void IDCStringPrintString(IDCString *string) {
 
 void IDCStringIsEmpty(IDCString *string) {
     (0 != IDCStringGetCount(string))
-                                    ? puts("String has some data")
-                                    : puts("String is empty");
+                                    ? puts("String has some data\n")
+                                    : puts("String is empty\n");
 }
 
 IDCString *IDCStringWithString(IDCString *string, IDCString *addString) {
@@ -149,7 +149,7 @@ uint64_t IDCStringGetCharacterIndex(IDCString *string, char character) {
     uint64_t count = IDCStringGetCount(string);
     for (uint64_t index = 0; string->_stringData[index] != character; index++) {
         if (index > count) {
-            puts("There is no such character in string");
+            puts("There is no such character in string\n");
             
             return UINT64_MAX;
         }

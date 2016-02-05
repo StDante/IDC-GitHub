@@ -15,7 +15,11 @@
 #pragma mark -
 #pragma mark Private Declarations
 
-static const uint64_t kIDCCapacityStep = 1;
+static const float kIDCCapacityStep = 1.2;
+
+static const float kIDCCapacityChangeScope = 0.8;
+
+static const uint8_t kIDCCapacityMinimum = 10;
 
 static
 void IDCDynamicArraySetCount(IDCDynamicArray *array, uint64_t count);
@@ -37,6 +41,15 @@ void IDCDynamicArraySetObjectAtIndex(IDCDynamicArray *array,
 static
 void IDCDynamicArrayRemoveObjectAtIndex(IDCDynamicArray *array, uint64_t index);
 
+static
+bool IDCDynamicArrayIsCapacityChangeNeeded(IDCDynamicArray *array);
+
+static
+void IDCDynamicArrayChangeCapacity(IDCDynamicArray *array);
+
+static
+void IDCDynamicArrayRecomendedCapacityChange(IDCDynamicArray *array);
+
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
@@ -49,7 +62,7 @@ void __IDCDynamicArrayDeallocate(IDCDynamicArray *array) {
 void *IDCDynamicArrayCreate(void) {
     IDCDynamicArray *array = IDCObjectCreate(IDCDynamicArray);
     assert(array);
-    IDCDynamicArraySetCapacity(array, 1);
+    IDCDynamicArraySetCapacity(array, 0);
     IDCDynamicArraySetCount(array, 0);
     
     return array;
@@ -89,14 +102,14 @@ uint64_t IDCDynamicArrayGetIndexOfObject(IDCDynamicArray *array, void *object) {
         return index;
     }
     
-    return puts("There is no such object in array");
+    return puts("There is no such object in array\n");
 }
 
 void *IDCDynamicArrayGetObjectAtIndex(IDCDynamicArray *array, uint64_t index) {
     assert(array);
     
     if (index >= IDCDynamicArrayGetCount(array)) {
-        printf("There is no such index in array");
+        printf("There is no such index in array\n");
         return NULL;
     }
     
@@ -107,7 +120,7 @@ void *IDCDynamicArrayGetFirstObject(IDCDynamicArray *array) {
     assert(array);
     
     if (IDCDynamicArrayIsEmpty(array) == true) {
-        printf("Array is empty");
+        printf("Array is empty\n");
         return NULL;
     }
     
@@ -118,7 +131,7 @@ void *IDCDynamicArrayGetLastObject(IDCDynamicArray *array) {
     assert(array);
     
     if (IDCDynamicArrayIsEmpty(array) == true) {
-        printf("Array is empty");
+        printf("Array is empty\n");
         return NULL;
     }
     
@@ -138,7 +151,7 @@ void IDCDynamicArraySetCapacity(IDCDynamicArray *array, uint64_t capacity) {
         
     if (arrayCapacity < capacity) {
         IDCDynamicArraySetData(array, realloc(IDCDynamicArrayGetData(array), capacity * size));
-        memset(&array->_arrayData[count], 0, (capacity - count) * sizeof(void *));
+        memset(&array->_arrayData[count], 0, (capacity - count) * size);
     }
         
     IDCAssignSetter(array->_capacity, capacity);
@@ -180,19 +193,47 @@ void IDCDynamicArrayShiftObjectsFromIndex(IDCDynamicArray *array, uint64_t index
 void IDCDynamicArrayRemoveObjectAtIndex(IDCDynamicArray *array, uint64_t index) {
     IDCReturnMacros(array);
     
-    uint64_t capacity = IDCDynamicArrayGetCapacity(array);
     uint64_t count = IDCDynamicArrayGetCount(array);
     
     if (index >= count) {
-        printf("There is no object with such index in array");
+        printf("There is no object with such index in array\n");
         return;
     }
     
     IDCRetainSetter(array->_arrayData[index], NULL);
     IDCDynamicArrayShiftObjectsFromIndex(array, index);
-    IDCDynamicArraySetCount(array, count--);
-    if (capacity - count == kIDCCapacityStep) {
-        IDCDynamicArraySetCapacity(array, capacity - kIDCCapacityStep);
+    IDCDynamicArraySetCount(array, count - 1);
+    IDCDynamicArrayChangeCapacity(array);
+}
+
+static
+bool IDCDynamicArrayIsCapacityChangeNeeded(IDCDynamicArray *array) {
+    assert(array);
+    
+    uint64_t count = IDCDynamicArrayGetCount(array);
+    uint64_t capacity = IDCDynamicArrayGetCapacity(array);
+    
+    return (capacity == count || count <= capacity * kIDCCapacityChangeScope);
+}
+
+static
+void IDCDynamicArrayChangeCapacity(IDCDynamicArray *array) {
+    assert(array);
+    
+    if (IDCDynamicArrayIsCapacityChangeNeeded(array) == true) {
+        IDCDynamicArrayRecomendedCapacityChange(array);
+    }
+}
+
+static
+void IDCDynamicArrayRecomendedCapacityChange(IDCDynamicArray *array) {
+    uint64_t count = IDCDynamicArrayGetCount(array);
+    uint64_t capacity = IDCDynamicArrayGetCapacity(array);
+    
+    if (capacity == count) {
+        IDCDynamicArraySetCapacity(array, (capacity + 1) * kIDCCapacityStep);
+    } else {
+        IDCDynamicArraySetCapacity(array, capacity * kIDCCapacityChangeScope + kIDCCapacityMinimum);
     }
 }
 
@@ -202,15 +243,11 @@ void IDCDynamicArrayRemoveObjectAtIndex(IDCDynamicArray *array, uint64_t index) 
 void IDCDynamicArrayAddObject(IDCDynamicArray *array, void *object) {
     IDCReturnMacros(array);
     
-    uint64_t capacity = IDCDynamicArrayGetCapacity(array);
     uint64_t count = IDCDynamicArrayGetCount(array);
     
-    if (capacity == count) {
-        IDCDynamicArraySetCapacity(array, count + kIDCCapacityStep);
-    }
-    
+    IDCDynamicArrayChangeCapacity(array);
     IDCDynamicArraySetObjectAtIndex(array, object, count);
-    IDCDynamicArraySetCount(array, count++);
+    IDCDynamicArraySetCount(array, count + 1);
 }
 
 void IDCDynamicArrayRemoveObject(IDCDynamicArray *array, void *object) {
@@ -234,11 +271,11 @@ bool IDCDynamicArrayIsEmpty(IDCDynamicArray *array) {
     assert(array);
     
     if (IDCDynamicArrayGetObjectAtIndex(array, 0) == NULL) {
-        printf("Array is empty");
+        printf("Array is empty\n");
         
         return true;
     }
-    printf("Array is not empty");
+    printf("Array is not empty\n");
     
     return false;
 }
@@ -256,11 +293,11 @@ bool IDCDynamicArrayIsContainsObject(IDCDynamicArray *array, void *object) {
         while (index < IDCDynamicArrayGetCount(array)) {
             index++;
         }
-        printf("This Array doesn't contain such object");
+        printf("This Array doesn't contain such object\n");
         
         return false;
     }
-    printf("This Array contains such object");
+    printf("This Array contains such object\n");
     
     return true;
 }

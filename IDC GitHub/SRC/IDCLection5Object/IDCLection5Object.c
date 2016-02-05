@@ -6,14 +6,18 @@
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#include <stdlib.h>
-#include <assert.h>
+
 #include "IDCLection5Object.h"
+
+#pragma mark - 
+#pragma mark Private Declaration
+static const uint16_t kIDCStartReferenceCount = 1;
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
 void __IDCObjectDeallocate(void *object) {
+    IDCReturnMacros(object);
     free(object);
 }
 
@@ -21,7 +25,7 @@ void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator) {
     IDCObject *object = calloc(1, sizeof(size));
     assert(object);
     
-    object->_referenceCount = 1;
+    object->_referenceCount = kIDCStartReferenceCount;
     object->_deallocator = deallocator;
     
     return object;
@@ -47,5 +51,5 @@ void *IDCObjectRetain(void *object) {
     IDCObject *newObject = object;
     newObject->_referenceCount++;
     
-    return object;
+    return newObject;
 }

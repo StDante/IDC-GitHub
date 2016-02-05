@@ -11,13 +11,13 @@
 
 #define IDCReturnMacros(value) \
             if (NULL == value) { \
-                printf("There is no such object"); \
+                printf("There is no such object\n"); \
                 return; \
             }
 
 #define IDCReturnNULLMacros(value) \
             if (NULL == value) { \
-            printf("There is no such object"); \
+            printf("There is no such object\n"); \
             return NULL; \
             }
 

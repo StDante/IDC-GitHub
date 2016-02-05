@@ -10,6 +10,7 @@
 #define IDCLection5ObjectHuman_h
 #include "IDCLection5ObjectString.h"
 #include "IDCLection5ObjectArray.h"
+#include "IDCLection5ObjectDynamicArray.h"
 
 typedef struct IDCHuman IDCHuman;
 

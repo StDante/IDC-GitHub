@@ -10,6 +10,10 @@
 #define IDCLection5Object_h
 
 #include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <string.h>
 #include "IDCLection5Macros.h"
 
 typedef struct IDCObject IDCObject;
@@ -17,7 +21,7 @@ typedef struct IDCObject IDCObject;
 typedef void (IDCObjectDeallocator) (void *object);
 
 struct IDCObject {
-    uint8_t _referenceCount;
+    uint16_t _referenceCount;
     IDCObjectDeallocator *_deallocator;
 };
 

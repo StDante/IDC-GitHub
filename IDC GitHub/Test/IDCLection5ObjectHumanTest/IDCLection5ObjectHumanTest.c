@@ -9,34 +9,54 @@
 #include "IDCLection5ObjectHumanTest.h"
 #include "IDCLection5ObjectString.h"
 
-void IDCPrintObjectStringTest() {
-    IDCString *firstTestString = IDCStringCreateWithData("Adam");
-    IDCPrintStringCount(firstTestString);
-    IDCStringIsEmpty(firstTestString);
-    IDCStringPrintString(firstTestString);
+void IDCPrintObjectDynamicArrayTest() {
     
-    IDCString *copyFirstTestString = IDCStringCreateWithData("Adam");
-    IDCStringPrintString(copyFirstTestString);
+    IDCDynamicArray *testArray = IDCDynamicArrayCreate();
+    IDCString *object = IDCStringCreateWithData("test");
+    int16_t index = 0;
+
     
-    IDCString *secondTestString = IDCStringCreateWithData("Eva");
-    IDCPrintStringCount(secondTestString);
-    IDCStringIsEmpty(secondTestString);
-    IDCStringPrintString(secondTestString);
-
-    IDCString *stringWithString = IDCStringWithString(firstTestString, secondTestString);
-    IDCPrintStringCount(stringWithString);
-    IDCStringIsEmpty(stringWithString);
-    IDCStringPrintString(stringWithString);
-
-    IDCStringPrintComparisonResult(firstTestString, copyFirstTestString);
-    IDCStringPrintComparisonResult(firstTestString, firstTestString);
- 
-    IDCStringPrintCharacterIndex(firstTestString, (char)"m");
-
-    IDCStringChangeCharacter(firstTestString, 0, (char)"B");
-    IDCStringPrintCharacterAtIndex(firstTestString, 0);
+    while (index < 10) {
+        IDCDynamicArrayAddObject(testArray, object);
+        index++;
+    }
     
-    IDCObjectRelease(firstTestString);
-    IDCObjectRelease(secondTestString);
-    IDCObjectRelease(stringWithString);
+    uint64_t count = IDCDynamicArrayGetCount(testArray);
+    
+    for (int16_t index = 0; index < count; index++) {
+        IDCDynamicArrayRemoveAllObjects(testArray);
+    }
+    
 }
+
+//void IDCPrintObjectStringTest() {
+//    IDCString *firstTestString = IDCStringCreateWithData("Adam");
+//    IDCPrintStringCount(firstTestString);
+//    IDCStringIsEmpty(firstTestString);
+//    IDCStringPrintString(firstTestString);
+//    
+//    IDCString *copyFirstTestString = IDCStringCreateWithData("Adam");
+//    IDCStringPrintString(copyFirstTestString);
+//    
+//    IDCString *secondTestString = IDCStringCreateWithData("Eva");
+//    IDCPrintStringCount(secondTestString);
+//    IDCStringIsEmpty(secondTestString);
+//    IDCStringPrintString(secondTestString);
+//
+//    IDCString *stringWithString = IDCStringWithString(firstTestString, secondTestString);
+//    IDCPrintStringCount(stringWithString);
+//    IDCStringIsEmpty(stringWithString);
+//    IDCStringPrintString(stringWithString);
+//
+//    IDCStringPrintComparisonResult(firstTestString, copyFirstTestString);
+//    IDCStringPrintComparisonResult(firstTestString, firstTestString);
+// 
+//    IDCStringPrintCharacterIndex(firstTestString, (char)"m");
+//
+//    IDCStringChangeCharacter(firstTestString, 0, (char)"B");
+//    IDCStringPrintCharacterAtIndex(firstTestString, 0);
+//    
+//    IDCObjectRelease(firstTestString);
+//    IDCObjectRelease(secondTestString);
+//    IDCObjectRelease(stringWithString);
+//}

@@ -18,6 +18,9 @@ extern
 void IDCPrintObjectArrayTest(void);
 
 extern
+void IDCPrintObjectDynamicArrayTest(void);
+
+extern
 void IDCPrintObjectHumanTest(void);
 
 #endif /* IDCLection5ObjectHumanTest_h */
