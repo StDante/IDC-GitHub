@@ -147,15 +147,17 @@ uint64_t IDCStringGetCharacterIndex(IDCString *string, char character) {
     assert(string);
     
     uint64_t count = IDCStringGetCount(string);
-    for (uint64_t index = 0; string->_stringData[index] != character; index++) {
-        if (index > count) {
-            puts("There is no such character in string\n");
-            
+    uint64_t index = 0;
+    
+    while (string->_stringData[index] != character) {
+        if (index < count) {
+            index++;
+        } else {
             return UINT64_MAX;
         }
     }
-    
-    return (uint64_t)index - 1;
+
+    return index;
 }
 
 void IDCStringPrintCharacterIndex(IDCString *string, char character) {

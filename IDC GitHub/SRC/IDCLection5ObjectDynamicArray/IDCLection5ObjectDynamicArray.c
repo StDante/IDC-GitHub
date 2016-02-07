@@ -21,6 +21,8 @@ static const float kIDCCapacityChangeScope = 0.8;
 
 static const uint8_t kIDCCapacityMinimum = 10;
 
+static const uint64_t kIDCUndefinedIndex = UINT64_MAX;
+
 static
 void IDCDynamicArraySetCount(IDCDynamicArray *array, uint64_t count);
 
@@ -45,7 +47,7 @@ static
 bool IDCDynamicArrayIsCapacityChangeNeeded(IDCDynamicArray *array);
 
 static
-void IDCDynamicArrayChangeCapacity(IDCDynamicArray *array);
+void IDCDynamicArrayChangeCapacityIfNeeded(IDCDynamicArray *array);
 
 static
 void IDCDynamicArrayRecomendedCapacityChange(IDCDynamicArray *array);
@@ -61,7 +63,6 @@ void __IDCDynamicArrayDeallocate(IDCDynamicArray *array) {
 
 void *IDCDynamicArrayCreate(void) {
     IDCDynamicArray *array = IDCObjectCreate(IDCDynamicArray);
-    assert(array);
     IDCDynamicArraySetCapacity(array, 0);
     IDCDynamicArraySetCount(array, 0);
     
@@ -93,17 +94,21 @@ void IDCDynamicArraySetObjectAtIndex(IDCDynamicArray *array,
 
 uint64_t IDCDynamicArrayGetIndexOfObject(IDCDynamicArray *array, void *object) {
     assert(array);
-    uint64_t index = 0;
-    if (IDCDynamicArrayIsContainsObject(array, object) == true) {
-        while (IDCDynamicArrayGetObjectAtIndex(array, index) != object) {
-            index++;
-        }
-        
-        return index;
-    }
     
-    return puts("There is no such object in array\n");
+    uint64_t count = IDCDynamicArrayGetCount(array);
+    
+    if (IDCDynamicArrayIsContainsObject(array, object) == true) {
+        for (uint64_t index = 0; index < count; index++) {
+            if (IDCDynamicArrayGetObjectAtIndex(array, index) == object) {
+                return index;
+            }
+        }
+    }
+    printf("There is no such object in array\n");
+    
+    return kIDCUndefinedIndex;
 }
+
 
 void *IDCDynamicArrayGetObjectAtIndex(IDCDynamicArray *array, uint64_t index) {
     assert(array);
@@ -141,14 +146,14 @@ void *IDCDynamicArrayGetLastObject(IDCDynamicArray *array) {
 void IDCDynamicArraySetCapacity(IDCDynamicArray *array, uint64_t capacity) {
     IDCReturnMacros(array);
     
-    uint64_t arrayCapacity = IDCDynamicArrayGetCapacity(array);
+    uint64_t arrayCapacity = array->_capacity;
     uint64_t count = IDCDynamicArrayGetCount(array);
     size_t size = sizeof(void *);
     
     if (arrayCapacity == capacity) {
         return;
     }
-        
+    
     if (arrayCapacity < capacity) {
         IDCDynamicArraySetData(array, realloc(IDCDynamicArrayGetData(array), capacity * size));
         memset(&array->_arrayData[count], 0, (capacity - count) * size);
@@ -181,11 +186,11 @@ uint64_t IDCDynamicArrayGetCount(IDCDynamicArray *array) {
 void IDCDynamicArrayShiftObjectsFromIndex(IDCDynamicArray *array, uint64_t index) {
     
     void *lastObject = IDCDynamicArrayGetLastObject(array);
-    uint64_t indexReplace = index + 1;
     uint64_t indexLast = IDCDynamicArrayGetIndexOfObject(array, lastObject);
     
-    while (indexReplace <= indexLast) {
-        IDCAssignSetter(array->_arrayData[index], array->_arrayData[indexReplace]);
+    for (uint64_t indexReplace = index + 1; indexReplace <= indexLast; index++) {
+        void *secondObject = IDCDynamicArrayGetObjectAtIndex(array, indexReplace);
+        IDCDynamicArraySetObjectAtIndex(array, secondObject, index);
         index++;
     }
 }
@@ -203,7 +208,7 @@ void IDCDynamicArrayRemoveObjectAtIndex(IDCDynamicArray *array, uint64_t index) 
     IDCRetainSetter(array->_arrayData[index], NULL);
     IDCDynamicArrayShiftObjectsFromIndex(array, index);
     IDCDynamicArraySetCount(array, count - 1);
-    IDCDynamicArrayChangeCapacity(array);
+    IDCDynamicArrayChangeCapacityIfNeeded(array);
 }
 
 static
@@ -217,7 +222,7 @@ bool IDCDynamicArrayIsCapacityChangeNeeded(IDCDynamicArray *array) {
 }
 
 static
-void IDCDynamicArrayChangeCapacity(IDCDynamicArray *array) {
+void IDCDynamicArrayChangeCapacityIfNeeded(IDCDynamicArray *array) {
     assert(array);
     
     if (IDCDynamicArrayIsCapacityChangeNeeded(array) == true) {
@@ -245,7 +250,7 @@ void IDCDynamicArrayAddObject(IDCDynamicArray *array, void *object) {
     
     uint64_t count = IDCDynamicArrayGetCount(array);
     
-    IDCDynamicArrayChangeCapacity(array);
+    IDCDynamicArrayChangeCapacityIfNeeded(array);
     IDCDynamicArraySetObjectAtIndex(array, object, count);
     IDCDynamicArraySetCount(array, count + 1);
 }
@@ -283,21 +288,17 @@ bool IDCDynamicArrayIsEmpty(IDCDynamicArray *array) {
 bool IDCDynamicArrayIsContainsObject(IDCDynamicArray *array, void *object) {
     assert(array);
     
+    uint64_t count = IDCDynamicArrayGetCount(array);
+    
     if (IDCDynamicArrayIsEmpty(array) == true) {
         return false;
     }
     
-    uint64_t index = 0;
-    
-    if (IDCDynamicArrayGetObjectAtIndex(array, index) != object) {
-        while (index < IDCDynamicArrayGetCount(array)) {
-            index++;
+    for (uint64_t index = 0; IDCDynamicArrayGetObjectAtIndex(array, index) != object; index++) {
+        if (index >= count) {
+            return false;
         }
-        printf("This Array doesn't contain such object\n");
-        
-        return false;
     }
-    printf("This Array contains such object\n");
     
     return true;
 }

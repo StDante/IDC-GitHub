@@ -12,6 +12,9 @@
 #include "IDCLection5ObjectHuman.h"
 
 extern
+void IDCPrintObjectTest(void);
+
+extern
 void IDCPrintObjectStringTest(void);
 
 extern

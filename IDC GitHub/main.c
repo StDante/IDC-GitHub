@@ -26,6 +26,8 @@ int main(int argc, const char * argv[]) {
 
     printf("\n");
     
+//    IDCPrintObjectStringTest();
+    
     IDCPrintObjectDynamicArrayTest();
     
     return 0;

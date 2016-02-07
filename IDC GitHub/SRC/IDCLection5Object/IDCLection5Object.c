@@ -22,7 +22,7 @@ void __IDCObjectDeallocate(void *object) {
 }
 
 void *__IDCObjectCreate(size_t size, IDCObjectDeallocator *deallocator) {
-    IDCObject *object = calloc(1, sizeof(size));
+    IDCObject *object = calloc(1, size);
     assert(object);
     
     object->_referenceCount = kIDCStartReferenceCount;
