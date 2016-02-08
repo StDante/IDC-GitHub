@@ -205,4 +205,6 @@ void IDCLinkedListRemoveAllObjects(IDCLinkedList *list) {
         IDCRetainSetter(node, NULL);
         count--;
     }
+    
+    IDCLinkedListSetCount(list, 0);
 }
