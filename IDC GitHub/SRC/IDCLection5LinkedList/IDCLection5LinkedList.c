@@ -170,6 +170,7 @@ void IDCLinkedListAddObject(IDCLinkedList *list, void *object) {
         IDCLinkedListSetHead(list, node);
     }
     
+    IDCObjectRelease(node);
     IDCLinkedListSetCount(list, count++);
 }
 
@@ -182,7 +183,7 @@ void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
     
     if (IDCNodeGetObject(node) == object) {
         IDCLinkedListSetHead(list, IDCNodeGetNextNode(node));
-        IDCRetainSetter(node, NULL);
+        IDCObjectRelease(node);
     } else {
         while (IDCNodeGetObject(node) != object) {
             nodeBefore = node;
@@ -192,7 +193,7 @@ void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
         }
         
         IDCNodeSetNextNode(nodeBefore, IDCNodeGetNextNode(node));
-        IDCRetainSetter(node, NULL);
+        IDCObjectRelease(node);
     }
     
     IDCLinkedListSetCount(list, count--);
