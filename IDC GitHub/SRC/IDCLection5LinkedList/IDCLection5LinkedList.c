@@ -14,37 +14,10 @@
 #pragma mark Private Declaration
 
 static
-IDCNode *IDCNodeCreate(void);
-
-static
 void IDCLinkedListSetHead(IDCLinkedList *list, IDCNode *node);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
-
-
-void __IDCNodeDeallocate(IDCNode *node) {
-    IDCReturnMacros(node);
-    IDCNodeSetObject(node, NULL);
-    IDCNodeSetNextNode(node, NULL);
-    
-    __IDCObjectDeallocate(node);
-}
-
-IDCNode *IDCNodeCreate() {
-    IDCNode *node = IDCObjectCreate(IDCNode);
-    assert(node);
-    
-    return node;
-}
-
-IDCNode *IDCNodeCreateWithObject(void *object) {
-    IDCNode *node = IDCNodeCreate();
-    IDCNodeSetObject(node, object);
-    IDCNodeSetNextNode(node, NULL);
-    
-    return node;
-}
 
 void __IDCLinkedListDeallocate(IDCLinkedList *list) {
     IDCLinkedListRemoveAllObjects(list);
@@ -62,30 +35,6 @@ IDCLinkedList *IDCLinkedListCreate(void) {
 
 #pragma mark -
 #pragma mark Accessors
-
-void IDCNodeSetObject(IDCNode *node, void *object) {
-    IDCReturnMacros(node);
-    
-    IDCRetainSetter(node->_object, object);
-}
-
-void *IDCNodeGetObject(IDCNode *node) {
-    IDCReturnNULLMacros(node);
-    
-    return node->_object;
-}
-
-void IDCNodeSetNextNode(IDCNode *node, IDCNode *nextNode) {
-    IDCReturnMacros(node);
-    
-    IDCRetainSetter(node->_nextNode, nextNode);
-}
-
-IDCNode *IDCNodeGetNextNode(IDCNode *node) {
-    IDCReturnNULLMacros(node);
-    
-    return node->_nextNode;
-}
 
 void IDCLinkedListSetHead(IDCLinkedList *list, IDCNode *node) {
     IDCReturnMacros(list);
@@ -113,27 +62,6 @@ IDCNode *IDCLinkedListGetObject(IDCLinkedList *list, void *object) {
     }
     
     return node;
-}
-
-IDCNode *IDCLinkedListGetNodeAtNumber(IDCLinkedList *list, uint64_t number) {
-    IDCReturnNULLMacros(list);
-    if (number > IDCLinkedListGetCount(list)) {
-        return NULL;
-    }
-    
-    IDCNode *node = IDCLinkedListGetHead(list);
-    uint64_t stepsCount = 1;
-    
-    if (number == 1) {
-        return node;
-    } else {
-        while (stepsCount != number) {
-            node = IDCNodeGetNextNode(node);
-            stepsCount++;
-        }
-        
-        return node;
-    }
 }
 
 void IDCLinkedListSetCount(IDCLinkedList *list, uint64_t count) {
