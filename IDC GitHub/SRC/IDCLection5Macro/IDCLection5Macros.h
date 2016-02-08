@@ -67,12 +67,12 @@
                                                                         human); \
             return *child;
 
-#define IDCReturnNULLIfFirstValueBigger(firstValue, secondValue) \
+#define IDCReturnNULLIfFirstValueIsBigger(firstValue, secondValue) \
             if (firstValue > secondValue) { \
                 return NULL; \
             }
 
-#define IDCReturnIfFirstValueBigger(firstValue, secondValue) \
+#define IDCReturnIfFirstValueIsBigger(firstValue, secondValue) \
             if (firstValue > secondValue) { \
             return; \
             }

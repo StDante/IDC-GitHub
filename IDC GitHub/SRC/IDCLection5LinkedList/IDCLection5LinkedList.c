@@ -5,6 +5,8 @@
 //  Created by Alexandr Altukhov on 08.02.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
+// ADD BOOL "ContainsObject"
+// ADD Setter And Getter For First Object
 
 #include "IDCLection5LinkedList.h"
 
@@ -107,7 +109,7 @@ IDCNode *IDCLinkedListGetObject(IDCLinkedList *list, void *object) {
     while (IDCNodeGetObject(node) != object) {
         node = IDCNodeGetNextNode(node);
         stepsCount++;
-        IDCReturnNULLIfFirstValueBigger(stepsCount, count);
+        IDCReturnNULLIfFirstValueIsBigger(stepsCount, count);
     }
     
     return node;
@@ -174,6 +176,7 @@ void IDCLinkedListAddObject(IDCLinkedList *list, void *object) {
 void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
     IDCReturnMacros(list);
     IDCNode *node = IDCLinkedListGetHead(list);
+    IDCNode *nodeBefore = NULL;
     uint64_t stepsCount = 1;
     uint64_t count = IDCLinkedListGetCount(list);
     
@@ -182,12 +185,12 @@ void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
         IDCRetainSetter(node, NULL);
     } else {
         while (IDCNodeGetObject(node) != object) {
+            nodeBefore = node;
             node = IDCNodeGetNextNode(node);
             stepsCount++;
-            IDCReturnIfFirstValueBigger(stepsCount, count);
+            IDCReturnIfFirstValueIsBigger(stepsCount, count);
         }
         
-        IDCNode *nodeBefore = IDCLinkedListGetNodeAtNumber(list, stepsCount);
         IDCNodeSetNextNode(nodeBefore, IDCNodeGetNextNode(node));
         IDCRetainSetter(node, NULL);
     }
@@ -197,14 +200,5 @@ void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
 
 void IDCLinkedListRemoveAllObjects(IDCLinkedList *list) {
     IDCReturnMacros(list);
-    uint64_t count = IDCLinkedListGetCount(list);
-    IDCNode *node = IDCLinkedListGetHead(list);
-    
-    while (count != 0) {
-        IDCLinkedListSetHead(list, IDCNodeGetNextNode(node));
-        IDCRetainSetter(node, NULL);
-        count--;
-    }
-    
-    IDCLinkedListSetCount(list, 0);
+    IDCLinkedListSetHead(list, NULL);
 }
