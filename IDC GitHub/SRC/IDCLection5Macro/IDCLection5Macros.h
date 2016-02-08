@@ -67,5 +67,13 @@
                                                                         human); \
             return *child;
 
+#define IDCReturnNULLIfFirstValueBigger(firstValue, secondValue) \
+            if (firstValue > secondValue) { \
+                return NULL; \
+            }
 
+#define IDCReturnIfFirstValueBigger(firstValue, secondValue) \
+            if (firstValue > secondValue) { \
+            return; \
+            }
 #endif /* IDCLection5Macro_h */
