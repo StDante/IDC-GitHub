@@ -19,8 +19,6 @@ struct IDCNode {
     void *_object;
 };
 
-//methods with IDCNode
-
 extern
 void __IDCNodeDeallocate(IDCNode *node);
 

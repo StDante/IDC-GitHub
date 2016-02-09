@@ -54,6 +54,7 @@
 		A255F04F1C4567A300078EEA /* IDCLection5ObjectHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5ObjectHumanTest.h; path = Test/IDCLection5ObjectHumanTest/IDCLection5ObjectHumanTest.h; sourceTree = "<group>"; };
 		A28D729F1C6882DF00897632 /* IDCLection5Node.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection5Node.c; path = SRC/IDCLection5Node/IDCLection5Node.c; sourceTree = "<group>"; };
 		A28D72A01C6882DF00897632 /* IDCLection5Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5Node.h; path = SRC/IDCLection5Node/IDCLection5Node.h; sourceTree = "<group>"; };
+		A28D72A41C68918500897632 /* IDCLection5LinkedListPrivateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDCLection5LinkedListPrivateHeader.h; path = SRC/IDClection5LinkedListPrivateHeader/IDCLection5LinkedListPrivateHeader.h; sourceTree = "<group>"; };
 		A29357D21C32061A000B5C78 /* IDCLection2MacrosTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection2MacrosTest.c; path = Test/IDCLection2MacrosTest/IDCLection2MacrosTest.c; sourceTree = "<group>"; };
 		A29357D31C32061A000B5C78 /* IDCLection2MacrosTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection2MacrosTest.h; path = Test/IDCLection2MacrosTest/IDCLection2MacrosTest.h; sourceTree = "<group>"; };
 		A29357D61C32076F000B5C78 /* IDCLection3Structure.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection3Structure.c; path = SRC/IDCLection3Structure/IDCLection3Structure.c; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		A21ED8641C30CA1900FC8564 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A28D72A21C68911800897632 /* IDCLection5LinkedListPrivateHeader */,
 				A28D729E1C6882BB00897632 /* IDCLection5Node */,
 				A2EFE1F91C67FD1400E834C6 /* IDCLection5LinkedList */,
 				A297F6C01C621484006D0294 /* IDCLection5ObjectDynamicArray */,
@@ -199,6 +201,14 @@
 				A28D72A01C6882DF00897632 /* IDCLection5Node.h */,
 			);
 			name = IDCLection5Node;
+			sourceTree = "<group>";
+		};
+		A28D72A21C68911800897632 /* IDCLection5LinkedListPrivateHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A28D72A41C68918500897632 /* IDCLection5LinkedListPrivateHeader.h */,
+			);
+			name = IDCLection5LinkedListPrivateHeader;
 			sourceTree = "<group>";
 		};
 		A29357D51C32074D000B5C78 /* IDCLection3Structure */ = {

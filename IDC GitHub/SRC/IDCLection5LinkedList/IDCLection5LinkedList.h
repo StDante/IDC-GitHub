@@ -9,6 +9,8 @@
 #ifndef IDCLection5LinkedList_h
 #define IDCLection5LinkedList_h
 
+
+#include <stdbool.h>
 #include "IDCLection5Node.h"
 
 typedef struct IDCLinkedList IDCLinkedList;
@@ -26,10 +28,13 @@ extern
 IDCLinkedList *IDCLinkedListCreate(void);
 
 extern
-IDCNode *IDCLinkedListGetHead(IDCLinkedList *list);
+IDCLinkedList *IDCLinkedListCreateWithObject(void *object);
 
 extern
-IDCNode *IDCLinkedListGetObject(IDCLinkedList *list, void *object);
+void *IDCLinkedListGetObject(IDCLinkedList *list, void *object);
+
+extern
+void *IDCLinkedListGetFirstObject(IDCLinkedList *list);
 
 extern
 void IDCLinkedListAddObject(IDCLinkedList *list, void *object);
@@ -38,12 +43,12 @@ extern
 void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object);
 
 extern
-void IDCLinkedListRemoveAllObjects(IDCLinkedList *list);
-
-extern
-void IDCLinkedListSetCount(IDCLinkedList *list, uint64_t count);
+void IDCLinkedListRemoveAllObject(IDCLinkedList *list);
 
 extern
 uint64_t IDCLinkedListGetCount(IDCLinkedList *list);
+
+extern
+bool IDCLinkedListContainsObject(IDCLinkedList *list, void *object);
 
 #endif /* IDCLection5LinkedList_h */

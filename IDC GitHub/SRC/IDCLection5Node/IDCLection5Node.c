@@ -5,14 +5,9 @@
 //  Created by Alexandr Altukhov on 08.02.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
+// Add methods: Add and Remove Node.
 
 #include "IDCLection5Node.h"
-
-#pragma mark -
-#pragma mark Private Declaration
-
-static
-IDCNode *IDCNodeCreate(void);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -25,15 +20,9 @@ void __IDCNodeDeallocate(IDCNode *node) {
     __IDCObjectDeallocate(node);
 }
 
-IDCNode *IDCNodeCreate() {
+IDCNode *IDCNodeCreateWithObject(void *object) {
     IDCNode *node = IDCObjectCreate(IDCNode);
     assert(node);
-    
-    return node;
-}
-
-IDCNode *IDCNodeCreateWithObject(void *object) {
-    IDCNode *node = IDCNodeCreate();
     IDCNodeSetObject(node, object);
     IDCNodeSetNextNode(node, NULL);
     

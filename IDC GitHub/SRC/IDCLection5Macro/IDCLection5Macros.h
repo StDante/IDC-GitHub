@@ -15,6 +15,13 @@
                 return; \
             }
 
+#define IDCReturnValueMacros(value, returnValue) \
+            if (NULL == value) { \
+                printf("There is no such object\n"); \
+                return returnValue; \
+            }
+
+
 #define IDCReturnNULLMacros(value) \
             if (NULL == value) { \
             printf("There is no such object\n"); \
