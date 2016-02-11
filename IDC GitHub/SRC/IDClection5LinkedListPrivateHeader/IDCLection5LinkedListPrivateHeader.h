@@ -20,4 +20,7 @@ void IDCLinkedListSetHead(IDCLinkedList *list, IDCNode *node);
 extern
 IDCNode *IDCLinkedListGetHead(IDCLinkedList *list);
 
+extern
+uint64_t IDCLinkedListGetMutableCount(IDCLinkedList *list);
+
 #endif /* IDCLection5LinkedListPrivateHeader_h */

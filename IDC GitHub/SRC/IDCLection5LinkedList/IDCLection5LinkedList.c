@@ -5,14 +5,24 @@
 //  Created by Alexandr Altukhov on 08.02.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
-// ADD BOOL "ContainsObject"
-// ADD Setter And Getter For First Object
 
 #include "IDCLection5LinkedList.h"
 #include "IDCLection5LinkedListPrivateHeader.h"
 
 #pragma mark -
 #pragma mark Private Declaration
+
+static
+void IDCLinkedListSetFirstObject(IDCLinkedList *list, void *object);
+
+static
+void IDCLinkedListAddNode(IDCLinkedList *list, IDCNode *node);
+
+static
+void IDCLinkedListRemoveNode(IDCLinkedList *list, IDCNode *node);
+
+static
+void IDCLinkedListSetMutableCount(IDCLinkedList *list, uint64_t mutableCount);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -25,8 +35,9 @@ void __IDCLinkedListDeallocate(IDCLinkedList *list) {
 
 IDCLinkedList *IDCLinkedListCreate(void) {
     IDCLinkedList *list = IDCObjectCreate(IDCLinkedList);
-    list->_head = NULL;
-    list->_count = 0;
+    IDCLinkedListSetHead(list, NULL);
+    IDCLinkedListSetMutableCount(list, 0);
+    IDCLinkedListSetCount(list, 0);
     
     return list;
 }
@@ -53,42 +64,64 @@ IDCNode *IDCLinkedListGetHead(IDCLinkedList *list) {
     return list->_head;
 }
 
+void IDCLinkedListSetFirstObject(IDCLinkedList *list, void *object) {
+    IDCReturnMacros(list);
+    
+    if (IDCLinkedListContainsObject(list, object)) {
+        IDCNode *node = IDCLinkedListGetHead(list);
+        while (IDCNodeGetObject(node) != object) {
+            node = IDCNodeGetNextNode(node);
+        }
+        
+        IDCLinkedListSetHead(list, node);
+    }
+}
+
 void *IDCLinkedListGetFirstObject(IDCLinkedList *list) {
     return IDCNodeGetObject(IDCLinkedListGetHead(list));
 }
 
 void *IDCLinkedListGetObject(IDCLinkedList *list, void *object) {
     IDCReturnNULLMacros(list);
-    uint64_t stepsCount = 1;
-    uint64_t count = IDCLinkedListGetCount(list);
     
-    IDCNode *node = IDCLinkedListGetHead(list);
+    if (IDCLinkedListContainsObject(list, object)) {
+        IDCNode *node = IDCLinkedListGetHead(list);
     
-    while (IDCNodeGetObject(node) != object) {
-        node = IDCNodeGetNextNode(node);
-        stepsCount++;
-        IDCReturnNULLIfFirstValueIsBigger(stepsCount, count);
+        while (IDCNodeGetObject(node) != object) {
+            node = IDCNodeGetNextNode(node);
+        }
+    
+        return IDCNodeGetObject(node);
     }
     
-    return IDCNodeGetObject(node);
+    return NULL;
+}
+
+void IDCLinkedListSetMutableCount(IDCLinkedList *list, uint64_t mutableCount) {
+    IDCReturnMacros(list);
+    
+    list->_mutableCount = mutableCount;
+}
+
+
+uint64_t IDCLinkedListGetMutableCount(IDCLinkedList *list) {
+    IDCReturnValueMacros(list, 0);
+    
+    return list->_mutableCount;
 }
 
 void IDCLinkedListSetCount(IDCLinkedList *list, uint64_t count) {
     IDCReturnMacros(list);
     
     list->_count = count;
+    IDCLinkedListSetMutableCount(list, IDCLinkedListGetMutableCount(list) + 1);
 }
-
 
 uint64_t IDCLinkedListGetCount(IDCLinkedList *list) {
     assert(list);
     
     return list->_count;
 }
-
-
-#pragma mark -
-#pragma mark Private Implementation
 
 #pragma mark -
 #pragma mark Public Implementation
@@ -107,47 +140,61 @@ bool IDCLinkedListContainsObject(IDCLinkedList *list, void *object) {
 
 void IDCLinkedListAddObject(IDCLinkedList *list, void *object) {
     IDCReturnMacros(list);
-    IDCNode *node = IDCLinkedListGetHead(list);
-    uint64_t count = IDCLinkedListGetCount(list);
     
-    if (node == NULL) {
-        node = IDCNodeCreateWithObject(object);
-        IDCLinkedListSetHead(list, node);
-    } else {
-        node = IDCNodeCreateWithObject(object);
-        IDCNodeSetNextNode(node, IDCLinkedListGetHead(list));
-        IDCLinkedListSetHead(list, node);
-    }
-    
+    IDCNode *node = IDCNodeCreateWithObject(object);
+    IDCLinkedListAddNode(list, node);
     IDCObjectRelease(node);
-    IDCLinkedListSetCount(list, count++);
 }
 
 void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
     IDCReturnMacros(list);
-    IDCNode *node = IDCLinkedListGetHead(list);
-    IDCNode *nodeBefore = NULL;
-    uint64_t stepsCount = 1;
-    uint64_t count = IDCLinkedListGetCount(list);
     
-    if (IDCNodeGetObject(node) == object) {
-        IDCLinkedListSetHead(list, IDCNodeGetNextNode(node));
-        IDCObjectRelease(node);
-    } else {
-        while (IDCNodeGetObject(node) != object) {
-            nodeBefore = node;
-            node = IDCNodeGetNextNode(node);
-            stepsCount++;
-            IDCReturnIfFirstValueIsBigger(stepsCount, count);
+    IDCNode *node = IDCLinkedListGetHead(list);
+    IDCNode *nextNode = IDCNodeGetNextNode(node);
+    
+    while (NULL != node) {
+        if (object == IDCNodeGetObject(node)) {
+            IDCLinkedListRemoveNode(list, node);
         }
         
-        IDCNodeSetNextNode(nodeBefore, IDCNodeGetNextNode(node));
-        IDCObjectRelease(node);
+        node = nextNode;
+        nextNode = IDCNodeGetNextNode(node);
     }
-    
-    IDCLinkedListSetCount(list, count--);
 }
 
 void IDCLinkedListRemoveAllObject(IDCLinkedList *list) {
     IDCLinkedListSetHead(list, NULL);
+    IDCLinkedListSetCount(list, 0);
 }
+
+#pragma mark -
+#pragma mark Private Implementation
+
+void IDCLinkedListAddNode(IDCLinkedList *list, IDCNode *node) {
+    IDCReturnMacros(list);
+    
+    IDCNodeSetNextNode(node, IDCLinkedListGetHead(list));
+    IDCLinkedListSetHead(list, node);
+    IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) + 1);
+}
+
+void IDCLinkedListRemoveNode(IDCLinkedList *list, IDCNode *node) {
+    IDCReturnMacros(list);
+    
+    IDCNode *firstNode = IDCLinkedListGetHead(list);
+    IDCNode *secondNode = IDCNodeGetNextNode(firstNode);
+    
+    if (node == firstNode) {
+        IDCLinkedListSetHead(list, secondNode);
+    } else {
+        while (secondNode != node) {
+            firstNode = secondNode;
+            secondNode = IDCNodeGetNextNode(secondNode);
+        }
+        
+        IDCNodeSetNextNode(firstNode, IDCNodeGetNextNode(secondNode));
+    }
+    
+    IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) - 1);
+}
+

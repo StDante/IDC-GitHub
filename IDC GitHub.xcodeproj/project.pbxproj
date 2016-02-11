@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A214813C1C6B651C003C7740 /* IDCLection5Enumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = A214813A1C6B651C003C7740 /* IDCLection5Enumerator.c */; };
 		A21ED85D1C30C98F00FC8564 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A21ED85C1C30C98F00FC8564 /* main.c */; };
 		A21ED8681C30CA6200FC8564 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A21ED8661C30CA6200FC8564 /* IDCLection2Macros.c */; };
 		A23F5E1E1C59095D004458FD /* IDCLection5ObjectArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A23F5E1C1C59095D004458FD /* IDCLection5ObjectArray.c */; };
@@ -38,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A214813A1C6B651C003C7740 /* IDCLection5Enumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection5Enumerator.c; path = SRC/IDCLection5Enumerator/IDCLection5Enumerator.c; sourceTree = "<group>"; };
+		A214813B1C6B651C003C7740 /* IDCLection5Enumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLection5Enumerator.h; path = SRC/IDCLection5Enumerator/IDCLection5Enumerator.h; sourceTree = "<group>"; };
 		A21ED8591C30C98F00FC8564 /* IDC GitHub */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "IDC GitHub"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21ED85C1C30C98F00FC8564 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		A21ED8661C30CA6200FC8564 /* IDCLection2Macros.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IDCLection2Macros.c; path = SRC/IDCLection2Macros/IDCLection2Macros.c; sourceTree = "<group>"; };
@@ -84,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A21481391C6B64BC003C7740 /* IDCLection5Enumerator */ = {
+			isa = PBXGroup;
+			children = (
+				A214813A1C6B651C003C7740 /* IDCLection5Enumerator.c */,
+				A214813B1C6B651C003C7740 /* IDCLection5Enumerator.h */,
+			);
+			name = IDCLection5Enumerator;
+			sourceTree = "<group>";
+		};
 		A21DBDE91C3AD1D000093B04 /* IDCLection4BitField */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 		A21ED8641C30CA1900FC8564 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A21481391C6B64BC003C7740 /* IDCLection5Enumerator */,
 				A28D72A21C68911800897632 /* IDCLection5LinkedListPrivateHeader */,
 				A28D729E1C6882BB00897632 /* IDCLection5Node */,
 				A2EFE1F91C67FD1400E834C6 /* IDCLection5LinkedList */,
@@ -353,6 +366,7 @@
 				A28D72A11C6882DF00897632 /* IDCLection5Node.c in Sources */,
 				A297F6C31C6214C8006D0294 /* IDCLection5ObjectDynamicArray.c in Sources */,
 				A29357D41C32061A000B5C78 /* IDCLection2MacrosTest.c in Sources */,
+				A214813C1C6B651C003C7740 /* IDCLection5Enumerator.c in Sources */,
 				A255F04D1C45676E00078EEA /* IDCLection4BitFieldTest.c in Sources */,
 				A2BAEA7E1C543F8C00994E5A /* IDCLection5ObjectString.c in Sources */,
 			);

@@ -19,6 +19,7 @@ struct IDCLinkedList {
     IDCObject _super;
     IDCNode *_head;
     uint64_t _count;
+    uint64_t _mutableCount;
 };
 
 extern

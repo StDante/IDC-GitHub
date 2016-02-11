@@ -42,8 +42,9 @@
 
 #define IDCRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\
+                IDCObjectRetain(newValue); \
                 IDCObjectRelease(oldValue); \
-                oldValue = IDCObjectRetain(newValue); \
+                oldValue = newValue; \
             }
 
 #define IDCHumanRetainStrongConection(human, partner) \
