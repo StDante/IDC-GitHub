@@ -14,6 +14,15 @@
 static
 IDCEnumerator *IDCEnumeratorCreate(void);
 
+static
+void IDCEnumeratorSetList(IDCEnumerator *enumerator, IDCLinkedList *list);
+
+static
+void IDCEnumeratorSetMutableCount(IDCEnumerator *enumerator, uint64_t mutableCount);
+
+static
+uint64_t IDCEnumeratorGetMutableCount(IDCEnumerator *enumerator);
+
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
@@ -40,6 +49,7 @@ IDCEnumerator *IDCEnumeratorCreate(void) {
 IDCEnumerator *IDCEnumeratorCreateWithList(IDCLinkedList *list) {
     IDCEnumerator *enumerator = IDCEnumeratorCreate();
     IDCEnumeratorSetList(enumerator, list);
+    IDCEnumeratorSetCurrentNode(enumerator, IDCLinkedListGetHead(list));
     IDCEnumeratorSetMutableCount(enumerator, IDCLinkedListGetMutableCount(list));
     
     return enumerator;
@@ -93,7 +103,7 @@ bool IDCEnumeratorIsValid(IDCEnumerator *enumerator, IDCLinkedList *list) {
     
     uint64_t enumeratorMutableCount = IDCEnumeratorGetMutableCount(enumerator);
     uint64_t listMutableCount = IDCLinkedListGetMutableCount(list);
-    bool isValid = ( enumeratorMutableCount == listMutableCount) ? true : false;
+    bool isValid = (enumeratorMutableCount == listMutableCount) ? true : false;
     
     return isValid;
 }

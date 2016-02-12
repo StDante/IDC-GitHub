@@ -7,6 +7,7 @@
 //
 
 #include "IDCLection5LinkedList.h"
+#include "IDCLection5Enumerator.h"
 #include "IDCLection5LinkedListPrivateHeader.h"
 
 #pragma mark -
@@ -180,21 +181,32 @@ void IDCLinkedListAddNode(IDCLinkedList *list, IDCNode *node) {
 
 void IDCLinkedListRemoveNode(IDCLinkedList *list, IDCNode *node) {
     IDCReturnMacros(list);
-    
+    IDCReturnMacros(node);
     IDCNode *firstNode = IDCLinkedListGetHead(list);
     IDCNode *secondNode = IDCNodeGetNextNode(firstNode);
-    
-    if (node == firstNode) {
+    if (firstNode == node) {
         IDCLinkedListSetHead(list, secondNode);
     } else {
-        while (secondNode != node) {
-            firstNode = secondNode;
-            secondNode = IDCNodeGetNextNode(secondNode);
+        IDCEnumerator *enumerator = IDCEnumeratorCreateWithList(list);
+        while (IDCEnumeratorIsValid(enumerator, list) == true) {
+            firstNode = IDCEnumeratorGetCurrentNode(enumerator);
+
         }
-        
-        IDCNodeSetNextNode(firstNode, IDCNodeGetNextNode(secondNode));
+
     }
     
-    IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) - 1);
+    IDCObjectRelease(enumerator);
+//    if (node == firstNode) {
+//        IDCLinkedListSetHead(list, secondNode);
+//    } else {
+//        while (secondNode != node) {
+//            firstNode = secondNode;
+//            secondNode = IDCNodeGetNextNode(secondNode);
+//        }
+//        
+//        IDCNodeSetNextNode(firstNode, IDCNodeGetNextNode(secondNode));
+//    }
+//    
+//    IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) - 1);
 }
 

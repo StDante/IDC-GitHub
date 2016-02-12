@@ -27,9 +27,6 @@ extern
 IDCEnumerator *IDCEnumeratorCreateWithList(IDCLinkedList *list);
 
 extern
-void IDCEnumeratorSetList(IDCEnumerator *enumerator, IDCLinkedList *list);
-
-extern
 IDCLinkedList *IDCEnumeratorGetList(IDCEnumerator *enumerator);
 
 extern
@@ -37,12 +34,6 @@ void IDCEnumeratorSetCurrentNode(IDCEnumerator *enumerator, IDCNode *node);
 
 extern
 IDCNode *IDCEnumeratorGetCurrentNode(IDCEnumerator *enumerator);
-
-extern
-void IDCEnumeratorSetMutableCount(IDCEnumerator *enumerator, uint64_t mutableCount);
-
-extern
-uint64_t IDCEnumeratorGetMutableCount(IDCEnumerator *enumerator);
 
 extern
 bool IDCEnumeratorIsValid(IDCEnumerator *enumerator, IDCLinkedList *list);
