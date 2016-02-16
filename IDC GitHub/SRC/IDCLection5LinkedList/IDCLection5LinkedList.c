@@ -155,6 +155,9 @@ void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
         IDCNode *node = IDCLinkedListGetNodeWithContext(list,
                                                         IDCLinkedListNodeContainsObject,
                                                         context);
+        if (node == IDCLinkedListGetHead(list)) {
+            IDCLinkedListSetHead(list, IDCNodeGetNextNode(node));
+        }
         
         IDCNodeSetNextNode(context->previousNode, IDCNodeGetNextNode(node));
         
