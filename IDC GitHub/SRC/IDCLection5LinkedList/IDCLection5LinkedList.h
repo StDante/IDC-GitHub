@@ -19,7 +19,7 @@ struct IDCLinkedList {
     IDCObject _super;
     IDCNode *_head;
     uint64_t _count;
-    uint64_t _mutableCount;
+    uint64_t _mutationsCount;
 };
 
 extern
@@ -44,7 +44,7 @@ extern
 void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object);
 
 extern
-void IDCLinkedListRemoveAllObject(IDCLinkedList *list);
+void IDCLinkedListRemoveAllObjects(IDCLinkedList *list);
 
 extern
 uint64_t IDCLinkedListGetCount(IDCLinkedList *list);

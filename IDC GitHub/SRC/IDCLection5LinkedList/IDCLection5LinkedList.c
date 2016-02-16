@@ -8,7 +8,6 @@
 
 #include "IDCLection5LinkedList.h"
 #include "IDCLection5Enumerator.h"
-#include "IDCLection5LinkedListPrivateHeader.h"
 
 #pragma mark -
 #pragma mark Private Declaration
@@ -23,7 +22,7 @@ static
 void IDCLinkedListRemoveNode(IDCLinkedList *list, IDCNode *node);
 
 static
-void IDCLinkedListSetMutableCount(IDCLinkedList *list, uint64_t mutableCount);
+void IDCLinkedListSetMutationsCount(IDCLinkedList *list, uint64_t mutationsCount);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -37,7 +36,7 @@ void __IDCLinkedListDeallocate(IDCLinkedList *list) {
 IDCLinkedList *IDCLinkedListCreate(void) {
     IDCLinkedList *list = IDCObjectCreate(IDCLinkedList);
     IDCLinkedListSetHead(list, NULL);
-    IDCLinkedListSetMutableCount(list, 0);
+    IDCLinkedListSetMutationsCount(list, 0);
     IDCLinkedListSetCount(list, 0);
     
     return list;
@@ -98,24 +97,24 @@ void *IDCLinkedListGetObject(IDCLinkedList *list, void *object) {
     return NULL;
 }
 
-void IDCLinkedListSetMutableCount(IDCLinkedList *list, uint64_t mutableCount) {
+void IDCLinkedListSetMutationsCount(IDCLinkedList *list, uint64_t mutationsCount) {
     IDCReturnMacros(list);
     
-    list->_mutableCount = mutableCount;
+    list->_mutationsCount = mutationsCount;
 }
 
 
-uint64_t IDCLinkedListGetMutableCount(IDCLinkedList *list) {
+uint64_t IDCLinkedListGetMutationsCount(IDCLinkedList *list) {
     IDCReturnValueMacros(list, 0);
     
-    return list->_mutableCount;
+    return list->_mutationsCount;
 }
 
 void IDCLinkedListSetCount(IDCLinkedList *list, uint64_t count) {
     IDCReturnMacros(list);
     
     list->_count = count;
-    IDCLinkedListSetMutableCount(list, IDCLinkedListGetMutableCount(list) + 1);
+    IDCLinkedListSetMutationsCount(list, IDCLinkedListGetMutationsCount(list) + 1);
 }
 
 uint64_t IDCLinkedListGetCount(IDCLinkedList *list) {
@@ -131,11 +130,12 @@ bool IDCLinkedListContainsObject(IDCLinkedList *list, void *object) {
     IDCReturnValueMacros(list, false);
     IDCReturnValueMacros(object, false);
     
-    IDCNode *node = IDCLinkedListGetHead(list);
-    while (IDCNodeGetObject(node) != object || !node) {
-        node = IDCNodeGetNextNode(node);
-    }
-
+    IDCContext *context = calloc(1, sizeof(IDCContext));
+    context->object = object;
+    
+    IDCNode *node = IDCLinkedListGetNodeWithContext(list, IDCLinkedListNodeContainsObject, context);
+    
+    free(context);
     return node;
 }
 
@@ -148,22 +148,26 @@ void IDCLinkedListAddObject(IDCLinkedList *list, void *object) {
 }
 
 void IDCLinkedListRemoveObject(IDCLinkedList *list, void *object) {
-    IDCReturnMacros(list);
-    
-    IDCNode *node = IDCLinkedListGetHead(list);
-    IDCNode *nextNode = IDCNodeGetNextNode(node);
-    
-    while (NULL != node) {
-        if (object == IDCNodeGetObject(node)) {
-            IDCLinkedListRemoveNode(list, node);
-        }
+    if (IDCLinkedListContainsObject(list, object)) {
+        IDCContext *context = calloc(1, sizeof(IDCContext));
+        context->object = object;
         
-        node = nextNode;
-        nextNode = IDCNodeGetNextNode(node);
+        IDCNode *node = IDCLinkedListGetNodeWithContext(list,
+                                                        IDCLinkedListNodeContainsObject,
+                                                        context);
+        
+        IDCNodeSetNextNode(context->previousNode, IDCNodeGetNextNode(node));
+        
+        free(context);
+        IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) - 1);
+    } else {
+        printf("There no such object in list");
+        
+        return;
     }
 }
 
-void IDCLinkedListRemoveAllObject(IDCLinkedList *list) {
+void IDCLinkedListRemoveAllObjects(IDCLinkedList *list) {
     IDCLinkedListSetHead(list, NULL);
     IDCLinkedListSetCount(list, 0);
 }
@@ -179,34 +183,35 @@ void IDCLinkedListAddNode(IDCLinkedList *list, IDCNode *node) {
     IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) + 1);
 }
 
-void IDCLinkedListRemoveNode(IDCLinkedList *list, IDCNode *node) {
-    IDCReturnMacros(list);
-    IDCReturnMacros(node);
-    IDCNode *firstNode = IDCLinkedListGetHead(list);
-    IDCNode *secondNode = IDCNodeGetNextNode(firstNode);
-    if (firstNode == node) {
-        IDCLinkedListSetHead(list, secondNode);
-    } else {
-        IDCEnumerator *enumerator = IDCEnumeratorCreateWithList(list);
-        while (IDCEnumeratorIsValid(enumerator, list) == true) {
-            firstNode = IDCEnumeratorGetCurrentNode(enumerator);
-
+IDCNode *IDCLinkedListGetNodeWithContext(IDCLinkedList *list,
+                                         IDCLinkedListNodeComparison comparator,
+                                         IDCContext *context)
+{
+    IDCReturnNULLMacros(list);
+    
+    IDCNode *node = NULL;
+    
+    IDCEnumerator *enumerator = IDCEnumeratorCreateWithList(list);
+    while (IDCEnumeratorIsValid(enumerator, list)) {
+        node = IDCEnumeratorGetNextNode(enumerator);
+        context->node = node;
+        
+        if (IDCLinkedListNodeContainsObject(node, context)) {
+            break;
+        } else {
+            context->previousNode = node;
         }
-
     }
     
     IDCObjectRelease(enumerator);
-//    if (node == firstNode) {
-//        IDCLinkedListSetHead(list, secondNode);
-//    } else {
-//        while (secondNode != node) {
-//            firstNode = secondNode;
-//            secondNode = IDCNodeGetNextNode(secondNode);
-//        }
-//        
-//        IDCNodeSetNextNode(firstNode, IDCNodeGetNextNode(secondNode));
-//    }
-//    
-//    IDCLinkedListSetCount(list, IDCLinkedListGetCount(list) - 1);
+    
+    return node;
 }
 
+bool IDCLinkedListNodeContainsObject(IDCNode *node, IDCContext *context) {
+    return node && IDCNodeGetObject(node) == context->object;
+}
+
+bool IDCLinkedListObjectIsEqualSubsequentObject(IDCContext *context) {
+    return IDCNodeGetObject(context->previousNode) == context->object;
+}

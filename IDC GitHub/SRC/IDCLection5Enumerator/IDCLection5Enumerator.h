@@ -17,7 +17,7 @@ struct IDCEnumerator {
     IDCObject _super;
     IDCLinkedList *_list;
     IDCNode *_currentNode;
-    uint64_t _mutableCount;
+    uint64_t _mutationsCount;
 };
 
 extern
@@ -30,10 +30,10 @@ extern
 IDCLinkedList *IDCEnumeratorGetList(IDCEnumerator *enumerator);
 
 extern
-void IDCEnumeratorSetCurrentNode(IDCEnumerator *enumerator, IDCNode *node);
+IDCNode *IDCEnumeratorGetCurrentNode(IDCEnumerator *enumerator);
 
 extern
-IDCNode *IDCEnumeratorGetCurrentNode(IDCEnumerator *enumerator);
+IDCNode *IDCEnumeratorGetNextNode(IDCEnumerator *enumerator);
 
 extern
 bool IDCEnumeratorIsValid(IDCEnumerator *enumerator, IDCLinkedList *list);

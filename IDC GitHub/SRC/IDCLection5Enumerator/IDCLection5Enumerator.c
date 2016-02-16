@@ -5,6 +5,10 @@
 //  Created by Alexandr Altukhov on 10.02.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
+//bool add nextnode = 0;
+//add next node method;
+//Context - struct that have inside - object, nodebefore and current node.
+
 
 #include "IDCLection5Enumerator.h"
 
@@ -18,10 +22,13 @@ static
 void IDCEnumeratorSetList(IDCEnumerator *enumerator, IDCLinkedList *list);
 
 static
-void IDCEnumeratorSetMutableCount(IDCEnumerator *enumerator, uint64_t mutableCount);
+void IDCEnumeratorSetCurrentNode(IDCEnumerator *enumerator, IDCNode *node);
 
 static
-uint64_t IDCEnumeratorGetMutableCount(IDCEnumerator *enumerator);
+void IDCEnumeratorSetMutationsCount(IDCEnumerator *enumerator, uint64_t mutationsCount);
+
+static
+uint64_t IDCEnumeratorGetMutationsCount(IDCEnumerator *enumerator);
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -41,7 +48,7 @@ IDCEnumerator *IDCEnumeratorCreate(void) {
     
     IDCEnumeratorSetList(enumerator, NULL);
     IDCEnumeratorSetCurrentNode(enumerator, NULL);
-    IDCEnumeratorSetMutableCount(enumerator, 0);
+    IDCEnumeratorSetMutationsCount(enumerator, 0);
     
     return enumerator;
 }
@@ -49,8 +56,7 @@ IDCEnumerator *IDCEnumeratorCreate(void) {
 IDCEnumerator *IDCEnumeratorCreateWithList(IDCLinkedList *list) {
     IDCEnumerator *enumerator = IDCEnumeratorCreate();
     IDCEnumeratorSetList(enumerator, list);
-    IDCEnumeratorSetCurrentNode(enumerator, IDCLinkedListGetHead(list));
-    IDCEnumeratorSetMutableCount(enumerator, IDCLinkedListGetMutableCount(list));
+    IDCEnumeratorSetMutationsCount(enumerator, IDCLinkedListGetMutationsCount(list));
     
     return enumerator;
 }
@@ -61,7 +67,7 @@ IDCEnumerator *IDCEnumeratorCreateWithList(IDCLinkedList *list) {
 void IDCEnumeratorSetList(IDCEnumerator *enumerator, IDCLinkedList *list) {
     IDCReturnMacros(enumerator);
     
-    enumerator->_list = list;
+    IDCRetainSetter(enumerator->_list, list);
 }
 
 IDCLinkedList *IDCEnumeratorGetList(IDCEnumerator *enumerator) {
@@ -73,7 +79,7 @@ IDCLinkedList *IDCEnumeratorGetList(IDCEnumerator *enumerator) {
 void IDCEnumeratorSetCurrentNode(IDCEnumerator *enumerator, IDCNode *node) {
     IDCReturnMacros(enumerator);
     
-    enumerator->_currentNode = node;
+    IDCRetainSetter(enumerator->_currentNode, node);
 }
 
 IDCNode *IDCEnumeratorGetCurrentNode(IDCEnumerator *enumerator) {
@@ -82,16 +88,31 @@ IDCNode *IDCEnumeratorGetCurrentNode(IDCEnumerator *enumerator) {
     return enumerator->_currentNode;
 }
 
-void IDCEnumeratorSetMutableCount(IDCEnumerator *enumerator, uint64_t mutableCount) {
-    IDCReturnMacros(enumerator);
+IDCNode *IDCEnumeratorGetNextNode(IDCEnumerator *enumerator) {
+    IDCReturnNULLMacros(enumerator);
+    IDCLinkedList *list = IDCEnumeratorGetList(enumerator);
+    IDCNode *node = IDCEnumeratorGetCurrentNode(enumerator);
     
-    enumerator->_mutableCount = mutableCount;
+    if (node == NULL) {
+        node = IDCLinkedListGetHead(list);
+    } else {
+        node = IDCNodeGetNextNode(node);
+        IDCEnumeratorSetCurrentNode(enumerator, node);
+    }
+    
+    return node;
 }
 
-uint64_t IDCEnumeratorGetMutableCount(IDCEnumerator *enumerator) {
+void IDCEnumeratorSetMutationsCount(IDCEnumerator *enumerator, uint64_t mutationsCount) {
+    IDCReturnMacros(enumerator);
+    
+    IDCAssignSetter(enumerator->_mutationsCount, mutationsCount);
+}
+
+uint64_t IDCEnumeratorGetMutationsCount(IDCEnumerator *enumerator) {
     assert(enumerator);
     
-    return enumerator->_mutableCount;
+    return enumerator->_mutationsCount;
 }
 
 #pragma mark -
@@ -101,9 +122,10 @@ bool IDCEnumeratorIsValid(IDCEnumerator *enumerator, IDCLinkedList *list) {
     IDCReturnValueMacros(enumerator, false);
     IDCReturnValueMacros(list, false);
     
-    uint64_t enumeratorMutableCount = IDCEnumeratorGetMutableCount(enumerator);
-    uint64_t listMutableCount = IDCLinkedListGetMutableCount(list);
-    bool isValid = (enumeratorMutableCount == listMutableCount) ? true : false;
+    uint64_t enumeratorMutationsCount = IDCEnumeratorGetMutationsCount(enumerator);
+    uint64_t listMutationsCount = IDCLinkedListGetMutationsCount(list);
+    IDCNode *node = IDCEnumeratorGetNextNode(enumerator);
+    bool isValid = (enumeratorMutationsCount == listMutationsCount) && node;
     
     return isValid;
 }

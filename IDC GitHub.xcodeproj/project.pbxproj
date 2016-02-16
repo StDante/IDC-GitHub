@@ -154,9 +154,6 @@
 		A21ED8641C30CA1900FC8564 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				A21481391C6B64BC003C7740 /* IDCLection5Enumerator */,
-				A28D72A21C68911800897632 /* IDCLection5LinkedListPrivateHeader */,
-				A28D729E1C6882BB00897632 /* IDCLection5Node */,
 				A2EFE1F91C67FD1400E834C6 /* IDCLection5LinkedList */,
 				A297F6C01C621484006D0294 /* IDCLection5ObjectDynamicArray */,
 				A23F5E1B1C59091F004458FD /* IDCLection5ObjectArray */,
@@ -290,6 +287,9 @@
 		A2EFE1F91C67FD1400E834C6 /* IDCLection5LinkedList */ = {
 			isa = PBXGroup;
 			children = (
+				A28D72A21C68911800897632 /* IDCLection5LinkedListPrivateHeader */,
+				A21481391C6B64BC003C7740 /* IDCLection5Enumerator */,
+				A28D729E1C6882BB00897632 /* IDCLection5Node */,
 				A2EFE1FA1C67FD4300E834C6 /* IDCLection5LinkedList.c */,
 				A2EFE1FB1C67FD4300E834C6 /* IDCLection5LinkedList.h */,
 			);

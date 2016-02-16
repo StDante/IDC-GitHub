@@ -11,6 +11,14 @@
 
 #include "IDCLection5LinkedList.h"
 
+typedef struct {
+    void *previousNode;
+    void *node;
+    void *object;
+}IDCContext;
+
+typedef bool (*IDCLinkedListNodeComparison)(IDCNode *node, IDCContext *context);
+
 extern
 void IDCLinkedListSetCount(IDCLinkedList *list, uint64_t count);
 
@@ -21,6 +29,18 @@ extern
 IDCNode *IDCLinkedListGetHead(IDCLinkedList *list);
 
 extern
-uint64_t IDCLinkedListGetMutableCount(IDCLinkedList *list);
+uint64_t IDCLinkedListGetMutationsCount(IDCLinkedList *list);
+
+extern
+IDCNode *IDCLinkedListGetNodeWithContext(IDCLinkedList *list,
+                                         IDCLinkedListNodeComparison comparator,
+                                         IDCContext *context);
+
+extern
+bool IDCLinkedListNodeContainsObject(IDCNode *node, IDCContext *context);
+
+extern
+bool IDCLinkedListObjectIsEqualSubsequentObject(IDCContext *context);
+
 
 #endif /* IDCLection5LinkedListPrivateHeader_h */
