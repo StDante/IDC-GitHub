@@ -117,7 +117,7 @@ uint64_t IDCEnumeratorGetMutationsCount(IDCEnumerator *enumerator) {
 
 #pragma mark -
 #pragma mark Public Implementation
-
+// refactoring - method doesn't node
 bool IDCEnumeratorIsValid(IDCEnumerator *enumerator, IDCLinkedList *list) {
     IDCReturnValueMacros(enumerator, false);
     IDCReturnValueMacros(list, false);
