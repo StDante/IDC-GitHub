@@ -127,10 +127,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A286021E1C76080F000E6ED0 /* ObjC */ = {
+		A24B910F1C767635004457D5 /* Test */ = {
 			isa = PBXGroup;
 			children = (
 				A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
+		A286021E1C76080F000E6ED0 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				A24B910F1C767635004457D5 /* Test */,
 				A28602701C76096E000E6ED0 /* SRC */,
 				A286021F1C76080F000E6ED0 /* main.m */,
 			);
@@ -619,6 +627,7 @@
 				A28602231C76080F000E6ED0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
