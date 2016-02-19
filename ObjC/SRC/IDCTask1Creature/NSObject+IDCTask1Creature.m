@@ -30,10 +30,11 @@
 
 - (instancetype)initWithName:(NSString *)name gender:(IDCGender)gender {
     self        = [[[IDCCreature  alloc] init] autorelease];
-    
-    self.name   = name;
-    self.gender = gender;
-    
+    if (self) {
+        self.name   = name;
+        self.gender = gender;
+    }
+
     return self;
 }
 
@@ -46,6 +47,7 @@
 - (instancetype)bornChildwithName:(NSString *)name gender:(IDCGender)gender {
     if (self.gender == kIDCFemale) {
         IDCCreature *child = [self initWithName:name gender:gender];
+        
         return child;
     }
     
