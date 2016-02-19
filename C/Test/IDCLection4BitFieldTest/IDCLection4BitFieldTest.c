@@ -16,17 +16,17 @@ static const int64_t kIDCThirdValueTest = 20;
 void IDCPrintBitesValueTest() {
     printf("\ntesting");
     puts("\ntest with int16_t value = 1");
-    void *value = &kIDCFirstValueTest;
+    void *value = (void *)&kIDCFirstValueTest;
     size_t size = sizeof(kIDCFirstValueTest);
     IDCPrintBitesValue(value, size);
     
     puts("\n\ntest with int32_t value = 16");
-    value = &kIDCSecondValueTest;
+    value = (void *)&kIDCSecondValueTest;
     size = sizeof(kIDCSecondValueTest);
     IDCPrintBitesValue(value, size);
     
     puts("\n\ntest with int64_t value = 20");
-    value = &kIDCThirdValueTest;
+    value = (void *)&kIDCThirdValueTest;
     size = sizeof(kIDCThirdValueTest);
     IDCPrintBitesValue(value, size);
     
