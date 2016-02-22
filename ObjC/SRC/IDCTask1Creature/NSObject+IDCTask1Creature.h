@@ -16,22 +16,22 @@ typedef enum {
     kIDCFemale
 } IDCGender;
 
-@property (atomic, retain, readonly)    NSArray<IDCCreature *> *children;
-@property (nonatomic, copy)             NSString  *name;
-@property (nonatomic, assign, readonly) IDCGender gender;
-@property (nonatomic, assign)           NSNumber  *age;
-@property (nonatomic, assign)           NSNumber  *weight;
+@property (nonatomic, copy, readonly)    NSArray   *children;
+@property (nonatomic, copy)              NSString  *name;
+@property (nonatomic, assign, readonly)  IDCGender gender;
+@property (nonatomic, assign)            NSNumber  *age;
+@property (nonatomic, assign)            NSNumber  *weight;
+
++ (instancetype)creatureWithName:(NSString *)name gender:(IDCGender)gender;
 
 - (instancetype)initWithName:(NSString *)name gender:(IDCGender)gender;
 
-- (void)startFighting;
-- (void)stopFighting;
-
-- (instancetype)bornChildwithName:(NSString *)name gender:(IDCGender)gender;
-
+- (instancetype)birthChildwithName:(NSString *)name gender:(IDCGender)gender;
+- (NSArray *)getChildren;
 - (void)addChild:(IDCCreature *)child;
 - (void)removeChild:(IDCCreature *)child;
-
+- (void)startFighting;
 - (void)sayHi;
+- (void)allSayHi;
 
 @end

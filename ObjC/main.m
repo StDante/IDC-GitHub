@@ -6,12 +6,12 @@
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "NSObject+IDCTask1CreatureTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        NSLog(@"Hello, World!");
+        [IDCCreatureTest performCreatureTesting];
     }
     return 0;
 }

@@ -10,13 +10,27 @@
 
 @interface IDCCreature ()
 
-@property (nonatomic, retain) NSMutableArray<IDCCreature *> *mutableChildren;
-
-@property (nonatomic, assign, readwrite) IDCGender gender;
+@property (nonatomic, retain)            NSMutableArray *mutableChildren;
+@property (nonatomic, assign, readwrite) IDCGender      gender;
 
 @end
 
 @implementation IDCCreature
+
+#pragma mark -
+#pragma mark Class
+
++ (instancetype)creatureWithName:(NSString *)name gender:(IDCGender)gender {
+    IDCCreature *creature = [[[self alloc] init] autorelease];
+    
+    if (creature) {
+        creature.name            = name;
+        creature.gender          = gender;
+        creature.mutableChildren = [NSMutableArray array];
+    }
+    
+    return creature;
+}
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
@@ -29,10 +43,12 @@
 }
 
 - (instancetype)initWithName:(NSString *)name gender:(IDCGender)gender {
-    self        = [[[IDCCreature  alloc] init] autorelease];
+    self = [[[IDCCreature  alloc] init] autorelease];
+    
     if (self) {
-        self.name   = name;
-        self.gender = gender;
+        self.name            = name;
+        self.gender          = gender;
+        self.mutableChildren = [NSMutableArray array];
     }
 
     return self;
@@ -41,39 +57,42 @@
 #pragma mark -
 #pragma mark Accessor
 
+- (NSArray *)getChildren {
+    return [NSArray arrayWithArray:self.mutableChildren];
+}
+
 #pragma mark -
 #pragma mark Public
 
-- (instancetype)bornChildwithName:(NSString *)name gender:(IDCGender)gender {
-    if (self.gender == kIDCFemale) {
-        IDCCreature *child = [self initWithName:name gender:gender];
+- (instancetype)birthChildwithName:(NSString *)name gender:(IDCGender)gender {
+    IDCCreature *child = [self initWithName:name gender:gender];
         
-        return child;
-    }
-    
-    NSLog(@"Real man doesn't give a birth, real man take lifes");
-    [self startFighting];
-        
-    return nil;
+    return child;
 }
 
 - (void)startFighting {
-// Idea for method realesation: Man going to war, he can die randomly.
-// If he die's  send - release, else - stop fight
-}
-- (void)stopFighting {
-// When Man comeback from war send method sayHi
+    NSLog(@"I'm going to war, shall come back to dinner!");
 }
 
 - (void)addChild:(IDCCreature *)child {
-    
+    [self.mutableChildren addObject:child];
 }
+
 - (void)removeChild:(IDCCreature *)child {
-    
+    [self.mutableChildren removeObject:child];
 }
 
 - (void)sayHi {
-    
+    NSString *name = self.name;
+    NSLog(@"Hi! My name is %@", name);
+}
+
+- (void)allSayHi {
+    IDCCreature *creature = self;
+    [creature sayHi];
+    for (creature in creature.mutableChildren) {
+        [creature.mutableChildren allSayHi];
+    }
 }
 
 

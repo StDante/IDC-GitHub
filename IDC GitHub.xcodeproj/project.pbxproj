@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A24B91121C774989004457D5 /* NSObject+IDCTask1CreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B91111C774989004457D5 /* NSObject+IDCTask1CreatureTest.m */; };
 		A28602201C76080F000E6ED0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A286021F1C76080F000E6ED0 /* main.m */; };
 		A286025C1C760884000E6ED0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602251C760884000E6ED0 /* main.c */; };
 		A286025D1C760884000E6ED0 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602281C760884000E6ED0 /* IDCLection2Macros.c */; };
@@ -51,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		A21ED8591C30C98F00FC8564 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24B91101C774989004457D5 /* NSObject+IDCTask1CreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCTask1CreatureTest.h"; path = "Test/IDCTask1CreatureTest/NSObject+IDCTask1CreatureTest.h"; sourceTree = "<group>"; };
+		A24B91111C774989004457D5 /* NSObject+IDCTask1CreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCTask1CreatureTest.m"; path = "Test/IDCTask1CreatureTest/NSObject+IDCTask1CreatureTest.m"; sourceTree = "<group>"; };
 		A286021D1C76080F000E6ED0 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A286021F1C76080F000E6ED0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A28602251C760884000E6ED0 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 		A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */ = {
 			isa = PBXGroup;
 			children = (
+				A24B91101C774989004457D5 /* NSObject+IDCTask1CreatureTest.h */,
+				A24B91111C774989004457D5 /* NSObject+IDCTask1CreatureTest.m */,
 			);
 			name = IDCTask1CreatureTest;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 			files = (
 				A286026F1C760969000E6ED0 /* NSObject+IDCTask1Creature.m in Sources */,
 				A28602201C76080F000E6ED0 /* main.m in Sources */,
+				A24B91121C774989004457D5 /* NSObject+IDCTask1CreatureTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
