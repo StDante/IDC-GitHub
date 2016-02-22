@@ -91,7 +91,7 @@
     IDCCreature *creature = self;
     [creature sayHi];
     for (creature in creature.mutableChildren) {
-        [creature.mutableChildren allSayHi];
+        [creature allSayHi];
     }
 }
 

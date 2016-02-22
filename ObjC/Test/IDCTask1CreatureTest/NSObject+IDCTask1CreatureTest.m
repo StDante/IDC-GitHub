@@ -16,7 +16,7 @@
 + (void)performCreatureTesting {
     [IDCCreatureTest performCreationTest];
     [IDCCreatureTest performStartFightOrBornChildTest];
-    [IDCCreatureTest performAddAndRemoveChildTest];
+    [IDCCreatureTest performAddRemoveChildAllSayHiTest];
 }
 
 #pragma mark -
@@ -62,26 +62,26 @@
     NSLog(@"StartFight, BirthChild methods test complite");
 }
 
-+ (void)performAddAndRemoveChildTest {
++ (void)performAddRemoveChildAllSayHiTest {
     IDCCreature *parent       = [IDCCreature creatureWithName:@"Big Brother" gender:kIDCMale];
     IDCCreature *childFirst   = [IDCCreature creatureWithName:@"Nuf-Nuf" gender:kIDCMale];
     IDCCreature *childSecond  = [IDCCreature creatureWithName:@"Naf-Naf" gender:kIDCFemale];
     IDCCreature *childThird   = [IDCCreature creatureWithName:@"Nif-Nif" gender:kIDCFemale];
+    IDCCreature *grandChild   = [IDCCreature creatureWithName:@"Wolf" gender:kIDCFemale];
     
     [parent addChild:childFirst];
     [parent addChild:childSecond];
     [parent addChild:childThird];
+    [childFirst addChild:grandChild];
     
     NSLog(@"Parent %@ has 3 children. Their names are: %@", parent.name,
                                                             [parent getChildren]);
-    
+    [parent allSayHi];
     [parent removeChild:childSecond];
     
     NSLog(@"One of his childrens die. Now he has 2 children: %@", [parent getChildren]);
+    
+    NSLog(@"Add and Remove Child, AllSayHi methods test complite");
 }
-
-//+ (void)performSayHiTest {
-//    
-//}
 
 @end
