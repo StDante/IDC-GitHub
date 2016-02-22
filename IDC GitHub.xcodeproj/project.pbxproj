@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A24B91121C774989004457D5 /* NSObject+IDCTask1CreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B91111C774989004457D5 /* NSObject+IDCTask1CreatureTest.m */; };
+		A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */; };
+		A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */; };
+		A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1061C7B63ED00EB007F /* IDCMale.m */; };
+		A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1091C7B641600EB007F /* IDCFemale.m */; };
 		A28602201C76080F000E6ED0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A286021F1C76080F000E6ED0 /* main.m */; };
 		A286025C1C760884000E6ED0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602251C760884000E6ED0 /* main.c */; };
 		A286025D1C760884000E6ED0 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602281C760884000E6ED0 /* IDCLection2Macros.c */; };
@@ -26,7 +29,6 @@
 		A286026A1C760884000E6ED0 /* IDCLection3StructureTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602541C760884000E6ED0 /* IDCLection3StructureTest.c */; };
 		A286026B1C760884000E6ED0 /* IDCLection4BitFieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602571C760884000E6ED0 /* IDCLection4BitFieldTest.c */; };
 		A286026C1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */; };
-		A286026F1C760969000E6ED0 /* NSObject+IDCTask1Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = A286026E1C760969000E6ED0 /* NSObject+IDCTask1Creature.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,8 +54,14 @@
 
 /* Begin PBXFileReference section */
 		A21ED8591C30C98F00FC8564 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
-		A24B91101C774989004457D5 /* NSObject+IDCTask1CreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCTask1CreatureTest.h"; path = "Test/IDCTask1CreatureTest/NSObject+IDCTask1CreatureTest.h"; sourceTree = "<group>"; };
-		A24B91111C774989004457D5 /* NSObject+IDCTask1CreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCTask1CreatureTest.m"; path = "Test/IDCTask1CreatureTest/NSObject+IDCTask1CreatureTest.m"; sourceTree = "<group>"; };
+		A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreature.h; path = SRC/IDCTask1Creature/IDCCreature.h; sourceTree = "<group>"; };
+		A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreature.m; path = SRC/IDCTask1Creature/IDCCreature.m; sourceTree = "<group>"; };
+		A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreatureTest.h; path = Test/IDCTask1CreatureTest/IDCCreatureTest.h; sourceTree = "<group>"; };
+		A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreatureTest.m; path = Test/IDCTask1CreatureTest/IDCCreatureTest.m; sourceTree = "<group>"; };
+		A27BA1051C7B63ED00EB007F /* IDCMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCMale.h; path = SRC/IDCTask2Male/IDCMale.h; sourceTree = "<group>"; };
+		A27BA1061C7B63ED00EB007F /* IDCMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCMale.m; path = SRC/IDCTask2Male/IDCMale.m; sourceTree = "<group>"; };
+		A27BA1081C7B641600EB007F /* IDCFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCFemale.h; path = SRC/IDCTask2Female/IDCFemale.h; sourceTree = "<group>"; };
+		A27BA1091C7B641600EB007F /* IDCFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCFemale.m; path = SRC/IDCTask2Female/IDCFemale.m; sourceTree = "<group>"; };
 		A286021D1C76080F000E6ED0 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A286021F1C76080F000E6ED0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A28602251C760884000E6ED0 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -90,8 +98,6 @@
 		A28602581C760884000E6ED0 /* IDCLection4BitFieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection4BitFieldTest.h; sourceTree = "<group>"; };
 		A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IDCLection5ObjectHumanTest.c; sourceTree = "<group>"; };
 		A286025B1C760884000E6ED0 /* IDCLection5ObjectHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection5ObjectHumanTest.h; sourceTree = "<group>"; };
-		A286026D1C760969000E6ED0 /* NSObject+IDCTask1Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCTask1Creature.h"; path = "SRC/IDCTask1Creature/NSObject+IDCTask1Creature.h"; sourceTree = "<group>"; };
-		A286026E1C760969000E6ED0 /* NSObject+IDCTask1Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCTask1Creature.m"; path = "SRC/IDCTask1Creature/NSObject+IDCTask1Creature.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,24 @@
 				A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		A27BA1031C7B63A200EB007F /* IDCTask2Male */ = {
+			isa = PBXGroup;
+			children = (
+				A27BA1051C7B63ED00EB007F /* IDCMale.h */,
+				A27BA1061C7B63ED00EB007F /* IDCMale.m */,
+			);
+			name = IDCTask2Male;
+			sourceTree = "<group>";
+		};
+		A27BA1041C7B63BD00EB007F /* IDCTask2Female */ = {
+			isa = PBXGroup;
+			children = (
+				A27BA1081C7B641600EB007F /* IDCFemale.h */,
+				A27BA1091C7B641600EB007F /* IDCFemale.m */,
+			);
+			name = IDCTask2Female;
 			sourceTree = "<group>";
 		};
 		A286021E1C76080F000E6ED0 /* ObjC */ = {
@@ -360,6 +384,8 @@
 		A28602701C76096E000E6ED0 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A27BA1041C7B63BD00EB007F /* IDCTask2Female */,
+				A27BA1031C7B63A200EB007F /* IDCTask2Male */,
 				A28602711C76097E000E6ED0 /* IDCTask1Creature */,
 			);
 			name = SRC;
@@ -368,8 +394,8 @@
 		A28602711C76097E000E6ED0 /* IDCTask1Creature */ = {
 			isa = PBXGroup;
 			children = (
-				A286026D1C760969000E6ED0 /* NSObject+IDCTask1Creature.h */,
-				A286026E1C760969000E6ED0 /* NSObject+IDCTask1Creature.m */,
+				A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */,
+				A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */,
 			);
 			name = IDCTask1Creature;
 			sourceTree = "<group>";
@@ -377,8 +403,8 @@
 		A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */ = {
 			isa = PBXGroup;
 			children = (
-				A24B91101C774989004457D5 /* NSObject+IDCTask1CreatureTest.h */,
-				A24B91111C774989004457D5 /* NSObject+IDCTask1CreatureTest.m */,
+				A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */,
+				A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */,
 			);
 			name = IDCTask1CreatureTest;
 			sourceTree = "<group>";
@@ -484,9 +510,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A286026F1C760969000E6ED0 /* NSObject+IDCTask1Creature.m in Sources */,
 				A28602201C76080F000E6ED0 /* main.m in Sources */,
-				A24B91121C774989004457D5 /* NSObject+IDCTask1CreatureTest.m in Sources */,
+				A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */,
+				A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */,
+				A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */,
+				A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
