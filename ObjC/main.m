@@ -11,7 +11,8 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSLog(@"%@", [NSString alphabetString:(NSString *)kIDCLovercaseVowels]);
+        NSLog(@"%@", [NSString alphabetString:(NSString *)kIDCNumbers
+                               withCombainAlphabet:(NSString *)kIDCLovercaseVowels]);
     }
     
     return 0;
