@@ -7,10 +7,11 @@
 //
 
 #import "IDCCreatureTest.h"
+#import "NSString+IDCRandomString.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [IDCCreatureTest performCreatureTesting];
+        NSLog(@"%@", [NSString alphabetString:(NSString *)kIDCLovercaseVowels]);
     }
     
     return 0;
