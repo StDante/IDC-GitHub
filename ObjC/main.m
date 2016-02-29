@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSLog(@"%@", [NSString alphabetString:(NSString *)kIDCNumbers
-                               withCombainAlphabet:(NSString *)kIDCLovercaseVowels]);
+                               combainAlphabet:(NSString *)kIDCLowercaseVowels]);
     }
     
     return 0;
