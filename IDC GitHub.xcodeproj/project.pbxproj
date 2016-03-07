@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */; };
+		A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */; };
+		A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1061C7B63ED00EB007F /* IDCMale.m */; };
+		A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1091C7B641600EB007F /* IDCFemale.m */; };
+		A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */; };
+		A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */; };
 		A28602201C76080F000E6ED0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A286021F1C76080F000E6ED0 /* main.m */; };
 		A286025C1C760884000E6ED0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602251C760884000E6ED0 /* main.c */; };
 		A286025D1C760884000E6ED0 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602281C760884000E6ED0 /* IDCLection2Macros.c */; };
@@ -25,7 +31,7 @@
 		A286026A1C760884000E6ED0 /* IDCLection3StructureTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602541C760884000E6ED0 /* IDCLection3StructureTest.c */; };
 		A286026B1C760884000E6ED0 /* IDCLection4BitFieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602571C760884000E6ED0 /* IDCLection4BitFieldTest.c */; };
 		A286026C1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */; };
-		A286026F1C760969000E6ED0 /* NSObject+IDCTask1Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = A286026E1C760969000E6ED0 /* NSObject+IDCTask1Creature.m */; };
+		A2E45FDC1C8D9519009F0BEA /* NSObject+IDCAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E45FDB1C8D9519009F0BEA /* NSObject+IDCAlphabet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +57,19 @@
 
 /* Begin PBXFileReference section */
 		A21ED8591C30C98F00FC8564 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreature.h; path = SRC/IDCTask1Creature/IDCCreature.h; sourceTree = "<group>"; };
+		A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreature.m; path = SRC/IDCTask1Creature/IDCCreature.m; sourceTree = "<group>"; };
+		A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreatureTest.h; path = Test/IDCTask1CreatureTest/IDCCreatureTest.h; sourceTree = "<group>"; };
+		A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreatureTest.m; path = Test/IDCTask1CreatureTest/IDCCreatureTest.m; sourceTree = "<group>"; };
+		A27BA1051C7B63ED00EB007F /* IDCMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCMale.h; path = SRC/IDCTask2Male/IDCMale.h; sourceTree = "<group>"; };
+		A27BA1061C7B63ED00EB007F /* IDCMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCMale.m; path = SRC/IDCTask2Male/IDCMale.m; sourceTree = "<group>"; };
+		A27BA1081C7B641600EB007F /* IDCFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCFemale.h; path = SRC/IDCTask2Female/IDCFemale.h; sourceTree = "<group>"; };
+		A27BA1091C7B641600EB007F /* IDCFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCFemale.m; path = SRC/IDCTask2Female/IDCFemale.m; sourceTree = "<group>"; };
+		A27BA10C1C7F62ED00EB007F /* NSObject+IDCCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCCategory.h"; path = "SRC/IDCCategory/NSObject+IDCCategory.h"; sourceTree = "<group>"; };
+		A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCCategory.m"; path = "SRC/IDCCategory/NSObject+IDCCategory.m"; sourceTree = "<group>"; };
+		A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IDCObjC-Prefix.pch"; path = "SRC/IDCSupportFiles/IDCObjC-Prefix.pch"; sourceTree = "<group>"; };
+		A27BA1131C7FA4DF00EB007F /* NSString+IDCRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IDCRandomString.h"; path = "SRC/IDCCategory/NSString+IDCRandomString.h"; sourceTree = "<group>"; };
+		A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IDCRandomString.m"; path = "SRC/IDCCategory/NSString+IDCRandomString.m"; sourceTree = "<group>"; };
 		A286021D1C76080F000E6ED0 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A286021F1C76080F000E6ED0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A28602251C760884000E6ED0 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -87,8 +106,8 @@
 		A28602581C760884000E6ED0 /* IDCLection4BitFieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection4BitFieldTest.h; sourceTree = "<group>"; };
 		A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IDCLection5ObjectHumanTest.c; sourceTree = "<group>"; };
 		A286025B1C760884000E6ED0 /* IDCLection5ObjectHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection5ObjectHumanTest.h; sourceTree = "<group>"; };
-		A286026D1C760969000E6ED0 /* NSObject+IDCTask1Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCTask1Creature.h"; path = "SRC/IDCTask1Creature/NSObject+IDCTask1Creature.h"; sourceTree = "<group>"; };
-		A286026E1C760969000E6ED0 /* NSObject+IDCTask1Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCTask1Creature.m"; path = "SRC/IDCTask1Creature/NSObject+IDCTask1Creature.m"; sourceTree = "<group>"; };
+		A2E45FDA1C8D9519009F0BEA /* NSObject+IDCAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCAlphabet.h"; path = "SRC/IDCCategory/IDCTask5Alphabet/NSObject+IDCAlphabet.h"; sourceTree = "<group>"; };
+		A2E45FDB1C8D9519009F0BEA /* NSObject+IDCAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCAlphabet.m"; path = "SRC/IDCCategory/IDCTask5Alphabet/NSObject+IDCAlphabet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +152,44 @@
 				A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		A27BA1031C7B63A200EB007F /* IDCTask2Male */ = {
+			isa = PBXGroup;
+			children = (
+				A27BA1051C7B63ED00EB007F /* IDCMale.h */,
+				A27BA1061C7B63ED00EB007F /* IDCMale.m */,
+			);
+			name = IDCTask2Male;
+			sourceTree = "<group>";
+		};
+		A27BA1041C7B63BD00EB007F /* IDCTask2Female */ = {
+			isa = PBXGroup;
+			children = (
+				A27BA1081C7B641600EB007F /* IDCFemale.h */,
+				A27BA1091C7B641600EB007F /* IDCFemale.m */,
+			);
+			name = IDCTask2Female;
+			sourceTree = "<group>";
+		};
+		A27BA10B1C7F626200EB007F /* IDCCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A2E45FD51C8D9342009F0BEA /* IDCTask5Alphabet */,
+				A27BA10C1C7F62ED00EB007F /* NSObject+IDCCategory.h */,
+				A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */,
+				A27BA1131C7FA4DF00EB007F /* NSString+IDCRandomString.h */,
+				A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */,
+			);
+			name = IDCCategory;
+			sourceTree = "<group>";
+		};
+		A27BA10F1C7F6FB200EB007F /*  IDCSupport Files */ = {
+			isa = PBXGroup;
+			children = (
+				A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */,
+			);
+			name = " IDCSupport Files";
 			sourceTree = "<group>";
 		};
 		A286021E1C76080F000E6ED0 /* ObjC */ = {
@@ -357,6 +414,10 @@
 		A28602701C76096E000E6ED0 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A27BA10F1C7F6FB200EB007F /*  IDCSupport Files */,
+				A27BA10B1C7F626200EB007F /* IDCCategory */,
+				A27BA1041C7B63BD00EB007F /* IDCTask2Female */,
+				A27BA1031C7B63A200EB007F /* IDCTask2Male */,
 				A28602711C76097E000E6ED0 /* IDCTask1Creature */,
 			);
 			name = SRC;
@@ -365,8 +426,8 @@
 		A28602711C76097E000E6ED0 /* IDCTask1Creature */ = {
 			isa = PBXGroup;
 			children = (
-				A286026D1C760969000E6ED0 /* NSObject+IDCTask1Creature.h */,
-				A286026E1C760969000E6ED0 /* NSObject+IDCTask1Creature.m */,
+				A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */,
+				A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */,
 			);
 			name = IDCTask1Creature;
 			sourceTree = "<group>";
@@ -374,8 +435,27 @@
 		A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */ = {
 			isa = PBXGroup;
 			children = (
+				A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */,
+				A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */,
 			);
 			name = IDCTask1CreatureTest;
+			sourceTree = "<group>";
+		};
+		A2E45FD51C8D9342009F0BEA /* IDCTask5Alphabet */ = {
+			isa = PBXGroup;
+			children = (
+				A2E45FD61C8D944D009F0BEA /* Private */,
+				A2E45FDA1C8D9519009F0BEA /* NSObject+IDCAlphabet.h */,
+				A2E45FDB1C8D9519009F0BEA /* NSObject+IDCAlphabet.m */,
+			);
+			name = IDCTask5Alphabet;
+			sourceTree = "<group>";
+		};
+		A2E45FD61C8D944D009F0BEA /* Private */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,8 +559,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A286026F1C760969000E6ED0 /* NSObject+IDCTask1Creature.m in Sources */,
+				A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */,
 				A28602201C76080F000E6ED0 /* main.m in Sources */,
+				A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */,
+				A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */,
+				A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */,
+				A2E45FDC1C8D9519009F0BEA /* NSObject+IDCAlphabet.m in Sources */,
+				A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */,
+				A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +648,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.11;
 			};
 			name = Release;
@@ -585,6 +671,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				EXECUTABLE_PREFIX = "";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -594,6 +683,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				EXECUTABLE_PREFIX = "";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};

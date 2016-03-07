@@ -1,0 +1,14 @@
+//
+//  IDCObjC-Prefix.pch
+//  IDC GitHub
+//
+//  Created by Alexandr Altukhov on 25.02.16.
+//  Copyright © 2016 Alexandr Altukhov. All rights reserved.
+//
+
+#ifndef IDCObjC_Prefix_pch
+#define IDCObjC_Prefix_pch
+
+#import "NSObject+IDCCategory.h"
+
+#endif /* IDCObjC_Prefix_pch */

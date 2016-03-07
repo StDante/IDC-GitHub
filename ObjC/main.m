@@ -6,12 +6,14 @@
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "IDCCreatureTest.h"
+#import "NSString+IDCRandomString.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSLog(@"%@", [NSString alphabetString:(NSString *)kIDCNumbers
+                               combainAlphabet:(NSString *)kIDCLowercaseVowels]);
     }
+    
     return 0;
 }
