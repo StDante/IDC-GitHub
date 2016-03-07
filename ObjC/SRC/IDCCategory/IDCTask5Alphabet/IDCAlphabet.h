@@ -1,5 +1,5 @@
 //
-//  NSObject+IDCAlphabet.h
+//  IDCAlphabet.h
 //  IDC GitHub
 //
 //  Created by Alexandr Altukhov on 07.03.16.
@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (IDCAlphabet)
-@property (nonatomic, readonly) NSString * alphabetString;
+@interface IDCAlphabet : NSObject <NSFastEnumeration>
+@property (nonatomic, readonly) NSString *alphabetString;
+@property (nonatomic, assign) NSUInteger count;
 
 + (instancetype)alphabetWithRange:(NSRange)range;
 + (instancetype)alphabetWithCharRange:(unichar)firstValue lastValue:(unichar)lastValue;
@@ -24,5 +25,10 @@
 + (instancetype)lowercaseAlphabet;
 + (instancetype)uppercaseAlphabet;
 + (instancetype)numericAlphabet;
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index;
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len;
 
 @end

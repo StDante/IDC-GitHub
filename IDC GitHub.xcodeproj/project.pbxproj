@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E31C8D9FF100EE188F /* IDCAlphabet.m */; };
+		A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */; };
+		A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */; };
+		A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */; };
 		A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */; };
 		A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */; };
 		A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1061C7B63ED00EB007F /* IDCMale.m */; };
@@ -31,7 +35,6 @@
 		A286026A1C760884000E6ED0 /* IDCLection3StructureTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602541C760884000E6ED0 /* IDCLection3StructureTest.c */; };
 		A286026B1C760884000E6ED0 /* IDCLection4BitFieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602571C760884000E6ED0 /* IDCLection4BitFieldTest.c */; };
 		A286026C1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */; };
-		A2E45FDC1C8D9519009F0BEA /* NSObject+IDCAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E45FDB1C8D9519009F0BEA /* NSObject+IDCAlphabet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +60,14 @@
 
 /* Begin PBXFileReference section */
 		A21ED8591C30C98F00FC8564 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24350E21C8D9FF100EE188F /* IDCAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/IDCAlphabet.h; sourceTree = "<group>"; };
+		A24350E31C8D9FF100EE188F /* IDCAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/IDCAlphabet.m; sourceTree = "<group>"; };
+		A24350E51C8DA03C00EE188F /* IDCRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCRangeAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCRangeAlphabet.h; sourceTree = "<group>"; };
+		A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCRangeAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCRangeAlphabet.m; sourceTree = "<group>"; };
+		A24350E81C8DA05100EE188F /* IDCStringAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCStringAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCStringAlphabet.h; sourceTree = "<group>"; };
+		A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStringAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCStringAlphabet.m; sourceTree = "<group>"; };
+		A24350EB1C8DA06500EE188F /* IDCClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCClusterAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.h; sourceTree = "<group>"; };
+		A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCClusterAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.m; sourceTree = "<group>"; };
 		A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreature.h; path = SRC/IDCTask1Creature/IDCCreature.h; sourceTree = "<group>"; };
 		A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreature.m; path = SRC/IDCTask1Creature/IDCCreature.m; sourceTree = "<group>"; };
 		A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreatureTest.h; path = Test/IDCTask1CreatureTest/IDCCreatureTest.h; sourceTree = "<group>"; };
@@ -106,8 +117,6 @@
 		A28602581C760884000E6ED0 /* IDCLection4BitFieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection4BitFieldTest.h; sourceTree = "<group>"; };
 		A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IDCLection5ObjectHumanTest.c; sourceTree = "<group>"; };
 		A286025B1C760884000E6ED0 /* IDCLection5ObjectHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection5ObjectHumanTest.h; sourceTree = "<group>"; };
-		A2E45FDA1C8D9519009F0BEA /* NSObject+IDCAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCAlphabet.h"; path = "SRC/IDCCategory/IDCTask5Alphabet/NSObject+IDCAlphabet.h"; sourceTree = "<group>"; };
-		A2E45FDB1C8D9519009F0BEA /* NSObject+IDCAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCAlphabet.m"; path = "SRC/IDCCategory/IDCTask5Alphabet/NSObject+IDCAlphabet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,8 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				A2E45FD61C8D944D009F0BEA /* Private */,
-				A2E45FDA1C8D9519009F0BEA /* NSObject+IDCAlphabet.h */,
-				A2E45FDB1C8D9519009F0BEA /* NSObject+IDCAlphabet.m */,
+				A24350E21C8D9FF100EE188F /* IDCAlphabet.h */,
+				A24350E31C8D9FF100EE188F /* IDCAlphabet.m */,
 			);
 			name = IDCTask5Alphabet;
 			sourceTree = "<group>";
@@ -454,6 +463,12 @@
 		A2E45FD61C8D944D009F0BEA /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				A24350E51C8DA03C00EE188F /* IDCRangeAlphabet.h */,
+				A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */,
+				A24350E81C8DA05100EE188F /* IDCStringAlphabet.h */,
+				A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */,
+				A24350EB1C8DA06500EE188F /* IDCClusterAlphabet.h */,
+				A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -561,11 +576,14 @@
 			files = (
 				A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */,
 				A28602201C76080F000E6ED0 /* main.m in Sources */,
+				A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */,
+				A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */,
 				A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */,
 				A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */,
 				A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */,
-				A2E45FDC1C8D9519009F0BEA /* NSObject+IDCAlphabet.m in Sources */,
+				A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */,
 				A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */,
+				A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */,
 				A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

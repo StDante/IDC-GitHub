@@ -1,17 +1,20 @@
 //
-//  NSObject+IDCAlphabet.m
+//  IDCAlphabet.m
 //  IDC GitHub
 //
 //  Created by Alexandr Altukhov on 07.03.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#import "NSObject+IDCAlphabet.h"
+#import "IDCAlphabet.h"
+#import "IDCRangeAlphabet.h"
+#import "IDCStringAlphabet.h"
+#import "IDCClusterAlphabet.h"
 
-
-@implementation NSObject (IDCAlphabet)
+@implementation IDCAlphabet
 
 @dynamic alphabetString;
+@dynamic count;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -45,7 +48,7 @@
     [self autorelease];
     
     return [[[IDCRangeAlphabet alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue + 1)]
-                                                                                            autorelease];
+            autorelease];
 }
 
 - (instancetype)initWithString:(NSString *)string {
@@ -74,6 +77,32 @@
 
 + (instancetype)numericAlphabet {
     return [self alphabetWithCharRange:'0' lastValue:'9'];
+}
+
+#pragma mark -
+#pragma mark FastEnumeration
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
+    return [NSString stringWithFormat:@"%c", [self.alphabetString characterAtIndex:index]];
+}
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len
+{
+    state->mutationsPtr = (unsigned long *) self;
+    NSUInteger stateCount = state->state;
+    NSUInteger length = self.count - stateCount;
+    length = MIN(length, len);
+    
+    for (NSUInteger index = stateCount; index < stateCount + length; index++) {
+        buffer[index] = self[index];
+    }
+    
+    state->state = stateCount + length;
+    state->itemsPtr = buffer;
+    
+    return length;
 }
 
 @end
