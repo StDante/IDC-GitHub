@@ -26,9 +26,4 @@
 + (instancetype)uppercaseAlphabet;
 + (instancetype)numericAlphabet;
 
-- (NSString *)objectAtIndexedSubscript:(NSUInteger)index;
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(id __unsafe_unretained [])buffer
-                                    count:(NSUInteger)len;
-
 @end

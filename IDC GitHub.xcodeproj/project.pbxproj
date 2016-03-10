@@ -17,6 +17,10 @@
 		A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1091C7B641600EB007F /* IDCFemale.m */; };
 		A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */; };
 		A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */; };
+		A27CD3941C90D96700BBB4F1 /* IDCEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD3931C90D96700BBB4F1 /* IDCEnterprise.m */; };
+		A27CD3971C90D99000BBB4F1 /* IDCWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD3961C90D99000BBB4F1 /* IDCWorker.m */; };
+		A27CD39A1C90D9AA00BBB4F1 /* IDCCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD3991C90D9AA00BBB4F1 /* IDCCar.m */; };
+		A27CD39E1C90E2D000BBB4F1 /* IDCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD39D1C90E2D000BBB4F1 /* IDCConstants.m */; };
 		A28602201C76080F000E6ED0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A286021F1C76080F000E6ED0 /* main.m */; };
 		A286025C1C760884000E6ED0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602251C760884000E6ED0 /* main.c */; };
 		A286025D1C760884000E6ED0 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602281C760884000E6ED0 /* IDCLection2Macros.c */; };
@@ -81,6 +85,14 @@
 		A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IDCObjC-Prefix.pch"; path = "SRC/IDCSupportFiles/IDCObjC-Prefix.pch"; sourceTree = "<group>"; };
 		A27BA1131C7FA4DF00EB007F /* NSString+IDCRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IDCRandomString.h"; path = "SRC/IDCCategory/NSString+IDCRandomString.h"; sourceTree = "<group>"; };
 		A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IDCRandomString.m"; path = "SRC/IDCCategory/NSString+IDCRandomString.m"; sourceTree = "<group>"; };
+		A27CD3921C90D96700BBB4F1 /* IDCEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCEnterprise.h; path = SRC/IDCCarWash/IDCEnterprise.h; sourceTree = "<group>"; };
+		A27CD3931C90D96700BBB4F1 /* IDCEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCEnterprise.m; path = SRC/IDCCarWash/IDCEnterprise.m; sourceTree = "<group>"; };
+		A27CD3951C90D99000BBB4F1 /* IDCWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCWorker.h; path = SRC/IDCCarWash/IDCWorker.h; sourceTree = "<group>"; };
+		A27CD3961C90D99000BBB4F1 /* IDCWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCWorker.m; path = SRC/IDCCarWash/IDCWorker.m; sourceTree = "<group>"; };
+		A27CD3981C90D9AA00BBB4F1 /* IDCCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCar.h; path = SRC/IDCCarWash/IDCCar.h; sourceTree = "<group>"; };
+		A27CD3991C90D9AA00BBB4F1 /* IDCCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCar.m; path = SRC/IDCCarWash/IDCCar.m; sourceTree = "<group>"; };
+		A27CD39C1C90E2D000BBB4F1 /* IDCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCConstants.h; path = SRC/IDCCarWash/IDCConstants.h; sourceTree = "<group>"; };
+		A27CD39D1C90E2D000BBB4F1 /* IDCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCConstants.m; path = SRC/IDCCarWash/IDCConstants.m; sourceTree = "<group>"; };
 		A286021D1C76080F000E6ED0 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A286021F1C76080F000E6ED0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A28602251C760884000E6ED0 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -199,6 +211,21 @@
 				A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */,
 			);
 			name = " IDCSupport Files";
+			sourceTree = "<group>";
+		};
+		A27CD3911C90D82000BBB4F1 /* IDCCarWash */ = {
+			isa = PBXGroup;
+			children = (
+				A27CD3921C90D96700BBB4F1 /* IDCEnterprise.h */,
+				A27CD3931C90D96700BBB4F1 /* IDCEnterprise.m */,
+				A27CD3951C90D99000BBB4F1 /* IDCWorker.h */,
+				A27CD3961C90D99000BBB4F1 /* IDCWorker.m */,
+				A27CD3981C90D9AA00BBB4F1 /* IDCCar.h */,
+				A27CD3991C90D9AA00BBB4F1 /* IDCCar.m */,
+				A27CD39C1C90E2D000BBB4F1 /* IDCConstants.h */,
+				A27CD39D1C90E2D000BBB4F1 /* IDCConstants.m */,
+			);
+			name = IDCCarWash;
 			sourceTree = "<group>";
 		};
 		A286021E1C76080F000E6ED0 /* ObjC */ = {
@@ -423,6 +450,7 @@
 		A28602701C76096E000E6ED0 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A27CD3911C90D82000BBB4F1 /* IDCCarWash */,
 				A27BA10F1C7F6FB200EB007F /*  IDCSupport Files */,
 				A27BA10B1C7F626200EB007F /* IDCCategory */,
 				A27BA1041C7B63BD00EB007F /* IDCTask2Female */,
@@ -577,12 +605,16 @@
 				A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */,
 				A28602201C76080F000E6ED0 /* main.m in Sources */,
 				A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */,
+				A27CD3941C90D96700BBB4F1 /* IDCEnterprise.m in Sources */,
 				A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */,
 				A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */,
 				A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */,
 				A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */,
 				A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */,
+				A27CD3971C90D99000BBB4F1 /* IDCWorker.m in Sources */,
 				A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */,
+				A27CD39E1C90E2D000BBB4F1 /* IDCConstants.m in Sources */,
+				A27CD39A1C90D9AA00BBB4F1 /* IDCCar.m in Sources */,
 				A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */,
 				A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */,
 			);
