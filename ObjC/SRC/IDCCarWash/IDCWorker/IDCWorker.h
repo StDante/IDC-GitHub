@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "IDCObserver.h"
-#import "IDCEnterprise.h"
 #import "IDCCar.h"
 #import "IDCWorkerProtocol.h"
 #import "IDCMoneyProtocol.h"
@@ -20,5 +19,6 @@
 @property (nonatomic, assign) NSUInteger money;
 
 - (void)performWork:(id)object;
+- (instancetype)initWithRandomName;
 
 @end

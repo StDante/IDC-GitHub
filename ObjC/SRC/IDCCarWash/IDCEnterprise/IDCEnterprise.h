@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IDCWorker.h"
 
 @class IDCCar;
 
