@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IDCWorker.h"
+
+@class IDCWorker;
+@class IDCCar;
 
 @interface IDCEnterprise : NSObject
 @property (nonatomic, copy)   NSString   *title;

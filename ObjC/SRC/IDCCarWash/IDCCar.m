@@ -29,9 +29,11 @@
 - (instancetype)initWithModel:(NSString *)model money:(NSUInteger)money dirt:(BOOL)isDirty {
     self = [super init];
     
-    self.model = model;
-    self.money = money;
-    self.isDirty = TRUE;
+    if (self) {
+        self.model = model;
+        self.money = money;
+        self.isDirty = TRUE;
+    }
     
     return self;
 }

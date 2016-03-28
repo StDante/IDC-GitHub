@@ -724,6 +724,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/Altukhov/Documents/Курсы/Программирование/IDC GitHub/ObjC/SRC/IDCCategory/NSObject+IDCCategory.h";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -735,7 +736,9 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/Altukhov/Documents/Курсы/Программирование/IDC GitHub/ObjC/SRC/IDCCategory/NSObject+IDCCategory.h";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};

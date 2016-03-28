@@ -7,6 +7,8 @@
 //
 
 #import "IDCEnterprise.h"
+#import "IDCWorker.h"
+#import "IDCCar.h"
 
 @implementation IDCEnterprise
 
@@ -29,10 +31,12 @@
 - (instancetype)initWithTitle:(NSString *)title {
     self = [super init];
     
-    self.cleaner = [IDCWorker workerWithName:@"Cleaner"];
-    self.bookkeeper = [IDCWorker workerWithName:@"Bookkeeper"];
-    self.boss = [IDCWorker workerWithName:@"Boss"];
-    self.money = 0;
+    if (self) {
+        self.cleaner = [IDCWorker workerWithName:@"Cleaner"];
+        self.bookkeeper = [IDCWorker workerWithName:@"Bookkeeper"];
+        self.boss = [IDCWorker workerWithName:@"Boss"];
+        self.money = 0;
+    }
     
     return self;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "IDCWorker.h"
+#import "IDCCar.h"
 
 @implementation IDCWorker
 
@@ -28,9 +29,10 @@
 
 - (instancetype)initWithName:(NSString *)name {
     self = [super init];
-    
-    self.name = name;
-    self.cashFlow = 0;
+    if (self) {
+        self.name = name;
+        self.cashFlow = 0;
+    }
     
     return self;
 }
@@ -40,6 +42,7 @@
 
 - (void)carWashing:(IDCCar *)car {
     [car carWashed];
+    self.cashFlow = self.cashFlow + kIDCWashCost;
 }
 
 - (void)calculateMoney {
