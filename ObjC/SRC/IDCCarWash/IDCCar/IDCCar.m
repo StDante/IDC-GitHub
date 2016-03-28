@@ -38,18 +38,4 @@
     return self;
 }
 
-#pragma mark -
-#pragma mark Private
-
-- (void)carWashed {
-    self.money = self.money - kIDCWashCost;
-    self.isDirty = FALSE;
-}
-
-- (BOOL)isWashing {
-    NSUInteger balance = self.money - kIDCWashCost;
-    
-    return balance || !self.isDirty;
-}
-
 @end

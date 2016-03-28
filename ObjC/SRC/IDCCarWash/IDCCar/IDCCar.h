@@ -16,7 +16,6 @@
 
 + (instancetype)carWithModel:(NSString *)model money:(NSUInteger)money dirt:(BOOL)isDirty;
 - (instancetype)initWithModel:(NSString *)model money:(NSUInteger)money dirt:(BOOL)isDirty;
-- (void)carWashed;
-- (BOOL)isWashing;
+
 
 @end
