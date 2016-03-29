@@ -87,22 +87,23 @@
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(id __unsafe_unretained [])buffer
-                                    count:(NSUInteger)len
+                                  objects:(id [])buffer
+                                    count:(NSUInteger)lenght
 {
-    state->mutationsPtr = (unsigned long *) self;
+    state->mutationsPtr = (unsigned long *)self;
     NSUInteger stateCount = state->state;
-    NSUInteger length = self.count - stateCount;
-    length = MIN(length, len);
+    NSUInteger resultCount = MIN(self.count - stateCount, lenght);
+    NSUInteger finalCount = stateCount + resultCount;
     
-    for (NSUInteger index = stateCount; index < stateCount + length; index++) {
-        buffer[index] = self[index];
+    for (NSUInteger index = stateCount; index < finalCount; index++) {
+        buffer[index - stateCount] = self[index];
     }
     
-    state->state = stateCount + length;
+    state->state = finalCount;
     state->itemsPtr = buffer;
     
-    return length;
+    return resultCount;
 }
+
 
 @end
