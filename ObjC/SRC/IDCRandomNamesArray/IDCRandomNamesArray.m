@@ -6,30 +6,30 @@
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#import "IDCRandomNamePool.h"
+#import "IDCRandomNamesArray.h"
 
-@implementation IDCRandomNamePool
+@implementation IDCRandomNamesArray
 
 #pragma mark -
 #pragma mark Class
 
-+ (instancetype)namePool {
-    return [[[self alloc] initWithNamePool] autorelease];
++ (instancetype)randomNamesArray {
+    return [[[self alloc] initWithNamesArray] autorelease];
 }
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
 - (void)dealloc {
-    self.namePool = nil;
+    self.nameArray = nil;
     
     [super dealloc];
 }
 
-- (instancetype)initWithNamePool {
+- (instancetype)initWithNamesArray {
     self = [super init];
     if (self) {
-        self.namePool = [[@[@"Vern",
+        self.nameArray = [[@[@"Vern",
                            @"Erich",
                            @"Patrick",
                            @"Benjamin",
@@ -57,10 +57,10 @@
 #pragma mark - 
 #pragma mark Public
 
-- (NSString *)nameFromPool {
+- (NSString *)nameFromArray {
     NSUInteger index = arc4random_uniform(20);
     
-    return [[[self.namePool objectAtIndex:index] copy] autorelease];
+    return [[[self.nameArray objectAtIndex:index] copy] autorelease];
 }
 
 @end

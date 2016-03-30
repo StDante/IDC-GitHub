@@ -13,7 +13,7 @@
 #import "IDCBoss.h"K
 
 @interface IDCEnterprise ()
-@property (nonatomic, retain)   NSMutableArray *staff;
+@property (nonatomic, retain) NSMutableArray *staff;
 
 - (void)hireStaff;
 - (void)dismissWorker:(IDCWorker *)worker;

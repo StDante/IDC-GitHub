@@ -12,7 +12,7 @@
 #import "IDCCar.h"
 #import "IDCWorkerProtocol.h"
 #import "IDCMoneyProtocol.h"
-#import "IDCRandomNamePool.h"
+#import "IDCRandomNamesArray.h"
 
 @interface IDCWorker : IDCObserver <IDCMoneyProtocol, IDCWorkerProtocol>
 @property (nonatomic, assign) NSString   *name;

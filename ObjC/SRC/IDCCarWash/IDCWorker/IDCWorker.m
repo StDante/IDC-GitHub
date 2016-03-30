@@ -36,7 +36,7 @@
 - (instancetype)initWithRandomName {
     self = [super init];
     if (self) {
-        NSString *name = [[IDCRandomNamePool namePool] nameFromPool];
+        NSString *name = [[IDCRandomNamesArray randomNamesArray] nameFromArray];
         self.name = name;
         self.state = kIDCWorkerFree;
     }

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IDCRandomNamePool : NSObject
-@property (nonatomic, copy) NSArray *namePool;
+@interface IDCRandomNamesArray : NSObject
+@property (nonatomic, copy) NSArray *nameArray;
 
 
-+ (instancetype)namePool;
-- (NSString *)nameFromPool;
++ (instancetype)randomNamesArray;
+- (NSString *)nameFromArray;
 
 @end

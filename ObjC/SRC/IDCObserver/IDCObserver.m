@@ -47,7 +47,7 @@
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    return [[self.mutableObservers allObjects] autorelease];
+    return [self.mutableObservers allObjects];
 }
 
 - (void)setState:(NSUInteger)state {
