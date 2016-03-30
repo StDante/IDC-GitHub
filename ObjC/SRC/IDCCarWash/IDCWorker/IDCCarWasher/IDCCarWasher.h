@@ -13,5 +13,6 @@ typedef void (^IDCCarWasherHandler)(void);
 @property (nonatomic, retain) NSMutableDictionary *handlersDictionary;
 
 - (void)addHandler:(IDCCarWasherHandler)carWasherHandler forState:(NSUInteger)state;
+- (void)removeHandlerForState:(NSUInteger)state;
 
 @end

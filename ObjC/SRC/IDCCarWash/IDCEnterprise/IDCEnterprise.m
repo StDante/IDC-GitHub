@@ -58,6 +58,9 @@
     IDCAccountant *accountant = [[[IDCAccountant alloc] initWithRandomName] autorelease];
     IDCBoss *boss = [[[IDCBoss alloc] initWithRandomName] autorelease];
     
+    [carWasher addHandler:^{
+        [accountant performWork:carWasher];
+    } forState:kIDCWorkerStandby];
     [carWasher addObserver:accountant];
     [accountant addObserver:boss];
     
