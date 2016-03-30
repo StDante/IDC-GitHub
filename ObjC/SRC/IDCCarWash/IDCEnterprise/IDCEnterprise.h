@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "IDCWorker.h"
+#import "IDCCarWasher.h"
+#import "IDCAccountant.h"
+#import "IDCBoss.h"
 
 @class IDCCar;
 

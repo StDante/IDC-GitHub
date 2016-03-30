@@ -7,10 +7,6 @@
 //
 
 #import "IDCEnterprise.h"
-#import "IDCCar.h"
-#import "IDCCarWasher.h"
-#import "IDCAccountant.h"
-#import "IDCBoss.h"K
 
 @interface IDCEnterprise ()
 @property (nonatomic, retain) NSMutableArray *staff;

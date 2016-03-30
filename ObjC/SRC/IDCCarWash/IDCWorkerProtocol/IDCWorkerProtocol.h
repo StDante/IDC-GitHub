@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum IDCWorkerState : NSUInteger {
-    kIDCWorkerUndefinedState,
-    kIDCWorkerFree,
-    kIDCWorkerBusy,
-    kIDCWorkerStandby
-} IDCWorkerState;
-
 @protocol IDCWorkerProtocol <NSObject>
 
 @optional

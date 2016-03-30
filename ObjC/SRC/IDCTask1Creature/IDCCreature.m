@@ -17,8 +17,8 @@
 
 @implementation IDCCreature
 
-@class IDCMale;
 @class IDCFemale;
+@class IDCMale;
 
 #pragma mark -
 #pragma mark Class

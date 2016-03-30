@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "IDCObserver.h"
 #import "IDCCar.h"
 #import "IDCWorkerProtocol.h"
@@ -15,10 +14,20 @@
 #import "IDCRandomNamesArray.h"
 
 @interface IDCWorker : IDCObserver <IDCMoneyProtocol, IDCWorkerProtocol>
+
+typedef enum IDCWorkerState : NSUInteger {
+    kIDCWorkerUndefinedState,
+    kIDCWorkerFree,
+    kIDCWorkerBusy,
+    kIDCWorkerStandby
+} IDCWorkerState;
+
 @property (nonatomic, assign) NSString   *name;
 @property (nonatomic, assign) NSUInteger money;
 
 - (void)performWork:(id)object;
++ (instancetype)workerWithRandomName;
 - (instancetype)initWithRandomName;
+- (void)sayNameProfession;
 
 @end

@@ -13,9 +13,9 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)performWorkWithObject:(IDCCar *)car {
+- (void)performWork:(IDCCar *)car {
     if (car.isDirty) {
-        [super performWorkWithObject:car];
+        [super performWork:car];
     }
 }
 

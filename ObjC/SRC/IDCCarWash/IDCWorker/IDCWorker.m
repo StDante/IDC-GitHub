@@ -71,6 +71,12 @@
     
 }
 
+- (void)sayNameProfession {
+    NSString *name = self.name;
+    NSString *profession = [[self className] substringFromIndex:3];
+    NSLog(@"My name is %@. I'm %@.", name, profession);
+}
+
 #pragma mark -
 #pragma mark Private
 

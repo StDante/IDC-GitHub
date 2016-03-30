@@ -8,11 +8,14 @@
 
 #import "IDCCreatureTest.h"
 #import "NSString+IDCRandomString.h"
+#import "IDCEnterprise.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSLog(@"%@", [NSString alphabetString:(NSString *)kIDCNumbers
-                               combainAlphabet:(NSString *)kIDCLowercaseVowels]);
+        IDCBoss *boss = [IDCBoss workerWithRandomName];
+        [boss sayNameProfession];
+        IDCCarWasher *carWasher = [IDCCarWasher workerWithRandomName];
+        [carWasher sayNameProfession];
     }
     
     return 0;
