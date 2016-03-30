@@ -8,6 +8,10 @@
 
 #import "IDCWorker.h"
 
+typedef void (^IDCCarWasherHandler)(void);
 @interface IDCCarWasher : IDCWorker
+@property (nonatomic, retain) NSMutableDictionary *handlersDictionary;
+
+- (void)addHandler:(IDCCarWasherHandler)carWasherHandler forState:(NSUInteger)state;
 
 @end
