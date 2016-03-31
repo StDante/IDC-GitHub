@@ -12,10 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        IDCBoss *boss = [IDCBoss workerWithRandomName];
-        [boss sayNameProfession];
-        IDCCarWasher *carWasher = [IDCCarWasher workerWithRandomName];
-        [carWasher sayNameProfession];
+        IDCEnterprise *carWash = [IDCEnterprise enterpriseWithTitle:@"CarWash"];
     }
     
     return 0;

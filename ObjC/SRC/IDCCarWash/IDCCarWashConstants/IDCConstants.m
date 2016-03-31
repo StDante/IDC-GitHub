@@ -10,6 +10,7 @@
 
 @implementation IDCConstants
 
-NSUInteger const kIDCWashCost = 20;
+const NSUInteger kIDCWashCost = 20;
+const NSUInteger kIDCWorkersCount = 3;
 
 @end

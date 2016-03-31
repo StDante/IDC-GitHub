@@ -32,7 +32,7 @@
     if (self) {
         self.model = model;
         self.money = money;
-        self.isDirty = TRUE;
+        self.isDirty = isDirty;
     }
     
     return self;

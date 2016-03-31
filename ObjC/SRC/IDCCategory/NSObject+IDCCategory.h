@@ -11,5 +11,6 @@
 @interface NSObject (IDCCategory)
 
 + (instancetype)object;
+- (NSArray *)objectsWithCount:(NSUInteger)count class:(Class)objectClass;
 
 @end

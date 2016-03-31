@@ -10,6 +10,7 @@
 
 @interface IDCConstants : NSObject
 
-extern NSUInteger const kIDCWashCost;
+extern const NSUInteger kIDCWashCost;
+extern const NSUInteger kIDCWorkersCount;
 
 @end

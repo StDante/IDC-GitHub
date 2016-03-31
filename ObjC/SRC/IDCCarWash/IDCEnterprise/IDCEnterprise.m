@@ -10,6 +10,7 @@
 
 @interface IDCEnterprise ()
 @property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) NSMutableArray *cars;
 
 - (void)hireStaff;
 - (void)dismissWorker:(IDCWorker *)worker;
@@ -33,6 +34,7 @@
 - (void)dealloc {
     [self dismissStaff];
     self.title = nil;
+    self.cars = nil;
     
     [super dealloc];
 }
@@ -43,7 +45,7 @@
     if (self) {
         self.title = title;
         self.money = 0;
-        self.staff = nil;
+        self.cars  = [NSMutableArray object];
         [self hireStaff];
     }
     
@@ -54,14 +56,22 @@
 #pragma mark Private
 
 - (void)hireStaff {
-    IDCCarWasher *carWasher = [[[IDCCarWasher alloc] initWithRandomName] autorelease];
     IDCAccountant *accountant = [[[IDCAccountant alloc] initWithRandomName] autorelease];
     IDCBoss *boss = [[[IDCBoss alloc] initWithRandomName] autorelease];
-    
-    [carWasher addObserver:accountant];
     [accountant addObserver:boss];
     
-    self.staff = [[@[carWasher, accountant, boss] mutableCopy] autorelease];
+    NSMutableArray *staff = [NSMutableArray object];
+    staff = [[@[accountant, boss] mutableCopy] autorelease];
+    
+    NSArray *carWashers = [self objectsWithCount:kIDCWorkersCount class:[IDCCarWasher class]];
+    for (IDCCarWasher *carWasher in carWashers) {
+        carWasher.name = [[IDCRandomNamesArray randomNamesArray] nameFromArray];
+        [carWasher addObserver:accountant];
+    }
+    
+    [staff addObjectsFromArray:carWashers];
+    
+    self.staff = staff;
 
 }
 
@@ -99,8 +109,18 @@
 #pragma mark Public
 
 - (void)washCar:(IDCCar *)car {
-    IDCCarWasher *carsWasher =  [self vacantWorkerOfClass:[IDCCarWasher class]];
-    [carsWasher performWork:car];
+    if (car.isDirty) {
+        [self.cars addObject:car];
+        IDCCarWasher *carWasher =  [self vacantWorkerOfClass:[IDCCarWasher class]];
+        
+        @synchronized (carWasher) {
+                if (carWasher) {
+                    IDCCar *car = [self.cars lastObject];
+                    [self.cars removeLastObject];
+                    [carWasher performWork:car];
+                }
+        }
+    }
 }
 
 @end

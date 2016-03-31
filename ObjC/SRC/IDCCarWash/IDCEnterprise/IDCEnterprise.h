@@ -11,12 +11,16 @@
 #import "IDCCarWasher.h"
 #import "IDCAccountant.h"
 #import "IDCBoss.h"
+#import "IDCConstants.h"
 
 @class IDCCar;
 
 @interface IDCEnterprise : NSObject
 @property (nonatomic, copy)   NSString   *title;
 @property (nonatomic, assign) NSUInteger money;
+
++ (instancetype)enterpriseWithTitle:(NSString *)title;
+- (instancetype)initWithTitle:(NSString *)title;
 
 - (void)washCar:(IDCCar *)car;
 

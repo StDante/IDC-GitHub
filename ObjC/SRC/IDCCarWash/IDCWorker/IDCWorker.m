@@ -66,7 +66,9 @@
 - (void)performWork:(id)object {
     self.state = kIDCWorkerBusy;
     [self takeMoney:[object giveMoney]];
+    NSLog(@"%@ gave me money", object);
     [self completeWorkWithObject:object];
+    sleep(arc4random_uniform((3) + 1));
     [self completeWork];
     
 }
@@ -99,8 +101,9 @@
     return payment;
 }
 
-- (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+- (void)takeMoney:(NSUInteger)payment {
+    self.money += payment;
+    NSLog(@"payment is %lu", payment);
 }
 
 #pragma mark -
