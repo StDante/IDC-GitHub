@@ -27,13 +27,13 @@
 #pragma mark Class
 
 + (instancetype)workerWithRandomName {
-    return [[[self alloc] initWithRandomName] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
-- (instancetype)initWithRandomName {
+- (instancetype)init {
     self = [super init];
     if (self) {
         NSString *name = [[IDCRandomNamesArray randomNamesArray] nameFromArray];
@@ -63,12 +63,12 @@
     }
 }
 
-- (void)performWork:(id)object {
+- (void)performWork:(id<IDCMoneyProtocol>)object {
     self.state = kIDCWorkerBusy;
+    sleep(arc4random_uniform((3) + 1));
     [self takeMoney:[object giveMoney]];
     NSLog(@"%@ gave me money", object);
     [self completeWorkWithObject:object];
-    sleep(arc4random_uniform((3) + 1));
     [self completeWork];
     
 }

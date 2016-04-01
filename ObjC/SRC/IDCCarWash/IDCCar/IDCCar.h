@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "IDCConstants.h"
+#import "IDCMoneyProtocol.h"
 
-@interface IDCCar : NSObject 
+@interface IDCCar : NSObject <IDCMoneyProtocol>
 @property (nonatomic, copy)   NSString   *model;
 @property (nonatomic, assign) NSUInteger money;
 @property (nonatomic, assign) BOOL       isDirty;

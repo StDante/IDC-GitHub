@@ -12,7 +12,18 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        NSArray *carsArray = [NSMutableArray objectsWithCount:kIDCWorkersCount class:[IDCCar class]];
+        for (IDCCar *car in carsArray) {
+          car.isDirty = TRUE;
+            car.money = kIDCWashCost;
+        }
+        
         IDCEnterprise *carWash = [IDCEnterprise enterpriseWithTitle:@"CarWash"];
+        
+        for (NSUInteger i = 0; i < carsArray.count; i++) {
+            [carWash washCar:carsArray[i]];
+        }
+        
     }
     
     return 0;

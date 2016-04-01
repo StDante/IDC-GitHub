@@ -56,8 +56,8 @@
 #pragma mark Private
 
 - (void)hireStaff {
-    IDCAccountant *accountant = [[[IDCAccountant alloc] initWithRandomName] autorelease];
-    IDCBoss *boss = [[[IDCBoss alloc] initWithRandomName] autorelease];
+    IDCAccountant *accountant = [[[IDCAccountant alloc] init] autorelease];
+    IDCBoss *boss = [[[IDCBoss alloc] init] autorelease];
     [accountant addObserver:boss];
     
     NSMutableArray *staff = [NSMutableArray object];
@@ -67,11 +67,12 @@
     for (IDCCarWasher *carWasher in carWashers) {
         carWasher.name = [[IDCRandomNamesArray randomNamesArray] nameFromArray];
         [carWasher addObserver:accountant];
+        [carWasher addObserver:self];
     }
     
     [staff addObjectsFromArray:carWashers];
     
-    self.staff = staff;
+    self.staff = [[staff mutableCopy] autorelease];
 
 }
 
@@ -109,16 +110,17 @@
 #pragma mark Public
 
 - (void)washCar:(IDCCar *)car {
-    if (car.isDirty) {
-        [self.cars addObject:car];
-        IDCCarWasher *carWasher =  [self vacantWorkerOfClass:[IDCCarWasher class]];
+    [self.cars addObject:car];
         
-        @synchronized (carWasher) {
-                if (carWasher) {
-                    IDCCar *car = [self.cars lastObject];
-                    [self.cars removeLastObject];
-                    [carWasher performWork:car];
-                }
+    @synchronized (self.staff) {
+        IDCCarWasher *carWasher =  [self vacantWorkerOfClass:[IDCCarWasher class]];
+        @synchronized (self.cars) {
+            IDCCar *lastCar = [self.cars lastObject];
+            if (car) {
+                [self.cars removeLastObject];
+            }
+            
+            [carWasher performWork:lastCar];
         }
     }
 }

@@ -38,4 +38,18 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark IDCMoneyProtocol
+
+- (NSUInteger)giveMoney {
+    NSUInteger payment = self.money;
+    self.money = 0;
+    
+    return payment;
+}
+
+- (void)takeMoney:(NSUInteger)money {
+    self.money = money;
+}
+
 @end

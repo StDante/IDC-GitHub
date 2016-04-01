@@ -12,10 +12,9 @@
 #import "IDCAccountant.h"
 #import "IDCBoss.h"
 #import "IDCConstants.h"
+#import "IDCCar.h"
 
-@class IDCCar;
-
-@interface IDCEnterprise : NSObject
+@interface IDCEnterprise : NSObject <IDCWorkerProtocol>
 @property (nonatomic, copy)   NSString   *title;
 @property (nonatomic, assign) NSUInteger money;
 
