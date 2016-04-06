@@ -12,6 +12,7 @@
 #import "IDCWorkerProtocol.h"
 #import "IDCMoneyProtocol.h"
 #import "IDCRandomNamesArray.h"
+#import "IDCQueue.h"
 
 typedef enum IDCWorkerState : NSUInteger {
     kIDCWorkerUndefinedState,
@@ -21,7 +22,7 @@ typedef enum IDCWorkerState : NSUInteger {
 } IDCWorkerState;
 
 @interface IDCWorker : IDCObserver <IDCMoneyProtocol, IDCWorkerProtocol>
-
+@property (nonatomic, retain) IDCQueue *workersQueue;
 @property (nonatomic, assign) NSString   *name;
 
 - (void)performWork:(id)object;

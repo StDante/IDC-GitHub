@@ -33,11 +33,17 @@
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
+- (void)dealloc {
+    [self.workersQueue dealloc];
+    [super dealloc];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         NSString *name = [[IDCRandomNamesArray randomNamesArray] nameFromArray];
         self.name = name;
+        self.workersQueue = [IDCQueue object];
         self.state = kIDCWorkerFree;
     }
     
@@ -63,27 +69,35 @@
     }
 }
 
-- (void)performWork:(id<IDCMoneyProtocol>)object {
-    self.state = kIDCWorkerBusy;
-    sleep(arc4random_uniform((3) + 1));
-    [self takeMoney:[object giveMoney]];
-    NSLog(@"%@ gave me money", object);
-    [self completeWorkWithObject:object];
-    [self completeWork];
-    
-}
-
 - (void)sayNameProfession {
     NSString *name = self.name;
     NSString *profession = [[self className] substringFromIndex:3];
     NSLog(@"My name is %@. I'm %@.", name, profession);
 }
 
+- (void)performWork:(id<IDCMoneyProtocol>)object {
+    self.state = kIDCWorkerBusy;
+    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
+    NSLog(@"%@ gave me money", object);
+}
+
 #pragma mark -
 #pragma mark Private
 
-- (void)completeWorkWithObject:(id)object {
-    IDCWorker *worker = (IDCWorker *)object;
+- (void)performWorkWithObjectInBackground:(id<IDCMoneyProtocol>)object {
+    @synchronized (self) {
+        usleep(arc4random_uniform(1000) + 1000);
+        [self workWithObject:object];
+        [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
+    }
+}
+
+- (void)workWithObject:(id)object {
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkWithObject:object];
+}
+
+- (void)completeWorkWithObject:(IDCWorker *)worker {
     worker.state = kIDCWorkerFree;
 }
 
@@ -95,15 +109,19 @@
 #pragma mark IDCMoneyProtocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger payment = self.money;
-    self.money = 0;
-    
-    return payment;
+    @synchronized (self) {
+        NSUInteger payment = self.money;
+        self.money = 0;
+        
+        return payment;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)payment {
-    self.money += payment;
-    NSLog(@"payment is %lu", payment);
+    @synchronized (self) {
+        self.money += payment;
+        NSLog(@"payment is %lu", payment);
+    }
 }
 
 #pragma mark -

@@ -12,7 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSArray *carsArray = [NSMutableArray objectsWithCount:kIDCWorkersCount class:[IDCCar class]];
+        NSArray *carsArray = [NSMutableArray objectsWithCount:20 class:[IDCCar class]];
         for (IDCCar *car in carsArray) {
           car.isDirty = TRUE;
             car.money = kIDCWashCost;
@@ -24,6 +24,8 @@ int main(int argc, const char * argv[]) {
             [carWash washCar:carsArray[i]];
         }
         
+        NSRunLoop *loop = [NSRunLoop mainRunLoop];
+        [loop run];
     }
     
     return 0;

@@ -7,10 +7,11 @@
 //
 
 #import "IDCEnterprise.h"
+#import "IDCQueue.h"
 
 @interface IDCEnterprise ()
 @property (nonatomic, retain) NSMutableArray *staff;
-@property (nonatomic, retain) NSMutableArray *cars;
+@property (nonatomic, retain) IDCQueue *cars;
 
 - (void)hireStaff;
 - (void)dismissWorker:(IDCWorker *)worker;
@@ -45,7 +46,7 @@
     if (self) {
         self.title = title;
         self.money = 0;
-        self.cars  = [NSMutableArray object];
+        self.cars  = [IDCQueue object];
         [self hireStaff];
     }
     
@@ -110,17 +111,23 @@
 #pragma mark Public
 
 - (void)washCar:(IDCCar *)car {
-    [self.cars addObject:car];
-        
-    @synchronized (self.staff) {
+    @synchronized (self) {
+        [self.cars pushObject:car];
         IDCCarWasher *carWasher =  [self vacantWorkerOfClass:[IDCCarWasher class]];
-        @synchronized (self.cars) {
-            IDCCar *lastCar = [self.cars lastObject];
-            if (car) {
-                [self.cars removeLastObject];
-            }
-            
-            [carWasher performWork:lastCar];
+        if (carWasher) {
+            [carWasher performWork:[self.cars popObject]];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark IDCWorker Protocol
+
+- (void)workerFree:(IDCCarWasher *)carWasher {
+    @synchronized (self) {
+        IDCCar *car = [self.cars popObject];
+        if (car) {
+            [carWasher performWork:car];
         }
     }
 }
