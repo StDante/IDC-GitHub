@@ -30,6 +30,15 @@
     return [[[self alloc] init] autorelease];
 }
 
++ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer {
+    NSArray *array = [self objectsWithCount:count];
+    for (IDCWorker *worker in array) {
+        [worker addObserver:observer];
+    }
+    
+    return [[array copy] autorelease];
+}
+
 #pragma mark -
 #pragma mark Initialization and Deallocation
 
@@ -77,8 +86,8 @@
 
 - (void)performWork:(id<IDCMoneyProtocol>)object {
     self.state = kIDCWorkerBusy;
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
-    NSLog(@"%@ gave me money", object);
+    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                           withObject:object];
 }
 
 #pragma mark -
@@ -86,8 +95,9 @@
 
 - (void)performWorkWithObjectInBackground:(id<IDCMoneyProtocol>)object {
     @synchronized (self) {
-        usleep(arc4random_uniform(1000) + 1000);
+        usleep(arc4random_uniform(100000) + 1000);
         [self workWithObject:object];
+//        NSLog(@"%@ gave me money", object);
         [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
     }
 }
@@ -120,15 +130,8 @@
 - (void)takeMoney:(NSUInteger)payment {
     @synchronized (self) {
         self.money += payment;
-        NSLog(@"payment is %lu", payment);
+//        NSLog(@"payment is %lu", payment);
     }
-}
-
-#pragma mark -
-#pragma mark IDCWorkerProtocol
-
-- (void)workerStandby:(id)worker {
-    [self performWork:worker];
 }
 
 @end

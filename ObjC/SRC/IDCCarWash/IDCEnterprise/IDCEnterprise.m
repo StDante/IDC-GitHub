@@ -8,15 +8,14 @@
 
 #import "IDCEnterprise.h"
 #import "IDCQueue.h"
+#import "IDCDispatcher.h"
 
 @interface IDCEnterprise ()
-@property (nonatomic, retain) NSMutableArray *staff;
-@property (nonatomic, retain) IDCQueue *cars;
+@property (nonatomic, retain) IDCDispatcher  *washerDispatcher;
+@property (nonatomic, retain) IDCDispatcher  *accountantDispatcher;
+@property (nonatomic, retain) IDCDispatcher  *bossDispatcher;
 
 - (void)hireStaff;
-- (void)dismissWorker:(IDCWorker *)worker;
-- (void)dismissStaff;
-- (id)vacantWorkerOfClass:(Class)class;
 
 @end
 
@@ -33,20 +32,16 @@
 #pragma mark Initialization and Deallocation
 
 - (void)dealloc {
-    [self dismissStaff];
-    self.title = nil;
-    self.cars = nil;
+    self.washerDispatcher = nil;
+    self.accountantDispatcher = nil;
+    self.bossDispatcher = nil;
     
     [super dealloc];
 }
 
-- (instancetype)initWithTitle:(NSString *)title {
+- (instancetype)init {
     self = [super init];
-    
     if (self) {
-        self.title = title;
-        self.money = 0;
-        self.cars  = [IDCQueue object];
         [self hireStaff];
     }
     
@@ -56,55 +51,25 @@
 #pragma mark -
 #pragma mark Private
 
+- (instancetype)initWithTitle:(NSString *)title {
+    self = [self init];
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Private
+
 - (void)hireStaff {
-    IDCAccountant *accountant = [[[IDCAccountant alloc] init] autorelease];
-    IDCBoss *boss = [[[IDCBoss alloc] init] autorelease];
-    [accountant addObserver:boss];
     
-    NSMutableArray *staff = [NSMutableArray object];
-    staff = [[@[accountant, boss] mutableCopy] autorelease];
+    NSArray *carWashers = [IDCCarWasher objectsWithCount:kIDCWashersCount observer:self];
+    self.washerDispatcher = [[[IDCDispatcher alloc] initWithStaff:carWashers] autorelease];
     
-    NSArray *carWashers = [self objectsWithCount:kIDCWorkersCount class:[IDCCarWasher class]];
-    for (IDCCarWasher *carWasher in carWashers) {
-        carWasher.name = [[IDCRandomNamesArray randomNamesArray] nameFromArray];
-        [carWasher addObserver:accountant];
-        [carWasher addObserver:self];
-    }
+    NSArray *accountants = [IDCAccountant objectsWithCount:kIDCAccountantCount observer:self];
+    self.accountantDispatcher = [[[IDCDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    [staff addObjectsFromArray:carWashers];
-    
-    self.staff = [[staff mutableCopy] autorelease];
-
-}
-
-- (void)dismissWorker:(IDCWorker *)worker {
-    for (NSUInteger index = 0; index < self.staff.count; index++) {
-        IDCWorker *observer = self.staff[index];
-        if ([worker observedObject:observer]) {
-            [worker removeObserver:observer];
-        }
-    }
-    
-    [self.staff removeObject:worker];
-}
-
-
-- (void)dismissStaff {
-    NSArray *staff = [[self.staff copy] autorelease];
-    for (IDCWorker *worker in staff) {
-        [self dismissWorker:worker];
-    }
-}
-
-- (id)vacantWorkerOfClass:(Class)class {
-    for (IDCWorker *worker in self.staff) {
-        if ([worker isMemberOfClass:class] && worker.state == kIDCWorkerFree) {
-            
-            return worker;
-        }
-    }
-    
-    return nil;
+    NSArray *boss = [IDCBoss objectsWithCount:kIDCBossCount observer:self];
+    self.bossDispatcher = [[[IDCDispatcher alloc] initWithStaff:boss] autorelease];
 }
 
 #pragma mark -
@@ -112,23 +77,20 @@
 
 - (void)washCar:(IDCCar *)car {
     @synchronized (self) {
-        [self.cars pushObject:car];
-        IDCCarWasher *carWasher =  [self vacantWorkerOfClass:[IDCCarWasher class]];
-        if (carWasher) {
-            [carWasher performWork:[self.cars popObject]];
-        }
+        [self.washerDispatcher addObjectToQueue:car];
     }
 }
 
 #pragma mark -
 #pragma mark IDCWorker Protocol
 
-- (void)workerFree:(IDCCarWasher *)carWasher {
-    @synchronized (self) {
-        IDCCar *car = [self.cars popObject];
-        if (car) {
-            [carWasher performWork:car];
-        }
+- (void)workerStandby:(id)object {
+    if ([self.washerDispatcher containsObject:object]) {
+        [self.accountantDispatcher addObjectToQueue:object];
+    }
+    
+    if ([self.accountantDispatcher containsObject:object]) {
+        [self.bossDispatcher addObjectToQueue:object];
     }
 }
 

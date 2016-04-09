@@ -12,13 +12,13 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSArray *carsArray = [NSMutableArray objectsWithCount:20 class:[IDCCar class]];
+        NSArray *carsArray = [IDCCar objectsWithCount:2000];
         for (IDCCar *car in carsArray) {
           car.isDirty = TRUE;
             car.money = kIDCWashCost;
         }
         
-        IDCEnterprise *carWash = [IDCEnterprise enterpriseWithTitle:@"CarWash"];
+        IDCEnterprise *carWash = [IDCEnterprise object];
         
         for (NSUInteger i = 0; i < carsArray.count; i++) {
             [carWash washCar:carsArray[i]];

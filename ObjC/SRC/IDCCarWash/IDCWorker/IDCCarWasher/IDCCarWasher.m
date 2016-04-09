@@ -20,7 +20,8 @@
 }
 
 - (void)completeWorkWithObject:(IDCCar *)car {
-    car.isDirty = FALSE;
+    car.isDirty = 0;
 }
+
 
 @end

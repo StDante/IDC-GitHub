@@ -25,9 +25,11 @@ typedef enum IDCWorkerState : NSUInteger {
 @property (nonatomic, retain) IDCQueue *workersQueue;
 @property (nonatomic, assign) NSString   *name;
 
-- (void)performWork:(id)object;
 + (instancetype)workerWithRandomName;
++ (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer;
 - (instancetype)init;
+
+- (void)performWork:(id)object;
 - (void)sayNameProfession;
 
 @end

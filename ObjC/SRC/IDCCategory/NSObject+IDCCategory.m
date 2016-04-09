@@ -14,13 +14,15 @@
     return [[[[self class] alloc] init] autorelease];
 }
 
-- (NSArray *)objectsWithCount:(NSUInteger)count class:(Class)objectClass {
-    NSMutableArray *objects = [NSMutableArray object];
++ (NSArray *)objectsWithCount:(NSUInteger)count {
+    
+    NSMutableArray *array = [NSMutableArray array];
     for (NSUInteger index = 0; index < count; index++) {
-        [objects addObject:[objectClass object]];
+        id object = [self object];
+        [array addObject:object];
     }
     
-    return objects;
+    return [[array copy] autorelease];
 }
 
 @end
