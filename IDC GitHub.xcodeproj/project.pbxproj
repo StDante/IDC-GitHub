@@ -7,20 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CF828E41CF17E882A2B507C /* libPods-ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316C3F9D9E6ED2C268E623C8 /* libPods-ObjC.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E31C8D9FF100EE188F /* IDCAlphabet.m */; };
 		A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */; };
 		A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */; };
 		A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */; };
+		A26F9F521CA98FEE00CA9859 /* IDCCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F441CA98FEE00CA9859 /* IDCCar.m */; };
+		A26F9F531CA98FEE00CA9859 /* IDCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F471CA98FEE00CA9859 /* IDCConstants.m */; };
+		A26F9F581CA9901B00CA9859 /* IDCCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F571CA9901B00CA9859 /* IDCCarWasher.m */; };
+		A26F9F5B1CA9902F00CA9859 /* IDCBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F5A1CA9902F00CA9859 /* IDCBoss.m */; };
+		A26F9F5E1CA9904000CA9859 /* IDCAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F5D1CA9904000CA9859 /* IDCAccountant.m */; };
+		A26F9F731CA99E9D00CA9859 /* IDCObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F721CA99E9D00CA9859 /* IDCObserver.m */; };
+		A26F9F791CA9C9D300CA9859 /* IDCEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F781CA9C9D300CA9859 /* IDCEnterprise.m */; };
+		A26F9F7A1CA9CABD00CA9859 /* IDCWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F511CA98FEE00CA9859 /* IDCWorker.m */; };
+		A2703F4A1CB4F766000EEB4C /* IDCQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2703F491CB4F766000EEB4C /* IDCQueue.m */; };
+		A2703F4E1CB548A8000EEB4C /* IDCDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2703F4D1CB548A8000EEB4C /* IDCDispatcher.m */; };
+		A27817E31CA9CB7F00D65B37 /* ObjCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27817E21CA9CB7F00D65B37 /* ObjCTest.m */; };
 		A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */; };
 		A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */; };
 		A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1061C7B63ED00EB007F /* IDCMale.m */; };
 		A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1091C7B641600EB007F /* IDCFemale.m */; };
 		A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */; };
 		A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */; };
-		A27CD3941C90D96700BBB4F1 /* IDCEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD3931C90D96700BBB4F1 /* IDCEnterprise.m */; };
-		A27CD3971C90D99000BBB4F1 /* IDCWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD3961C90D99000BBB4F1 /* IDCWorker.m */; };
-		A27CD39A1C90D9AA00BBB4F1 /* IDCCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD3991C90D9AA00BBB4F1 /* IDCCar.m */; };
-		A27CD39E1C90E2D000BBB4F1 /* IDCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A27CD39D1C90E2D000BBB4F1 /* IDCConstants.m */; };
 		A28602201C76080F000E6ED0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A286021F1C76080F000E6ED0 /* main.m */; };
 		A286025C1C760884000E6ED0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602251C760884000E6ED0 /* main.c */; };
 		A286025D1C760884000E6ED0 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602281C760884000E6ED0 /* IDCLection2Macros.c */; };
@@ -39,6 +47,8 @@
 		A286026A1C760884000E6ED0 /* IDCLection3StructureTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602541C760884000E6ED0 /* IDCLection3StructureTest.c */; };
 		A286026B1C760884000E6ED0 /* IDCLection4BitFieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602571C760884000E6ED0 /* IDCLection4BitFieldTest.c */; };
 		A286026C1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */; };
+		A2C5D8DA1CAA9B5C0015B22D /* IDCRandomNamesArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C5D8D91CAA9B5C0015B22D /* IDCRandomNamesArray.m */; };
+		A2C5D8DC1CAAA1030015B22D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C5D8DB1CAAA1030015B22D /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1299ADA0409DEADB59402116 /* Pods-ObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjC.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjC/Pods-ObjC.release.xcconfig"; sourceTree = "<group>"; };
+		316C3F9D9E6ED2C268E623C8 /* libPods-ObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21ED8591C30C98F00FC8564 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24350E21C8D9FF100EE188F /* IDCAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/IDCAlphabet.h; sourceTree = "<group>"; };
 		A24350E31C8D9FF100EE188F /* IDCAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/IDCAlphabet.m; sourceTree = "<group>"; };
@@ -72,6 +84,31 @@
 		A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStringAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCStringAlphabet.m; sourceTree = "<group>"; };
 		A24350EB1C8DA06500EE188F /* IDCClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCClusterAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.h; sourceTree = "<group>"; };
 		A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCClusterAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.m; sourceTree = "<group>"; };
+		A26F9F431CA98FEE00CA9859 /* IDCCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCCar.h; sourceTree = "<group>"; };
+		A26F9F441CA98FEE00CA9859 /* IDCCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCCar.m; sourceTree = "<group>"; };
+		A26F9F461CA98FEE00CA9859 /* IDCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCConstants.h; sourceTree = "<group>"; };
+		A26F9F471CA98FEE00CA9859 /* IDCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCConstants.m; sourceTree = "<group>"; };
+		A26F9F491CA98FEE00CA9859 /* IDCEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCEnterprise.h; sourceTree = "<group>"; };
+		A26F9F501CA98FEE00CA9859 /* IDCWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCWorker.h; sourceTree = "<group>"; };
+		A26F9F511CA98FEE00CA9859 /* IDCWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCWorker.m; sourceTree = "<group>"; };
+		A26F9F561CA9901B00CA9859 /* IDCCarWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCCarWasher.h; sourceTree = "<group>"; };
+		A26F9F571CA9901B00CA9859 /* IDCCarWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCCarWasher.m; sourceTree = "<group>"; };
+		A26F9F591CA9902F00CA9859 /* IDCBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCBoss.h; sourceTree = "<group>"; };
+		A26F9F5A1CA9902F00CA9859 /* IDCBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCBoss.m; sourceTree = "<group>"; };
+		A26F9F5C1CA9904000CA9859 /* IDCAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCAccountant.h; sourceTree = "<group>"; };
+		A26F9F5D1CA9904000CA9859 /* IDCAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCAccountant.m; sourceTree = "<group>"; };
+		A26F9F5F1CA9905F00CA9859 /* IDCMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCMoneyProtocol.h; sourceTree = "<group>"; };
+		A26F9F6F1CA99BDD00CA9859 /* IDCWorkerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCWorkerProtocol.h; sourceTree = "<group>"; };
+		A26F9F711CA99E9D00CA9859 /* IDCObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCObserver.h; sourceTree = "<group>"; };
+		A26F9F721CA99E9D00CA9859 /* IDCObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCObserver.m; sourceTree = "<group>"; };
+		A26F9F781CA9C9D300CA9859 /* IDCEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCEnterprise.m; sourceTree = "<group>"; };
+		A2703F481CB4F766000EEB4C /* IDCQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCQueue.h; path = IDCQueue/IDCQueue.h; sourceTree = "<group>"; };
+		A2703F491CB4F766000EEB4C /* IDCQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCQueue.m; path = IDCQueue/IDCQueue.m; sourceTree = "<group>"; };
+		A2703F4C1CB548A8000EEB4C /* IDCDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCDispatcher.h; path = IDCDispatcher/IDCDispatcher.h; sourceTree = "<group>"; };
+		A2703F4D1CB548A8000EEB4C /* IDCDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCDispatcher.m; path = IDCDispatcher/IDCDispatcher.m; sourceTree = "<group>"; };
+		A27817E01CA9CB7F00D65B37 /* ObjCTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27817E21CA9CB7F00D65B37 /* ObjCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTest.m; sourceTree = "<group>"; };
+		A27817E41CA9CB7F00D65B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreature.h; path = SRC/IDCTask1Creature/IDCCreature.h; sourceTree = "<group>"; };
 		A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreature.m; path = SRC/IDCTask1Creature/IDCCreature.m; sourceTree = "<group>"; };
 		A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreatureTest.h; path = Test/IDCTask1CreatureTest/IDCCreatureTest.h; sourceTree = "<group>"; };
@@ -82,17 +119,9 @@
 		A27BA1091C7B641600EB007F /* IDCFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCFemale.m; path = SRC/IDCTask2Female/IDCFemale.m; sourceTree = "<group>"; };
 		A27BA10C1C7F62ED00EB007F /* NSObject+IDCCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+IDCCategory.h"; path = "SRC/IDCCategory/NSObject+IDCCategory.h"; sourceTree = "<group>"; };
 		A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+IDCCategory.m"; path = "SRC/IDCCategory/NSObject+IDCCategory.m"; sourceTree = "<group>"; };
-		A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IDCObjC-Prefix.pch"; path = "SRC/IDCSupportFiles/IDCObjC-Prefix.pch"; sourceTree = "<group>"; };
+		A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IDCObjC-Prefix.pch"; path = "ObjC/SRC/IDCSupportFiles/IDCObjC-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		A27BA1131C7FA4DF00EB007F /* NSString+IDCRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IDCRandomString.h"; path = "SRC/IDCCategory/NSString+IDCRandomString.h"; sourceTree = "<group>"; };
 		A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IDCRandomString.m"; path = "SRC/IDCCategory/NSString+IDCRandomString.m"; sourceTree = "<group>"; };
-		A27CD3921C90D96700BBB4F1 /* IDCEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCEnterprise.h; path = SRC/IDCCarWash/IDCEnterprise.h; sourceTree = "<group>"; };
-		A27CD3931C90D96700BBB4F1 /* IDCEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCEnterprise.m; path = SRC/IDCCarWash/IDCEnterprise.m; sourceTree = "<group>"; };
-		A27CD3951C90D99000BBB4F1 /* IDCWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCWorker.h; path = SRC/IDCCarWash/IDCWorker.h; sourceTree = "<group>"; };
-		A27CD3961C90D99000BBB4F1 /* IDCWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCWorker.m; path = SRC/IDCCarWash/IDCWorker.m; sourceTree = "<group>"; };
-		A27CD3981C90D9AA00BBB4F1 /* IDCCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCar.h; path = SRC/IDCCarWash/IDCCar.h; sourceTree = "<group>"; };
-		A27CD3991C90D9AA00BBB4F1 /* IDCCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCar.m; path = SRC/IDCCarWash/IDCCar.m; sourceTree = "<group>"; };
-		A27CD39C1C90E2D000BBB4F1 /* IDCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCConstants.h; path = SRC/IDCCarWash/IDCConstants.h; sourceTree = "<group>"; };
-		A27CD39D1C90E2D000BBB4F1 /* IDCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCConstants.m; path = SRC/IDCCarWash/IDCConstants.m; sourceTree = "<group>"; };
 		A286021D1C76080F000E6ED0 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A286021F1C76080F000E6ED0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A28602251C760884000E6ED0 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -129,6 +158,10 @@
 		A28602581C760884000E6ED0 /* IDCLection4BitFieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection4BitFieldTest.h; sourceTree = "<group>"; };
 		A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IDCLection5ObjectHumanTest.c; sourceTree = "<group>"; };
 		A286025B1C760884000E6ED0 /* IDCLection5ObjectHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection5ObjectHumanTest.h; sourceTree = "<group>"; };
+		A2C5D8D81CAA9B5C0015B22D /* IDCRandomNamesArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCRandomNamesArray.h; sourceTree = "<group>"; };
+		A2C5D8D91CAA9B5C0015B22D /* IDCRandomNamesArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCRandomNamesArray.m; sourceTree = "<group>"; };
+		A2C5D8DB1CAAA1030015B22D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FAAFF326BDD84516B9CB278A /* Pods-ObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjC/Pods-ObjC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,22 +172,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A286021A1C76080F000E6ED0 /* Frameworks */ = {
+		A27817DD1CA9CB7F00D65B37 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A286021A1C76080F000E6ED0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2C5D8DC1CAAA1030015B22D /* XCTest.framework in Frameworks */,
+				2CF828E41CF17E882A2B507C /* libPods-ObjC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F21D58956400CC23D8F30E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2C5D8DB1CAAA1030015B22D /* XCTest.framework */,
+				316C3F9D9E6ED2C268E623C8 /* libPods-ObjC.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A21ED8501C30C98F00FC8564 = {
 			isa = PBXGroup;
 			children = (
 				A28602241C760884000E6ED0 /* C */,
 				A286021E1C76080F000E6ED0 /* ObjC */,
+				A27817E11CA9CB7F00D65B37 /* ObjCTest */,
 				A21ED85A1C30C98F00FC8564 /* Products */,
+				F128CE84037F95DD103A0FE8 /* Pods */,
+				2F21D58956400CC23D8F30E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,6 +217,7 @@
 			children = (
 				A21ED8591C30C98F00FC8564 /* C */,
 				A286021D1C76080F000E6ED0 /* ObjC */,
+				A27817E01CA9CB7F00D65B37 /* ObjCTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,6 +228,141 @@
 				A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		A26F9F411CA98FEE00CA9859 /* IDCCarWash */ = {
+			isa = PBXGroup;
+			children = (
+				A2703F4B1CB5486C000EEB4C /* IDCDispatcher */,
+				A26F9F451CA98FEE00CA9859 /* IDCCarWashConstants */,
+				A2703F471CB4F723000EEB4C /* IDCQueue */,
+				A26F9F421CA98FEE00CA9859 /* IDCCar */,
+				A26F9F481CA98FEE00CA9859 /* IDCEnterprise */,
+				A26F9F4B1CA98FEE00CA9859 /* IDCMoneyProtocol */,
+				A26F9F6E1CA99BCA00CA9859 /* IDCWorkerProtocol */,
+				A26F9F4C1CA98FEE00CA9859 /* IDCWorker */,
+			);
+			name = IDCCarWash;
+			path = SRC/IDCCarWash;
+			sourceTree = "<group>";
+		};
+		A26F9F421CA98FEE00CA9859 /* IDCCar */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F431CA98FEE00CA9859 /* IDCCar.h */,
+				A26F9F441CA98FEE00CA9859 /* IDCCar.m */,
+			);
+			path = IDCCar;
+			sourceTree = "<group>";
+		};
+		A26F9F451CA98FEE00CA9859 /* IDCCarWashConstants */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F461CA98FEE00CA9859 /* IDCConstants.h */,
+				A26F9F471CA98FEE00CA9859 /* IDCConstants.m */,
+			);
+			path = IDCCarWashConstants;
+			sourceTree = "<group>";
+		};
+		A26F9F481CA98FEE00CA9859 /* IDCEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F781CA9C9D300CA9859 /* IDCEnterprise.m */,
+				A26F9F491CA98FEE00CA9859 /* IDCEnterprise.h */,
+			);
+			path = IDCEnterprise;
+			sourceTree = "<group>";
+		};
+		A26F9F4B1CA98FEE00CA9859 /* IDCMoneyProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F5F1CA9905F00CA9859 /* IDCMoneyProtocol.h */,
+			);
+			path = IDCMoneyProtocol;
+			sourceTree = "<group>";
+		};
+		A26F9F4C1CA98FEE00CA9859 /* IDCWorker */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F4D1CA98FEE00CA9859 /* IDCAccountant */,
+				A26F9F4E1CA98FEE00CA9859 /* IDCBoss */,
+				A26F9F4F1CA98FEE00CA9859 /* IDCCarWasher */,
+				A26F9F501CA98FEE00CA9859 /* IDCWorker.h */,
+				A26F9F511CA98FEE00CA9859 /* IDCWorker.m */,
+			);
+			path = IDCWorker;
+			sourceTree = "<group>";
+		};
+		A26F9F4D1CA98FEE00CA9859 /* IDCAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F5C1CA9904000CA9859 /* IDCAccountant.h */,
+				A26F9F5D1CA9904000CA9859 /* IDCAccountant.m */,
+			);
+			path = IDCAccountant;
+			sourceTree = "<group>";
+		};
+		A26F9F4E1CA98FEE00CA9859 /* IDCBoss */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F591CA9902F00CA9859 /* IDCBoss.h */,
+				A26F9F5A1CA9902F00CA9859 /* IDCBoss.m */,
+			);
+			path = IDCBoss;
+			sourceTree = "<group>";
+		};
+		A26F9F4F1CA98FEE00CA9859 /* IDCCarWasher */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F561CA9901B00CA9859 /* IDCCarWasher.h */,
+				A26F9F571CA9901B00CA9859 /* IDCCarWasher.m */,
+			);
+			path = IDCCarWasher;
+			sourceTree = "<group>";
+		};
+		A26F9F6E1CA99BCA00CA9859 /* IDCWorkerProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F6F1CA99BDD00CA9859 /* IDCWorkerProtocol.h */,
+			);
+			path = IDCWorkerProtocol;
+			sourceTree = "<group>";
+		};
+		A26F9F701CA99E8E00CA9859 /* IDCObserver */ = {
+			isa = PBXGroup;
+			children = (
+				A26F9F711CA99E9D00CA9859 /* IDCObserver.h */,
+				A26F9F721CA99E9D00CA9859 /* IDCObserver.m */,
+			);
+			name = IDCObserver;
+			path = SRC/IDCObserver;
+			sourceTree = "<group>";
+		};
+		A2703F471CB4F723000EEB4C /* IDCQueue */ = {
+			isa = PBXGroup;
+			children = (
+				A2703F481CB4F766000EEB4C /* IDCQueue.h */,
+				A2703F491CB4F766000EEB4C /* IDCQueue.m */,
+			);
+			name = IDCQueue;
+			sourceTree = "<group>";
+		};
+		A2703F4B1CB5486C000EEB4C /* IDCDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				A2703F4C1CB548A8000EEB4C /* IDCDispatcher.h */,
+				A2703F4D1CB548A8000EEB4C /* IDCDispatcher.m */,
+			);
+			name = IDCDispatcher;
+			sourceTree = "<group>";
+		};
+		A27817E11CA9CB7F00D65B37 /* ObjCTest */ = {
+			isa = PBXGroup;
+			children = (
+				A27817E21CA9CB7F00D65B37 /* ObjCTest.m */,
+				A27817E41CA9CB7F00D65B37 /* Info.plist */,
+			);
+			path = ObjCTest;
 			sourceTree = "<group>";
 		};
 		A27BA1031C7B63A200EB007F /* IDCTask2Male */ = {
@@ -205,27 +395,12 @@
 			name = IDCCategory;
 			sourceTree = "<group>";
 		};
-		A27BA10F1C7F6FB200EB007F /*  IDCSupport Files */ = {
+		A27BA10F1C7F6FB200EB007F /* IDCSupport Files */ = {
 			isa = PBXGroup;
 			children = (
 				A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */,
 			);
-			name = " IDCSupport Files";
-			sourceTree = "<group>";
-		};
-		A27CD3911C90D82000BBB4F1 /* IDCCarWash */ = {
-			isa = PBXGroup;
-			children = (
-				A27CD3921C90D96700BBB4F1 /* IDCEnterprise.h */,
-				A27CD3931C90D96700BBB4F1 /* IDCEnterprise.m */,
-				A27CD3951C90D99000BBB4F1 /* IDCWorker.h */,
-				A27CD3961C90D99000BBB4F1 /* IDCWorker.m */,
-				A27CD3981C90D9AA00BBB4F1 /* IDCCar.h */,
-				A27CD3991C90D9AA00BBB4F1 /* IDCCar.m */,
-				A27CD39C1C90E2D000BBB4F1 /* IDCConstants.h */,
-				A27CD39D1C90E2D000BBB4F1 /* IDCConstants.m */,
-			);
-			name = IDCCarWash;
+			name = "IDCSupport Files";
 			sourceTree = "<group>";
 		};
 		A286021E1C76080F000E6ED0 /* ObjC */ = {
@@ -450,8 +625,10 @@
 		A28602701C76096E000E6ED0 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				A27CD3911C90D82000BBB4F1 /* IDCCarWash */,
-				A27BA10F1C7F6FB200EB007F /*  IDCSupport Files */,
+				A2C5D8D71CAA9B5C0015B22D /* IDCRandomNamesArray */,
+				A26F9F701CA99E8E00CA9859 /* IDCObserver */,
+				A26F9F411CA98FEE00CA9859 /* IDCCarWash */,
+				A27BA10F1C7F6FB200EB007F /* IDCSupport Files */,
 				A27BA10B1C7F626200EB007F /* IDCCategory */,
 				A27BA1041C7B63BD00EB007F /* IDCTask2Female */,
 				A27BA1031C7B63A200EB007F /* IDCTask2Male */,
@@ -478,6 +655,16 @@
 			name = IDCTask1CreatureTest;
 			sourceTree = "<group>";
 		};
+		A2C5D8D71CAA9B5C0015B22D /* IDCRandomNamesArray */ = {
+			isa = PBXGroup;
+			children = (
+				A2C5D8D81CAA9B5C0015B22D /* IDCRandomNamesArray.h */,
+				A2C5D8D91CAA9B5C0015B22D /* IDCRandomNamesArray.m */,
+			);
+			name = IDCRandomNamesArray;
+			path = SRC/IDCRandomNamesArray;
+			sourceTree = "<group>";
+		};
 		A2E45FD51C8D9342009F0BEA /* IDCTask5Alphabet */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +688,15 @@
 			name = Private;
 			sourceTree = "<group>";
 		};
+		F128CE84037F95DD103A0FE8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFF326BDD84516B9CB278A /* Pods-ObjC.debug.xcconfig */,
+				1299ADA0409DEADB59402116 /* Pods-ObjC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,13 +717,32 @@
 			productReference = A21ED8591C30C98F00FC8564 /* C */;
 			productType = "com.apple.product-type.tool";
 		};
+		A27817DF1CA9CB7F00D65B37 /* ObjCTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A27817E71CA9CB7F00D65B37 /* Build configuration list for PBXNativeTarget "ObjCTest" */;
+			buildPhases = (
+				A27817DC1CA9CB7F00D65B37 /* Sources */,
+				A27817DD1CA9CB7F00D65B37 /* Frameworks */,
+				A27817DE1CA9CB7F00D65B37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCTest;
+			productName = ObjCTest;
+			productReference = A27817E01CA9CB7F00D65B37 /* ObjCTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A286021C1C76080F000E6ED0 /* ObjC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A28602211C76080F000E6ED0 /* Build configuration list for PBXNativeTarget "ObjC" */;
 			buildPhases = (
+				F5AA41127C3647882A620D80 /* Check Pods Manifest.lock */,
 				A28602191C76080F000E6ED0 /* Sources */,
 				A286021A1C76080F000E6ED0 /* Frameworks */,
 				A286021B1C76080F000E6ED0 /* CopyFiles */,
+				975EA0B4D3354617DE54A2DA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -544,11 +759,14 @@
 		A21ED8511C30C98F00FC8564 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Alexandr Altukhov";
 				TargetAttributes = {
 					A21ED8581C30C98F00FC8564 = {
 						CreatedOnToolsVersion = 7.2;
+					};
+					A27817DF1CA9CB7F00D65B37 = {
+						CreatedOnToolsVersion = 7.3;
 					};
 					A286021C1C76080F000E6ED0 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -569,9 +787,53 @@
 			targets = (
 				A21ED8581C30C98F00FC8564 /* C */,
 				A286021C1C76080F000E6ED0 /* ObjC */,
+				A27817DF1CA9CB7F00D65B37 /* ObjCTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A27817DE1CA9CB7F00D65B37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		975EA0B4D3354617DE54A2DA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjC/Pods-ObjC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5AA41127C3647882A620D80 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A21ED8551C30C98F00FC8564 /* Sources */ = {
@@ -598,25 +860,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A27817DC1CA9CB7F00D65B37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A27817E31CA9CB7F00D65B37 /* ObjCTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A28602191C76080F000E6ED0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */,
+				A26F9F5E1CA9904000CA9859 /* IDCAccountant.m in Sources */,
 				A28602201C76080F000E6ED0 /* main.m in Sources */,
+				A26F9F5B1CA9902F00CA9859 /* IDCBoss.m in Sources */,
 				A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */,
-				A27CD3941C90D96700BBB4F1 /* IDCEnterprise.m in Sources */,
 				A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */,
+				A26F9F7A1CA9CABD00CA9859 /* IDCWorker.m in Sources */,
 				A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */,
+				A2703F4A1CB4F766000EEB4C /* IDCQueue.m in Sources */,
+				A2C5D8DA1CAA9B5C0015B22D /* IDCRandomNamesArray.m in Sources */,
+				A26F9F731CA99E9D00CA9859 /* IDCObserver.m in Sources */,
 				A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */,
+				A26F9F531CA98FEE00CA9859 /* IDCConstants.m in Sources */,
+				A26F9F791CA9C9D300CA9859 /* IDCEnterprise.m in Sources */,
+				A26F9F581CA9901B00CA9859 /* IDCCarWasher.m in Sources */,
 				A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */,
 				A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */,
-				A27CD3971C90D99000BBB4F1 /* IDCWorker.m in Sources */,
 				A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */,
-				A27CD39E1C90E2D000BBB4F1 /* IDCConstants.m in Sources */,
-				A27CD39A1C90D9AA00BBB4F1 /* IDCCar.m in Sources */,
+				A26F9F521CA98FEE00CA9859 /* IDCCar.m in Sources */,
 				A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */,
 				A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */,
+				A2703F4E1CB548A8000EEB4C /* IDCDispatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,10 +936,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.11;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -696,10 +973,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.11;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -717,13 +994,41 @@
 			};
 			name = Release;
 		};
+		A27817E51CA9CB7F00D65B37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ObjCTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = IDC.ObjCTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A27817E61CA9CB7F00D65B37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ObjCTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = IDC.ObjCTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A28602221C76080F000E6ED0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAAFF326BDD84516B9CB278A /* Pods-ObjC.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjC/SRC/IDCSupportFiles/IDCObjC-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -731,11 +1036,14 @@
 		};
 		A28602231C76080F000E6ED0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1299ADA0409DEADB59402116 /* Pods-ObjC.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				EXECUTABLE_PREFIX = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjC/SRC/IDCSupportFiles/IDCObjC-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -758,6 +1066,15 @@
 			buildConfigurations = (
 				A21ED8611C30C98F00FC8564 /* Debug */,
 				A21ED8621C30C98F00FC8564 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A27817E71CA9CB7F00D65B37 /* Build configuration list for PBXNativeTarget "ObjCTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27817E51CA9CB7F00D65B37 /* Debug */,
+				A27817E61CA9CB7F00D65B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
