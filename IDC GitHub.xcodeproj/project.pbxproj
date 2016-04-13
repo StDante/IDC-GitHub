@@ -331,6 +331,8 @@
 		A26F9F701CA99E8E00CA9859 /* IDCObserver */ = {
 			isa = PBXGroup;
 			children = (
+				A2CE95AD1CBEAD70005EC75F /* IDCObserversDictionary */,
+				A2CE95AC1CBEAD5E005EC75F /* IDCObserversArray */,
 				A26F9F711CA99E9D00CA9859 /* IDCObserver.h */,
 				A26F9F721CA99E9D00CA9859 /* IDCObserver.m */,
 			);
@@ -663,6 +665,20 @@
 			);
 			name = IDCRandomNamesArray;
 			path = SRC/IDCRandomNamesArray;
+			sourceTree = "<group>";
+		};
+		A2CE95AC1CBEAD5E005EC75F /* IDCObserversArray */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IDCObserversArray;
+			sourceTree = "<group>";
+		};
+		A2CE95AD1CBEAD70005EC75F /* IDCObserversDictionary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IDCObserversDictionary;
 			sourceTree = "<group>";
 		};
 		A2E45FD51C8D9342009F0BEA /* IDCTask5Alphabet */ = {

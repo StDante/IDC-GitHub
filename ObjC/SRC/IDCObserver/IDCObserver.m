@@ -44,6 +44,9 @@
     return self;
 }
 
+//////////////////////////////////////////////////////////////Handlers
+
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -58,6 +61,8 @@
         [self notifyObservers];
     }
 }
+
+//////////////////////////////////////////////////////////////Handlers
 
 #pragma mark -
 #pragma mark Public
@@ -90,5 +95,7 @@
 - (BOOL)observedObject:(id)object {
     return [self.mutableObservers containsObject:object];
 }
+
+//////////////////////////////////////////////////////////////Handlers
 
 @end

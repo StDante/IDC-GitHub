@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^IDCComplitionHandler)(void);
+
 @interface IDCObserver : NSObject
 @property (nonatomic, readonly) NSArray     *observers;
 @property (nonatomic, assign)   NSUInteger  state;
+@property (nonatomic, retain)   NSMutableDictionary *handlersDictionary;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
