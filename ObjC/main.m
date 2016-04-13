@@ -12,7 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSArray *carsArray = [IDCCar objectsWithCount:2000];
+        NSArray *carsArray = [IDCCar objectsWithCount:20];
         for (IDCCar *car in carsArray) {
           car.isDirty = TRUE;
             car.money = kIDCWashCost;

@@ -16,7 +16,6 @@
 @property (nonatomic, retain) IDCDispatcher  *bossDispatcher;
 
 - (void)hireStaff;
-- (void)addHandler:(NSArray *)staff forState:(NSUInteger)state;
 - (void)addHandlerForStandby:(NSArray *)staff;
 
 @end
@@ -69,7 +68,7 @@
     self.accountantDispatcher = [[[IDCDispatcher alloc] initWithStaff:accountants] autorelease];
     [self addHandlerForStandby:accountants];
     
-    NSArray *boss = [IDCBoss objectsWithCount:kIDCBossCount observer:self];
+    NSArray *boss = [IDCBoss objectsWithCount:kIDCBossCount];
     self.bossDispatcher = [[[IDCDispatcher alloc] initWithStaff:boss] autorelease];
 }
 
@@ -98,23 +97,19 @@
 #pragma mark -
 #pragma mark HandlersLogic
 
-- (void)addHandler:(NSArray *)staff forState:(NSUInteger)state {
+- (void)addHandlerForStandby:(NSArray *)staff {
     @synchronized(self) {
         for (IDCWorker *worker in staff) {
             [worker addHandler:^{
                 [self workerStandby:worker];
-            } ForState:state object:self];
+            } ForState:kIDCWorkerStandby object:self];
             
             [worker addHandler:^{
                 NSLog(@"Testing Handler");
-            } ForState:state object:self];
+            } ForState:kIDCWorkerStandby object:self];
             
         }
     }
-}
-
-- (void)addHandlerForStandby:(NSArray *)staff {
-    [self addHandler:staff forState:kIDCWorkerStandby];
 }
 
 @end

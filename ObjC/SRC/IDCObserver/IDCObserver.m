@@ -31,7 +31,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
-        self.handlersDictionary = [NSMutableDictionary object];
+        self.handlersDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -45,9 +45,6 @@
     
     return self;
 }
-
-//////////////////////////////////////////////////////////////Handlers
-
 
 #pragma mark -
 #pragma mark Accessors
@@ -63,8 +60,6 @@
         [self notifyObservers];
     }
 }
-
-//////////////////////////////////////////////////////////////Handlers
 
 #pragma mark -
 #pragma mark Public
@@ -101,7 +96,17 @@
 //////////////////////////////////////////////////////////////Handlers
 
 - (void)addHandler:(IDCComplitionHandler)workerHandler ForState:(NSUInteger)state object:(id)object {
+    NSString *keyState = [NSString stringWithFormat:@"%lu", state];
+    NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
+    if (!array) {
+        array = [NSMutableArray array];
+    }
     
+    NSString *keyObject = [NSString stringWithFormat:@"%lu", [object hash]];
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObject:[[workerHandler copy] autorelease]
+                                                                         forKey:keyObject];
+    [array addObject:dictionary];
+    [self.handlersDictionary setObject:array forKey:keyState];
 }
 
 - (void)removeHandlerForState:(NSUInteger)state object:(id)object {
