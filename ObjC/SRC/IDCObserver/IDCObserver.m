@@ -110,10 +110,18 @@
 }
 
 - (void)removeHandlerForState:(NSUInteger)state object:(id)object {
+    NSString *keyState = [NSString stringWithFormat:@"%lu", state];
+    NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
+    [array removeAllObjects];
     
 }
 
 - (void)removeHandlerForObject:(id)object {
+    NSArray *allKeys = [self.handlersDictionary allKeys];
+    
+    for (NSNumber *key in allKeys) {
+        [self removeHandlerForState:[key unsignedIntegerValue] object:object];
+    }
     
 }
 
