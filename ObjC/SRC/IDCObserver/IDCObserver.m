@@ -22,6 +22,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
+    self.handlersDictionary = nil;
     
     [super dealloc];
 }
@@ -30,6 +31,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.handlersDictionary = [NSMutableDictionary object];
     }
     
     return self;
@@ -97,5 +99,17 @@
 }
 
 //////////////////////////////////////////////////////////////Handlers
+
+- (void)addHandler:(IDCComplitionHandler)workerHandler ForState:(NSUInteger)state object:(id)object {
+    
+}
+
+- (void)removeHandlerForState:(NSUInteger)state object:(id)object {
+    
+}
+
+- (void)removeHandlerForObject:(id)object {
+    
+}
 
 @end
