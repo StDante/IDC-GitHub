@@ -25,7 +25,7 @@ typedef void (^IDCComplitionHandler)(void);
 - (void)notifyObservers;
 - (BOOL)observedObject:(id)object;
 
-- (void)addHandler:(IDCComplitionHandler)workerHandler ForState:(NSUInteger)state object:(id)object;
+- (void)addHandler:(IDCComplitionHandler)workerHandler forState:(NSUInteger)state object:(id)object;
 - (void)removeHandlerForState:(NSUInteger)state object:(id)object;
 - (void)removeHandlerForObject:(id)object;
 

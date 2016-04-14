@@ -62,7 +62,7 @@
         for (IDCWorker *worker in staff) {
             [worker addHandler:^{
                 [self workerFree:worker];
-            } ForState:kIDCWorkerFree object:self];
+            } forState:kIDCWorkerFree object:self];
             
         }
     }

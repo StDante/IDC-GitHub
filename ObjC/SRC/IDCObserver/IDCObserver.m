@@ -95,7 +95,7 @@
 
 //////////////////////////////////////////////////////////////Handlers
 
-- (void)addHandler:(IDCComplitionHandler)workerHandler ForState:(NSUInteger)state object:(id)object {
+- (void)addHandler:(IDCComplitionHandler)workerHandler forState:(NSUInteger)state object:(id)object {
     NSString *keyState = [NSString stringWithFormat:@"%lu", state];
     NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
     if (!array) {

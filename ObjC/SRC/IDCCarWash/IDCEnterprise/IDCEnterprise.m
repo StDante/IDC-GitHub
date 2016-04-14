@@ -102,11 +102,11 @@
         for (IDCWorker *worker in staff) {
             [worker addHandler:^{
                 [self workerStandby:worker];
-            } ForState:kIDCWorkerStandby object:self];
+            } forState:kIDCWorkerStandby object:self];
             
             [worker addHandler:^{
                 NSLog(@"Testing Handler");
-            } ForState:kIDCWorkerStandby object:self];
+            } forState:kIDCWorkerStandby object:self];
             
         }
     }
