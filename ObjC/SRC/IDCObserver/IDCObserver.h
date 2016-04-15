@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^IDCComplitionHandler)(void);
+typedef void (^IDCCompletionHandler)(void);
 
 @interface IDCObserver : NSObject
-@property (nonatomic, readonly) NSArray     *observers;
-@property (nonatomic, assign)   NSUInteger  state;
-@property (nonatomic, retain)   NSMutableDictionary *handlersDictionary;
+@property (nonatomic, readonly) NSArray    *observers;
+@property (nonatomic, assign)   NSUInteger state;
+@property (nonatomic, copy)   NSDictionary *handlersDictionary;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
@@ -25,7 +25,8 @@ typedef void (^IDCComplitionHandler)(void);
 - (void)notifyObservers;
 - (BOOL)observedObject:(id)object;
 
-- (void)addHandler:(IDCComplitionHandler)workerHandler forState:(NSUInteger)state object:(id)object;
+
+- (void)addHandler:(IDCCompletionHandler)workerHandler forState:(NSUInteger)state object:(id)object;
 - (void)removeHandlerForState:(NSUInteger)state object:(id)object;
 - (void)removeHandlerForObject:(id)object;
 

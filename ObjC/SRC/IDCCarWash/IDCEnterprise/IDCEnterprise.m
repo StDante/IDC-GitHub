@@ -103,10 +103,10 @@
             [worker addHandler:^{
                 [self workerStandby:worker];
             } forState:kIDCWorkerStandby object:self];
-            
-            [worker addHandler:^{
-                NSLog(@"Testing Handler");
-            } forState:kIDCWorkerStandby object:self];
+//            
+//            [worker addHandler:^{
+//                NSLog(@"Testing Handler");
+//            } forState:kIDCWorkerStandby object:self];
             
         }
     }

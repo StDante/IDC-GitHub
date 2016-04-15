@@ -14,7 +14,7 @@
 #pragma mark Private
 
 - (void)completeWork {
-    NSLog(@"PROFIT is money = %lu", self.money);
+    NSLog(@"PROFIT is %lu", self.money);
     self.state = kIDCWorkerFree;
 }
 

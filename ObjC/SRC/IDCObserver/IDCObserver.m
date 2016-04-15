@@ -9,7 +9,8 @@
 #import "IDCObserver.h"
 
 @interface IDCObserver ()
-@property (nonatomic, assign) NSHashTable *mutableObservers;
+@property (nonatomic, assign) NSHashTable         *mutableObservers;
+@property (nonatomic, retain) NSMutableDictionary *handlersMutableDictionary;
 
 @end
 
@@ -23,6 +24,7 @@
 - (void)dealloc {
     self.mutableObservers = nil;
     self.handlersDictionary = nil;
+    self.handlersMutableDictionary = nil;
     
     [super dealloc];
 }
@@ -31,7 +33,8 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
-        self.handlersDictionary = [NSMutableDictionary dictionary];
+        self.handlersDictionary = [NSDictionary dictionary];
+        self.handlersMutableDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -53,11 +56,21 @@
     return [self.mutableObservers allObjects];
 }
 
+- (NSDictionary *)handlersDictionary {
+    return [[self.handlersMutableDictionary copy] autorelease];
+}
+
 - (void)setState:(NSUInteger)state {
     if (_state != state) {
         _state = state;
         
-        [self notifyObservers];
+//        [self notifyObservers];
+        NSString *keyState = [NSString stringWithFormat:@"%lu", _state];
+        NSArray *array = [self.handlersDictionary objectForKey:keyState];
+        for (NSMutableDictionary *dictionary in array) {
+            IDCCompletionHandler handler = [[dictionary allValues] firstObject];
+            handler();
+        }
     }
 }
 
@@ -95,7 +108,7 @@
 
 //////////////////////////////////////////////////////////////Handlers
 
-- (void)addHandler:(IDCComplitionHandler)workerHandler forState:(NSUInteger)state object:(id)object {
+- (void)addHandler:(IDCCompletionHandler)workerHandler forState:(NSUInteger)state object:(id)object {
     NSString *keyState = [NSString stringWithFormat:@"%lu", state];
     NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
     if (!array) {
@@ -106,14 +119,18 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObject:[[workerHandler copy] autorelease]
                                                                          forKey:keyObject];
     [array addObject:dictionary];
-    [self.handlersDictionary setObject:array forKey:keyState];
+    [self.handlersMutableDictionary setObject:array forKey:keyState];
 }
 
 - (void)removeHandlerForState:(NSUInteger)state object:(id)object {
     NSString *keyState = [NSString stringWithFormat:@"%lu", state];
     NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
-    [array removeAllObjects];
-    
+    for (NSMutableDictionary *dictionary in array) {
+        id objectValue = [[dictionary allValues] firstObject];
+        if (objectValue == object) {
+            [array removeObject:dictionary];
+        }
+    }
 }
 
 - (void)removeHandlerForObject:(id)object {
@@ -122,7 +139,9 @@
     for (NSNumber *key in allKeys) {
         [self removeHandlerForState:[key unsignedIntegerValue] object:object];
     }
-    
 }
+
+#pragma mark -
+#pragma mark Private
 
 @end
