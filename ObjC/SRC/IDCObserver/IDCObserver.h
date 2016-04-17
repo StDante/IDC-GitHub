@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IDCObserversState.h"
+
+typedef void (^IDCCompletionHandler)(void);
 
 @interface IDCObserver : NSObject
-@property (nonatomic, readonly) NSArray     *observers;
-@property (nonatomic, assign)   NSUInteger  state;
+@property (nonatomic, readonly) NSArray    *observers;
+@property (nonatomic, assign)   NSUInteger state;
 
 - (instancetype)initWithState:(NSUInteger)state;
 
@@ -21,6 +24,11 @@
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObservers;
 - (BOOL)observedObject:(id)object;
+
+
+- (void)addHandler:(IDCCompletionHandler)workerHandler forState:(NSUInteger)state object:(id)object;
+- (void)removeHandlerForState:(NSUInteger)state object:(id)object;
+- (void)removeHandlerForObject:(id)object;
 
 @end
 

@@ -85,9 +85,11 @@
 }
 
 - (void)performWork:(id<IDCMoneyProtocol>)object {
-    self.state = kIDCWorkerBusy;
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                           withObject:object];
+    if (object) {
+        self.state = kIDCWorkerBusy;
+        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                               withObject:object];
+    }
 }
 
 #pragma mark -
@@ -95,9 +97,9 @@
 
 - (void)performWorkWithObjectInBackground:(id<IDCMoneyProtocol>)object {
     @synchronized (self) {
-        usleep(arc4random_uniform(100000) + 1000);
+        usleep(arc4random_uniform(10000) + 1000);
         [self workWithObject:object];
-//        NSLog(@"%@ gave me money", object);
+        NSLog(@"%@ gave me money", object);
         [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
     }
 }
@@ -130,7 +132,7 @@
 - (void)takeMoney:(NSUInteger)payment {
     @synchronized (self) {
         self.money += payment;
-//        NSLog(@"payment is %lu", payment);
+        NSLog(@"payment is %lu", payment);
     }
 }
 

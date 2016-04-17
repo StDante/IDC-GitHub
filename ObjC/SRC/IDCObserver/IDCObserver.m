@@ -9,7 +9,11 @@
 #import "IDCObserver.h"
 
 @interface IDCObserver ()
-@property (nonatomic, assign) NSHashTable *mutableObservers;
+@property (nonatomic, assign) NSHashTable         *mutableObservers;
+@property (nonatomic, retain) NSMutableArray *observerStatesObjects;
+
+- (IDCObserversState *)objectForState:(NSUInteger)state;
+- (void)performHandler;
 
 @end
 
@@ -22,6 +26,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
+    self.observerStatesObjects = nil;
     
     [super dealloc];
 }
@@ -30,6 +35,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.observerStatesObjects = [NSMutableArray array];
     }
     
     return self;
@@ -52,12 +58,16 @@
 }
 
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObservers];
+    @synchronized (self) {
+        if (_state != state) {
+            _state = state;
+            
+//          [self notifyObservers];
+            [self performHandler];
+        }
     }
 }
+  
 
 #pragma mark -
 #pragma mark Public
@@ -89,6 +99,58 @@
 
 - (BOOL)observedObject:(id)object {
     return [self.mutableObservers containsObject:object];
+}
+
+//////////////////////////////////////////////////////////////Handlers
+
+- (void)addHandler:(IDCCompletionHandler)workerHandler forState:(NSUInteger)state object:(id)object {
+    if (object) {
+        IDCObserversState *stateObject = [self objectForState:state];
+        [stateObject addHandler:workerHandler object:object];
+    }
+}
+
+- (void)removeHandlerForState:(NSUInteger)state object:(id)object {
+    for (IDCObserversState *stateObject in self.observerStatesObjects) {
+        if (stateObject.state == state) {
+            [self.observerStatesObjects removeObject:stateObject];
+        }
+    }
+}
+
+- (void)removeHandlerForObject:(id)object {
+    if (object) {
+        for (IDCObserversState *stateObject in self.observerStatesObjects) {
+            [stateObject removeHandlersForObject:object];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (IDCObserversState *)objectForState:(NSUInteger)state {
+    for (IDCObserversState *stateObject in self.observerStatesObjects) {
+        if (stateObject.state == state) {
+            return stateObject;
+        }
+    }
+    
+    IDCObserversState *newStateObject = [IDCObserversState observerStateObjectWithState:state];
+    [self.observerStatesObjects addObject:newStateObject];
+    
+    return newStateObject;
+}
+
+
+- (void)performHandler {
+    for (IDCObserversState *stateObject in self.observerStatesObjects) {
+        if (stateObject.state == self.state) {
+            for (IDCCompletionHandler handler in stateObject.handlers) {
+                handler();
+            }
+        }
+    }
 }
 
 @end

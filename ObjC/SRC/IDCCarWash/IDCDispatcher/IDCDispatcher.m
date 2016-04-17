@@ -15,6 +15,7 @@
 
 - (IDCWorker *)vacantWorker;
 - (void)workWithObject:(id)objedt;
+- (void)workerFree:(id)worker;
 
 @end
 
@@ -57,7 +58,13 @@
 - (void)setStaff:(NSMutableArray *)staff {
     if (_staff != staff) {
         _staff = staff;
-        [staff makeObjectsPerformSelector:@selector(addObserver:) withObject:self];
+        
+        for (IDCWorker *worker in staff) {
+            [worker addHandler:^{
+                [self workerFree:worker];
+            } forState:kIDCWorkerFree object:self];
+            
+        }
     }
 }
 

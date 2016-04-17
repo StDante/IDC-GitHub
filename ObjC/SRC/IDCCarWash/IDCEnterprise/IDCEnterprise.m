@@ -16,6 +16,7 @@
 @property (nonatomic, retain) IDCDispatcher  *bossDispatcher;
 
 - (void)hireStaff;
+- (void)addHandlerForStandby:(NSArray *)staff;
 
 @end
 
@@ -48,9 +49,6 @@
     return self;
 }
 
-#pragma mark -
-#pragma mark Private
-
 - (instancetype)initWithTitle:(NSString *)title {
     self = [self init];
     
@@ -62,13 +60,15 @@
 
 - (void)hireStaff {
     
-    NSArray *carWashers = [IDCCarWasher objectsWithCount:kIDCWashersCount observer:self];
+    NSArray *carWashers = [IDCCarWasher objectsWithCount:kIDCWashersCount];
     self.washerDispatcher = [[[IDCDispatcher alloc] initWithStaff:carWashers] autorelease];
+    [self addHandlerForStandby:carWashers];
     
-    NSArray *accountants = [IDCAccountant objectsWithCount:kIDCAccountantCount observer:self];
+    NSArray *accountants = [IDCAccountant objectsWithCount:kIDCAccountantCount];
     self.accountantDispatcher = [[[IDCDispatcher alloc] initWithStaff:accountants] autorelease];
+    [self addHandlerForStandby:accountants];
     
-    NSArray *boss = [IDCBoss objectsWithCount:kIDCBossCount observer:self];
+    NSArray *boss = [IDCBoss objectsWithCount:kIDCBossCount];
     self.bossDispatcher = [[[IDCDispatcher alloc] initWithStaff:boss] autorelease];
 }
 
@@ -91,6 +91,24 @@
     
     if ([self.accountantDispatcher containsObject:object]) {
         [self.bossDispatcher addObjectToQueue:object];
+    }
+}
+
+#pragma mark -
+#pragma mark HandlersLogic
+
+- (void)addHandlerForStandby:(NSArray *)staff {
+    @synchronized(self) {
+        for (IDCWorker *worker in staff) {
+            [worker addHandler:^{
+                [self workerStandby:worker];
+            } forState:kIDCWorkerStandby object:self];
+//            
+//            [worker addHandler:^{
+//                NSLog(@"Testing Handler");
+//            } forState:kIDCWorkerStandby object:self];
+            
+        }
     }
 }
 

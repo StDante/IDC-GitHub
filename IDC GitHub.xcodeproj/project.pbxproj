@@ -12,6 +12,9 @@
 		A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */; };
 		A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */; };
 		A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */; };
+		A2646CC81CBEE33E009E563F /* IDCObserversState.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CC71CBEE33E009E563F /* IDCObserversState.m */; };
+		A2646CCB1CBEE39F009E563F /* IDCObserversArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */; };
+		A2646CCE1CBEE444009E563F /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		A26F9F521CA98FEE00CA9859 /* IDCCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F441CA98FEE00CA9859 /* IDCCar.m */; };
 		A26F9F531CA98FEE00CA9859 /* IDCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F471CA98FEE00CA9859 /* IDCConstants.m */; };
 		A26F9F581CA9901B00CA9859 /* IDCCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F571CA9901B00CA9859 /* IDCCarWasher.m */; };
@@ -84,6 +87,12 @@
 		A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStringAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCStringAlphabet.m; sourceTree = "<group>"; };
 		A24350EB1C8DA06500EE188F /* IDCClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCClusterAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.h; sourceTree = "<group>"; };
 		A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCClusterAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.m; sourceTree = "<group>"; };
+		A2646CC61CBEE33E009E563F /* IDCObserversState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversState.h; path = IDCObserversState/IDCObserversState.h; sourceTree = "<group>"; };
+		A2646CC71CBEE33E009E563F /* IDCObserversState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObserversState.m; path = IDCObserversState/IDCObserversState.m; sourceTree = "<group>"; };
+		A2646CC91CBEE39F009E563F /* IDCObserversArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversArray.h; path = IDCObserversArray/IDCObserversArray.h; sourceTree = "<group>"; };
+		A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObserversArray.m; path = IDCObserversArray/IDCObserversArray.m; sourceTree = "<group>"; };
+		A2646CCC1CBEE444009E563F /* IDCObserversObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversObject.h; path = IDCObserversObject/IDCObserversObject.h; sourceTree = "<group>"; };
+		A2646CCD1CBEE444009E563F /* IDCObserversObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObserversObject.m; path = IDCObserversObject/IDCObserversObject.m; sourceTree = "<group>"; };
 		A26F9F431CA98FEE00CA9859 /* IDCCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCCar.h; sourceTree = "<group>"; };
 		A26F9F441CA98FEE00CA9859 /* IDCCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCCar.m; sourceTree = "<group>"; };
 		A26F9F461CA98FEE00CA9859 /* IDCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCConstants.h; sourceTree = "<group>"; };
@@ -230,6 +239,15 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		A2646CC21CBEE2F9009E563F /* IDCObserversState */ = {
+			isa = PBXGroup;
+			children = (
+				A2646CC61CBEE33E009E563F /* IDCObserversState.h */,
+				A2646CC71CBEE33E009E563F /* IDCObserversState.m */,
+			);
+			name = IDCObserversState;
+			sourceTree = "<group>";
+		};
 		A26F9F411CA98FEE00CA9859 /* IDCCarWash */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +349,9 @@
 		A26F9F701CA99E8E00CA9859 /* IDCObserver */ = {
 			isa = PBXGroup;
 			children = (
+				A2646CC21CBEE2F9009E563F /* IDCObserversState */,
+				A2CE95AC1CBEAD5E005EC75F /* IDCObserversArray */,
+				A2CE95AD1CBEAD70005EC75F /* IDCObserversObject */,
 				A26F9F711CA99E9D00CA9859 /* IDCObserver.h */,
 				A26F9F721CA99E9D00CA9859 /* IDCObserver.m */,
 			);
@@ -665,6 +686,24 @@
 			path = SRC/IDCRandomNamesArray;
 			sourceTree = "<group>";
 		};
+		A2CE95AC1CBEAD5E005EC75F /* IDCObserversArray */ = {
+			isa = PBXGroup;
+			children = (
+				A2646CC91CBEE39F009E563F /* IDCObserversArray.h */,
+				A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */,
+			);
+			name = IDCObserversArray;
+			sourceTree = "<group>";
+		};
+		A2CE95AD1CBEAD70005EC75F /* IDCObserversObject */ = {
+			isa = PBXGroup;
+			children = (
+				A2646CCC1CBEE444009E563F /* IDCObserversObject.h */,
+				A2646CCD1CBEE444009E563F /* IDCObserversObject.m */,
+			);
+			name = IDCObserversObject;
+			sourceTree = "<group>";
+		};
 		A2E45FD51C8D9342009F0BEA /* IDCTask5Alphabet */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,10 +923,13 @@
 				A2C5D8DA1CAA9B5C0015B22D /* IDCRandomNamesArray.m in Sources */,
 				A26F9F731CA99E9D00CA9859 /* IDCObserver.m in Sources */,
 				A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */,
+				A2646CC81CBEE33E009E563F /* IDCObserversState.m in Sources */,
 				A26F9F531CA98FEE00CA9859 /* IDCConstants.m in Sources */,
 				A26F9F791CA9C9D300CA9859 /* IDCEnterprise.m in Sources */,
 				A26F9F581CA9901B00CA9859 /* IDCCarWasher.m in Sources */,
+				A2646CCB1CBEE39F009E563F /* IDCObserversArray.m in Sources */,
 				A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */,
+				A2646CCE1CBEE444009E563F /* IDCObserversObject.m in Sources */,
 				A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */,
 				A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */,
 				A26F9F521CA98FEE00CA9859 /* IDCCar.m in Sources */,
