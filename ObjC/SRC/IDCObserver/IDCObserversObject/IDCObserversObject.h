@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^IDCCompletionHandler)(void);
+
 @interface IDCObserversObject : NSObject
+@property (nonatomic, weak) id                   object;
+@property (nonatomic, copy) IDCCompletionHandler handler;
+
++ (instancetype)observerObjectWithObject:(id)object handler:(IDCCompletionHandler)handler;
+- (instancetype)initWithObject:(id)object handler:(IDCCompletionHandler)handler;
 
 @end

@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IDCObserver.h"
 #import "IDCObserversObject.h"
 
 @interface IDCObserversArray : NSObject
+@property (nonatomic, readonly) NSArray *observerObjects;
+
+- (void)addHandler:(IDCCompletionHandler)handler forObject:(id)object;
+- (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end

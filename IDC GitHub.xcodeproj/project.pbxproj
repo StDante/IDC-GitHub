@@ -14,7 +14,7 @@
 		A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */; };
 		A2646CC81CBEE33E009E563F /* IDCObserversState.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CC71CBEE33E009E563F /* IDCObserversState.m */; };
 		A2646CCB1CBEE39F009E563F /* IDCObserversArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */; };
-		A2646CCE1CBEE444009E563F /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; };
+		A2646CCE1CBEE444009E563F /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		A26F9F521CA98FEE00CA9859 /* IDCCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F441CA98FEE00CA9859 /* IDCCar.m */; };
 		A26F9F531CA98FEE00CA9859 /* IDCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F471CA98FEE00CA9859 /* IDCConstants.m */; };
 		A26F9F581CA9901B00CA9859 /* IDCCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F571CA9901B00CA9859 /* IDCCarWasher.m */; };
@@ -350,8 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				A2646CC21CBEE2F9009E563F /* IDCObserversState */,
-				A2CE95AD1CBEAD70005EC75F /* IDCObserversObject */,
 				A2CE95AC1CBEAD5E005EC75F /* IDCObserversArray */,
+				A2CE95AD1CBEAD70005EC75F /* IDCObserversObject */,
 				A26F9F711CA99E9D00CA9859 /* IDCObserver.h */,
 				A26F9F721CA99E9D00CA9859 /* IDCObserver.m */,
 			);

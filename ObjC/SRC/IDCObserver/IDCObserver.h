@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IDCObserversState.h"
 
 typedef void (^IDCCompletionHandler)(void);
 
 @interface IDCObserver : NSObject
 @property (nonatomic, readonly) NSArray    *observers;
 @property (nonatomic, assign)   NSUInteger state;
-@property (nonatomic, copy)   NSDictionary *handlersDictionary;
 
 - (instancetype)initWithState:(NSUInteger)state;
 

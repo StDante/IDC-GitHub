@@ -99,7 +99,7 @@
     @synchronized (self) {
         usleep(arc4random_uniform(10000) + 1000);
         [self workWithObject:object];
-//        NSLog(@"%@ gave me money", object);
+        NSLog(@"%@ gave me money", object);
         [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
     }
 }
@@ -132,7 +132,7 @@
 - (void)takeMoney:(NSUInteger)payment {
     @synchronized (self) {
         self.money += payment;
-//        NSLog(@"payment is %lu", payment);
+        NSLog(@"payment is %lu", payment);
     }
 }
 

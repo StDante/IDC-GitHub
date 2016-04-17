@@ -10,7 +10,10 @@
 
 @interface IDCObserver ()
 @property (nonatomic, assign) NSHashTable         *mutableObservers;
-@property (nonatomic, retain) NSMutableDictionary *handlersMutableDictionary;
+@property (nonatomic, retain) NSMutableArray *observerStatesObjects;
+
+- (IDCObserversState *)objectForState:(NSUInteger)state;
+- (void)performHandler;
 
 @end
 
@@ -23,8 +26,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
-    self.handlersDictionary = nil;
-    self.handlersMutableDictionary = nil;
+    self.observerStatesObjects = nil;
     
     [super dealloc];
 }
@@ -33,8 +35,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
-        self.handlersDictionary = [NSDictionary dictionary];
-        self.handlersMutableDictionary = [NSMutableDictionary dictionary];
+        self.observerStatesObjects = [NSMutableArray array];
     }
     
     return self;
@@ -56,23 +57,17 @@
     return [self.mutableObservers allObjects];
 }
 
-- (NSDictionary *)handlersDictionary {
-    return [[self.handlersMutableDictionary copy] autorelease];
-}
-
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-//        [self notifyObservers];
-        NSString *keyState = [NSString stringWithFormat:@"%lu", _state];
-        NSArray *array = [self.handlersDictionary objectForKey:keyState];
-        for (NSMutableDictionary *dictionary in array) {
-            IDCCompletionHandler handler = [[dictionary allValues] firstObject];
-            handler();
+    @synchronized (self) {
+        if (_state != state) {
+            _state = state;
+            
+//          [self notifyObservers];
+            [self performHandler];
         }
     }
 }
+  
 
 #pragma mark -
 #pragma mark Public
@@ -109,39 +104,53 @@
 //////////////////////////////////////////////////////////////Handlers
 
 - (void)addHandler:(IDCCompletionHandler)workerHandler forState:(NSUInteger)state object:(id)object {
-    NSString *keyState = [NSString stringWithFormat:@"%lu", state];
-    NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
-    if (!array) {
-        array = [NSMutableArray array];
+    if (object) {
+        IDCObserversState *stateObject = [self objectForState:state];
+        [stateObject addHandler:workerHandler object:object];
     }
-    
-    NSString *keyObject = [NSString stringWithFormat:@"%lu", [object hash]];
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObject:[[workerHandler copy] autorelease]
-                                                                         forKey:keyObject];
-    [array addObject:dictionary];
-    [self.handlersMutableDictionary setObject:array forKey:keyState];
 }
 
 - (void)removeHandlerForState:(NSUInteger)state object:(id)object {
-    NSString *keyState = [NSString stringWithFormat:@"%lu", state];
-    NSMutableArray *array = [self.handlersDictionary objectForKey:keyState];
-    for (NSMutableDictionary *dictionary in array) {
-        id objectValue = [[dictionary allValues] firstObject];
-        if (objectValue == object) {
-            [array removeObject:dictionary];
+    for (IDCObserversState *stateObject in self.observerStatesObjects) {
+        if (stateObject.state == state) {
+            [self.observerStatesObjects removeObject:stateObject];
         }
     }
 }
 
 - (void)removeHandlerForObject:(id)object {
-    NSArray *allKeys = [self.handlersDictionary allKeys];
-    
-    for (NSNumber *key in allKeys) {
-        [self removeHandlerForState:[key unsignedIntegerValue] object:object];
+    if (object) {
+        for (IDCObserversState *stateObject in self.observerStatesObjects) {
+            [stateObject removeHandlersForObject:object];
+        }
     }
 }
 
 #pragma mark -
 #pragma mark Private
+
+- (IDCObserversState *)objectForState:(NSUInteger)state {
+    for (IDCObserversState *stateObject in self.observerStatesObjects) {
+        if (stateObject.state == state) {
+            return stateObject;
+        }
+    }
+    
+    IDCObserversState *newStateObject = [IDCObserversState observerStateObjectWithState:state];
+    [self.observerStatesObjects addObject:newStateObject];
+    
+    return newStateObject;
+}
+
+
+- (void)performHandler {
+    for (IDCObserversState *stateObject in self.observerStatesObjects) {
+        if (stateObject.state == self.state) {
+            for (IDCCompletionHandler handler in stateObject.handlers) {
+                handler();
+            }
+        }
+    }
+}
 
 @end

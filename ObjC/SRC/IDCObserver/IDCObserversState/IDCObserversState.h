@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IDCObserver.h"
 #import "IDCObserversArray.h"
 
 @interface IDCObserversState : NSObject
-@property (nonatomic, assign) NSUInteger        state;
-@property (nonatomic, retain) IDCObserversArray *observerArray;
+@property (nonatomic, readonly) NSUInteger state;
+@property (nonatomic, readonly) NSArray    *handlers;
+
++ (instancetype)observerStateObjectWithState:(NSUInteger)state;
+- (instancetype)initWithState:(NSUInteger)state NS_DESIGNATED_INITIALIZER;
+
+- (void)addHandler:(IDCCompletionHandler)handler object:(id)object;
+- (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end
