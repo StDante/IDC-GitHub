@@ -170,6 +170,7 @@
 		A2C5D8D81CAA9B5C0015B22D /* IDCRandomNamesArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCRandomNamesArray.h; sourceTree = "<group>"; };
 		A2C5D8D91CAA9B5C0015B22D /* IDCRandomNamesArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCRandomNamesArray.m; sourceTree = "<group>"; };
 		A2C5D8DB1CAAA1030015B22D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A2EF059F1CC438AA006F28C0 /* IDCObjCMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObjCMacro.h; path = SRC/IDCSupportFiles/IDCObjCMacro.h; sourceTree = "<group>"; };
 		FAAFF326BDD84516B9CB278A /* Pods-ObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjC/Pods-ObjC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */,
+				A2EF059F1CC438AA006F28C0 /* IDCObjCMacro.h */,
 			);
 			name = "IDCSupport Files";
 			sourceTree = "<group>";

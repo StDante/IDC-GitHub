@@ -10,5 +10,6 @@
 #define IDCObjC_Prefix_pch
 
 #import "NSObject+IDCCategory.h"
+#import "IDCObjCMacro.h"
 
 #endif /* IDCObjC_Prefix_pch */
