@@ -29,7 +29,6 @@
     self.staff = nil;
     self.queue = nil;
     
-    [super dealloc];
 }
 
 - (instancetype)init {
@@ -46,7 +45,7 @@
     self = [self init];
     if (self)   {
         self.queue = [IDCQueue object];
-        self.staff = [[staff mutableCopy] autorelease];
+        self.staff = [staff mutableCopy];
     }
     
     return self;
@@ -60,8 +59,10 @@
         _staff = staff;
         
         for (IDCWorker *worker in staff) {
+            IDCWeakifyMacro
             [worker addHandler:^{
-                [self workerFree:worker];
+                IDCStrongifyReturnIfNillMacro;
+                [strongSelf workerFree:worker];
             } forState:kIDCWorkerFree object:self];
             
         }

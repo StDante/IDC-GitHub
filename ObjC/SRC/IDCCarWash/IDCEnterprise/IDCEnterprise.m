@@ -26,7 +26,7 @@
 #pragma mark Class
 
 + (instancetype)enterpriseWithTitle:(NSString *)title {
-    return [[[self alloc] initWithTitle:title] autorelease];
+    return [[self alloc] initWithTitle:title];
 }
 
 #pragma mark -
@@ -37,7 +37,6 @@
     self.accountantDispatcher = nil;
     self.bossDispatcher = nil;
     
-    [super dealloc];
 }
 
 - (instancetype)init {
@@ -61,15 +60,15 @@
 - (void)hireStaff {
     
     NSArray *carWashers = [IDCCarWasher objectsWithCount:kIDCWashersCount];
-    self.washerDispatcher = [[[IDCDispatcher alloc] initWithStaff:carWashers] autorelease];
+    self.washerDispatcher = [[IDCDispatcher alloc] initWithStaff:carWashers];
     [self addHandlerForStandby:carWashers];
     
     NSArray *accountants = [IDCAccountant objectsWithCount:kIDCAccountantCount];
-    self.accountantDispatcher = [[[IDCDispatcher alloc] initWithStaff:accountants] autorelease];
+    self.accountantDispatcher = [[IDCDispatcher alloc] initWithStaff:accountants];
     [self addHandlerForStandby:accountants];
     
     NSArray *boss = [IDCBoss objectsWithCount:kIDCBossCount];
-    self.bossDispatcher = [[[IDCDispatcher alloc] initWithStaff:boss] autorelease];
+    self.bossDispatcher = [[IDCDispatcher alloc] initWithStaff:boss];
 }
 
 #pragma mark -
@@ -100,8 +99,10 @@
 - (void)addHandlerForStandby:(NSArray *)staff {
     @synchronized(self) {
         for (IDCWorker *worker in staff) {
+            IDCWeakifyMacro;
             [worker addHandler:^{
-                [self workerStandby:worker];
+                IDCStrongifyReturnIfNillMacro;
+                [strongSelf workerStandby:worker];
             } forState:kIDCWorkerStandby object:self];
 //            
 //            [worker addHandler:^{

@@ -9,15 +9,15 @@
 #ifndef IDCObjCMacro_h
 #define IDCObjCMacro_h
 
-#define IDCWeakifyMacro(object) \
-__weak typeof(object) *weakSelf = object \
+#define IDCWeakifyMacro \
+__weak id weakSelf = self; \
 
 
-#define IDCStrongifyMacro(object) \
-__strong typeof(object) *strongSelf = weakSelf; \
-if (!strongSelf) { \
-return; \
-}
+#define IDCStrongifyReturnIfNillMacro \
+__strong id strongSelf = weakSelf; \
+            if (!strongSelf) { \
+                return; \
+            }
 
 
 #endif /* IDCObjCMacro_h */
