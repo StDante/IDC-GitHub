@@ -84,12 +84,12 @@
         self.state = kIDCWorkerBusy;
         
         IDCWeakifyMacro
-        dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        IDCGCDAsyncInBackground(^{
             IDCStrongifyReturnIfNillMacro
             @synchronized (strongSelf) {
                 usleep(arc4random_uniform(10000) + 1000);
                 [self workWithObject:object];
-                dispatch_async(dispatch_get_main_queue(), ^{
+                IDCGCDAsyncOnMainThread(^{
                     [strongSelf completeWork];
                 });
             }

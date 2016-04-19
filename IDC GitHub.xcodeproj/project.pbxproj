@@ -13,6 +13,12 @@
 		A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */; };
 		A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */; };
 		A24350ED1C8DA06500EE188F /* IDCClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */; };
+		A24EF5531CC629E700805445 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A24EF5521CC629E700805445 /* main.m */; };
+		A24EF5561CC629E700805445 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24EF5551CC629E700805445 /* AppDelegate.m */; };
+		A24EF5591CC629E700805445 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24EF5581CC629E700805445 /* ViewController.m */; };
+		A24EF55C1CC629E700805445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24EF55A1CC629E700805445 /* Main.storyboard */; };
+		A24EF55E1CC629E700805445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A24EF55D1CC629E700805445 /* Assets.xcassets */; };
+		A24EF5611CC629E700805445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24EF55F1CC629E700805445 /* LaunchScreen.storyboard */; };
 		A2646CC81CBEE33E009E563F /* IDCObserversState.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CC71CBEE33E009E563F /* IDCObserversState.m */; };
 		A2646CCB1CBEE39F009E563F /* IDCObserversArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */; };
 		A2646CCE1CBEE444009E563F /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -90,6 +96,16 @@
 		A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStringAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCStringAlphabet.m; sourceTree = "<group>"; };
 		A24350EB1C8DA06500EE188F /* IDCClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCClusterAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.h; sourceTree = "<group>"; };
 		A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCClusterAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.m; sourceTree = "<group>"; };
+		A24EF54F1CC629E700805445 /* IDCUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDCUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24EF5521CC629E700805445 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A24EF5541CC629E700805445 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A24EF5551CC629E700805445 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A24EF5571CC629E700805445 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A24EF5581CC629E700805445 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A24EF55B1CC629E700805445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A24EF55D1CC629E700805445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A24EF5601CC629E700805445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A24EF5621CC629E700805445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2646CC61CBEE33E009E563F /* IDCObserversState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversState.h; path = IDCObserversState/IDCObserversState.h; sourceTree = "<group>"; };
 		A2646CC71CBEE33E009E563F /* IDCObserversState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObserversState.m; path = IDCObserversState/IDCObserversState.m; sourceTree = "<group>"; };
 		A2646CC91CBEE39F009E563F /* IDCObserversArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversArray.h; path = IDCObserversArray/IDCObserversArray.h; sourceTree = "<group>"; };
@@ -185,6 +201,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A24EF54C1CC629E700805445 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A27817DD1CA9CB7F00D65B37 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +242,7 @@
 				A28602241C760884000E6ED0 /* C */,
 				A286021E1C76080F000E6ED0 /* ObjC */,
 				A27817E11CA9CB7F00D65B37 /* ObjCTest */,
+				A24EF5501CC629E700805445 /* IDCUIKit */,
 				A21ED85A1C30C98F00FC8564 /* Products */,
 				F128CE84037F95DD103A0FE8 /* Pods */,
 				2F21D58956400CC23D8F30E8 /* Frameworks */,
@@ -231,6 +255,7 @@
 				A21ED8591C30C98F00FC8564 /* C */,
 				A286021D1C76080F000E6ED0 /* ObjC */,
 				A27817E01CA9CB7F00D65B37 /* ObjCTest.xctest */,
+				A24EF54F1CC629E700805445 /* IDCUIKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,6 +275,46 @@
 				A28602721C76098A000E6ED0 /* IDCTask1CreatureTest */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		A24EF5501CC629E700805445 /* IDCUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A24EF5661CC62A0E00805445 /* SRC */,
+				A24EF5541CC629E700805445 /* AppDelegate.h */,
+				A24EF5551CC629E700805445 /* AppDelegate.m */,
+				A24EF5571CC629E700805445 /* ViewController.h */,
+				A24EF5581CC629E700805445 /* ViewController.m */,
+				A24EF55A1CC629E700805445 /* Main.storyboard */,
+				A24EF55D1CC629E700805445 /* Assets.xcassets */,
+				A24EF55F1CC629E700805445 /* LaunchScreen.storyboard */,
+				A24EF5621CC629E700805445 /* Info.plist */,
+				A24EF5511CC629E700805445 /* Supporting Files */,
+			);
+			path = IDCUIKit;
+			sourceTree = "<group>";
+		};
+		A24EF5511CC629E700805445 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A24EF5521CC629E700805445 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A24EF5661CC62A0E00805445 /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				A24EF5671CC62A1800805445 /* UI */,
+			);
+			name = SRC;
+			sourceTree = "<group>";
+		};
+		A24EF5671CC62A1800805445 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		A2646CC21CBEE2F9009E563F /* IDCObserversState */ = {
@@ -771,6 +836,23 @@
 			productReference = A21ED8591C30C98F00FC8564 /* C */;
 			productType = "com.apple.product-type.tool";
 		};
+		A24EF54E1CC629E700805445 /* IDCUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A24EF5651CC629E700805445 /* Build configuration list for PBXNativeTarget "IDCUIKit" */;
+			buildPhases = (
+				A24EF54B1CC629E700805445 /* Sources */,
+				A24EF54C1CC629E700805445 /* Frameworks */,
+				A24EF54D1CC629E700805445 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IDCUIKit;
+			productName = IDCUIKit;
+			productReference = A24EF54F1CC629E700805445 /* IDCUIKit.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A27817DF1CA9CB7F00D65B37 /* ObjCTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A27817E71CA9CB7F00D65B37 /* Build configuration list for PBXNativeTarget "ObjCTest" */;
@@ -819,6 +901,10 @@
 					A21ED8581C30C98F00FC8564 = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					A24EF54E1CC629E700805445 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = L6S3E93F37;
+					};
 					A27817DF1CA9CB7F00D65B37 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -833,6 +919,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A21ED8501C30C98F00FC8564;
 			productRefGroup = A21ED85A1C30C98F00FC8564 /* Products */;
@@ -842,11 +929,22 @@
 				A21ED8581C30C98F00FC8564 /* C */,
 				A286021C1C76080F000E6ED0 /* ObjC */,
 				A27817DF1CA9CB7F00D65B37 /* ObjCTest */,
+				A24EF54E1CC629E700805445 /* IDCUIKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A24EF54D1CC629E700805445 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24EF5611CC629E700805445 /* LaunchScreen.storyboard in Resources */,
+				A24EF55E1CC629E700805445 /* Assets.xcassets in Resources */,
+				A24EF55C1CC629E700805445 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A27817DE1CA9CB7F00D65B37 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -914,6 +1012,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A24EF54B1CC629E700805445 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24EF5591CC629E700805445 /* ViewController.m in Sources */,
+				A24EF5561CC629E700805445 /* AppDelegate.m in Sources */,
+				A24EF5531CC629E700805445 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A27817DC1CA9CB7F00D65B37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -956,6 +1064,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A24EF55A1CC629E700805445 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24EF55B1CC629E700805445 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A24EF55F1CC629E700805445 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24EF5601CC629E700805445 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A21ED85E1C30C98F00FC8564 /* Debug */ = {
@@ -1052,6 +1179,37 @@
 			};
 			name = Release;
 		};
+		A24EF5631CC629E700805445 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = IDCUIKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IDC.IDCUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A24EF5641CC629E700805445 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = IDCUIKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IDC.IDCUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		A27817E51CA9CB7F00D65B37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1127,6 +1285,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A24EF5651CC629E700805445 /* Build configuration list for PBXNativeTarget "IDCUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24EF5631CC629E700805445 /* Debug */,
+				A24EF5641CC629E700805445 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		A27817E71CA9CB7F00D65B37 /* Build configuration list for PBXNativeTarget "ObjCTest" */ = {
 			isa = XCConfigurationList;
