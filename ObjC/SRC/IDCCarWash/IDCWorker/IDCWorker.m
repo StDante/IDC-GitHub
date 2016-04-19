@@ -27,7 +27,7 @@
 #pragma mark Class
 
 + (instancetype)workerWithRandomName {
-    return [[[self alloc] init] autorelease];
+    return [[self alloc] init];
 }
 
 + (NSArray *)objectsWithCount:(NSUInteger)count observer:(id)observer {
@@ -36,16 +36,11 @@
         [worker addObserver:observer];
     }
     
-    return [[array copy] autorelease];
+    return [array copy];
 }
 
 #pragma mark -
 #pragma mark Initialization and Deallocation
-
-- (void)dealloc {
-    [self.workersQueue dealloc];
-    [super dealloc];
-}
 
 - (instancetype)init {
     self = [super init];
@@ -87,22 +82,23 @@
 - (void)performWork:(id<IDCMoneyProtocol>)object {
     if (object) {
         self.state = kIDCWorkerBusy;
-        [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                               withObject:object];
+        
+        IDCWeakifyMacro
+        dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            IDCStrongifyReturnIfNillMacro
+            @synchronized (strongSelf) {
+                usleep(arc4random_uniform(10000) + 1000);
+                [self workWithObject:object];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [strongSelf completeWork];
+                });
+            }
+        });
     }
 }
 
 #pragma mark -
 #pragma mark Private
-
-- (void)performWorkWithObjectInBackground:(id<IDCMoneyProtocol>)object {
-    @synchronized (self) {
-        usleep(arc4random_uniform(10000) + 1000);
-        [self workWithObject:object];
-        NSLog(@"%@ gave me money", object);
-        [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:0];
-    }
-}
 
 - (void)workWithObject:(id)object {
     [self takeMoney:[object giveMoney]];
@@ -132,7 +128,7 @@
 - (void)takeMoney:(NSUInteger)payment {
     @synchronized (self) {
         self.money += payment;
-        NSLog(@"payment is %lu", payment);
+//        NSLog(@"payment is %lu", payment);
     }
 }
 

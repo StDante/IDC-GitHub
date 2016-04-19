@@ -27,8 +27,8 @@ typedef void (^IDCCompletionHandler)(void);
 
 
 - (void)addHandler:(IDCCompletionHandler)workerHandler forState:(NSUInteger)state object:(id)object;
-- (void)removeHandlerForState:(NSUInteger)state object:(id)object;
-- (void)removeHandlerForObject:(id)object;
+- (void)removeHandlersForState:(NSUInteger)state object:(id)object;
+- (void)removeHandlersForObject:(id)object;
 
 @end
 

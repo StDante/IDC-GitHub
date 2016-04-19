@@ -110,7 +110,7 @@
     }
 }
 
-- (void)removeHandlerForState:(NSUInteger)state object:(id)object {
+- (void)removeHandlersForState:(NSUInteger)state object:(id)object {
     for (IDCObserversState *stateObject in self.observerStatesObjects) {
         if (stateObject.state == state) {
             [self.observerStatesObjects removeObject:stateObject];
@@ -118,7 +118,7 @@
     }
 }
 
-- (void)removeHandlerForObject:(id)object {
+- (void)removeHandlersForObject:(id)object {
     if (object) {
         for (IDCObserversState *stateObject in self.observerStatesObjects) {
             [stateObject removeHandlersForObject:object];
