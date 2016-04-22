@@ -12,8 +12,6 @@
 @property (nonatomic, strong) IBOutlet IDCSquareView  *rootView;
 @property (nonatomic, strong) IBOutlet      UIButton  *button;
 
-- (IBAction)pressButton:(id)sender;
-
 @end
 
 @implementation IDCBaseViewController
@@ -23,14 +21,6 @@
 
 - (IDCSquareView *)rootView {
     IDCGetRootViewAndReturnNilMacro(IDCSquareView);
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (IBAction)pressButton:(id)sender {
-    [self.rootView setSquarePosition:kIDCLowerLeft];
-    [self.rootView setSquarePosition:kIDCUpperRight animated:YES];
 }
 
 #pragma mark -
@@ -44,6 +34,13 @@
     
 }
 
+#pragma mark -
+#pragma mark Interface Handler
+
+- (IBAction)onPressButton:(id)sender {
+    [self.rootView setSquarePosition:kIDCLowerLeft];
+    [self.rootView setSquarePosition:kIDCUpperRight animated:YES];
+}
 
 //- viewWillDisappear {
 //    
