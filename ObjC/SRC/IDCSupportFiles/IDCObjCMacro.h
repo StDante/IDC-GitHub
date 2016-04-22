@@ -19,5 +19,11 @@ __strong id strongSelf = weakSelf; \
                 return; \
             }
 
+#define IDCGetRootViewAndReturnNilMacro(theClass) \
+            if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
+                return (theClass *)self.view; \
+            } \
+\
+            return nil;
 
 #endif /* IDCObjCMacro_h */

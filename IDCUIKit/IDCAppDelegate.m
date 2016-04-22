@@ -1,22 +1,32 @@
 //
-//  AppDelegate.m
+//  IDCAppDelegate.m
 //  IDCUIKit
 //
 //  Created by Alexandr Altukhov on 19.04.16.
 //  Copyright © 2016 Alexandr Altukhov. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "IDCAppDelegate.h"
+#import "IDCBaseViewController.h"
 
-@interface AppDelegate ()
+@interface IDCAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation IDCAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
+    
+    window.rootViewController = [IDCBaseViewController new];
+    
+    [window makeKeyAndVisible];
+    
     // Override point for customization after application launch.
+//    self.window = [[IDCBaseViewController alloc] initWithNibName:NSStringFromClass([IDCBaseViewController class]) bundle:0];
+    
     return YES;
 }
 
