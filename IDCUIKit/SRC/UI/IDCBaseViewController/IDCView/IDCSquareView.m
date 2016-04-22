@@ -81,13 +81,13 @@ CGRect IDCSquarePositionSwitch(IDCSquarePosition position){
             return CGRectMake(widht * 0, height * 0, 100, 100);
             
         case kIDCLowerLeft:
-            return CGRectMake(widht * 0, height * 1, 100, -100);
+            return CGRectMake(widht * 0, height * 1 - 100, 100, 100);
             
         case kIDCUpperRight:
-            return CGRectMake(widht * 1, height * 0, -100, 100);
+            return CGRectMake((widht * 1 - 100), height * 0, 100, 100);
             
         case kIDCLowerRight:
-            return CGRectMake(widht * 1, height * 1, -100, -100);
+            return CGRectMake((widht * 1 - 100), (height * 1 - 100), 100, 100);
             
     }
     
