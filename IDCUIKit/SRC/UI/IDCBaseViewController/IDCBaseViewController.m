@@ -9,8 +9,7 @@
 #import "IDCBaseViewController.h"
 
 @interface IDCBaseViewController ()
-@property (nonatomic, strong) IBOutlet IDCSquareView  *rootView;
-@property (nonatomic, strong) IBOutlet      UIButton  *button;
+@property (nonatomic, readonly) IDCSquareView   *rootView;
 
 @end
 
@@ -28,10 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.rootView = [[IDCSquareView alloc] init];
-    self.rootView.backgroundColor = [UIColor redColor];
-    
 }
 
 #pragma mark -

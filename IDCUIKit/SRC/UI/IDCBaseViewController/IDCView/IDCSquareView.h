@@ -19,8 +19,10 @@ typedef enum IDCSquarePosition : NSUInteger {
 } IDCSquarePosition;
 
 @interface IDCSquareView : UIView
-@property (nonatomic, strong)   IBOutlet  UILabel               *label;
-@property (nonatomic, assign)             IDCSquarePosition     sqaurePosition;
+@property (nonatomic, strong)   IBOutlet   UILabel               *label;
+@property (nonatomic, strong)   IBOutlet   UIButton              *button;
+@property (nonatomic, assign)              IDCSquarePosition     sqaurePosition;
+
 
 CGRect IDCSquarePositionSwitch(IDCSquarePosition position);
 - (void)setSquarePosition:(IDCSquarePosition)position;

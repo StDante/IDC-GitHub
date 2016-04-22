@@ -26,12 +26,10 @@
 
 - (void)setSquarePosition:(IDCSquarePosition)position {
     [self setSquarePosition:position animated:FALSE];
-    
 }
 
 - (void)setSquarePosition:(IDCSquarePosition)position animated:(BOOL)value {
     [self setSquarePosition:position animated:value completionHandler:0];
-
 }
 
 - (void)setSquarePosition:(IDCSquarePosition)position
@@ -58,7 +56,7 @@
         }];
     }
     
-    [label setBounds:positionRectangle];
+    [label setFrame:positionRectangle];
 }
 
 #pragma mark -
