@@ -47,15 +47,10 @@
                                                              positionRectangle.origin.x,
                                                              positionRectangle.origin.y);
     
-    CGAffineTransform transformScale = CGAffineTransformScale(label.transform,
-                                                              positionRectangle.size.width,
-                                                              positionRectangle.size.height);
-    
-    CGAffineTransform transform = CGAffineTransformConcat(transformPosition, transformScale);
     
     if (value && self) {
         [UIView animateWithDuration:1.5 animations:^{
-            label.transform = transform;
+            label.transform = transformPosition;
         } completion:^(BOOL finished) {
             if (handler) {
                 handler();
