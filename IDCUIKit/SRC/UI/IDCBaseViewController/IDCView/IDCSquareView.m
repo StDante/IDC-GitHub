@@ -25,15 +25,15 @@
 #pragma mark Accessors
 
 - (void)setSquarePosition:(IDCSquarePosition)position {
-    [self setSquarePosition:position animated:FALSE];
+    [self setSquarePosition:position animated:0];
 }
 
-- (void)setSquarePosition:(IDCSquarePosition)position animated:(BOOL)value {
-    [self setSquarePosition:position animated:value completionHandler:0];
+- (void)setSquarePosition:(IDCSquarePosition)position animated:(BOOL)animated {
+    [self setSquarePosition:position animated:animated completionHandler:0];
 }
 
 - (void)setSquarePosition:(IDCSquarePosition)position
-                 animated:(BOOL)value
+                 animated:(BOOL)animated
         completionHandler:(IDCSquareViewHandler)handler
 {
     
@@ -46,7 +46,7 @@
                                                              positionRectangle.origin.y);
     
     
-    if (value && self) {
+    if (animated) {
         [UIView animateWithDuration:1.5 animations:^{
             label.transform = transformPosition;
         } completion:^(BOOL finished) {
@@ -64,6 +64,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+
+- (void)squareCycleMove {
+ 
 }
 
 #pragma mark -

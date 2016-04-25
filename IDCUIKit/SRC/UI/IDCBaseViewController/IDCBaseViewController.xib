@@ -17,17 +17,24 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzz-QD-QxX">
                     <rect key="frame" x="106" y="474" width="108" height="22"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="To study UI">
-                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="onPressButton:" destination="-1" eventType="touchUpInside" id="Ej7-t2-aBI"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2y-62-561">
+                    <rect key="frame" x="123" y="352" width="74" height="30"/>
+                    <state key="normal" title="Start cycle"/>
+                    <connections>
+                        <action selector="onPressCycleButton:" destination="-1" eventType="touchUpInside" id="E7R-tK-QTz"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TestLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cag-01-8vM">
-                    <rect key="frame" x="0.0" y="146" width="178" height="81"/>
+                    <rect key="frame" x="71" y="243" width="178" height="81"/>
                     <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -38,6 +45,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="button" destination="vzz-QD-QxX" id="9dd-Pm-7A9"/>
+                <outlet property="cycleButton" destination="v2y-62-561" id="8Ai-0z-eh8"/>
                 <outlet property="label" destination="Cag-01-8vM" id="ASR-YL-im7"/>
             </connections>
         </view>

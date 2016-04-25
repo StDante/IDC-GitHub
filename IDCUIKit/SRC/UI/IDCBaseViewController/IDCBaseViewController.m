@@ -18,9 +18,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (IDCSquareView *)rootView {
-    IDCGetRootViewAndReturnNilMacro(IDCSquareView);
-}
+IDCGetRootViewAndReturnNilMacro(IDCSquareView);
 
 #pragma mark -
 #pragma mark Controller Lifecycle
@@ -35,6 +33,10 @@
 - (IBAction)onPressButton:(id)sender {
     [self.rootView setSquarePosition:kIDCLowerLeft];
     [self.rootView setSquarePosition:kIDCUpperRight animated:YES];
+}
+
+- (IBAction)onPressCycleButton:(id)sender {
+    [self.rootView squareCycleMove];
 }
 
 @end
