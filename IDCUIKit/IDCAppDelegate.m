@@ -24,9 +24,6 @@
     
     [window makeKeyAndVisible];
     
-    // Override point for customization after application launch.
-//    self.window = [[IDCBaseViewController alloc] initWithNibName:NSStringFromClass([IDCBaseViewController class]) bundle:0];
-    
     return YES;
 }
 

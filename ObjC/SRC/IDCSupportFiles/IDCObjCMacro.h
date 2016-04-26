@@ -19,12 +19,11 @@ __strong id strongSelf = weakSelf; \
                 return; \
             }
 
-#define IDCGetRootViewAndReturnNilMacro(theClass) \
+#define IDCRootViewIfReturnNilMacro(theClass) \
             - (theClass *)rootView {\
                 if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
                     return (theClass *)self.view; \
                 } \
-\
                 return nil;\
             }
 

@@ -22,16 +22,16 @@ typedef enum IDCSquarePosition : NSUInteger {
 @property (nonatomic, strong)   IBOutlet   UILabel               *label;
 @property (nonatomic, strong)   IBOutlet   UIButton              *button;
 @property (nonatomic, strong)   IBOutlet   UIButton              *cycleButton;
-@property (nonatomic, assign)              IDCSquarePosition     sqaurePosition;
+@property (nonatomic, assign)              IDCSquarePosition     squarePosition;
 
 - (void)setSquarePosition:(IDCSquarePosition)position;
-- (void)setSquarePosition:(IDCSquarePosition)position animated:(BOOL)value;
+- (void)setSquarePosition:(IDCSquarePosition)position animated:(BOOL)animated;
 - (void)setSquarePosition:(IDCSquarePosition)position
-                 animated:(BOOL)value
+                 animated:(BOOL)animated
         completionHandler:(IDCSquareViewHandler)handler;
 
 - (void)squareCycleMove;
 
-CGRect IDCSquarePositionSwitch(IDCSquarePosition position);
+- (IDCSquarePosition)nextSquarePosition;
 
 @end

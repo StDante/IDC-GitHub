@@ -31,10 +31,7 @@
 		A27973231CC9B00C008E1BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A27973221CC9B00C008E1BFD /* main.m */; };
 		A27973251CC9B02A008E1BFD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A27973241CC9B02A008E1BFD /* Default-568h@2x.png */; };
 		A279732F1CC9B083008E1BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27973261CC9B083008E1BFD /* Assets.xcassets */; };
-		A27973301CC9B083008E1BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27973281CC9B083008E1BFD /* LaunchScreen.storyboard */; };
-		A27973311CC9B083008E1BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A279732A1CC9B083008E1BFD /* Main.storyboard */; };
 		A27973321CC9B083008E1BFD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A279732C1CC9B083008E1BFD /* Info.plist */; };
-		A27973331CC9B083008E1BFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A279732E1CC9B083008E1BFD /* ViewController.m */; };
 		A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */; };
 		A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */; };
 		A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1061C7B63ED00EB007F /* IDCMale.m */; };
@@ -102,8 +99,8 @@
 		A24350EB1C8DA06500EE188F /* IDCClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCClusterAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.h; sourceTree = "<group>"; };
 		A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCClusterAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCClusterAlphabet.m; sourceTree = "<group>"; };
 		A24EF54F1CC629E700805445 /* IDCUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDCUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A24EF5541CC629E700805445 /* IDCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDCAppDelegate.h; sourceTree = "<group>"; };
-		A24EF5551CC629E700805445 /* IDCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDCAppDelegate.m; sourceTree = "<group>"; };
+		A24EF5541CC629E700805445 /* IDCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDCAppDelegate.h; path = ../IDCAppDelegate.h; sourceTree = "<group>"; };
+		A24EF5551CC629E700805445 /* IDCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IDCAppDelegate.m; path = ../IDCAppDelegate.m; sourceTree = "<group>"; };
 		A2646CC61CBEE33E009E563F /* IDCObserversState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversState.h; path = IDCObserversState/IDCObserversState.h; sourceTree = "<group>"; };
 		A2646CC71CBEE33E009E563F /* IDCObserversState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObserversState.m; path = IDCObserversState/IDCObserversState.m; sourceTree = "<group>"; };
 		A2646CC91CBEE39F009E563F /* IDCObserversArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObserversArray.h; path = IDCObserversArray/IDCObserversArray.h; sourceTree = "<group>"; };
@@ -135,14 +132,10 @@
 		A27817E01CA9CB7F00D65B37 /* ObjCTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27817E21CA9CB7F00D65B37 /* ObjCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCTest.m; sourceTree = "<group>"; };
 		A27817E41CA9CB7F00D65B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A27973221CC9B00C008E1BFD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A27973221CC9B00C008E1BFD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
 		A27973241CC9B02A008E1BFD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A27973261CC9B083008E1BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = IDCUIKit/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		A27973291CC9B083008E1BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A279732B1CC9B083008E1BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		A279732C1CC9B083008E1BFD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = IDCUIKit/Info.plist; sourceTree = SOURCE_ROOT; };
-		A279732D1CC9B083008E1BFD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = IDCUIKit/ViewController.h; sourceTree = SOURCE_ROOT; };
-		A279732E1CC9B083008E1BFD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = IDCUIKit/ViewController.m; sourceTree = SOURCE_ROOT; };
 		A27BA0FD1C7B0CF300EB007F /* IDCCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreature.h; path = SRC/IDCTask1Creature/IDCCreature.h; sourceTree = "<group>"; };
 		A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCCreature.m; path = SRC/IDCTask1Creature/IDCCreature.m; sourceTree = "<group>"; };
 		A27BA1001C7B0D3B00EB007F /* IDCCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCCreatureTest.h; path = Test/IDCTask1CreatureTest/IDCCreatureTest.h; sourceTree = "<group>"; };
@@ -294,9 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				A2F8E0271CC991FC00006FE8 /* SRC */,
-				A24EF5541CC629E700805445 /* IDCAppDelegate.h */,
-				A24EF5551CC629E700805445 /* IDCAppDelegate.m */,
-				A27973221CC9B00C008E1BFD /* main.m */,
 				A2F8E0191CC991E500006FE8 /* SupportFiles */,
 			);
 			path = IDCUIKit;
@@ -452,8 +442,6 @@
 		A27973271CC9B083008E1BFD /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				A27973281CC9B083008E1BFD /* LaunchScreen.storyboard */,
-				A279732A1CC9B083008E1BFD /* Main.storyboard */,
 			);
 			name = Base.lproj;
 			path = IDCUIKit/Base.lproj;
@@ -804,11 +792,12 @@
 		A2F8E0191CC991E500006FE8 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A24EF5541CC629E700805445 /* IDCAppDelegate.h */,
+				A24EF5551CC629E700805445 /* IDCAppDelegate.m */,
 				A27973261CC9B083008E1BFD /* Assets.xcassets */,
+				A27973221CC9B00C008E1BFD /* main.m */,
 				A27973271CC9B083008E1BFD /* Base.lproj */,
 				A279732C1CC9B083008E1BFD /* Info.plist */,
-				A279732D1CC9B083008E1BFD /* ViewController.h */,
-				A279732E1CC9B083008E1BFD /* ViewController.m */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -982,9 +971,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2F8E02F1CC991FC00006FE8 /* IDCBaseViewController.xib in Resources */,
-				A27973311CC9B083008E1BFD /* Main.storyboard in Resources */,
 				A27973321CC9B083008E1BFD /* Info.plist in Resources */,
-				A27973301CC9B083008E1BFD /* LaunchScreen.storyboard in Resources */,
 				A279732F1CC9B083008E1BFD /* Assets.xcassets in Resources */,
 				A27973251CC9B02A008E1BFD /* Default-568h@2x.png in Resources */,
 			);
@@ -1061,7 +1048,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27973331CC9B083008E1BFD /* ViewController.m in Sources */,
 				A2F8E02E1CC991FC00006FE8 /* IDCBaseViewController.m in Sources */,
 				A2F8E0321CC992D200006FE8 /* IDCSquareView.m in Sources */,
 				A27973231CC9B00C008E1BFD /* main.m in Sources */,
@@ -1111,25 +1097,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A27973281CC9B083008E1BFD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A27973291CC9B083008E1BFD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A279732A1CC9B083008E1BFD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A279732B1CC9B083008E1BFD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A21ED85E1C30C98F00FC8564 /* Debug */ = {
