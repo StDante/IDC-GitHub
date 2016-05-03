@@ -31,11 +31,7 @@ IDCRootViewIfReturnNilMacro(IDCSquareView);
 #pragma mark Interface Handler
 
 - (IBAction)onPressButton:(id)sender {
-    [self.rootView setSquarePosition:[self.rootView nextSquarePosition]];
-}
-
-- (IBAction)onPressCycleButton:(id)sender {
-    [self.rootView squareCycleMove];
+    [self.rootView moveLabel];
 }
 
 @end

@@ -13,8 +13,8 @@
 __weak id weakSelf = self; \
 
 
-#define IDCStrongifyReturnIfNillMacro \
-__strong id strongSelf = weakSelf; \
+#define IDCStrongifyReturnIfNillMacro(theClass) \
+__strong theClass *strongSelf = weakSelf; \
             if (!strongSelf) { \
                 return; \
             }

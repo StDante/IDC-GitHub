@@ -12,6 +12,5 @@
 @interface IDCBaseViewController : UIViewController
 
 - (IBAction)onPressButton:(id)sender;
-- (IBAction)onPressCycleButton:(id)sender;
 
 @end

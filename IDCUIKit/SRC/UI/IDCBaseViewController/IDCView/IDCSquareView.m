@@ -9,6 +9,8 @@
 #import "IDCSquareView.h"
 
 static const CGFloat kIDCAnimationDuration = 1.5;
+static const CGFloat kIDCLabelWidht = 100;
+static const CGFloat kIDCLabelHeight = 100;
 
 @interface IDCSquareView()
 
@@ -34,30 +36,39 @@ static const CGFloat kIDCAnimationDuration = 1.5;
         completionHandler:(IDCSquareViewHandler)handler
 {
     if (_squarePosition != position) {
-        _squarePosition = position;
-    }
-    
-    UILabel *label = self.label;
-    CGRect positionSquare = [self squarePosition:position];
-    CGPoint origin = positionSquare.origin;
-    CGAffineTransform transformPosition = CGAffineTransformMakeTranslation(origin.x, origin.y);
-  
-    CGFloat duration = animated ? kIDCAnimationDuration : 0;
-    [UIView animateWithDuration:duration animations:^ {
-        label.transform = transformPosition;
-    } completion:^(BOOL finished) {
-        if (handler) {
-            handler();
+        if (self.animationSwitch.isOn) {
+            animated = YES;
+        } else {
+            animated = NO;
         }
-    }];
+        UILabel *label = self.label;
+        CGRect positionSquare = [self squarePosition:position];
+        CGPoint origin = positionSquare.origin;
+        CGAffineTransform transformPosition = CGAffineTransformMakeTranslation(origin.x, origin.y);
+  
+        CGFloat duration = animated ? kIDCAnimationDuration : 0;
+        [UIView animateWithDuration:duration animations:^ {
+            label.transform = transformPosition;
+        } completion:^(BOOL finished) {
+            _squarePosition = position;
+            if (handler) {
+                handler();
+            }
+        }];
+    }
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)squareCycleMove {
+- (void)moveLabel {
+    IDCWeakifyMacro
     [self setSquarePosition:[self nextSquarePosition] animated:YES completionHandler:^ {
-        [self squareCycleMove];
+        IDCStrongifyReturnIfNillMacro(IDCSquareView)
+        if (strongSelf.cycleMoveSwitch.isOn) {
+            [strongSelf moveLabel];
+            sleep(1);
+        }
     }];
 }
 
@@ -81,25 +92,28 @@ static const CGFloat kIDCAnimationDuration = 1.5;
 }
 
 - (CGRect)squarePosition:(IDCSquarePosition)position {
-    CGRect screen = [[UIScreen mainScreen] bounds];
-    CGFloat height = screen.size.height;
-    CGFloat widht = screen.size.width;
+    CGSize viewSize = [self.labelView viewSize];
+    CGFloat height = viewSize.height;
+    CGFloat widht = viewSize.width;
     switch (position) {
         case kIDCUpperLeft:
-            return CGRectMake(0, 0, 100, 100);
+            return CGRectMake(0, 0, kIDCLabelWidht, kIDCLabelHeight);
             
         case kIDCLowerLeft:
-            return CGRectMake(0, height - 100, 100, 100);
+            return CGRectMake(0, height - kIDCLabelHeight, kIDCLabelWidht, kIDCLabelHeight);
             
         case kIDCUpperRight:
-            return CGRectMake(widht - 100, 0, 100, 100);
+            return CGRectMake(widht - kIDCLabelWidht, 0, kIDCLabelWidht, kIDCLabelHeight);
             
         case kIDCLowerRight:
-            return CGRectMake(widht - 100, height - 100, 100, 100);
+            return CGRectMake(widht - kIDCLabelWidht,
+                              height - kIDCLabelHeight,
+                              kIDCLabelWidht,
+                              kIDCLabelHeight);
             
     }
     
-    return CGRectMake(widht * 0.5, height * 0.5, 100, 100);
+    return CGRectMake(0, 0, kIDCLabelWidht, kIDCLabelHeight);
 }
 
 @end

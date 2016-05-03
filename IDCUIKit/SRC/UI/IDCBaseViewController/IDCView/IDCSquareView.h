@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IDCObjCMacro.h"
+#import "UIView+IDCViewCategory.h"
 
 typedef void (^IDCSquareViewHandler)(void);
 
@@ -21,7 +22,9 @@ typedef enum IDCSquarePosition : NSUInteger {
 @interface IDCSquareView : UIView
 @property (nonatomic, strong)   IBOutlet   UILabel               *label;
 @property (nonatomic, strong)   IBOutlet   UIButton              *button;
-@property (nonatomic, strong)   IBOutlet   UIButton              *cycleButton;
+@property (nonatomic, strong)   IBOutlet   UIView                *labelView;
+@property (nonatomic, strong)   IBOutlet   UISwitch              *animationSwitch;
+@property (nonatomic, strong)   IBOutlet   UISwitch              *cycleMoveSwitch;
 @property (nonatomic, assign)              IDCSquarePosition     squarePosition;
 
 - (void)setSquarePosition:(IDCSquarePosition)position;
@@ -30,7 +33,7 @@ typedef enum IDCSquarePosition : NSUInteger {
                  animated:(BOOL)animated
         completionHandler:(IDCSquareViewHandler)handler;
 
-- (void)squareCycleMove;
+- (void)moveLabel;
 
 - (IDCSquarePosition)nextSquarePosition;
 

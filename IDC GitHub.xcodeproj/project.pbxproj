@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2CF828E41CF17E882A2B507C /* libPods-ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316C3F9D9E6ED2C268E623C8 /* libPods-ObjC.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		A224F5421CC4D2F600EB663D /* IDCGCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A224F5411CC4D2F600EB663D /* IDCGCDQueue.m */; };
+		A2360B321CD7B60300D6064B /* UIViewController+IDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2360B311CD7B60300D6064B /* UIViewController+IDCViewController.m */; };
+		A2360B351CD7B74800D6064B /* UIView+IDCViewCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2360B341CD7B74800D6064B /* UIView+IDCViewCategory.m */; };
+		A2360B381CD7BE7400D6064B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2360B361CD7BE7400D6064B /* LaunchScreen.storyboard */; };
 		A24350E41C8D9FF100EE188F /* IDCAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E31C8D9FF100EE188F /* IDCAlphabet.m */; };
 		A24350E71C8DA03C00EE188F /* IDCRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */; };
 		A24350EA1C8DA05100EE188F /* IDCStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */; };
@@ -90,6 +93,11 @@
 		A21ED8591C30C98F00FC8564 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
 		A224F5401CC4D2F600EB663D /* IDCGCDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCGCDQueue.h; path = SRC/IDCGCDQueue/IDCGCDQueue.h; sourceTree = "<group>"; };
 		A224F5411CC4D2F600EB663D /* IDCGCDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCGCDQueue.m; path = SRC/IDCGCDQueue/IDCGCDQueue.m; sourceTree = "<group>"; };
+		A2360B301CD7B60300D6064B /* UIViewController+IDCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+IDCViewController.h"; path = "IDCCategories/IDCViewControllerCategory/UIViewController+IDCViewController.h"; sourceTree = "<group>"; };
+		A2360B311CD7B60300D6064B /* UIViewController+IDCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+IDCViewController.m"; path = "IDCCategories/IDCViewControllerCategory/UIViewController+IDCViewController.m"; sourceTree = "<group>"; };
+		A2360B331CD7B74800D6064B /* UIView+IDCViewCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+IDCViewCategory.h"; path = "IDCCategories/IDCViewCategory/UIView+IDCViewCategory.h"; sourceTree = "<group>"; };
+		A2360B341CD7B74800D6064B /* UIView+IDCViewCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+IDCViewCategory.m"; path = "IDCCategories/IDCViewCategory/UIView+IDCViewCategory.m"; sourceTree = "<group>"; };
+		A2360B371CD7BE7400D6064B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A24350E21C8D9FF100EE188F /* IDCAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/IDCAlphabet.h; sourceTree = "<group>"; };
 		A24350E31C8D9FF100EE188F /* IDCAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCAlphabet.m; path = SRC/IDCCategory/IDCTask5Alphabet/IDCAlphabet.m; sourceTree = "<group>"; };
 		A24350E51C8DA03C00EE188F /* IDCRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCRangeAlphabet.h; path = SRC/IDCCategory/IDCTask5Alphabet/Private/IDCRangeAlphabet.h; sourceTree = "<group>"; };
@@ -275,6 +283,33 @@
 			name = IDCGCDQueue;
 			sourceTree = "<group>";
 		};
+		A2360B2D1CD7B50400D6064B /* IDCCategories */ = {
+			isa = PBXGroup;
+			children = (
+				A2360B2F1CD7B56100D6064B /* IDCViewCategory */,
+				A2360B2E1CD7B54800D6064B /* IDCViewControllerCategory */,
+			);
+			name = IDCCategories;
+			sourceTree = "<group>";
+		};
+		A2360B2E1CD7B54800D6064B /* IDCViewControllerCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A2360B301CD7B60300D6064B /* UIViewController+IDCViewController.h */,
+				A2360B311CD7B60300D6064B /* UIViewController+IDCViewController.m */,
+			);
+			name = IDCViewControllerCategory;
+			sourceTree = "<group>";
+		};
+		A2360B2F1CD7B56100D6064B /* IDCViewCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A2360B331CD7B74800D6064B /* UIView+IDCViewCategory.h */,
+				A2360B341CD7B74800D6064B /* UIView+IDCViewCategory.m */,
+			);
+			name = IDCViewCategory;
+			sourceTree = "<group>";
+		};
 		A24B910F1C767635004457D5 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +477,7 @@
 		A27973271CC9B083008E1BFD /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				A2360B361CD7BE7400D6064B /* LaunchScreen.storyboard */,
 			);
 			name = Base.lproj;
 			path = IDCUIKit/Base.lproj;
@@ -805,6 +841,7 @@
 		A2F8E0271CC991FC00006FE8 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				A2360B2D1CD7B50400D6064B /* IDCCategories */,
 				A2F8E0281CC991FC00006FE8 /* UI */,
 			);
 			path = SRC;
@@ -973,6 +1010,7 @@
 				A2F8E02F1CC991FC00006FE8 /* IDCBaseViewController.xib in Resources */,
 				A27973321CC9B083008E1BFD /* Info.plist in Resources */,
 				A279732F1CC9B083008E1BFD /* Assets.xcassets in Resources */,
+				A2360B381CD7BE7400D6064B /* LaunchScreen.storyboard in Resources */,
 				A27973251CC9B02A008E1BFD /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1051,6 +1089,8 @@
 				A2F8E02E1CC991FC00006FE8 /* IDCBaseViewController.m in Sources */,
 				A2F8E0321CC992D200006FE8 /* IDCSquareView.m in Sources */,
 				A27973231CC9B00C008E1BFD /* main.m in Sources */,
+				A2360B321CD7B60300D6064B /* UIViewController+IDCViewController.m in Sources */,
+				A2360B351CD7B74800D6064B /* UIView+IDCViewCategory.m in Sources */,
 				A24EF5561CC629E700805445 /* IDCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,6 +1137,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A2360B361CD7BE7400D6064B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2360B371CD7BE7400D6064B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A21ED85E1C30C98F00FC8564 /* Debug */ = {
