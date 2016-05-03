@@ -63,11 +63,14 @@ static const CGFloat kIDCLabelHeight = 100;
 
 - (void)moveLabel {
     IDCWeakifyMacro
+    self.button.userInteractionEnabled = NO;
     [self setSquarePosition:[self nextSquarePosition] animated:YES completionHandler:^ {
         IDCStrongifyReturnIfNillMacro(IDCSquareView)
         if (strongSelf.cycleMoveSwitch.isOn) {
             [strongSelf moveLabel];
             sleep(1);
+        } else {
+            strongSelf.button.userInteractionEnabled = YES;
         }
     }];
 }
