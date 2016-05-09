@@ -8,6 +8,8 @@
 
 #import "IDCAppDelegate.h"
 #import "IDCBaseViewController.h"
+#import "UIViewController+IDCViewController.h"
+#import "IDCUserViewController.h"
 
 @interface IDCAppDelegate ()
 
@@ -20,7 +22,7 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [IDCBaseViewController new];
+    window.rootViewController = [IDCUserViewController controllerFromNib];
     
     [window makeKeyAndVisible];
     

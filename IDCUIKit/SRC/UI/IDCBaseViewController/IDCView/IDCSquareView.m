@@ -14,7 +14,8 @@ static const CGFloat kIDCLabelHeight = 100;
 
 @interface IDCSquareView()
 
-- (CGRect)squarePosition:(IDCSquarePosition)position;
+- (CGRect)squarePositionSwitch:(IDCSquarePosition)squarePosition;
+- (CGAffineTransform)transformPosition:(IDCSquarePosition)squarePosition;
 
 @end
 
@@ -23,34 +24,31 @@ static const CGFloat kIDCLabelHeight = 100;
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquarePosition:(IDCSquarePosition)position {
-    [self setSquarePosition:position animated:NO];
+- (void)setSquarePosition:(IDCSquarePosition)squarePosition {
+    [self setSquarePosition:squarePosition animated:NO];
 }
 
-- (void)setSquarePosition:(IDCSquarePosition)position animated:(BOOL)animated {
-    [self setSquarePosition:position animated:animated completionHandler:nil];
+- (void)setSquarePosition:(IDCSquarePosition)squarePosition animated:(BOOL)animated {
+    [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
 }
 
-- (void)setSquarePosition:(IDCSquarePosition)position
+- (void)setSquarePosition:(IDCSquarePosition)squarePosition
                  animated:(BOOL)animated
         completionHandler:(IDCSquareViewHandler)handler
+
 {
-    if (_squarePosition != position) {
-        if (self.animationSwitch.isOn) {
-            animated = YES;
-        } else {
-            animated = NO;
-        }
+    if (_squarePosition != squarePosition) {
         UILabel *label = self.label;
-        CGRect positionSquare = [self squarePosition:position];
-        CGPoint origin = positionSquare.origin;
-        CGAffineTransform transformPosition = CGAffineTransformMakeTranslation(origin.x, origin.y);
+        CGAffineTransform transformPosition = [self transformPosition:squarePosition];
   
         CGFloat duration = animated ? kIDCAnimationDuration : 0;
-        [UIView animateWithDuration:duration animations:^ {
+        [UIView animateWithDuration:duration
+                              delay:0.5
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^ {
             label.transform = transformPosition;
         } completion:^(BOOL finished) {
-            _squarePosition = position;
+            _squarePosition = squarePosition;
             if (handler) {
                 handler();
             }
@@ -64,11 +62,10 @@ static const CGFloat kIDCLabelHeight = 100;
 - (void)moveLabel {
     IDCWeakifyMacro
     self.button.userInteractionEnabled = NO;
-    [self setSquarePosition:[self nextSquarePosition] animated:YES completionHandler:^ {
+    [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.isOn completionHandler:^ {
         IDCStrongifyReturnIfNillMacro(IDCSquareView)
         if (strongSelf.cycleMoveSwitch.isOn) {
             [strongSelf moveLabel];
-            sleep(1);
         } else {
             strongSelf.button.userInteractionEnabled = YES;
         }
@@ -77,6 +74,13 @@ static const CGFloat kIDCLabelHeight = 100;
 
 #pragma mark -
 #pragma mark Private
+
+- (CGAffineTransform)transformPosition:(IDCSquarePosition)squarePosition {
+    CGRect positionSquare = [self squarePositionSwitch:squarePosition];
+    CGPoint origin = positionSquare.origin;
+    
+    return CGAffineTransformMakeTranslation(origin.x, origin.y);
+}
 
 - (IDCSquarePosition)nextSquarePosition {
     switch (self.squarePosition) {
@@ -94,11 +98,11 @@ static const CGFloat kIDCLabelHeight = 100;
     }
 }
 
-- (CGRect)squarePosition:(IDCSquarePosition)position {
+- (CGRect)squarePositionSwitch:(IDCSquarePosition)squarePosition {
     CGSize viewSize = [self.labelView viewSize];
     CGFloat height = viewSize.height;
     CGFloat widht = viewSize.width;
-    switch (position) {
+    switch (squarePosition) {
         case kIDCUpperLeft:
             return CGRectMake(0, 0, kIDCLabelWidht, kIDCLabelHeight);
             

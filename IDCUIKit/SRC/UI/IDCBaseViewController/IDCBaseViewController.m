@@ -18,7 +18,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-IDCRootViewIfReturnNilMacro(IDCSquareView);
+IDCRootViewReturnIfNilMacro(IDCSquareView);
 
 #pragma mark -
 #pragma mark Controller Lifecycle

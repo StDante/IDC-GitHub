@@ -19,7 +19,7 @@ __strong theClass *strongSelf = weakSelf; \
                 return; \
             }
 
-#define IDCRootViewIfReturnNilMacro(theClass) \
+#define IDCRootViewReturnIfNilMacro(theClass) \
             - (theClass *)rootView {\
                 if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
                     return (theClass *)self.view; \

@@ -65,7 +65,80 @@
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="gPc-Cc-uKf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0rF-CO-1c2"/>
+                <constraint firstItem="LTp-gK-ndZ" firstAttribute="top" secondItem="vzz-QD-QxX" secondAttribute="bottom" constant="17" id="2iQ-aj-XdS"/>
+                <constraint firstItem="zBR-4A-xag" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="4DV-ib-NfK"/>
+                <constraint firstItem="g1j-m0-7Xc" firstAttribute="leading" secondItem="vzz-QD-QxX" secondAttribute="trailing" constant="49" id="4ck-6Y-GJP"/>
+                <constraint firstItem="g1j-m0-7Xc" firstAttribute="top" secondItem="aU8-aC-Ay6" secondAttribute="bottom" constant="3" id="8in-FK-tvU"/>
+                <constraint firstItem="aU8-aC-Ay6" firstAttribute="leading" secondItem="g1j-m0-7Xc" secondAttribute="trailing" constant="-49" id="ATp-Ht-lZn"/>
+                <constraint firstItem="LTp-gK-ndZ" firstAttribute="top" secondItem="GAt-sk-lNa" secondAttribute="bottom" constant="3" id="C8a-yo-qPc"/>
+                <constraint firstItem="g1j-m0-7Xc" firstAttribute="top" secondItem="vzz-QD-QxX" secondAttribute="bottom" constant="17" id="EjH-Lj-dR4"/>
+                <constraint firstAttribute="trailing" secondItem="g1j-m0-7Xc" secondAttribute="trailing" constant="8" id="G6n-wM-g0v"/>
+                <constraint firstAttribute="bottom" secondItem="g1j-m0-7Xc" secondAttribute="bottom" constant="24" id="Hyu-Kr-7s8"/>
+                <constraint firstItem="GAt-sk-lNa" firstAttribute="leading" secondItem="LTp-gK-ndZ" secondAttribute="trailing" constant="-47" id="M3N-0N-MTC"/>
+                <constraint firstItem="zBR-4A-xag" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N9f-dg-UgQ"/>
+                <constraint firstItem="gPc-Cc-uKf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-3" id="Oi7-BS-q1p"/>
+                <constraint firstAttribute="bottom" secondItem="LTp-gK-ndZ" secondAttribute="bottom" constant="24" id="ROL-Ng-b9T"/>
+                <constraint firstAttribute="trailing" secondItem="gPc-Cc-uKf" secondAttribute="trailing" constant="-2" id="S1J-0S-JYd"/>
+                <constraint firstItem="LTp-gK-ndZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="YSa-Dt-Kyd"/>
+                <constraint firstAttribute="bottom" secondItem="gPc-Cc-uKf" secondAttribute="bottom" id="aAF-v9-meP"/>
+                <constraint firstAttribute="trailing" secondItem="zBR-4A-xag" secondAttribute="trailing" constant="40" id="bya-c9-ooJ"/>
+                <constraint firstItem="zBR-4A-xag" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="53" id="kyK-sb-apx"/>
+                <constraint firstItem="vzz-QD-QxX" firstAttribute="leading" secondItem="LTp-gK-ndZ" secondAttribute="trailing" constant="49" id="l1u-nM-mGt"/>
+                <constraint firstAttribute="bottom" secondItem="zBR-4A-xag" secondAttribute="bottom" constant="230" id="xr6-uN-TDQ"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="0rF-CO-1c2"/>
+                    <exclude reference="Oi7-BS-q1p"/>
+                    <exclude reference="S1J-0S-JYd"/>
+                    <exclude reference="aAF-v9-meP"/>
+                    <exclude reference="4DV-ib-NfK"/>
+                    <exclude reference="N9f-dg-UgQ"/>
+                    <exclude reference="bya-c9-ooJ"/>
+                    <exclude reference="kyK-sb-apx"/>
+                    <exclude reference="xr6-uN-TDQ"/>
+                    <exclude reference="l1u-nM-mGt"/>
+                    <exclude reference="M3N-0N-MTC"/>
+                    <exclude reference="2iQ-aj-XdS"/>
+                    <exclude reference="C8a-yo-qPc"/>
+                    <exclude reference="ROL-Ng-b9T"/>
+                    <exclude reference="YSa-Dt-Kyd"/>
+                    <exclude reference="ATp-Ht-lZn"/>
+                    <exclude reference="4ck-6Y-GJP"/>
+                    <exclude reference="8in-FK-tvU"/>
+                    <exclude reference="EjH-Lj-dR4"/>
+                    <exclude reference="G6n-wM-g0v"/>
+                    <exclude reference="Hyu-Kr-7s8"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="0rF-CO-1c2"/>
+                    <include reference="Oi7-BS-q1p"/>
+                    <include reference="S1J-0S-JYd"/>
+                    <include reference="aAF-v9-meP"/>
+                    <include reference="4DV-ib-NfK"/>
+                    <include reference="N9f-dg-UgQ"/>
+                    <include reference="bya-c9-ooJ"/>
+                    <include reference="kyK-sb-apx"/>
+                    <include reference="xr6-uN-TDQ"/>
+                    <include reference="l1u-nM-mGt"/>
+                    <include reference="M3N-0N-MTC"/>
+                    <include reference="2iQ-aj-XdS"/>
+                    <include reference="C8a-yo-qPc"/>
+                    <include reference="ROL-Ng-b9T"/>
+                    <include reference="YSa-Dt-Kyd"/>
+                    <include reference="ATp-Ht-lZn"/>
+                    <include reference="4ck-6Y-GJP"/>
+                    <include reference="8in-FK-tvU"/>
+                    <include reference="EjH-Lj-dR4"/>
+                    <include reference="G6n-wM-g0v"/>
+                    <include reference="Hyu-Kr-7s8"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="animationSwitch" destination="LTp-gK-ndZ" id="aVz-yL-oxT"/>
                 <outlet property="button" destination="vzz-QD-QxX" id="9dd-Pm-7A9"/>
