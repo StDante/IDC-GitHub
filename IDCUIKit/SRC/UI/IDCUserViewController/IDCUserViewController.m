@@ -15,7 +15,7 @@ static const NSUInteger kIDCRowCount = 100;
 @property (nonatomic, strong)   IDCArrayModel   *arrayModel;
 
 - (id)objectFromNibOfClass:(Class)theClass;
-- (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView;
+- (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView ofClass:(Class)theClass;
 
 @end
 
@@ -44,7 +44,7 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self reuseCellIfNotCreate:(UITableView *)tableView];
+    return [self reuseCellIfNotCreate:(UITableView *)tableView ofClass:[IDCUserViewCell class]];
 }
 
 #pragma mark -
@@ -56,7 +56,7 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
     NSArray *objects = [nib instantiateWithOwner:[theClass class] options:nil];
     for (id object in objects) {
-        if ([object isKindOfClass:theClass]) {
+        if ([object isMemberOfClass:theClass]) {
             return object;
         }
     }
@@ -64,8 +64,8 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
     return nil;
 }
 
-- (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView {
-    IDCUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([IDCUserViewCell class])];
+- (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView ofClass:(Class)theClass {
+    IDCUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([theClass class])];
     if (!cell) {
         cell = [self objectFromNibOfClass:[IDCUserViewCell class]];
     }
