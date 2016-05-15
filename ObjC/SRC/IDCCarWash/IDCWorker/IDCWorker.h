@@ -13,6 +13,7 @@
 #import "IDCMoneyProtocol.h"
 #import "IDCRandomNamesArray.h"
 #import "IDCQueue.h"
+#import "IDCGCDQueue.h"
 
 typedef enum IDCWorkerState : NSUInteger {
     kIDCWorkerUndefinedState,

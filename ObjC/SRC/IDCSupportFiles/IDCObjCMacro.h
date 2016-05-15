@@ -13,11 +13,18 @@
 __weak id weakSelf = self; \
 
 
-#define IDCStrongifyReturnIfNillMacro \
-__strong id strongSelf = weakSelf; \
+#define IDCStrongifyReturnIfNillMacro(theClass) \
+__strong theClass *strongSelf = weakSelf; \
             if (!strongSelf) { \
                 return; \
             }
 
+#define IDCRootViewReturnIfNilMacro(theClass) \
+            - (theClass *)rootView {\
+                if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
+                    return (theClass *)self.view; \
+                } \
+                return nil;\
+            }
 
 #endif /* IDCObjCMacro_h */
