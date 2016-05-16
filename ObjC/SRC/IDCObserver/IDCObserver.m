@@ -71,15 +71,20 @@
     }
 }
 
+- (void)setObject:(id)object {
+    if (_object != object) {
+        _object = object;
+    }
+}
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized(self) {
-        if (_state != state) {
-            _state = state;
-        }
-        
         if (_object != object) {
             _object = object;
+        }
+
+        if (_state != state) {
+            _state = state;
         }
         
         [self performHandler];

@@ -59,15 +59,14 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
 
 - (void)performChangesWithObject:(IDCStateModel *)object {
     UITableView *tableView = self.rootView.tableView;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:object.index inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(object.index - 1) inSection:0];
     
     if (object.state == kIDCObjectAddState) {
         [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+                         withRowAnimation:UITableViewRowAnimationAutomatic];
     } else {
-        
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+                         withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
