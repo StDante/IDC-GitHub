@@ -101,8 +101,7 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
     }
 }
 
-- (BOOL)            tableView:(UITableView *)tableView
-        canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
