@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IDCStringModel.h"
 
 @interface IDCUserViewCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet  UILabel     *cellLabel;
-@property (nonatomic, strong) IBOutlet  UIImage     *cellImage;
+@property (nonatomic, strong) IBOutlet  UILabel         *cellLabel;
+@property (nonatomic, strong) IBOutlet  UIImageView     *cellImage;
 
 - (void)fillWithModel:(id)model;
 

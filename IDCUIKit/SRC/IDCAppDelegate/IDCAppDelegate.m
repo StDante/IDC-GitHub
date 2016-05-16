@@ -22,7 +22,9 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [IDCUserViewController controllerFromNib];
+    IDCUserViewController *viewController = [IDCUserViewController controllerFromNib];
+    viewController.arrayModel = [IDCArrayModel arrayModelWithArray:[IDCStringModel randomStringsModels]];
+    window.rootViewController = viewController;
     
     [window makeKeyAndVisible];
     

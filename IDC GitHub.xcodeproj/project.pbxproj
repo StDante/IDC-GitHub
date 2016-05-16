@@ -21,7 +21,6 @@
 		A2646CCB1CBEE39F009E563F /* IDCObserversArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */; };
 		A2646CCE1CBEE444009E563F /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		A26E551F1CE1308700A0BC39 /* IDCStringModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A26E551E1CE1308700A0BC39 /* IDCStringModel.m */; };
-		A26E55221CE130A700A0BC39 /* IDCArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A26E55211CE130A700A0BC39 /* IDCArrayModel.m */; };
 		A26F9F521CA98FEE00CA9859 /* IDCCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F441CA98FEE00CA9859 /* IDCCar.m */; };
 		A26F9F531CA98FEE00CA9859 /* IDCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F471CA98FEE00CA9859 /* IDCConstants.m */; };
 		A26F9F581CA9901B00CA9859 /* IDCCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F571CA9901B00CA9859 /* IDCCarWasher.m */; };
@@ -36,7 +35,6 @@
 		A27973231CC9B00C008E1BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A27973221CC9B00C008E1BFD /* main.m */; };
 		A27973251CC9B02A008E1BFD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A27973241CC9B02A008E1BFD /* Default-568h@2x.png */; };
 		A279732F1CC9B083008E1BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27973261CC9B083008E1BFD /* Assets.xcassets */; };
-		A27973321CC9B083008E1BFD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A279732C1CC9B083008E1BFD /* Info.plist */; };
 		A27BA0FF1C7B0CF300EB007F /* IDCCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA0FE1C7B0CF300EB007F /* IDCCreature.m */; };
 		A27BA1021C7B0D3B00EB007F /* IDCCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1011C7B0D3B00EB007F /* IDCCreatureTest.m */; };
 		A27BA1071C7B63ED00EB007F /* IDCMale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1061C7B63ED00EB007F /* IDCMale.m */; };
@@ -62,6 +60,16 @@
 		A286026B1C760884000E6ED0 /* IDCLection4BitFieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602571C760884000E6ED0 /* IDCLection4BitFieldTest.c */; };
 		A286026C1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */; };
 		A29B96EF1CE90D01009BEEC3 /* IDCAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E31C8D9FF100EE188F /* IDCAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96F01CE91368009BEEC3 /* NSString+IDCRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96F11CE9179D009BEEC3 /* IDCObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A26F9F721CA99E9D00CA9859 /* IDCObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96F51CE917F0009BEEC3 /* IDCArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A29B96F41CE917F0009BEEC3 /* IDCArrayModel.m */; };
+		A29B96F81CE918FF009BEEC3 /* IDCStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A29B96F71CE918FF009BEEC3 /* IDCStateModel.m */; };
+		A29B96F91CE9226E009BEEC3 /* IDCRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E61C8DA03C00EE188F /* IDCRangeAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96FA1CE92271009BEEC3 /* IDCStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350E91C8DA05100EE188F /* IDCStringAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96FB1CE92274009BEEC3 /* IDCClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = A24350EC1C8DA06500EE188F /* IDCClusterAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96FC1CE922B9009BEEC3 /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; };
+		A29B96FD1CE922BC009BEEC3 /* IDCObserversArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A29B96FE1CE922C0009BEEC3 /* IDCObserversState.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CC71CBEE33E009E563F /* IDCObserversState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A2B96CCE1CE0EDD900F8E94A /* IDCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B96CCC1CE0EDD900F8E94A /* IDCUserViewController.m */; };
 		A2B96CCF1CE0EDD900F8E94A /* IDCUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2B96CCD1CE0EDD900F8E94A /* IDCUserViewController.xib */; };
 		A2B96CD21CE0EE0400F8E94A /* IDCUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B96CD11CE0EE0400F8E94A /* IDCUserView.m */; };
@@ -125,8 +133,6 @@
 		A2646CCD1CBEE444009E563F /* IDCObserversObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObserversObject.m; path = IDCObserversObject/IDCObserversObject.m; sourceTree = "<group>"; };
 		A26E551D1CE1308700A0BC39 /* IDCStringModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCStringModel.h; path = IDCModels/IDCStringModel/IDCStringModel.h; sourceTree = "<group>"; };
 		A26E551E1CE1308700A0BC39 /* IDCStringModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStringModel.m; path = IDCModels/IDCStringModel/IDCStringModel.m; sourceTree = "<group>"; };
-		A26E55201CE130A700A0BC39 /* IDCArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCArrayModel.h; path = IDCModels/IDCArrayModel/IDCArrayModel.h; sourceTree = "<group>"; };
-		A26E55211CE130A700A0BC39 /* IDCArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCArrayModel.m; path = IDCModels/IDCArrayModel/IDCArrayModel.m; sourceTree = "<group>"; };
 		A26F9F431CA98FEE00CA9859 /* IDCCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCCar.h; sourceTree = "<group>"; };
 		A26F9F441CA98FEE00CA9859 /* IDCCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCCar.m; sourceTree = "<group>"; };
 		A26F9F461CA98FEE00CA9859 /* IDCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCConstants.h; sourceTree = "<group>"; };
@@ -205,6 +211,10 @@
 		A28602581C760884000E6ED0 /* IDCLection4BitFieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection4BitFieldTest.h; sourceTree = "<group>"; };
 		A286025A1C760884000E6ED0 /* IDCLection5ObjectHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IDCLection5ObjectHumanTest.c; sourceTree = "<group>"; };
 		A286025B1C760884000E6ED0 /* IDCLection5ObjectHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCLection5ObjectHumanTest.h; sourceTree = "<group>"; };
+		A29B96F31CE917F0009BEEC3 /* IDCArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCArrayModel.h; path = IDCModels/IDCArrayModel/IDCArrayModel.h; sourceTree = "<group>"; };
+		A29B96F41CE917F0009BEEC3 /* IDCArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCArrayModel.m; path = IDCModels/IDCArrayModel/IDCArrayModel.m; sourceTree = "<group>"; };
+		A29B96F61CE918FF009BEEC3 /* IDCStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCStateModel.h; path = IDCModels/IDCStateModel/IDCStateModel.h; sourceTree = "<group>"; };
+		A29B96F71CE918FF009BEEC3 /* IDCStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStateModel.m; path = IDCModels/IDCStateModel/IDCStateModel.m; sourceTree = "<group>"; };
 		A2B96CCB1CE0EDD900F8E94A /* IDCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCUserViewController.h; path = IDCUserViewController/IDCUserViewController.h; sourceTree = "<group>"; };
 		A2B96CCC1CE0EDD900F8E94A /* IDCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCUserViewController.m; path = IDCUserViewController/IDCUserViewController.m; sourceTree = "<group>"; };
 		A2B96CCD1CE0EDD900F8E94A /* IDCUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDCUserViewController.xib; path = IDCUserViewController/IDCUserViewController.xib; sourceTree = "<group>"; };
@@ -811,6 +821,15 @@
 			name = IDCTask1CreatureTest;
 			sourceTree = "<group>";
 		};
+		A29B96F21CE917D0009BEEC3 /* IDCStateModel */ = {
+			isa = PBXGroup;
+			children = (
+				A29B96F61CE918FF009BEEC3 /* IDCStateModel.h */,
+				A29B96F71CE918FF009BEEC3 /* IDCStateModel.m */,
+			);
+			name = IDCStateModel;
+			sourceTree = "<group>";
+		};
 		A2B96CBD1CE0EC9900F8E94A /* IDCUserViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,6 +864,7 @@
 		A2B96CD91CE0EFD700F8E94A /* IDCModels */ = {
 			isa = PBXGroup;
 			children = (
+				A29B96F21CE917D0009BEEC3 /* IDCStateModel */,
 				A2B96CDB1CE0F55200F8E94A /* IDCStringModel */,
 				A2B96CDA1CE0F54400F8E94A /* IDCArrayModel */,
 			);
@@ -854,8 +874,8 @@
 		A2B96CDA1CE0F54400F8E94A /* IDCArrayModel */ = {
 			isa = PBXGroup;
 			children = (
-				A26E55201CE130A700A0BC39 /* IDCArrayModel.h */,
-				A26E55211CE130A700A0BC39 /* IDCArrayModel.m */,
+				A29B96F31CE917F0009BEEC3 /* IDCArrayModel.h */,
+				A29B96F41CE917F0009BEEC3 /* IDCArrayModel.m */,
 			);
 			name = IDCArrayModel;
 			sourceTree = "<group>";
@@ -1105,7 +1125,6 @@
 			files = (
 				A2B96CD81CE0EFC900F8E94A /* IDCUserViewCell.xib in Resources */,
 				A2F8E02F1CC991FC00006FE8 /* IDCBaseViewController.xib in Resources */,
-				A27973321CC9B083008E1BFD /* Info.plist in Resources */,
 				A279732F1CC9B083008E1BFD /* Assets.xcassets in Resources */,
 				A2360B381CD7BE7400D6064B /* LaunchScreen.storyboard in Resources */,
 				A2B96CCF1CE0EDD900F8E94A /* IDCUserViewController.xib in Resources */,
@@ -1188,11 +1207,20 @@
 				A2B96CCE1CE0EDD900F8E94A /* IDCUserViewController.m in Sources */,
 				A2B96CD21CE0EE0400F8E94A /* IDCUserView.m in Sources */,
 				A2F8E0321CC992D200006FE8 /* IDCSquareView.m in Sources */,
+				A29B96FD1CE922BC009BEEC3 /* IDCObserversArray.m in Sources */,
 				A27973231CC9B00C008E1BFD /* main.m in Sources */,
 				A29B96EF1CE90D01009BEEC3 /* IDCAlphabet.m in Sources */,
+				A29B96FE1CE922C0009BEEC3 /* IDCObserversState.m in Sources */,
 				A26E551F1CE1308700A0BC39 /* IDCStringModel.m in Sources */,
 				A20666821CD8C9C800F27759 /* IDCAppDelegate.m in Sources */,
-				A26E55221CE130A700A0BC39 /* IDCArrayModel.m in Sources */,
+				A29B96FB1CE92274009BEEC3 /* IDCClusterAlphabet.m in Sources */,
+				A29B96FC1CE922B9009BEEC3 /* IDCObserversObject.m in Sources */,
+				A29B96F81CE918FF009BEEC3 /* IDCStateModel.m in Sources */,
+				A29B96F51CE917F0009BEEC3 /* IDCArrayModel.m in Sources */,
+				A29B96F01CE91368009BEEC3 /* NSString+IDCRandomString.m in Sources */,
+				A29B96F91CE9226E009BEEC3 /* IDCRangeAlphabet.m in Sources */,
+				A29B96FA1CE92271009BEEC3 /* IDCStringAlphabet.m in Sources */,
+				A29B96F11CE9179D009BEEC3 /* IDCObserver.m in Sources */,
 				A2360B321CD7B60300D6064B /* UIViewController+IDCViewController.m in Sources */,
 				A2360B351CD7B74800D6064B /* UIView+IDCViewCategory.m in Sources */,
 				A2B96CD71CE0EFC900F8E94A /* IDCUserViewCell.m in Sources */,

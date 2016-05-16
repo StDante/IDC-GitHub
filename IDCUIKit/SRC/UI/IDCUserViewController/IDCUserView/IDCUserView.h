@@ -10,6 +10,9 @@
 #import "IDCUserViewCell.h"
 
 @interface IDCUserView : UIView
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UITableView  *tableView;
+@property (nonatomic, retain) IBOutlet UIButton     *reloadButton;
+@property (nonatomic, strong) IBOutlet UISwitch     *editSwitch;
+
 
 @end

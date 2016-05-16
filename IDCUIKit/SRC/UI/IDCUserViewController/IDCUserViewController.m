@@ -8,14 +8,12 @@
 
 #import "IDCUserViewController.h"
 
-static const NSUInteger kIDCRowCount = 100;
-
 @interface IDCUserViewController ()
 @property (nonatomic, readonly) IDCUserView     *rootView;
-@property (nonatomic, strong)   IDCArrayModel   *arrayModel;
 
 - (id)objectFromNibOfClass:(Class)theClass;
 - (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView ofClass:(Class)theClass;
+- (void)performChangesWithObject:(id)object;
 
 @end
 
@@ -26,13 +24,51 @@ static const NSUInteger kIDCRowCount = 100;
 
 IDCRootViewReturnIfNilMacro(IDCUserView);
 
+- (void)setArrayModel:(IDCArrayModel *)arrayModel{
+    if (_arrayModel != arrayModel) {
+        _arrayModel = arrayModel;
+        
+        IDCWeakifyMacro;
+        [_arrayModel addHandler:^(IDCStateModel *model){
+            IDCStrongifyReturnIfNillMacro(IDCUserViewController);
+            [strongSelf performChangesWithObject:model];
+            
+        }           forState:kIDCChangeObjectState
+                         object:self];
+    }
+}
+
+#pragma mark -
+#pragma mark Handling Interface
+
+- (IBAction)onUpdateCellsButton:(id)sender {
+    self.arrayModel = [IDCArrayModel arrayModelWithArray:[IDCStringModel randomStringsModels]];
+    [self.rootView.tableView reloadData];
+}
+
+- (IBAction)onStartEditingSwitch:(id)sender {
+    self.rootView.tableView.editing = !self.rootView.editSwitch.on;
+}
+
 #pragma mark -
 #pragma mark Controller Lifecycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+#pragma mark -
+#pragma mark Private
+
+- (void)performChangesWithObject:(IDCStateModel *)object {
+    UITableView *tableView = self.rootView.tableView;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:object.index inSection:0];
     
-    [self.rootView.tableView reloadData];
+    if (object.state == kIDCObjectAddState) {
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 #pragma mark -
@@ -40,15 +76,60 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kIDCRowCount;
+    return self.arrayModel.objects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self reuseCellIfNotCreate:(UITableView *)tableView ofClass:[IDCUserViewCell class]];
+    IDCUserViewCell *cell = [self reuseCellIfNotCreate:(UITableView *)tableView ofClass:[IDCUserViewCell class]];
+    [cell fillWithModel:self.arrayModel[indexPath.row]];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)        tableView:(UITableView *)tableView
+       commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+        forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.arrayModel removeObjectAtIndex:indexPath.row];
+    } else {
+        [self.arrayModel addObject:[IDCStringModel new]];
+    }
+}
+
+- (BOOL)            tableView:(UITableView *)tableView
+        canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)            tableView:(UITableView *)tableView
+           moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
+                  toIndexPath:(NSIndexPath *)toIndexPath
+{
+    [self.arrayModel moveCellFromIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark TableView Delegate Protocol
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row < 1) {
+        return UITableViewCellEditingStyleInsert;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
+
+#pragma mark -
+#pragma mark Extention
 
 //create extention with thous methods
 

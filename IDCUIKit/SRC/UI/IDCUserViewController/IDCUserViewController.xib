@@ -15,8 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbI-Vk-Zof">
+                    <rect key="frame" x="162" y="384" width="51" height="30"/>
+                    <state key="normal" title="Update"/>
+                    <connections>
+                        <action selector="onUpdateCellsButton:" destination="-1" eventType="touchUpInside" id="WJK-Do-SST"/>
+                    </connections>
+                </button>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWS-uB-dJQ">
+                    <rect key="frame" x="36" y="384" width="51" height="31"/>
+                    <connections>
+                        <action selector="onStartEditingSwitch:" destination="-1" eventType="touchUpInside" id="qFd-kg-YI5"/>
+                    </connections>
+                </switch>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="489-Tb-NdT">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                    <rect key="frame" x="8" y="0.0" width="334" height="350"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="fe5-08-nRC"/>
@@ -27,6 +40,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
+                <outlet property="editSwitch" destination="dWS-uB-dJQ" id="b4L-dv-XJS"/>
+                <outlet property="reloadButton" destination="tbI-Vk-Zof" id="540-Tk-7y0"/>
                 <outlet property="tableView" destination="489-Tb-NdT" id="5Lb-Nc-Tix"/>
             </connections>
         </view>

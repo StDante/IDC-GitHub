@@ -10,15 +10,12 @@
 
 @implementation IDCUserViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+#pragma mark -
+#pragma mark Public
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)fillWithModel:(IDCStringModel *)theModel {
+    self.cellLabel.text = theModel.string;
+    self.cellImage.image = theModel.image;
 }
 
 @end

@@ -12,6 +12,7 @@
 @property (nonatomic, assign) NSHashTable         *mutableObservers;
 @property (nonatomic, retain) NSMutableArray *observerStatesObjects;
 
+
 - (IDCObserversState *)objectForState:(NSUInteger)state;
 - (void)performHandler;
 
@@ -27,6 +28,7 @@
 - (void)dealloc {
     self.mutableObservers = nil;
     self.observerStatesObjects = nil;
+    self.object = nil;
     
     [super dealloc];
 }
@@ -36,6 +38,7 @@
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
         self.observerStatesObjects = [NSMutableArray array];
+        self.object = nil;
     }
     
     return self;
@@ -65,6 +68,21 @@
 //          [self notifyObservers];
             [self performHandler];
         }
+    }
+}
+
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
+    @synchronized(self) {
+        if (_state != state) {
+            _state = state;
+        }
+        
+        if (_object != object) {
+            _object = object;
+        }
+        
+        [self performHandler];
     }
 }
   
@@ -147,7 +165,7 @@
     for (IDCObserversState *stateObject in self.observerStatesObjects) {
         if (stateObject.state == self.state) {
             for (IDCCompletionHandler handler in stateObject.handlers) {
-                handler();
+                handler(self.object);
             }
         }
     }

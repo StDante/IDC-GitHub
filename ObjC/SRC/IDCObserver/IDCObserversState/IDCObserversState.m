@@ -42,7 +42,7 @@
     self = [super init];
     if (self) {
         self.state = state;
-        self.observersArray = [IDCObserversArray object];
+        self.observersArray = [[[IDCObserversArray alloc] init] autorelease];
     }
     
     return self;
@@ -66,7 +66,7 @@
 #pragma mark Public
 
 - (void)addHandler:(IDCCompletionHandler)handler object:(id)object {
-    IDCObserversArray *observersArray = [IDCObserversArray object];
+    IDCObserversArray *observersArray = [[[IDCObserversArray alloc] init] autorelease];
     [observersArray addHandler:handler forObject:object];
     self.observersArray = observersArray;
 }
