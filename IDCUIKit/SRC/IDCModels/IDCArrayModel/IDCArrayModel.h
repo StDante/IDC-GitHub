@@ -9,12 +9,13 @@
 #import "IDCObserver.h"
 #import "IDCStateModel.h"
 #import "IDCStringModel.h"
+#import "IDCStateUniversalModel.h"
 
 typedef NS_ENUM(NSUInteger, IDCArrayModelState) {
     kIDCChangeObjectState
 };
 
-@interface IDCArrayModel : IDCObserver
+@interface IDCArrayModel : IDCStateUniversalModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSArray *objects;
 
 + (instancetype)arrayModelWithObject:(id)object;
@@ -27,6 +28,9 @@ typedef NS_ENUM(NSUInteger, IDCArrayModelState) {
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (void)addObject:(id)object;
+- (void)addObjects:(NSArray *)array;
+- (void)replaceObjectsWithArray:(NSArray *)array;
+- (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObjects;

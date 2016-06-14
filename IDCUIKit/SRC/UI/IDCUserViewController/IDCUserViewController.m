@@ -11,9 +11,9 @@
 @interface IDCUserViewController ()
 @property (nonatomic, readonly) IDCUserView     *rootView;
 
-- (id)objectFromNibOfClass:(Class)theClass;
-- (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView ofClass:(Class)theClass;
 - (void)performChangesWithObject:(id)object;
+- (void)addHandlers;
+- (void)performLoad;
 
 @end
 
@@ -28,13 +28,8 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        IDCWeakifyMacro;
-        [_arrayModel addHandler:^(IDCStateModel *model){
-            IDCStrongifyReturnIfNillMacro(IDCUserViewController);
-            [strongSelf performChangesWithObject:model];
-            
-        }           forState:kIDCChangeObjectState
-                         object:self];
+        [self addHandlers];
+        [self performLoad];
     }
 }
 
@@ -53,13 +48,43 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
 #pragma mark -
 #pragma mark Controller Lifecycle
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self performLoad];
+}
 
 #pragma mark -
 #pragma mark Private
 
+- (void)addHandlers {
+    IDCArrayModel *arrayModel = self.arrayModel;
+    IDCWeakifyMacro;
+    [arrayModel addHandler:^(IDCStateModel *model){
+        IDCStrongifyReturnIfNillMacro(IDCUserViewController);
+        [strongSelf performChangesWithObject:model];
+        
+    }           forState:kIDCModelChangeState
+                    object:self];
+    
+    [arrayModel addHandler:^(IDCStateModel *model){
+        IDCStrongifyReturnIfNillMacro(IDCUserViewController);
+        IDCUserView *rootView = strongSelf.rootView;
+        [rootView removeLoadingViewAnimated:YES];
+        [rootView.tableView reloadData];
+        
+    }           forState:kIDCModelLoadedState
+                    object:self];
+}
+
+- (void)performLoad {
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    [self.arrayModel load];
+}
+
 - (void)performChangesWithObject:(IDCStateModel *)object {
     UITableView *tableView = self.rootView.tableView;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(object.index - 1) inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:object.index inSection:0];
     
     if (object.state == kIDCObjectAddState) {
         [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
@@ -79,7 +104,7 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    IDCUserViewCell *cell = [self reuseCellIfNotCreate:(UITableView *)tableView ofClass:[IDCUserViewCell class]];
+    IDCUserViewCell *cell = [tableView dequeueReusableCellFromNibWithClass:[IDCUserViewCell class]];
     [cell fillWithModel:self.arrayModel[indexPath.row]];
     
     return cell;
@@ -123,33 +148,6 @@ IDCRootViewReturnIfNilMacro(IDCUserView);
     } else {
         return UITableViewCellEditingStyleDelete;
     }
-}
-
-
-#pragma mark -
-#pragma mark Extention
-
-//create extention with thous methods
-
-- (id)objectFromNibOfClass:(Class)theClass {
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
-    NSArray *objects = [nib instantiateWithOwner:[theClass class] options:nil];
-    for (id object in objects) {
-        if ([object isMemberOfClass:theClass]) {
-            return object;
-        }
-    }
-    
-    return nil;
-}
-
-- (IDCUserViewCell *)reuseCellIfNotCreate:(UITableView *)tableView ofClass:(Class)theClass {
-    IDCUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([theClass class])];
-    if (!cell) {
-        cell = [self objectFromNibOfClass:[IDCUserViewCell class]];
-    }
-    
-    return cell;
 }
 
 @end

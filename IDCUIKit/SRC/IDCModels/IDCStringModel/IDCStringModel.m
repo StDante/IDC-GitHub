@@ -9,11 +9,13 @@
 #import "IDCStringModel.h"
 
 static const NSInteger kIDCDefaultStringCount = 10;
-static NSString * const kIDCCellImagePath = @"/Users/Altukhov/Documents/Курсы/Программирование/IDC GitHub/IDCUIKit/Assets.xcassets/imageForCell.imageset/Orly.jpg";
+
+static NSString * const kIDCStringCoderKey    = @"string";
+static NSString * const kIDCStringURL         = @"https://i.imgflip.com/eb6.jpg";
 
 @interface IDCStringModel()
 @property (nonatomic, copy)     NSString    *string;
-@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, copy)     NSString    *urlString;
 
 @end
 
@@ -47,7 +49,6 @@ static NSString * const kIDCCellImagePath = @"/Users/Altukhov/Documents/Курс
     self = [super init];
     if (self) {
         self.string = [NSString randomString];
-        self.image  = [[UIImage alloc] initWithContentsOfFile:[kIDCCellImagePath copy]];
     }
     
     return self;
@@ -60,6 +61,29 @@ static NSString * const kIDCCellImagePath = @"/Users/Altukhov/Documents/Курс
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)urlString {
+    return kIDCStringURL;
+}
+
+#pragma mark -
+#pragma mark NSCoding Protocol
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [self init];
+    if (self) {
+        self.string = [aDecoder decodeObjectForKey:kIDCStringCoderKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.string forKey:kIDCStringCoderKey];
 }
 
 @end

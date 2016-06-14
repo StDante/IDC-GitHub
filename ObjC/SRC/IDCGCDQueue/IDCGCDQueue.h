@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^IDCCompletionHandler)(void);
+typedef void (^IDCGCDHandler)(void);
 
 typedef enum {
     kIDCHighPriority,
@@ -19,18 +19,18 @@ typedef enum {
 } IDCGCDPriority;
 
 extern
-void IDCGCDAsyncWithPriority(IDCGCDPriority priority, IDCCompletionHandler handler);
+void IDCGCDAsyncWithPriority(IDCGCDPriority priority, IDCGCDHandler handler);
 extern
-void IDCGCDSyncWithPriority(IDCGCDPriority priority, IDCCompletionHandler handler);
+void IDCGCDSyncWithPriority(IDCGCDPriority priority, IDCGCDHandler handler);
 
 extern
-void IDCGCDAsyncInBackground(IDCCompletionHandler handler);
+void IDCGCDAsyncInBackground(IDCGCDHandler handler);
 extern
-void IDCGCDSyncInBackground(IDCCompletionHandler handler);
+void IDCGCDSyncInBackground(IDCGCDHandler handler);
 
 extern
-void IDCGCDAsyncOnMainThread(IDCCompletionHandler handler);
+void IDCGCDAsyncOnMainThread(IDCGCDHandler handler);
 extern
-void IDCGCDSyncOnMainThread(IDCCompletionHandler handler);
+void IDCGCDSyncOnMainThread(IDCGCDHandler handler);
 
 

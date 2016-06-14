@@ -41,6 +41,8 @@
 		A27BA10A1C7B641600EB007F /* IDCFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1091C7B641600EB007F /* IDCFemale.m */; };
 		A27BA10E1C7F62ED00EB007F /* NSObject+IDCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA10D1C7F62ED00EB007F /* NSObject+IDCCategory.m */; };
 		A27BA1151C7FA4DF00EB007F /* NSString+IDCRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */; };
+		A27FDB391CF60960004E9290 /* UINib+IDCUINib.m in Sources */ = {isa = PBXBuildFile; fileRef = A27FDB381CF60960004E9290 /* UINib+IDCUINib.m */; };
+		A27FDB3D1CF60A25004E9290 /* UITableView+IDCUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A27FDB3C1CF60A25004E9290 /* UITableView+IDCUITableView.m */; };
 		A28602201C76080F000E6ED0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A286021F1C76080F000E6ED0 /* main.m */; };
 		A286025C1C760884000E6ED0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602251C760884000E6ED0 /* main.c */; };
 		A286025D1C760884000E6ED0 /* IDCLection2Macros.c in Sources */ = {isa = PBXBuildFile; fileRef = A28602281C760884000E6ED0 /* IDCLection2Macros.c */; };
@@ -70,11 +72,20 @@
 		A29B96FC1CE922B9009BEEC3 /* IDCObserversObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCD1CBEE444009E563F /* IDCObserversObject.m */; };
 		A29B96FD1CE922BC009BEEC3 /* IDCObserversArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CCA1CBEE39F009E563F /* IDCObserversArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A29B96FE1CE922C0009BEEC3 /* IDCObserversState.m in Sources */ = {isa = PBXBuildFile; fileRef = A2646CC71CBEE33E009E563F /* IDCObserversState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A2B94ACD1D0A033C004B8B6E /* IDCSaveArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B94ACC1D0A033C004B8B6E /* IDCSaveArrayModel.m */; };
+		A2B94AD11D0A04CC004B8B6E /* IDCStateUniversalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B94AD01D0A04CC004B8B6E /* IDCStateUniversalModel.m */; };
+		A2B94AD51D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B94AD41D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.m */; };
 		A2B96CCE1CE0EDD900F8E94A /* IDCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B96CCC1CE0EDD900F8E94A /* IDCUserViewController.m */; };
 		A2B96CCF1CE0EDD900F8E94A /* IDCUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2B96CCD1CE0EDD900F8E94A /* IDCUserViewController.xib */; };
 		A2B96CD21CE0EE0400F8E94A /* IDCUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B96CD11CE0EE0400F8E94A /* IDCUserView.m */; };
 		A2B96CD71CE0EFC900F8E94A /* IDCUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B96CD51CE0EFC900F8E94A /* IDCUserViewCell.m */; };
 		A2B96CD81CE0EFC900F8E94A /* IDCUserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2B96CD61CE0EFC900F8E94A /* IDCUserViewCell.xib */; };
+		A2C0A61F1D0D7FE2001354A0 /* IDCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C0A61E1D0D7FE2001354A0 /* IDCImageView.m */; };
+		A2C0A6231D0D82A1001354A0 /* IDCImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C0A6221D0D82A1001354A0 /* IDCImageModel.m */; };
+		A2C0A6271D0D82F1001354A0 /* IDCObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C0A6261D0D82F1001354A0 /* IDCObjectCache.m */; };
+		A2C0A62C1D0ED617001354A0 /* IDCSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C0A62B1D0ED617001354A0 /* IDCSpinnerView.m */; };
+		A2C0A62E1D0ED661001354A0 /* IDCSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2C0A62D1D0ED661001354A0 /* IDCSpinnerView.xib */; };
+		A2C0A6321D0ED8A8001354A0 /* IDCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C0A6311D0ED8A8001354A0 /* IDCLoadingView.m */; };
 		A2C5D8DA1CAA9B5C0015B22D /* IDCRandomNamesArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C5D8D91CAA9B5C0015B22D /* IDCRandomNamesArray.m */; };
 		A2C5D8DC1CAAA1030015B22D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C5D8DB1CAAA1030015B22D /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A2F8E02E1CC991FC00006FE8 /* IDCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F8E02B1CC991FC00006FE8 /* IDCBaseViewController.m */; };
@@ -175,6 +186,10 @@
 		A27BA1101C7FA24100EB007F /* IDCObjC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IDCObjC-Prefix.pch"; path = "ObjC/SRC/IDCSupportFiles/IDCObjC-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		A27BA1131C7FA4DF00EB007F /* NSString+IDCRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IDCRandomString.h"; path = "SRC/IDCCategory/NSString+IDCRandomString.h"; sourceTree = "<group>"; };
 		A27BA1141C7FA4DF00EB007F /* NSString+IDCRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IDCRandomString.m"; path = "SRC/IDCCategory/NSString+IDCRandomString.m"; sourceTree = "<group>"; };
+		A27FDB371CF60960004E9290 /* UINib+IDCUINib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINib+IDCUINib.h"; path = "IDCCategories/IDCUINibCategory/UINib+IDCUINib.h"; sourceTree = "<group>"; };
+		A27FDB381CF60960004E9290 /* UINib+IDCUINib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINib+IDCUINib.m"; path = "IDCCategories/IDCUINibCategory/UINib+IDCUINib.m"; sourceTree = "<group>"; };
+		A27FDB3B1CF60A25004E9290 /* UITableView+IDCUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+IDCUITableView.h"; path = "IDCCategories/IDCUITableViewCategory/UITableView+IDCUITableView.h"; sourceTree = "<group>"; };
+		A27FDB3C1CF60A25004E9290 /* UITableView+IDCUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+IDCUITableView.m"; path = "IDCCategories/IDCUITableViewCategory/UITableView+IDCUITableView.m"; sourceTree = "<group>"; };
 		A286021D1C76080F000E6ED0 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
 		A286021F1C76080F000E6ED0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ObjC/main.m; sourceTree = "<group>"; };
 		A28602251C760884000E6ED0 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -215,6 +230,12 @@
 		A29B96F41CE917F0009BEEC3 /* IDCArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCArrayModel.m; path = IDCModels/IDCArrayModel/IDCArrayModel.m; sourceTree = "<group>"; };
 		A29B96F61CE918FF009BEEC3 /* IDCStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCStateModel.h; path = IDCModels/IDCStateModel/IDCStateModel.h; sourceTree = "<group>"; };
 		A29B96F71CE918FF009BEEC3 /* IDCStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStateModel.m; path = IDCModels/IDCStateModel/IDCStateModel.m; sourceTree = "<group>"; };
+		A2B94ACB1D0A033C004B8B6E /* IDCSaveArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCSaveArrayModel.h; path = IDCModels/IDCSaveArrayModel/IDCSaveArrayModel.h; sourceTree = "<group>"; };
+		A2B94ACC1D0A033C004B8B6E /* IDCSaveArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCSaveArrayModel.m; path = IDCModels/IDCSaveArrayModel/IDCSaveArrayModel.m; sourceTree = "<group>"; };
+		A2B94ACF1D0A04CC004B8B6E /* IDCStateUniversalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCStateUniversalModel.h; path = IDCModels/IDCStateUniversalModel/IDCStateUniversalModel.h; sourceTree = "<group>"; };
+		A2B94AD01D0A04CC004B8B6E /* IDCStateUniversalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCStateUniversalModel.m; path = IDCModels/IDCStateUniversalModel/IDCStateUniversalModel.m; sourceTree = "<group>"; };
+		A2B94AD31D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+IDCNSFilemManagerCategory.h"; path = "IDCCategories/IDCNSFileManagerCategory/NSFileManager+IDCNSFilemManagerCategory.h"; sourceTree = "<group>"; };
+		A2B94AD41D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+IDCNSFilemManagerCategory.m"; path = "IDCCategories/IDCNSFileManagerCategory/NSFileManager+IDCNSFilemManagerCategory.m"; sourceTree = "<group>"; };
 		A2B96CCB1CE0EDD900F8E94A /* IDCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCUserViewController.h; path = IDCUserViewController/IDCUserViewController.h; sourceTree = "<group>"; };
 		A2B96CCC1CE0EDD900F8E94A /* IDCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCUserViewController.m; path = IDCUserViewController/IDCUserViewController.m; sourceTree = "<group>"; };
 		A2B96CCD1CE0EDD900F8E94A /* IDCUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDCUserViewController.xib; path = IDCUserViewController/IDCUserViewController.xib; sourceTree = "<group>"; };
@@ -223,6 +244,17 @@
 		A2B96CD41CE0EFC900F8E94A /* IDCUserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCUserViewCell.h; path = IDCUserViewController/IDCUserViewCell/IDCUserViewCell.h; sourceTree = "<group>"; };
 		A2B96CD51CE0EFC900F8E94A /* IDCUserViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCUserViewCell.m; path = IDCUserViewController/IDCUserViewCell/IDCUserViewCell.m; sourceTree = "<group>"; };
 		A2B96CD61CE0EFC900F8E94A /* IDCUserViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDCUserViewCell.xib; path = IDCUserViewController/IDCUserViewCell/IDCUserViewCell.xib; sourceTree = "<group>"; };
+		A2C0A61D1D0D7FE2001354A0 /* IDCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCImageView.h; path = IDCImageView/IDCImageView.h; sourceTree = "<group>"; };
+		A2C0A61E1D0D7FE2001354A0 /* IDCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCImageView.m; path = IDCImageView/IDCImageView.m; sourceTree = "<group>"; };
+		A2C0A6211D0D82A1001354A0 /* IDCImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCImageModel.h; path = IDCImageView/IDCImageModel/IDCImageModel.h; sourceTree = "<group>"; };
+		A2C0A6221D0D82A1001354A0 /* IDCImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCImageModel.m; path = IDCImageView/IDCImageModel/IDCImageModel.m; sourceTree = "<group>"; };
+		A2C0A6251D0D82F1001354A0 /* IDCObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCObjectCache.h; path = IDCImageView/IDCImageModel/IDCObjectCache/IDCObjectCache.h; sourceTree = "<group>"; };
+		A2C0A6261D0D82F1001354A0 /* IDCObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCObjectCache.m; path = IDCImageView/IDCImageModel/IDCObjectCache/IDCObjectCache.m; sourceTree = "<group>"; };
+		A2C0A62A1D0ED617001354A0 /* IDCSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCSpinnerView.h; path = IDCSpinnerView/IDCSpinnerView.h; sourceTree = "<group>"; };
+		A2C0A62B1D0ED617001354A0 /* IDCSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCSpinnerView.m; path = IDCSpinnerView/IDCSpinnerView.m; sourceTree = "<group>"; };
+		A2C0A62D1D0ED661001354A0 /* IDCSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDCSpinnerView.xib; path = IDCSpinnerView/IDCSpinnerView.xib; sourceTree = "<group>"; };
+		A2C0A6301D0ED8A8001354A0 /* IDCLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCLoadingView.h; path = IDCLoadingView/IDCLoadingView.h; sourceTree = "<group>"; };
+		A2C0A6311D0ED8A8001354A0 /* IDCLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCLoadingView.m; path = IDCLoadingView/IDCLoadingView.m; sourceTree = "<group>"; };
 		A2C5D8D81CAA9B5C0015B22D /* IDCRandomNamesArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCRandomNamesArray.h; sourceTree = "<group>"; };
 		A2C5D8D91CAA9B5C0015B22D /* IDCRandomNamesArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCRandomNamesArray.m; sourceTree = "<group>"; };
 		A2C5D8DB1CAAA1030015B22D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -325,7 +357,9 @@
 		A2360B2D1CD7B50400D6064B /* IDCCategories */ = {
 			isa = PBXGroup;
 			children = (
-				A26E551C1CE1241B00A0BC39 /* IDCTableViewCell */,
+				A2B94AD21D0A0FA0004B8B6E /* IDCNSFileManagerCategory */,
+				A27FDB3A1CF609E1004E9290 /* IDCUITableViewCategory */,
+				A27FDB361CF60906004E9290 /* IDCUINibCategory */,
 				A2360B2F1CD7B56100D6064B /* IDCViewCategory */,
 				A2360B2E1CD7B54800D6064B /* IDCViewControllerCategory */,
 			);
@@ -374,13 +408,6 @@
 				A2646CC71CBEE33E009E563F /* IDCObserversState.m */,
 			);
 			name = IDCObserversState;
-			sourceTree = "<group>";
-		};
-		A26E551C1CE1241B00A0BC39 /* IDCTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = IDCTableViewCell;
 			sourceTree = "<group>";
 		};
 		A26F9F411CA98FEE00CA9859 /* IDCCarWash */ = {
@@ -567,6 +594,24 @@
 				A2EF059F1CC438AA006F28C0 /* IDCObjCMacro.h */,
 			);
 			name = "IDCSupport Files";
+			sourceTree = "<group>";
+		};
+		A27FDB361CF60906004E9290 /* IDCUINibCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A27FDB371CF60960004E9290 /* UINib+IDCUINib.h */,
+				A27FDB381CF60960004E9290 /* UINib+IDCUINib.m */,
+			);
+			name = IDCUINibCategory;
+			sourceTree = "<group>";
+		};
+		A27FDB3A1CF609E1004E9290 /* IDCUITableViewCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A27FDB3B1CF60A25004E9290 /* UITableView+IDCUITableView.h */,
+				A27FDB3C1CF60A25004E9290 /* UITableView+IDCUITableView.m */,
+			);
+			name = IDCUITableViewCategory;
 			sourceTree = "<group>";
 		};
 		A286021E1C76080F000E6ED0 /* ObjC */ = {
@@ -830,9 +875,38 @@
 			name = IDCStateModel;
 			sourceTree = "<group>";
 		};
+		A2B94ACA1D0A02F9004B8B6E /* IDCSaveArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B94ACB1D0A033C004B8B6E /* IDCSaveArrayModel.h */,
+				A2B94ACC1D0A033C004B8B6E /* IDCSaveArrayModel.m */,
+			);
+			name = IDCSaveArrayModel;
+			sourceTree = "<group>";
+		};
+		A2B94ACE1D0A041F004B8B6E /* IDCStateUniversalModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2B94ACF1D0A04CC004B8B6E /* IDCStateUniversalModel.h */,
+				A2B94AD01D0A04CC004B8B6E /* IDCStateUniversalModel.m */,
+			);
+			name = IDCStateUniversalModel;
+			sourceTree = "<group>";
+		};
+		A2B94AD21D0A0FA0004B8B6E /* IDCNSFileManagerCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A2B94AD31D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.h */,
+				A2B94AD41D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.m */,
+			);
+			name = IDCNSFileManagerCategory;
+			sourceTree = "<group>";
+		};
 		A2B96CBD1CE0EC9900F8E94A /* IDCUserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A2C0A62F1D0ED85F001354A0 /* IDCLoadingView */,
+				A2C0A61B1D0D7F48001354A0 /* IDCImageView */,
 				A2B96CD31CE0EF9B00F8E94A /* IDCUserViewCell */,
 				A2B96CC11CE0ECDA00F8E94A /* IDCUserView */,
 				A2B96CCB1CE0EDD900F8E94A /* IDCUserViewController.h */,
@@ -864,9 +938,11 @@
 		A2B96CD91CE0EFD700F8E94A /* IDCModels */ = {
 			isa = PBXGroup;
 			children = (
+				A2B94ACE1D0A041F004B8B6E /* IDCStateUniversalModel */,
 				A29B96F21CE917D0009BEEC3 /* IDCStateModel */,
 				A2B96CDB1CE0F55200F8E94A /* IDCStringModel */,
 				A2B96CDA1CE0F54400F8E94A /* IDCArrayModel */,
+				A2B94ACA1D0A02F9004B8B6E /* IDCSaveArrayModel */,
 			);
 			name = IDCModels;
 			sourceTree = "<group>";
@@ -887,6 +963,55 @@
 				A26E551E1CE1308700A0BC39 /* IDCStringModel.m */,
 			);
 			name = IDCStringModel;
+			sourceTree = "<group>";
+		};
+		A2C0A61B1D0D7F48001354A0 /* IDCImageView */ = {
+			isa = PBXGroup;
+			children = (
+				A2C0A6201D0D8146001354A0 /* IDCImageModel */,
+				A2C0A61D1D0D7FE2001354A0 /* IDCImageView.h */,
+				A2C0A61E1D0D7FE2001354A0 /* IDCImageView.m */,
+			);
+			name = IDCImageView;
+			sourceTree = "<group>";
+		};
+		A2C0A6201D0D8146001354A0 /* IDCImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2C0A6241D0D82BA001354A0 /* IDCObjectCache */,
+				A2C0A6211D0D82A1001354A0 /* IDCImageModel.h */,
+				A2C0A6221D0D82A1001354A0 /* IDCImageModel.m */,
+			);
+			name = IDCImageModel;
+			sourceTree = "<group>";
+		};
+		A2C0A6241D0D82BA001354A0 /* IDCObjectCache */ = {
+			isa = PBXGroup;
+			children = (
+				A2C0A6251D0D82F1001354A0 /* IDCObjectCache.h */,
+				A2C0A6261D0D82F1001354A0 /* IDCObjectCache.m */,
+			);
+			name = IDCObjectCache;
+			sourceTree = "<group>";
+		};
+		A2C0A6291D0ED51B001354A0 /* IDCSpinnerView */ = {
+			isa = PBXGroup;
+			children = (
+				A2C0A62A1D0ED617001354A0 /* IDCSpinnerView.h */,
+				A2C0A62B1D0ED617001354A0 /* IDCSpinnerView.m */,
+				A2C0A62D1D0ED661001354A0 /* IDCSpinnerView.xib */,
+			);
+			name = IDCSpinnerView;
+			sourceTree = "<group>";
+		};
+		A2C0A62F1D0ED85F001354A0 /* IDCLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				A2C0A6291D0ED51B001354A0 /* IDCSpinnerView */,
+				A2C0A6301D0ED8A8001354A0 /* IDCLoadingView.h */,
+				A2C0A6311D0ED8A8001354A0 /* IDCLoadingView.m */,
+			);
+			name = IDCLoadingView;
 			sourceTree = "<group>";
 		};
 		A2C5D8D71CAA9B5C0015B22D /* IDCRandomNamesArray */ = {
@@ -1125,6 +1250,7 @@
 			files = (
 				A2B96CD81CE0EFC900F8E94A /* IDCUserViewCell.xib in Resources */,
 				A2F8E02F1CC991FC00006FE8 /* IDCBaseViewController.xib in Resources */,
+				A2C0A62E1D0ED661001354A0 /* IDCSpinnerView.xib in Resources */,
 				A279732F1CC9B083008E1BFD /* Assets.xcassets in Resources */,
 				A2360B381CD7BE7400D6064B /* LaunchScreen.storyboard in Resources */,
 				A2B96CCF1CE0EDD900F8E94A /* IDCUserViewController.xib in Resources */,
@@ -1206,23 +1332,33 @@
 				A2F8E02E1CC991FC00006FE8 /* IDCBaseViewController.m in Sources */,
 				A2B96CCE1CE0EDD900F8E94A /* IDCUserViewController.m in Sources */,
 				A2B96CD21CE0EE0400F8E94A /* IDCUserView.m in Sources */,
+				A2C0A61F1D0D7FE2001354A0 /* IDCImageView.m in Sources */,
 				A2F8E0321CC992D200006FE8 /* IDCSquareView.m in Sources */,
+				A2B94AD51D0A0FF5004B8B6E /* NSFileManager+IDCNSFilemManagerCategory.m in Sources */,
+				A2C0A6231D0D82A1001354A0 /* IDCImageModel.m in Sources */,
 				A29B96FD1CE922BC009BEEC3 /* IDCObserversArray.m in Sources */,
 				A27973231CC9B00C008E1BFD /* main.m in Sources */,
 				A29B96EF1CE90D01009BEEC3 /* IDCAlphabet.m in Sources */,
 				A29B96FE1CE922C0009BEEC3 /* IDCObserversState.m in Sources */,
 				A26E551F1CE1308700A0BC39 /* IDCStringModel.m in Sources */,
 				A20666821CD8C9C800F27759 /* IDCAppDelegate.m in Sources */,
+				A2B94AD11D0A04CC004B8B6E /* IDCStateUniversalModel.m in Sources */,
+				A27FDB391CF60960004E9290 /* UINib+IDCUINib.m in Sources */,
 				A29B96FB1CE92274009BEEC3 /* IDCClusterAlphabet.m in Sources */,
 				A29B96FC1CE922B9009BEEC3 /* IDCObserversObject.m in Sources */,
+				A2C0A6321D0ED8A8001354A0 /* IDCLoadingView.m in Sources */,
+				A2B94ACD1D0A033C004B8B6E /* IDCSaveArrayModel.m in Sources */,
 				A29B96F81CE918FF009BEEC3 /* IDCStateModel.m in Sources */,
 				A29B96F51CE917F0009BEEC3 /* IDCArrayModel.m in Sources */,
 				A29B96F01CE91368009BEEC3 /* NSString+IDCRandomString.m in Sources */,
 				A29B96F91CE9226E009BEEC3 /* IDCRangeAlphabet.m in Sources */,
 				A29B96FA1CE92271009BEEC3 /* IDCStringAlphabet.m in Sources */,
 				A29B96F11CE9179D009BEEC3 /* IDCObserver.m in Sources */,
+				A27FDB3D1CF60A25004E9290 /* UITableView+IDCUITableView.m in Sources */,
+				A2C0A62C1D0ED617001354A0 /* IDCSpinnerView.m in Sources */,
 				A2360B321CD7B60300D6064B /* UIViewController+IDCViewController.m in Sources */,
 				A2360B351CD7B74800D6064B /* UIView+IDCViewCategory.m in Sources */,
+				A2C0A6271D0D82F1001354A0 /* IDCObjectCache.m in Sources */,
 				A2B96CD71CE0EFC900F8E94A /* IDCUserViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,8 @@
 
 #import "IDCArrayModel.h"
 
+static NSString * const kIDCArrayCoderKey    = @"array";
+
 @interface IDCArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
@@ -96,36 +98,88 @@
 }
 
 - (void)addObject:(id)object {
-    [self.arrayObjects addObject:object];
-    IDCStateModel *model = [self modelWithState:kIDCObjectAddState index:self.count];
-    [self setState:kIDCChangeObjectState withObject:model];
+    @synchronized (self) {
+        [self.arrayObjects addObject:object];
+        IDCStateModel *model = [self modelWithState:kIDCObjectAddState index:(self.count - 1)];
+        [self setState:kIDCChangeObjectState withObject:model];
+    }
+}
+
+- (void)addObjects:(NSArray *)array {
+    @synchronized (self) {
+        return [self.arrayObjects addObjectsFromArray:array];
+    }
 }
 
 - (void)removeObject:(id)object {
-    [self.arrayObjects removeObject:object];
-    IDCStateModel *model = [self modelWithState:kIDCObjectRemoveState index:[self indexOfObject:object]];
-    [self setState:kIDCChangeObjectState withObject:model];
+    @synchronized (self) {
+        [self.arrayObjects removeObject:object];
+        IDCStateModel *model = [self modelWithState:kIDCObjectRemoveState index:[self indexOfObject:object]];
+        [self setState:kIDCChangeObjectState withObject:model];
+    }
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-    [self.arrayObjects removeObjectAtIndex:index];
-    IDCStateModel *model = [self modelWithState:kIDCObjectRemoveState index:index];
-    [self setState:kIDCChangeObjectState withObject:model];
-}
-
-- (void)removeAllObjects {
-    NSUInteger count = self.count;
-    for (NSUInteger index = 0; index < count; index++) {
+    @synchronized (self) {
+        [self.arrayObjects removeObjectAtIndex:index];
         IDCStateModel *model = [self modelWithState:kIDCObjectRemoveState index:index];
         [self setState:kIDCChangeObjectState withObject:model];
     }
+}
+
+- (void)removeAllObjects {
+    @synchronized (self) {
+        NSUInteger count = self.count;
+        for (NSUInteger index = 0; index < count; index++) {
+            IDCStateModel *model = [self modelWithState:kIDCObjectRemoveState index:index];
+            [self setState:kIDCChangeObjectState withObject:model];
+        }
     
-    [self.arrayObjects removeAllObjects];
+        [self.arrayObjects removeAllObjects];
+    }
+}
+
+- (void)replaceObjectsWithArray:(NSArray *)array {
+    return [self.arrayObjects setArray:array];
+}
+
+- (void)insertObject:(id)object atIndex:(NSUInteger)index {
+    NSUInteger insertIndex = index + 1;
+    [self.arrayObjects insertObject:object atIndex:insertIndex];
+    IDCStateModel *model = [IDCStateModel modelWithState:kIDCObjectAddState index:insertIndex];
+    [self setState:kIDCModelChangeState withObject:model];
 }
 
 - (void)moveCellFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     [self.arrayObjects exchangeObjectAtIndex:fromIndex withObjectAtIndex:toIndex];
 }
+
+#pragma mark -
+#pragma mark NSFastEnumeration Protocol
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(__unsafe_unretained id*)buffer
+                                    count:(NSUInteger)len
+{
+    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
+
+#pragma mark -
+#pragma mark NSCoding Protocol
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.arrayObjects = [aDecoder decodeObjectForKey:kIDCArrayCoderKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.arrayObjects forKey:kIDCArrayCoderKey];
+}
+
 
 
 @end

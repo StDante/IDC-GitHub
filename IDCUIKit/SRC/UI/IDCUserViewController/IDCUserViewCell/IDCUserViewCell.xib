@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,54 +15,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageForCell" translatesAutoresizingMaskIntoConstraints="NO" id="rpC-TO-Q7a">
-                        <rect key="frame" x="192" y="-1" width="120" height="43.5"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mH7-us-FsF">
-                        <rect key="frame" x="51" y="-2" width="110" height="43.5"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7Q-pS-miE">
+                        <rect key="frame" x="0.0" y="0.5" width="320" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mH7-us-FsF">
+                                <rect key="frame" x="8" y="-1" width="153" height="43.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mwu-RR-bNa" customClass="IDCImageView">
+                                <rect key="frame" x="249" y="-2" width="63" height="44.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mH7-us-FsF" firstAttribute="leading" secondItem="s7Q-pS-miE" secondAttribute="leading" constant="8" id="5aS-zW-olZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Mwu-RR-bNa" secondAttribute="trailing" constant="8" id="MkI-w0-G2Q"/>
+                            <constraint firstItem="Mwu-RR-bNa" firstAttribute="width" secondItem="s7Q-pS-miE" secondAttribute="height" multiplier="63:43" id="OUC-fQ-LP5"/>
+                            <constraint firstItem="Mwu-RR-bNa" firstAttribute="top" secondItem="s7Q-pS-miE" secondAttribute="top" constant="-2" id="TTV-mH-Zma"/>
+                            <constraint firstAttribute="bottom" secondItem="Mwu-RR-bNa" secondAttribute="bottom" constant="1" id="WM2-RX-CN2"/>
+                            <constraint firstAttribute="trailing" secondItem="mH7-us-FsF" secondAttribute="trailing" constant="159" id="ZwA-sD-OOS"/>
+                            <constraint firstItem="Mwu-RR-bNa" firstAttribute="leading" secondItem="s7Q-pS-miE" secondAttribute="leading" constant="249" id="gXs-wu-pBC"/>
+                            <constraint firstAttribute="bottom" secondItem="mH7-us-FsF" secondAttribute="bottom" constant="1" id="sDK-xZ-kBu"/>
+                            <constraint firstItem="mH7-us-FsF" firstAttribute="width" secondItem="s7Q-pS-miE" secondAttribute="height" multiplier="153:43" id="w0j-Uj-Tba"/>
+                            <constraint firstItem="mH7-us-FsF" firstAttribute="top" secondItem="s7Q-pS-miE" secondAttribute="top" constant="-1" id="xcH-v9-y86"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <constraints>
-                <constraint firstItem="rpC-TO-Q7a" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="-1" id="3Xc-5V-vq0"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="22" id="3c6-We-cph"/>
-                <constraint firstAttribute="bottom" secondItem="rpC-TO-Q7a" secondAttribute="bottom" constant="1.5" id="7yz-Hx-C9F"/>
-                <constraint firstAttribute="trailing" secondItem="mH7-us-FsF" secondAttribute="trailing" constant="159" id="Aas-Es-2Pk"/>
-                <constraint firstAttribute="bottom" secondItem="mH7-us-FsF" secondAttribute="bottom" constant="0.5" id="HFy-jf-Aeu"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="51" id="O1N-56-IJ5"/>
-                <constraint firstAttribute="trailing" secondItem="rpC-TO-Q7a" secondAttribute="trailing" constant="8" id="PrV-1G-zWf"/>
-                <constraint firstAttribute="bottom" secondItem="mH7-us-FsF" secondAttribute="bottom" constant="2.5" id="TRq-86-8yF"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" id="Uwt-21-Fj3"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="edC-3Q-CG4"/>
-                <constraint firstAttribute="trailing" secondItem="mH7-us-FsF" secondAttribute="trailing" constant="188" id="iWE-sI-ZOA"/>
-                <constraint firstItem="rpC-TO-Q7a" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="30:11" id="ijZ-dl-0y5"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="5:2" id="jpb-6m-iPE"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" id="pBo-Eh-N3l"/>
-                <constraint firstItem="rpC-TO-Q7a" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="192" id="sd6-HA-xvo"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="5:2" id="xte-nQ-jAJ"/>
-                <constraint firstItem="mH7-us-FsF" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="-2" id="yh6-TM-00O"/>
-                <constraint firstItem="rpC-TO-Q7a" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" id="yut-0J-eGW"/>
+                <constraint firstAttribute="bottom" secondItem="s7Q-pS-miE" secondAttribute="bottom" constant="0.5" id="Clh-Vf-wCF"/>
+                <constraint firstAttribute="trailing" secondItem="s7Q-pS-miE" secondAttribute="trailing" id="Oi2-Yk-WlB"/>
+                <constraint firstItem="s7Q-pS-miE" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="jt3-A0-Xlz"/>
+                <constraint firstItem="s7Q-pS-miE" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="rZR-Zi-enn"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="3c6-We-cph"/>
-                    <exclude reference="HFy-jf-Aeu"/>
-                    <exclude reference="edC-3Q-CG4"/>
-                    <exclude reference="iWE-sI-ZOA"/>
-                    <exclude reference="jpb-6m-iPE"/>
-                    <exclude reference="pBo-Eh-N3l"/>
-                </mask>
-            </variation>
             <connections>
-                <outlet property="cellImage" destination="rpC-TO-Q7a" id="3KW-LD-dI5"/>
+                <outlet property="cellBackgroundView" destination="s7Q-pS-miE" id="oUI-sR-qiB"/>
+                <outlet property="cellImage" destination="Mwu-RR-bNa" id="ESu-Xj-FBc"/>
                 <outlet property="cellLabel" destination="mH7-us-FsF" id="j0g-m7-YjV"/>
             </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="imageForCell" width="185" height="94"/>
-    </resources>
 </document>

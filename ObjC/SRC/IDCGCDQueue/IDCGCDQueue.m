@@ -16,12 +16,12 @@ dispatch_queue_t IDCPrioritySwitch(IDCGCDPriority priority);
 #pragma mark -
 #pragma mark Public Implementation
 
-void IDCGCDAsyncWithPriority(IDCGCDPriority priority, IDCCompletionHandler handler) {
+void IDCGCDAsyncWithPriority(IDCGCDPriority priority, IDCGCDHandler handler) {
     dispatch_async(IDCPrioritySwitch(priority), handler);
 }
 
 
-void IDCGCDSyncWithPriority(IDCGCDPriority priority, IDCCompletionHandler handler) {
+void IDCGCDSyncWithPriority(IDCGCDPriority priority, IDCGCDHandler handler) {
     if (priority == kIDCMainThreadPriority) {
         IDCGCDAsyncWithPriority(priority, handler);
     } else {
@@ -30,20 +30,20 @@ void IDCGCDSyncWithPriority(IDCGCDPriority priority, IDCCompletionHandler handle
 }
 
 
-void IDCGCDAsyncInBackground(IDCCompletionHandler handler) {
+void IDCGCDAsyncInBackground(IDCGCDHandler handler) {
     IDCGCDAsyncWithPriority(kIDCBackgroundPriority, handler);
 }
 
-void IDCGCDSyncInBackground(IDCCompletionHandler handler) {
+void IDCGCDSyncInBackground(IDCGCDHandler handler) {
     IDCGCDSyncWithPriority(kIDCBackgroundPriority, handler);
 }
 
 
-void IDCGCDAsyncOnMainThread(IDCCompletionHandler handler) {
+void IDCGCDAsyncOnMainThread(IDCGCDHandler handler) {
     IDCGCDAsyncWithPriority(kIDCMainThreadPriority, handler);
 }
 
-void IDCGCDSyncOnMainThread(IDCCompletionHandler handler) {
+void IDCGCDSyncOnMainThread(IDCGCDHandler handler) {
     IDCGCDSyncWithPriority(kIDCMainThreadPriority, handler);
 }
 

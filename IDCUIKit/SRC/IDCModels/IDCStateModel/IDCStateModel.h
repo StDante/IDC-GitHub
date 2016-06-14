@@ -18,4 +18,6 @@ typedef NS_ENUM(NSUInteger, IDCObjectState) {
 @property (nonatomic, assign)   IDCObjectState  state;
 @property (nonatomic, assign)   NSUInteger      index;
 
++ (IDCStateModel *)modelWithState:(IDCObjectState)state index:(NSUInteger)index;
+
 @end

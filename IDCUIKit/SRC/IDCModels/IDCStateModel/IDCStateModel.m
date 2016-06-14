@@ -10,4 +10,15 @@
 
 @implementation IDCStateModel
 
+#pragma mark -
+#pragma mark Class Methods
+
++ (IDCStateModel *)modelWithState:(IDCObjectState)state index:(NSUInteger)index {
+    IDCStateModel *model = [IDCStateModel new];
+    model.state = state;
+    model.index = index;
+    
+    return model;
+}
+
 @end

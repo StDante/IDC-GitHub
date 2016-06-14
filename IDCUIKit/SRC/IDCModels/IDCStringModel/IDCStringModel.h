@@ -12,9 +12,9 @@
 
 @class UIImage;
 
-@interface IDCStringModel : NSObject
+@interface IDCStringModel : NSObject <NSCoding>
 @property (nonatomic, readonly) NSString    *string;
-@property (nonatomic, readonly) UIImage     *image;
+@property (nonatomic, readonly) NSString    *urlString;
 
 + (instancetype)randomStringModel;
 + (instancetype)stringModelWithString:(NSString *)string;

@@ -10,6 +10,7 @@
 #import "IDCBaseViewController.h"
 #import "UIViewController+IDCViewController.h"
 #import "IDCUserViewController.h"
+#import "IDCSaveArrayModel.h"
 
 @interface IDCAppDelegate ()
 
@@ -23,7 +24,7 @@
     self.window = window;
     
     IDCUserViewController *viewController = [IDCUserViewController controllerFromNib];
-    viewController.arrayModel = [IDCArrayModel arrayModelWithArray:[IDCStringModel randomStringsModels]];
+    viewController.arrayModel = [IDCSaveArrayModel new];
     window.rootViewController = viewController;
     
     [window makeKeyAndVisible];

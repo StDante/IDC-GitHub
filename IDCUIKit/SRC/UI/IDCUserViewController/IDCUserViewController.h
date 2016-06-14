@@ -12,6 +12,8 @@
 #import "IDCArrayModel.h"
 #import "IDCStringModel.h"
 #import "IDCUserViewCell.h"
+#import "UINib+IDCUINib.h"
+#import "UITableView+IDCUITableView.h"
 
 @interface IDCUserViewController : UIViewController <UIToolbarDelegate, UITableViewDataSource>
 @property (nonatomic, strong) IDCArrayModel *arrayModel;

@@ -7,6 +7,8 @@
 //
 
 #import "IDCUserViewCell.h"
+#import "IDCImageView.h"
+#import "IDCImageModel.h"
 
 @implementation IDCUserViewCell
 
@@ -15,7 +17,7 @@
 
 - (void)fillWithModel:(IDCStringModel *)theModel {
     self.cellLabel.text = theModel.string;
-    self.cellImage.image = theModel.image;
+    self.cellImage.URL = [NSURL URLWithString:theModel.urlString];
 }
 
 @end
